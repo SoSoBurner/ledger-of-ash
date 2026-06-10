@@ -12,13 +12,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'reviewing iron ledger ghost accounts');
+      gainXp(41, 'reviewing iron ledger ghost accounts');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -48,13 +48,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'questioning Ivena Ironspike');
+      gainXp(39, 'questioning Ivena Ironspike');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -80,13 +80,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'might',
     tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(90, 'confronting Shadowhands commander');
+      gainXp(45, 'confronting Shadowhands commander');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       if (!G.factionHostility) G.factionHostility = {};
@@ -115,13 +115,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'questioning Brenn Ironspike shrine keeper');
+      gainXp(37, 'questioning Brenn Ironspike shrine keeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -146,13 +146,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stealth', 'NPC', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'observing enforcement quarter inn');
+      gainXp(39, 'observing enforcement quarter inn');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -178,13 +178,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stealth', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(84, 'accessing Ithtananalor shadow market');
+      gainXp(42, 'accessing Ithtananalor shadow market');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -210,13 +210,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Combat', 'Investigation', 'Personal', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(88, 'assessing Captain Darian Roaz');
+      gainXp(44, 'assessing Captain Darian Roaz');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const arch = G.archetype && G.archetype.group;
@@ -243,7 +243,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['stage2', 'ithtananalor'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
@@ -270,7 +270,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['stage2', 'ithtananalor'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
@@ -296,7 +296,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['stage2', 'ithtananalor'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
@@ -324,13 +324,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['stage2', 'ithtananalor', 'Archive', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'working the archive classification seam');
+      gainXp(41, 'working the archive classification seam');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.total >= 16) {
         G.investigationProgress++;
@@ -354,13 +354,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['stage2', 'ithtananalor', 'Stealth', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'reading the second perimeter');
+      gainXp(40, 'reading the second perimeter');
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.total >= 13) {
         G.flags.ith_second_perimeter_read = true;
@@ -384,13 +384,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['stage2', 'ithtananalor', 'NPC', 'Persuasion', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'checking on Brenn under pressure');
+      gainXp(39, 'checking on Brenn under pressure');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 13) {
         G.flags.brenn_under_pressure = true;
@@ -414,13 +414,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing transferred duty officer forwarding seal');
+      gainXp(34, 'tracing transferred duty officer forwarding seal');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -446,13 +446,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'analyzing quota calibration mathematics');
+      gainXp(34, 'analyzing quota calibration mathematics');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -478,13 +478,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'locating cold storage endpoint for contraband materials');
+      gainXp(34, 'locating cold storage endpoint for contraband materials');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -510,13 +510,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining anti-magic statute materials exemption provenance');
+      gainXp(34, 'examining anti-magic statute materials exemption provenance');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -542,13 +542,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'accessing Harlan\'s private ledger of enforcement names and dates');
+      gainXp(34, 'accessing Harlan\'s private ledger of enforcement names and dates');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -574,13 +574,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing ore assay records against foundry output');
+      gainXp(34, 'cross-referencing ore assay records against foundry output');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -606,13 +606,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'mapping Shadowhands courier route');
+      gainXp(34, 'mapping Shadowhands courier route');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -638,13 +638,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading enforcement quarter notice board second layer');
+      gainXp(34, 'reading enforcement quarter notice board second layer');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -670,13 +670,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining civic tribunal sealed undocketed case file');
+      gainXp(34, 'examining civic tribunal sealed undocketed case file');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -702,13 +702,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'speaking with foundry supervisor about pre-quota weight tally');
+      gainXp(34, 'speaking with foundry supervisor about pre-quota weight tally');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -734,13 +734,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing compliance officer transfer after filing formal query');
+      gainXp(34, 'tracing compliance officer transfer after filing formal query');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -766,13 +766,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'locating unlisted logistics unit floor in enforcement quarter');
+      gainXp(34, 'locating unlisted logistics unit floor in enforcement quarter');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -798,13 +798,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing external auditor absence from compliance cycle');
+      gainXp(34, 'tracing external auditor absence from compliance cycle');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -830,7 +830,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'might',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
@@ -872,13 +872,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'forest compact boundary discrepancy');
+      gainXp(10, 'forest compact boundary discrepancy');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('wits', G.skills.wits);
@@ -903,13 +903,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'magical licensing register ghost approvals');
+      gainXp(10, 'magical licensing register ghost approvals');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('wits', G.skills.wits);
@@ -935,13 +935,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'knowledge suppression archive pattern');
+      gainXp(10, 'knowledge suppression archive pattern');
       if (!G.flags) G.flags = {};
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
@@ -965,13 +965,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'reading the re-cast Iron Accord seal');
+      gainXp(10, 'reading the re-cast Iron Accord seal');
       if (!G.flags) G.flags = {};
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
@@ -994,13 +994,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Records', 'Stealth'],
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', (G && G.lastResultType) || 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'reading the prison labor manifest column');
+      gainXp(10, 'reading the prison labor manifest column');
       if (!G.flags) G.flags = {};
       var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {

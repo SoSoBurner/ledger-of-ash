@@ -10,7 +10,7 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Lorn's stock: rare items, hard coin or barter.",
     skill: 'wits',
     tags: ['Trade', 'Nomdara'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.gold || G.gold < 15) {
@@ -31,7 +31,7 @@ const NOMDARA_STAGE2_CHOICES = [
         G.gold -= item.cost;
         if (!G.inventory) G.inventory = [];
         G.inventory.push({ name: item.name, effect: item.effect, source: 'nomdara_lorn' });
-        gainXp(30, 'Nomdara rare item trade');
+        gainXp(15, 'Nomdara rare item trade');
         G.lastResult = `Lorn counts the coin with his thumb, drops it into a tin, and sets the ${item.name} on the counter without comment. He wraps it in oiled cloth before sliding it across. (${item.effect}) The transaction is logged in his ledger before you've picked it up.`;
         if (!G.nomdara_last_visit_locality) G.nomdara_last_visit_locality = locality;
         addJournal(`Nomdara: traded for ${item.name} — ${item.effect}`, 'discovery', `nom-trade-${G.dayCount}`);
@@ -46,10 +46,10 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Wren's training: esoteric knowledge, paid in time.",
     skill: 'wits',
     tags: ['Training', 'Nomdara'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(2); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'Nomdara esoteric training with Wren');
+      gainXp(27, 'Nomdara esoteric training with Wren');
       if (!G.skills) G.skills = { combat:0, survival:0, persuasion:0, lore:0, stealth:0, craft:0 };
       if (!G.nomdara_last_visit_locality) {
         const n = window.NOMDARA_OVERLAY;
@@ -75,7 +75,7 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Sable's work: wounds and curses. Eighteen coin. She does not explain the route.",
     skill: 'wits',
     tags: ['Healing', 'Nomdara'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.wounds) G.wounds = [];
@@ -93,7 +93,7 @@ const NOMDARA_STAGE2_CHOICES = [
         G.recentOutcomeType = 'rest'; return;
       }
       G.gold -= healingCost;
-      gainXp(40, 'Nomdara wound removal by Sable');
+      gainXp(20, 'Nomdara wound removal by Sable');
       if (G.wounds.length > 0) {
         const removed = G.wounds.shift();
         G.lastResult = `Sable works in a deliberate order — preparation, treatment, binding, check. She narrates nothing. The ${removed} is addressed and dressed before she steps back. The joint or tissue moves without the catch it had before. She makes a note in her ledger and sets the pen down.`;
@@ -111,7 +111,7 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Lorn's caravan sees every road. Information is ten coin.",
     skill: 'wits',
     tags: ['Information', 'Nomdara'],
-    xpReward: 35,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const infoCost = 10;
@@ -120,7 +120,7 @@ const NOMDARA_STAGE2_CHOICES = [
         G.recentOutcomeType = 'rest'; return;
       }
       G.gold -= infoCost;
-      gainXp(35, 'Nomdara information purchase from Lorn');
+      gainXp(17, 'Nomdara information purchase from Lorn');
       const n = window.NOMDARA_OVERLAY;
       const plotRumors = n && n.plot_adjacent_rumors ? n.plot_adjacent_rumors : [
         "The staging location's second cache has not moved in three weeks. Someone is waiting for a signal.",
@@ -154,7 +154,7 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Leave the Nomdara Caravan — step back onto the road.",
     skill: 'wits',
     tags: ['Travel', 'Nomdara'],
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       addNarration('', 'The caravan disbands around you. You carry what you learned forward.', (G && G.lastResultType) || 'neutral');
       var returnLoc = (G && G.previousLocation) ? G.previousLocation : 'shelkopolis';

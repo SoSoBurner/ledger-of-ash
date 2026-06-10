@@ -14,10 +14,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The workshop is running at full pace — a press cycle turning, two apprentices logging tolerance marks, the air sharp with flux. Jorin is at the calibration bench with both hands occupied and a queue of three behind you. He doesn't look up. The break schedule is posted on the door: second bell, sixth bell. The analysis sheets are visible on the back table. Come back when the bench is clear.",
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'meeting Jorin the workshop master');
+      gainXp(34, 'meeting Jorin the workshop master');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -38,10 +38,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "The records office clerk closes the window at the third bell — midday processing, back at the fourth. The analysis sheets are filed under Jorin's member number and require his signature for outside access. The data exists. The route to it runs through Jorin, who takes his break at the second and sixth bell. Neither window has passed yet.",
-    xpReward: 74,
+    xpReward: 37,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'analyzing chemical input discrepancies');
+      gainXp(37, 'analyzing chemical input discrepancies');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -70,10 +70,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "Jorin sets the reference volume back on the shelf without opening it. He hasn't decided yet what a visitor he met this morning is owed. The workshop smells of hot metal and flux, the forge outside steady. His notation is precise. His trust takes longer. The break at the sixth bell is a better moment — the floor empties and the work floor is quiet enough for a longer conversation.",
-    xpReward: 76,
+    xpReward: 38,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'identifying extracted compound purpose');
+      gainXp(38, 'identifying extracted compound purpose');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -98,10 +98,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     failResult: "The production facility's output records come back clean — full concentration at source, well-documented. The gap sits somewhere in the middle. The waystation intake records are under the supply contractor's internal administration, not publicly filed. Two clean endpoints establish the problem. What sits between them is still closed. The contractor's guild registration has a contact office with a public address.",
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing supply chain modification point');
+      gainXp(36, 'tracing supply chain modification point');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -126,10 +126,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     failResult: "The district moves on a synchronized clock — shift bells, production rotations, inspection rounds. The posted schedule is accurate as far as it goes. Reading the gaps in it, the unmarked movements and the workshop activity that falls outside the posted timetable, requires more time on the floor than one pass allows. The sixth bell shift change opens a longer observation window.",
-    xpReward: 67,
+    xpReward: 33,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'reading guild district activity');
+      gainXp(33, 'reading guild district activity');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -152,10 +152,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The compliance officer takes the written summary, stamps it received, and adds it to a tray with twelve other items. No questions asked. The compound class code is in the documentation — if he read it, the intake category would shift from standard supply fraud to material interference. The tray moves on a weekly review cycle. Naming the compound class explicitly in person, rather than in a filed form, changes who processes the response.",
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Union compliance contact');
+      gainXp(35, 'making Union compliance contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -180,10 +180,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The waystation supervisor stops you before you reach the processing floor. Workers under guild contract administration require a two-day approval form for non-guild inquiries. You can see the processing line from the gate — one handler keeps glancing toward the log form on his bench, its 'transit variance' column visible from here. The form is at the gate office. Jorin's endorsement bypasses the approval requirement entirely.",
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'interviewing waystation worker');
+      gainXp(34, 'interviewing waystation worker');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -202,7 +202,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Jorin's been quiet for four months. He needs to know if that still holds.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'Jorin\'s bench in the calibration bay sits beside the materials yards entry — workshop foreman two benches down, a junior journeyman at the gauge rail behind. Jorin sets the notebook face-down without turning a page and shakes his head once. The bench rail catches a half-meter of flux dust before the next shift bell. The conversation does not happen.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -213,7 +213,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     ],
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'Jorin evidence decision');
+      gainXp(32, 'Jorin evidence decision');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Jorin sets his notebook on the bench and asks the question flatly, like a technical specification. "Formal complaint: my documentation enters the guild record. The guild record runs through the same administration that created the transit variance category. Quiet continuation: I keep logging, the extraction continues, no institutional response." He picks up a component, turns it, sets it down. "Four months I've been doing the quiet version. I need to know if that's still the right call." He's not asking for reassurance. He's asking for a decision framework from someone who can see the whole picture.`;
@@ -229,10 +229,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The 'transit variance' category exists to absorb this. Someone created it. Someone authorized it.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     failResult: "The waystation log form has a version date in the footer — the category addition happened between two version numbers, seven months ago by the date sequence. Who authorized the revision is in the supply contractor's internal administrative records. Those files don't run through guild channels. The contractor's registration is filed with the guild — the registered contact office has a name and an address attached to it.",
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing transit variance log category origin');
+      gainXp(36, 'tracing transit variance log category origin');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -256,10 +256,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The guild's weekly master briefing is where production standards get discussed. Or don't.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The briefing hall fills quickly — masters take their seats by seniority, apprentices stand along the back wall, the air carrying the familiar sawdust-and-flux smell that follows every workshop in the district. The session runs long on delivery quotas. The chemical standards item on the agenda is marked deferred before you can hear it discussed. Fourth consecutive deferral, according to the master next to you. The posted agenda for next week is already up.",
-    xpReward: 50,
+    xpReward: 25,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'attending guild briefing');
+      gainXp(25, 'attending guild briefing');
 
       G.lastResult = `The briefing covers quotas, delivery timelines, and safety compliance. It does not cover chemical input quality or compound concentration standards. These topics are listed on the agenda but marked "deferred pending standards review." This is the fourth consecutive briefing where the chemical standards discussion has been deferred. Either there's genuine standards uncertainty, or someone is ensuring the topic doesn't receive collective guild attention. The guild is being kept from discussing what Jorin has been documenting.`;
       addJournal('Guild briefing: chemical input quality deferred for fourth consecutive meeting — collective discussion being suppressed', 'discovery', `craftspire-briefing-${G.dayCount}`);
@@ -272,10 +272,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Some crates leave through a route that bypasses inspection entirely. That gap wasn't an accident.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "The loading dock is active during the late afternoon shift — carts moving, handlers calling counts, the inspection table staffed and watching outbound loads. The uninspected exit through the storage building runs when the dock is quieter. The transition between the fourth and fifth bell produces a gap in cart traffic. The dock layout is fixed. The window to observe the alternate route without drawing attention from the inspection desk opens then.",
-    xpReward: 73,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'tracking uninspected exit destination');
+      gainXp(36, 'tracking uninspected exit destination');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -303,14 +303,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Jorin's six-month analysis needs a secure copy outside the guild.",
     skill: 'finesse',
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: function() {
       addNarration('', 'The guild\'s outgoing review desk sits at the main exit — clerk at the stamps tray, manifest checklist clipped to the desk corner. A senior factor stands beside the clerk discussing the day\'s outgoing parcels. The analysis sheets in the supply folder cannot pass the desk while the factor is present. You step back into the materials yards.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'securing Jorin\'s analysis records');
+      gainXp(33, 'securing Jorin\'s analysis records');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -331,10 +331,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     failResult: "The common area is busy between shifts — workers at the water basin, two apprentices running a manifest to the next workshop, the smell of cooling metal following everyone in. Conversations cut short when someone unfamiliar sits too close. The afternoon break runs longer and looser. Come back when the district has its rhythm back and the faces at the table recognize yours.",
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'gathering guild rumors');
+      gainXp(30, 'gathering guild rumors');
 
       const rumors = [
         'three workshop masters were asked to reduce their quality documentation frequency "to streamline administration"',
@@ -356,10 +356,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     failResult: "Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data is registered guild information — sharing it with an outside party requires formal authorization or a personal reason to trust. One master says nothing and tilts his head toward Jorin's workshop across the district. His endorsement is what opens this door.",
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'investigating other affected guilds');
+      gainXp(35, 'investigating other affected guilds');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
@@ -380,10 +380,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "Lev is sorting sample containers at the far end of the workshop, methodical, not looking up. He listens to the first question and looks toward the main bench. 'I don't talk about what goes on in here without Jorin knowing about it.' He turns back to the containers. The hiss of the cooling rack fills the silence. He's not hostile. Jorin's word changes that calculation entirely.",
-    xpReward: 64,
+    xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'speaking to Jorin\'s assistant');
+      gainXp(32, 'speaking to Jorin\'s assistant');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -404,10 +404,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The guild district winds down in layers after ninth bell — first the small workshops, then the secondary forges, finally the apprentice dormitory lights. The central forge stays lit. Whatever continues tonight does so without an audience. The approach routes to the forge yard are narrow and the smell of hot metal carries far in still air. The north alley stays in shadow until the tenth bell lamp rotation.",
-    xpReward: 50,
+    xpReward: 25,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing forge after hours');
+      gainXp(25, 'observing forge after hours');
 
       G.lastResult = `The official workshops go dark at ninth bell. The central forge continues. Work under special production contracts runs late — this is standard in guild culture, unremarkable. But tonight the materials being processed are different from today's registered production runs. The forge is running off the official schedule. Whatever this production is, it isn't being counted in tomorrow morning's yield report.`;
       addJournal('Craftspire central forge: off-schedule production runs after official close — material processed not in registered production runs', 'discovery', `craftspire-forge-night-${G.dayCount}`);
@@ -421,10 +421,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     failResult: "Jorin spreads the data across the bench and works through it in silence — columns of compound codes, batch schedules, concentration differentials. The forge outside runs steady. He shakes his head once without explaining. The calculation takes what it takes, and rushing it produces a wrong number dressed as a reliable one. Come back when he's had time with the figures.",
-    xpReward: 73,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'calculating total accumulation volume');
+      gainXp(36, 'calculating total accumulation volume');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -452,10 +452,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The founding charter is on display. What the guild was built for may not match.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The main hall is occupied with a certification review — three masters at the central table, a stack of portfolios, an apprentice standing at the edge of the room trying not to look like she's counting the minutes. The founding charter hangs in its frame on the far wall, readable from here at a distance: the opening line begins 'We make things that work.' The hall clears after the review panel concludes.",
-    xpReward: 48,
+    xpReward: 24,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(48, 'reading guild founding charter');
+      gainXp(24, 'reading guild founding charter');
 
       G.lastResult = `The charter begins: "We make things that work, correctly, every time. The guild's obligation is precision in service of those who depend on what we produce." Below that: "What leaves this guild does what it was made to do. Our name on a product is a guarantee." The founding charter is a precision ethic. The current chemical extraction uses the guild's supply chain as a mechanism while producing something that the guild didn't agree to make and doesn't know it's making. The founding guarantee has been subverted from within.`;
       addJournal('Guild founding charter: precision ethic — "what leaves this guild works correctly." Supply chain subversion violates founding purpose.', 'discovery', `craftspire-charter-${G.dayCount}`);
@@ -467,14 +467,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Every day here is a day the supply chain keeps running. This doesn't wait.",
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'The Material Ledger Office at end-of-shift has the day\'s receipts piled at the duty registrar\'s elbow and a senior journeyman waiting at the counter for a stamp. The travel route binder hangs on the back wall. You cannot reach the binder without crossing the registrar\'s sightline. The decision sheet stays unsigned today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'travel decision point');
+      gainXp(32, 'travel decision point');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `You have: Jorin's chemical analysis, the accumulation volume estimate, the transit variance log origin, the waystation modification point, and the staging yard location. What you don't have: the identity of the compound's destination, the authorization chain behind the regional materials coordination body, and whether the accumulation is complete or ongoing. More time in Craftspire fills those gaps. But every day here is a day the accumulation continues and reaches its endpoint faster.`;
@@ -488,10 +488,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone came six weeks ago asking the same questions. The answers were already built in.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -521,14 +521,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Same guild mark on every door. The ink shade shifts block by block.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A registry clerk steps out of a north-end workshop with a renewal stamp kit in hand and crosses the lane toward the next doorframe. The lane is too narrow to stand and study the marks without standing in her path. You step into the chalk gate alcove and let her pass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(40, 'observing guild mark variation');
+      gainXp(20, 'observing guild mark variation');
       G.lastResult = `Guild marks at Craftspire are stamped by the administration, not applied by the member — the stamp comes with registration, and renewal stamps arrive on the same schedule for every workshop in the district. But the ink color drifts slightly building by building: workshops near the north end run darker, a richer black that holds its tone in direct light. Workshops toward the commercial corridor fade faster, a warmer shade that reads as brown in overcast. The same guild, the same mark, applied with different materials over the years as supply contracts changed. The consistency of the symbol and the drift of its execution sit in the same doorframe.`;
       addJournal('Craftspire guild mark ink variation: supply contract changes visible in mark color across district blocks', 'discovery', `craftspire-guildmark-${G.dayCount}`);
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
@@ -540,16 +540,16 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The ventilation spacing in this workshop doesn't match any standard guild safety specification.",
     tags: ['Information', 'Craft', 'Stage1', 'ArchetypeGate'],
     failResult: "The ventilation layout is unusual — ducts running at angles that serve no obvious function in a standard chemical processing environment. The configuration is specific to something. Without the material science to read what that something is, the oddity sits as an oddity. Someone who knew compound density ranges and atmospheric containment specifications would read this space differently.",
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Craft-heavy') {
         G.lastResult = `The workshop ventilation layout is unusual — ducts running at steep angles across the upper wall, the metal housing newer than the surrounding brickwork, the seams still sharp where older lime plaster was cut to fit them. Standard workshop ventilation runs along the ceiling line to catch heat rise. These run low and lateral, pulling air from the floor level. Whatever purpose the configuration serves, it isn't the standard safety spec posted on the wall beside the entry. You note the oddity and move on. Someone who knew the material science would read this space with considerably more alarm.`;
-        gainXp(30, 'noting unusual workshop configuration');
+        gainXp(15, 'noting unusual workshop configuration');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(72, 'analyzing workshop ventilation layout');
+      gainXp(36, 'analyzing workshop ventilation layout');
       G.stageProgress[1]++;
       G.lastResult = `The duct spacing is calibrated for a specific compound density range — not the declared inputs, which are light enough to disperse with standard flow rates. These vents handle something heavier. The configuration is consistent with processing a material that needs controlled atmospheric containment to prevent accumulation at floor level. Someone fitted this workshop for a material class the guild's declared operations don't include. The ghost of that specification is built into the walls.`;
       if (!G.flags) G.flags = {};
@@ -563,14 +563,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The supply manifest register uses a shorthand nobody on staff can fully decode anymore.",
     tags: ['Information', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'The Material Ledger Office\'s manifest counter is closed for the noon recalibration — the duty registrar at the next desk over points at the locked drawer and shrugs. The old register sits behind the panel-frame door, and the recalibration bell hasn\'t rung yet. You leave your name on the inquiry slip.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'reading supply manifest shorthand');
+      gainXp(27, 'reading supply manifest shorthand');
       const bg = G.background || '';
       let result = `The supply manifest register runs twelve years deep, and the shorthand system in the earliest entries belongs to a clerk who left the guild before most of the current staff arrived. Three symbols repeat at irregular intervals — not weekly, not seasonal, not tied to any batch cycle visible in the adjacent columns. The current registrar can identify most of the notation, but those three marks appear in her reference guide with the notation "purpose unclear." Someone documented a pattern. The documentation outlasted the documentation's author.`;
       if (bg === 'merchant' || bg === 'guild') {
@@ -587,10 +587,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The guild archive's restricted section has a public-facing index that lists what's sealed and why.",
     tags: ['Information', 'Risky', 'Records', 'Stage1'],
     failResult: "The index is available at the reading desk, but the sealing authority citations use abbreviations whose reference glossary is itself in the restricted section. A designation code appears nine times across the recent entries — no corresponding name in the administrative directory on this side of the counter. The code appears somewhere in the guild's external registration records, which are public by charter and held at the main registry window.",
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading restricted archive index');
+      gainXp(34, 'reading restricted archive index');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `The restricted section index is public by charter — sealed documents must have their titles and sealing authorities listed, even if the contents aren't accessible. Seventeen entries in the past two years. Nine cite a single authority reference: a designation code rather than a named office. The code doesn't appear in the guild's own administrative directory. Whatever sealed those nine documents has no official name in this building's records.`;
@@ -609,10 +609,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The outgoing ledger has a column that doesn't appear on the incoming side.",
     tags: ['Information', 'Bold', 'Records', 'Stage1'],
     failResult: "Cross-referencing two ledgers simultaneously requires working space and uninterrupted time that the reading desk doesn't allow — clerks cycle records back to storage after twenty minutes of external review. A full comparison needs either a longer access window or a copy of both ledgers to work from outside the building. The reading desk opens at the first bell. Arriving before the morning rush gives twice the standard access window.",
-    xpReward: 78,
+    xpReward: 39,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'cross-referencing supply ledgers');
+      gainXp(39, 'cross-referencing supply ledgers');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 14) {
         G.lastResult = `The incoming supply ledger tracks material in nine columns: origin, carrier, declared weight, tested weight, compound class, batch code, destination workshop, transit duration, and authorization number. The outgoing ledger tracks eight of the same — but adds a column that doesn't appear on the receiving end: a secondary destination field, listed after the workshop destination, filled in for exactly the batches where tested weight falls below declared weight. Whatever is being extracted from those batches has a logged destination. The column exists. Nobody mentioned it.`;
@@ -631,10 +631,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Forty years of charter amendments. Something changed in materials licensing fifteen years ago.",
     tags: ['Information', 'Safe', 'Lore', 'Stage1'],
     failResult: "The amendment logs are in the archive's open-access section — forty years of charter revisions, each session dated and numbered. The materials licensing amendments are in volume three of five. The volume is currently in use by a guild solicitor who has the reading desk until the end of the hour. The clerk marks your name on the wait list. The relevant amendment is in the last third of the volume.",
-    xpReward: 58,
+    xpReward: 29,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'reviewing guild charter amendment history');
+      gainXp(29, 'reviewing guild charter amendment history');
       G.lastResult = `Fifteen years back, the materials licensing section of the guild charter was amended to add a clause permitting temporary non-disclosure of compound inputs during "active external partnership agreements." The clause runs three lines. The amendment was passed during a session with two-thirds attendance — below the standard quorum for charter revisions, but within the emergency provision threshold. The partnership agreement category it creates has no corresponding definition in the charter itself. It permits secrecy. It doesn't define what secrecy is permitted for.`;
       addJournal('Guild charter amendment: 15-year-old clause permitting compound input non-disclosure during undefined "partnership agreements" — passed below standard quorum', 'evidence', `craftspire-charter-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -645,14 +645,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The afternoon shift change produces thirty seconds of complete quiet across the whole district.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 35,
+    xpReward: 17,
     failResult: function() {
       addNarration('', 'The queue court is full when the second bell hits — a delivery cart wedged against the chalk gate boards, two carriers arguing over a damaged seal at the centre of the court. The cumulative quiet of the district is buried under the immediate noise of the dispute. You can\'t hear the pause from inside it.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(35, 'observing guild district shift rhythm');
+      gainXp(17, 'observing guild district shift rhythm');
       G.lastResult = `At the second bell past midday, every workshop in the district pauses together — the guild shift rotation is synchronized by charter, every operation running on the same production clock. For thirty seconds the district is quiet in a way a single workshop going still never produces: the accumulated absence of a hundred processes at once. Ventilation fans spinning down, press mechanisms cycling off, burners reducing. Then the incoming shift arrives at their benches and the district comes back up in layers, workshop by workshop, until the noise is indistinguishable from the noise before. The pause happens every day. Most of the district's workers have stopped noticing it.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -663,10 +663,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Known for thoroughness. She stopped filing inspection reports eight months ago.",
     tags: ['Information', 'Risky', 'NPC', 'Stage1'],
     failResult: "Miv Sothrel's door is closed during morning rounds — she moves workshop to workshop on a fixed inspection schedule and her desk sits empty until early afternoon. The inspection forms stacked on her desk are visible through the window: organized, dated, the filing tray on the left side unused. She's back at her desk by the second bell past midday.",
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'speaking with quality standards officer');
+      gainXp(35, 'speaking with quality standards officer');
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Miv Sothrel keeps her inspection forms current on the desk — filled in, dated, organized by workshop in the sequence she visits them. She doesn't file them anymore. "I filed six reports with findings. Three were returned with the notation 'unsubstantiated.' Two were not acknowledged. One was acknowledged and the finding was removed from the version that entered the permanent record." She taps the stack. "These are accurate. What's in the archive isn't." She files accurate records for herself now. She stopped feeding the official version eight months ago.`;
@@ -684,14 +684,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "New hasp on a locked supply room that doesn't match the building's age.",
     tags: ['Information', 'Bold', 'Stage1'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'The northern annex corridor terminates at a bonded-store bay with two wardens on patrol — they pass the door on a tight rotation that overlaps at the new hasp every four minutes. The corridor lamp throws your shadow long across the boards each time you shift. You back to the inner courtyard before the next pass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'examining northern annex storage');
+      gainXp(37, 'examining northern annex storage');
       const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 13) {
         G.lastResult = `The annex room holds sealed containers — same locking mechanism as standard Compact export containers, which Craftspire doesn't use for internal storage. Twelve of them, stacked in two rows, each one weight-marked in the corner with a figure well above standard compound batches. The material inside has been consolidated from dispersed extraction into transit-ready packaging. Whatever has been removed from the workshop supply chains is staged here for collection. A collection that hasn't happened yet.`;
@@ -708,7 +708,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

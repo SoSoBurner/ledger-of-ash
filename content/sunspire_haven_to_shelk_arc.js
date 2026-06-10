@@ -12,11 +12,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Liner spec in my boot. Someone paid heavily to keep this quiet.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'preparing to leave Sunspire with container evidence');
+      gainXp(32, 'preparing to leave Sunspire with container evidence');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Four-hour gap between out-processing and the new unit's arrival. I use it.",
     tags: ['ArcRoad', 'Survival', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'timing departure around garrison rotation');
+      gainXp(37, 'timing departure around garrison rotation');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -53,11 +53,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Tennen kept his own log. Seventeen deviations, all nights he was replaced.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'traveling with displaced convoy guard Tennen');
+      gainXp(35, 'traveling with displaced convoy guard Tennen');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -80,12 +80,12 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Deployment-grade liner releases at a controlled rate. It was never meant to hold permanently.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'identifying container as deployment-configured');
+      gainXp(40, 'identifying container as deployment-configured');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -100,11 +100,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Three containers, three alias variants of the same sender. Last one six days ago.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'finding matching containers in junction waybills');
+      gainXp(37, 'finding matching containers in junction waybills');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -124,11 +124,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Sera transferred to Shelkopolis region last month. Managed out or brought in.",
     tags: ['ArcDeepening', 'Social', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'tracing Sera\'s transfer to Shelkopolis region');
+      gainXp(37, 'tracing Sera\'s transfer to Shelkopolis region');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `The transfer paperwork would have gone through three desks. Someone authorized it. In the Roadwardens Order's internal structure, a Captain-Adjutant transferring to a regional hub at this moment, with this timing, is either being brought in to manage something or being removed from somewhere she was becoming inconvenient. Either way, she's in Shelkopolis. That's useful or dangerous depending on which of those two reasons is true.`;
@@ -142,11 +142,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "One access point. Full district propagation. I walk slower, then faster.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'sighting Shelkopolis dome infrastructure');
+      gainXp(35, 'sighting Shelkopolis dome infrastructure');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -167,11 +167,11 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Three others tried to bring this same evidence south. None of them made it.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'making contact in Aurora Heights');
+      gainXp(40, 'making contact in Aurora Heights');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -196,12 +196,12 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
     label: "Container spec, deviation logs, structural picture. The question of destination has one answer.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.sunspire_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to the move south');
+      gainXp(40, 'committing to the move south');
       if (!G.flags) G.flags = {};
       G.flags.sunspire_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

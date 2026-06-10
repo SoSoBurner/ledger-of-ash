@@ -12,11 +12,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "This wasn't accidental. Someone built the rotation.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Cosmoria with maritime laundering template');
+      gainXp(32, 'departing Cosmoria with maritime laundering template');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "The timing is not coincidence. Crenn moved when the first vessel did.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'tracing Crenn\'s dual-city commercial presence');
+      gainXp(35, 'tracing Crenn\'s dual-city commercial presence');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Crenn's Cosmoria office handles standard trade agent work — well-documented, nothing remarkable. His Shelkopolis office opened fourteen months ago. That date aligns with the charter renewal and the first ghost vessel transit window. The Cosmoria office provides the commercial credibility. The Shelkopolis office is where the operation runs. Anyone who flags your departure from Cosmoria's registry will report it there first.`;
@@ -48,11 +48,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "Kavan saw the handlers. He doesn't know what he witnessed.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'traveling with Kavan toward Shelkopolis');
+      gainXp(35, 'traveling with Kavan toward Shelkopolis');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -75,12 +75,12 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "The same three names. One month apart. That is not coincidence.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'connecting port administrator appointment to ghost account committee');
+      gainXp(40, 'connecting port administrator appointment to ghost account committee');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -95,11 +95,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "Every departure date matches an arrival at the secondary terminal.",
     tags: ['ArcDeepening', 'Lore', 'Craft'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'cross-referencing Cosmoria departures with Shelkopolis arrivals');
+      gainXp(37, 'cross-referencing Cosmoria departures with Shelkopolis arrivals');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -119,11 +119,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "Re-chalked every week. That frequency is not for navigation.",
     tags: ['ArcDeepening', 'Survival', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'decoding tide marker notation');
+      gainXp(37, 'decoding tide marker notation');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -145,11 +145,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "Secondary terminal. Smaller, quieter, no secondary review required.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'arriving at Shelkopolis secondary freight terminal');
+      gainXp(35, 'arriving at Shelkopolis secondary freight terminal');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -170,11 +170,11 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "Forty-one. They were counted, logged, and left invisible.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'connecting with maritime investigation network contact');
+      gainXp(40, 'connecting with maritime investigation network contact');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -199,12 +199,12 @@ const COSMORIA_TO_SHELK_ARC = [
     label: "The coastal delivery phase finished before I left. I am already behind it.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.cosmoria_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to follow coastal delivery to Shelkopolis');
+      gainXp(40, 'committing to follow coastal delivery to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.cosmoria_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

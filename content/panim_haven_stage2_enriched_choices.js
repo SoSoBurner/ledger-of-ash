@@ -12,7 +12,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The harbor authority office requires a transit endorsement to access sealed intake records.',
     fn: function() {
       advanceTime(1);
@@ -23,12 +23,12 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'The harbor intake ledger runs unbroken for forty days, then stops. Three weeks of blank lines — no entries, no explanatory note, no closure stamp. The clerk who maintained the record resigned three days after the gap ends. Her replacement filed the ledger without comment. You cross-reference the adjacent columns: cargo weights continue through the period. The ships arrived. Nothing was written down about what they carried.';
         addJournal('Harbor intake record has a three-week gap. The outgoing clerk resigned without explanation. Cargo weight columns continue — the ships came in.', 'evidence', 'panim-harbor-gap-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
         G.recentOutcomeType = 'discover';
       } else {
         G.lastResult = 'The intake ledger for the relevant period sits in a sealed archive partition — access requires a transit endorsement from the harbor authority office. The clerk at the desk produces a form without being asked. The form is pre-printed with the most common denial reasons. Box three is already circled in pencil: "Ongoing operational review." You take the form. The pencil mark is fresh.';
         G.recentOutcomeType = 'fail';
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
@@ -39,7 +39,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Observation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The dock watch rotation changes before you can establish a consistent observation pattern.',
     fn: function() {
       advanceTime(1);
@@ -50,12 +50,12 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'You watch the secondary dock from the grain storage roof for four hours. At the second bell after dusk, a flatboat comes in without a lamp signal. Three men unload crates using a hand-count system — no tally board, no written manifest. A fourth man stands at the dock gate with his back to the water, watching the landward approach. The flatboat leaves before the watch rotation passes. Nothing is recorded.';
         addJournal('Secondary dock: unlighted flatboat, unmanned tally, a lookout facing inland. Arrival timed between watch rotations. No entry in the night log.', 'evidence', 'panim-night-unload-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
         G.recentOutcomeType = 'discover';
       } else {
         G.lastResult = 'You take a position on the grain storage roof before the second bell. The dock below is quiet — a standard watch rotation, nothing out of sequence. Either the pattern does not repeat on a predictable schedule, or someone flagged the observation point. The dock watch makes an extra pass at the third bell, which is not standard. You note the deviation. The roof access latch was oiled recently. You were not the first person to use it.';
         G.recentOutcomeType = 'fail';
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
@@ -65,14 +65,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The afterlife ledger has irregular entries. The clustering is not administrative error.",
     plot: 'main',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'investigating afterlife ledger');
+      gainXp(40, 'investigating afterlife ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -104,14 +104,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elior Sepulcher holds the sealed backlog. He's been waiting for someone with outside standing.",
     plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'approaching Elior Sepulcher');
+      gainXp(41, 'approaching Elior Sepulcher');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
@@ -143,14 +143,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Processions keep missing the same streets. Three months of the same gap.",
     plot: 'main',
     tags: ['Investigation', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'tracking processional route changes');
+      gainXp(38, 'tracking processional route changes');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -178,14 +178,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Saryna's flags have been suppressed six months. She kept her own copies.",
     plot: 'main',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'accessing Saryna Sepulcher market report');
+      gainXp(39, 'accessing Saryna Sepulcher market report');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -213,14 +213,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Something arrives at the third hour. Velune won't name it to a stranger.",
     plot: 'main',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'gaining Velune Sepulcher trust');
+      gainXp(40, 'gaining Velune Sepulcher trust');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -249,14 +249,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Ithren Sepulcher has a porter's memory. He noticed which cargo didn't weigh right.",
     plot: 'main',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'questioning Ithren Sepulcher porter');
+      gainXp(37, 'questioning Ithren Sepulcher porter');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -284,10 +284,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The Collegium observer is running a parallel inquiry. They don't know I've noticed yet.",
     plot: 'main',
     tags: ['Faction', 'Antagonist', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(86, 'Oversight Collegium first contact');
+      gainXp(43, 'Oversight Collegium first contact');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.factionHostility) G.factionHostility = {};
       if (!G.flags) G.flags = {};
@@ -319,14 +319,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppressed inquest files are in the district registry. Night is the only window.",
     plot: 'main',
     tags: ['Stealth', 'Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(84, 'night access to district registry');
+      gainXp(42, 'night access to district registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -356,14 +356,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Merev Sepulcher hears every conversation in the Memorial Inn. The past month has been unusual.",
     plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'questioning Merev Sepulcher innkeeper');
+      gainXp(37, 'questioning Merev Sepulcher innkeeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -391,14 +391,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The backlog is managed, not accidental. Someone benefits from a saturated mediation hall.",
     plot: 'main',
     tags: ['Lore', 'Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'mapping mediation backlog beneficiaries');
+      gainXp(38, 'mapping mediation backlog beneficiaries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -424,7 +424,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Elior knows the name on the suppression order. Two years of protecting it.",
     tags: ['stage2', 'panim_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
@@ -447,7 +447,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The threshold marks on that building don't belong to any current rite.",
     tags: ['stage2', 'panim_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -467,7 +467,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The offering queue has protocol. The wrong step gets noted by everyone within earshot.",
     tags: ['stage2', 'panim_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
@@ -490,7 +490,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Sanctuary-claim rolls list names no family has visited.",
     plot: 'main',
     tags: ['stage2', 'panim_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -510,14 +510,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Nemeia Sepulcher works the coffin benches — the unsealed shipments passed her.",
     plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'Nemeia crew records');
+      gainXp(39, 'Nemeia crew records');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_nemeia_sepulcher = true;
@@ -544,14 +544,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The third-hour visitor leaves by the porter's gate, not the pilgrim arch.",
     plot: 'main',
     tags: ['Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'tailing shrine visitor egress');
+      gainXp(41, 'tailing shrine visitor egress');
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -577,14 +577,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The northern charter subsidiary has a registration address. It belongs to something that doesn't exist.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'tracing northern charter subsidiary registration');
+      gainXp(40, 'tracing northern charter subsidiary registration');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -614,14 +614,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "That building's floor has been cut. The rite marks are cover for something structural.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'examining unregistered building interior');
+      gainXp(38, 'examining unregistered building interior');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -651,14 +651,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Caldor takes the same route every day. Not today. He changed it.",
     plot: 'main',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'tailing Caldor Sepulcher through memorial district');
+      gainXp(41, 'tailing Caldor Sepulcher through memorial district');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -688,10 +688,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The freight lane moves before the bell. A wrong seal is readable at that hour.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'dawn freight lane observation');
+      gainXp(37, 'dawn freight lane observation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -721,14 +721,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The district watch captain filed three reports that went nowhere. He stopped filing after that.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'approaching district watch captain');
+      gainXp(39, 'approaching district watch captain');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -758,14 +758,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Every unsealed memorial shipment carries the same signatory name. One name, every time.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing transit permit signatories');
+      gainXp(38, 'cross-referencing transit permit signatories');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -795,14 +795,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The wrapping cloth on returned memorial containers has a residue. It is not incense.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'examining memorial wrapping residue');
+      gainXp(37, 'examining memorial wrapping residue');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -832,14 +832,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "A family came to collect remains. The files showed no record of the service.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'speaking with family at intake counter');
+      gainXp(36, 'speaking with family at intake counter');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -869,14 +869,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The chandler's shop is empty during business hours. The back room is not.",
     plot: 'main',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'entering chandler shop back room');
+      gainXp(41, 'entering chandler shop back room');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -906,14 +906,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Four names in the notary chain. Three signed the same month they were appointed.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracing Caldor notary appointment chain');
+      gainXp(39, 'tracing Caldor notary appointment chain');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -944,10 +944,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The annex delivery log is posted at the loading bay. No appointment required.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reading archive annex delivery log');
+      gainXp(35, 'reading archive annex delivery log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -977,14 +977,14 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The sanctuary list traces to trade rosters. Not one name appears in congregant records.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing sanctuary names against trade rosters');
+      gainXp(38, 'cross-referencing sanctuary names against trade rosters');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -1013,10 +1013,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The shrine water runs under two buildings. One is the unregistered storage site.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing shrine water course to unregistered building');
+      gainXp(36, 'tracing shrine water course to unregistered building');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -1048,10 +1048,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The district breakdown map is not posted for public use — Marrowen says this without apology and removes it from its peg before the question is fully formed. A formal records access request routes through the mediation hall intake, which routes to the oversight tier. The path forward exists. It requires more time and a different approach.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'analyzing afterlife registry clustering patterns');
+      gainXp(34, 'analyzing afterlife registry clustering patterns');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1081,10 +1081,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Persuasion'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'accessing Celis Lanthorn grief mediation records');
+      gainXp(37, 'accessing Celis Lanthorn grief mediation records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1117,10 +1117,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Investigation', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'approaching Toriel Palevow at Mortuary Halls');
+      gainXp(35, 'approaching Toriel Palevow at Mortuary Halls');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1153,10 +1153,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Investigation', 'Stage2', 'Stealth'],
     tag: 'bold',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'accessing sealed documents via Panim Archives reading room');
+      gainXp(39, 'accessing sealed documents via Panim Archives reading room');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1192,10 +1192,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'auditing witness column patterns in the afterlife ledger');
+      gainXp(36, 'auditing witness column patterns in the afterlife ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1224,10 +1224,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'cross-checking death dates against memorial contract filings');
+      gainXp(37, 'cross-checking death dates against memorial contract filings');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1256,10 +1256,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'bold',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'examining sealed addendum packets on ledger entries');
+      gainXp(40, 'examining sealed addendum packets on ledger entries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1290,10 +1290,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing ink formula shifts in ledger quarterly entries');
+      gainXp(34, 'tracing ink formula shifts in ledger quarterly entries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('craft', (G.skills.craft||0));
@@ -1322,11 +1322,11 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'safe',
-    xpReward: 40,
+    xpReward: 20,
     failResult: "The volumes are out on the reading desk when the archive warden makes her circuit. Nothing useful surfaced before she took notice.",
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'tracing margin annotation gaps in the afterlife ledger');
+      gainXp(32, 'tracing margin annotation gaps in the afterlife ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1355,10 +1355,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'tracing a departed clerk\'s initial in current ledger entries');
+      gainXp(36, 'tracing a departed clerk\'s initial in current ledger entries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1389,10 +1389,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'bold',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'pressing Elior Sepulcher on the mediation-route correlation');
+      gainXp(41, 'pressing Elior Sepulcher on the mediation-route correlation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1423,10 +1423,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(71, 'reading the situation with Merev Sepulcher at the inn counter');
+      gainXp(35, 'reading the situation with Merev Sepulcher at the inn counter');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1455,10 +1455,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'pressing Saryna Sepulcher on the market receipt archive gap');
+      gainXp(37, 'pressing Saryna Sepulcher on the market receipt archive gap');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1487,10 +1487,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Shrine'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'cross-checking Velune\'s shrine attendance log against mediation days');
+      gainXp(35, 'cross-checking Velune\'s shrine attendance log against mediation days');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1519,10 +1519,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'reading Ithren Sepulcher\'s porter cargo log');
+      gainXp(38, 'reading Ithren Sepulcher\'s porter cargo log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1551,10 +1551,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Ledger', 'Stage2'],
     tag: 'bold',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(85, 'cross-referencing Elior\'s handwriting against unsigned ledger addenda');
+      gainXp(42, 'cross-referencing Elior\'s handwriting against unsigned ledger addenda');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1585,10 +1585,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(69, 'drawing Merev Sepulcher out on pre-dawn guest departures');
+      gainXp(34, 'drawing Merev Sepulcher out on pre-dawn guest departures');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1619,10 +1619,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'documenting cargo movement through the no-traffic processional road');
+      gainXp(37, 'documenting cargo movement through the no-traffic processional road');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('survival', (G.skills.vigor||0));
@@ -1651,10 +1651,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2', 'Shrine'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'auditing shrine annex storage bay availability records');
+      gainXp(36, 'auditing shrine annex storage bay availability records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1683,10 +1683,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing the transit warden transfer after the final no-traffic waiver');
+      gainXp(35, 'tracing the transit warden transfer after the final no-traffic waiver');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1715,10 +1715,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'bold',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracing unlogged cargo arrivals against the harbor manifest');
+      gainXp(39, 'tracing unlogged cargo arrivals against the harbor manifest');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1752,10 +1752,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'auditing emergency session code use in the mediation chamber reservation log');
+      gainXp(36, 'auditing emergency session code use in the mediation chamber reservation log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1784,10 +1784,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing the repeated co-signatory clerk number across sealed records');
+      gainXp(37, 'tracing the repeated co-signatory clerk number across sealed records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1816,10 +1816,10 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'auditing the pattern of same-day denials in the mediation oversight review log');
+      gainXp(38, 'auditing the pattern of same-day denials in the mediation oversight review log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -1847,7 +1847,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1883,12 +1883,12 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       advanceTime(1);
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-      if (typeof gainXp === 'function') gainXp(20);
+      if (typeof gainXp === 'function') gainXp(10);
       addNarration('Sanctified Documentation', 'The registry binding is sound, the wax seals unbroken, but four pages near the back carry erased ink under the new entries. A scribe holds the ledger flat to the lamp and the older lettering ghosts through — different names, different wards of origin, written in a steadier hand. The amendments were made after the rites concluded, after the families had paid and dispersed. Someone with access to a sealed book unsealed it long enough to rewrite who had been mediated, then closed it again.', 'success');
       addJournal('Afterlife registry shows erased entries beneath rewritten names — amended after rites concluded.', 'evidence', 'panim-registry-rewrite-' + (G.dayCount||0));
       G.recentOutcomeType = 'discover';
@@ -1897,7 +1897,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     failResult: function() {
       addNarration('Sealed Hand', 'The shrine attendant intercepts you at the lectern before the lamp is lit. The registry is under purification quiet — no readings, no transcriptions, no cross-checks until the morning rites complete. She does not raise her voice. She does not move from the doorway. Her thumb rests on the ward stamp at her belt, the one that marks a record as untouchable for the rest of the cycle. The book stays closed. You step back.', (G && G.lastResultType) || 'failure');
       G.recentOutcomeType = 'fail';
-      if (typeof gainXp === 'function') gainXp(5);
+      if (typeof gainXp === 'function') gainXp(2);
       if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     }
   },
@@ -1907,12 +1907,12 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Ritual'],
     plot: 'main',
     skill: 'finesse',
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       advanceTime(1);
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-      if (typeof gainXp === 'function') gainXp(20);
+      if (typeof gainXp === 'function') gainXp(10);
       addNarration('Funerary Corridor Diversion', 'You walk the new processional route at the hour the carts run it — incense ahead, mourners trailing, ritual enforcers pacing the flanks with rod and seal. The diversion cuts west past a warehouse with no shrine markers, no offering posts, no reason to draw a funerary cart within a hundred paces of its loading bay. As the procession crosses the alley behind it, the lead cart slows. Two crates leave the warehouse and join the cart under the ritual cloth. No one stops. The enforcers look forward.', 'success');
       addJournal('Funerary procession diversion conceals cargo transfer at unmarked warehouse — ritual enforcers passive.', 'evidence', 'panim-procession-route-' + (G.dayCount||0));
       G.recentOutcomeType = 'discover';
@@ -1921,7 +1921,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     failResult: function() {
       addNarration('Procession Discipline', 'A ritual enforcer breaks from the flank before you reach the diversion point. He does not ask why you are here. He hands you a folded slip of paper — a citation for unsanctified presence at a mediation route — and gestures back toward the main avenue. The procession passes without you. By the time you reach the warehouse, the loading bay doors are closed and a fresh seal has been pressed into the wax. The cycle has moved on. You have not.', (G && G.lastResultType) || 'failure');
       G.recentOutcomeType = 'fail';
-      if (typeof gainXp === 'function') gainXp(5);
+      if (typeof gainXp === 'function') gainXp(2);
       if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     }
   },

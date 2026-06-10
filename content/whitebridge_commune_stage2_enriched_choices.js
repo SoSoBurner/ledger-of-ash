@@ -10,14 +10,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A twelve-day crossing pattern matching the northern courier schedule Vaelis identified in Fairhaven.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing bridge crossing patterns with Cadrin Crownmere');
+      gainXp(37, 'cross-referencing bridge crossing patterns with Cadrin Crownmere');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -44,14 +44,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Cargo transfers on the bridge after midnight. Not logged in any crossing record.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'gathering night-transfer witness account from Aster Starice');
+      gainXp(36, 'gathering night-transfer witness account from Aster Starice');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -77,14 +77,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A farmer's cargo claim includes a description of an unusual container found on the bridge.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing unusual container claim with Arbiter Nyra Thawmark');
+      gainXp(34, 'reviewing unusual container claim with Arbiter Nyra Thawmark');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -109,14 +109,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sealed non-agricultural containers using grain convoy exemptions to cross without inspection.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'examining grain exemption misuse with Thora Snowveil');
+      gainXp(33, 'examining grain exemption misuse with Thora Snowveil');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -143,7 +143,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Nyra's Loss Ledger reaches back further than any crossing log.",
     tags: ['stage2', 'whitebridge_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -164,7 +164,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The east pier brazier platform is the only vantage that overlooks the full midspan.",
     tags: ['stage2', 'whitebridge_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -184,7 +184,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A hauler loudly declaring a route condition the wardens already cleared. The commune watches.",
     tags: ['stage2', 'whitebridge_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -206,7 +206,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "One name off the record. The override signature is a person, not a position.",
     tags: ['stage2', 'whitebridge_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -227,7 +227,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The center support post carries every load. The scoring on it reads like a ledger.",
     tags: ['stage2', 'whitebridge_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -247,7 +247,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The gate warden flagged my pack before I said a word.",
     tags: ['stage2', 'whitebridge_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -269,14 +269,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shelter hall's evening story circle named an expedition that never returned",
     tags: ['stage2', 'whitebridge_commune', 'NPC', 'Persuasion', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing the missing expedition through story circle');
+      gainXp(36, 'tracing the missing expedition through story circle');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.wb_missing_expedition_traced = true;
@@ -299,14 +299,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The arbitration docket skipped a seat — an arbiter chair sits empty undeclared",
     tags: ['stage2', 'whitebridge_commune', 'Lore', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'reading the skipped arbiter seat');
+      gainXp(38, 'reading the skipped arbiter seat');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.wb_arbiter_seat_skipped = true;
@@ -330,10 +330,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A refugee carries papers stamped at a dome sealed four days ago",
     tags: ['stage2', 'whitebridge_commune', 'Survival', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'reading the anomalous refugee paperwork');
+      gainXp(37, 'reading the anomalous refugee paperwork');
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.wb_refugee_anomaly = true;
@@ -357,14 +357,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The founding charter exemptions look nothing like what they have become.",
     plot: 'main',
     tags: ['Stage2', 'Lore', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The founding charter is kept in the shelter hall under a sealed glass and the keeper is not at her desk. You can read the Route Warden Compact signatures on the wall behind the desk but the charter case stays closed. Outside, the signal brazier on the east pier flares as the wind shifts.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reading the founding transit charter exemption clauses');
+      gainXp(35, 'reading the founding transit charter exemption clauses');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -393,14 +393,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Thora filed discrepancy reports. Someone told her to stop. That person has a name.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'pressing Thora Snowveil on who suppressed the discrepancy filings');
+      gainXp(36, 'pressing Thora Snowveil on who suppressed the discrepancy filings');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -427,14 +427,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The twelve-day courier never varies his route. He varies his company at the midspan.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tailing the recurring courier on the 12-day transit pattern');
+      gainXp(34, 'tailing the recurring courier on the 12-day transit pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -461,14 +461,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Cold enough no one expects a watcher at the twelve-day window.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cold drives the air out of your lungs in white plumes and your boots ring on the deck loud enough that the second-watch warden hears you before you reach the pier. The signal brazier kicks higher for a count of three — a tell. You retreat into the lee of the storage ribs and let the warden complete her round.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(2); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'overnight stakeout on the bridge in winter cold');
+      gainXp(33, 'overnight stakeout on the bridge in winter cold');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -494,14 +494,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The apothecary examined Nyra's vials. His notes went somewhere they weren't supposed to go.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing the apothecary compound analysis through commune records');
+      gainXp(34, 'tracing the apothecary compound analysis through commune records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -529,14 +529,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The diplomatic exemptions left a gap in the tithe ledger. No one filled it.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing diplomatic exemption credit gap in commune tithe ledger');
+      gainXp(34, 'tracing diplomatic exemption credit gap in commune tithe ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -564,14 +564,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The brazier keeper doesn't sleep through the nights Aster avoids.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'interviewing the east-pier brazier keeper about overnight bridge activity');
+      gainXp(35, 'interviewing the east-pier brazier keeper about overnight bridge activity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -598,14 +598,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A surveyor back from the ice shelf crossed during one of the flagged windows.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'speaking with the returning ice-shelf surveyor about her bridge crossing');
+      gainXp(33, 'speaking with the returning ice-shelf surveyor about her bridge crossing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -632,14 +632,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shelter-hall bath-house is where haulers talk when the Compacts is not listening.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The bath-house steam clears around a Compact mediator already in the alcove you were going to sit in. Three of the haulers stop talking mid-sentence. You take a different bench. The conversation that mattered finishes itself in another room with someone else listening.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'gathering hauler intelligence from bath-house conversations');
+      gainXp(34, 'gathering hauler intelligence from bath-house conversations');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -667,14 +667,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "One warden signed every priority crossing clearance in the gate-book.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reading the pattern of priority crossing signatures in the gate-book');
+      gainXp(35, 'reading the pattern of priority crossing signatures in the gate-book');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -702,14 +702,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shelter keeper pulled a council notice within hours — she remembers what it said.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing the rapidly removed council notice through the shelter keeper');
+      gainXp(34, 'tracing the rapidly removed council notice through the shelter keeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -736,14 +736,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The newest relief crates are heavier than the manifest allows and sealed differently.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'examining the winter relief supply storeroom for compound containers');
+      gainXp(35, 'examining the winter relief supply storeroom for compound containers');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -771,14 +771,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The mending circle knows the midspan load pattern better than anyone.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'speaking with the bridge mending circle about load anomalies in rope gear');
+      gainXp(33, 'speaking with the bridge mending circle about load anomalies in rope gear');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -805,7 +805,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Nyra's samples and Aster's log are enough. The crossing can be closed or documented.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Loss Ledger Circle convenes tonight and Nyra is not at her usual table. Aster\'s log sits in your pack. The dispute-table corner of the shelter hall fills with the day\'s deferred grievances and the moment to bring this forward dissolves into the queue. You step out onto the deck. The brazier on the central pier has not been re-lit.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -840,14 +840,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'A toll category stopped appearing in the records',
     plot: 'main',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'toll category disappearance');
+      gainXp(10, 'toll category disappearance');
       G.lastResult = 'Toll records run by crossing type — foot, cart, livestock, commercial cargo. One category was logged regularly through the early records, with its own column and collection rate. Then the column stops. The crossings in that category did not stop — the bridge infrastructure that handles them is still in use. The category was reclassified or the collection was moved off the toll record. Neither change appears in the administrative log.';
       addJournal('Whitebridge toll records show a crossing category that ceased being logged — infrastructure still in active use. Source: Whitebridge Commune toll archive.', 'evidence', `wb-toll-gap-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -859,14 +859,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The bridge keeper answers carefully. She keeps the commune connected',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'bridge keeper agenda');
+      gainXp(7, 'bridge keeper agenda');
       G.lastResult = 'She is helpful in every direction except the one that matters. She knows the toll records, the crossing schedules, the flood management agreements with upstream and downstream settlements. She answers questions about procedure and history with precision. But any question that touches on which crossing arrangements fall outside the commune\'s own authority gets a procedural redirect — she names the right body to ask, which is not here, which means not answering.';
       addJournal('Whitebridge bridge keeper answered all procedural questions precisely while redirecting any question about external-authority crossing arrangements. Source: Whitebridge Commune bridge keeper\'s station.', 'intelligence', `wb-keeper-agenda-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -878,14 +878,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The flood log does not match the weather records for that period',
     plot: 'main',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'flood log mismatch');
+      gainXp(10, 'flood log mismatch');
       G.lastResult = 'The flood management log records water levels and bridge closure periods. The weather records from the regional archive record the same dates. They do not agree. The flood log shows a closure period with no corresponding weather event in the regional record. Either the closure was administrative rather than weather-driven, or the regional record was amended. The bridge closure was recorded as flood management. It was not flood management.';
       addJournal('Whitebridge flood management log shows a bridge closure with no corresponding weather event in the regional record — closure classified as flood management, apparently administrative. Source: Whitebridge Commune flood archive.', 'evidence', `wb-flood-mismatch-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -897,14 +897,14 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'Someone recognized me and left before I could approach',
     tags: ['Complication', 'Observation'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'recognized complication');
+      gainXp(10, 'recognized complication');
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = 'Near the north approach. A figure by the toll station — not a regular keeper, the posture is wrong. She sees you at the same moment you see her, and the calculation happens in under a second. By the time you reach the station she is across the bridge and into the market side. The keeper at the window says she did not give her name. The toll book shows only the crossing type: administrative passage. No name required.';
@@ -920,7 +920,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_iron_banding_weight',
     label: 'The bridge ironwork carries load memory. Stone does not lie.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'might',
     fn: function() {
@@ -951,7 +951,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_loss_ledger_death_pattern',
     label: 'The Loss Ledger has a season without a single death entry.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -982,7 +982,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_route_warden_cold_read',
     label: 'Route Warden Seldis Morn still works the day shift. Her tells are visible.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'charm',
     fn: function() {
@@ -1014,7 +1014,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_exemption_fee_cash_trail',
     label: 'The diplomatic exemption fee was never collected. But the ledger shows a receipt.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1044,7 +1044,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_refugees_cluster_date',
     label: 'Three refugee arrivals give the same escort description without comparing notes.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'charm',
     failResult: 'The shelter keeper stops the second interview before it begins. New arrivals are within their silence window, and the keeper enforces it without apology — it is the first protection the commune extends. The three refugees remain together in the hall, blankets in commune grey, and the shared detail that connects them stays unspoken for now.',
@@ -1075,7 +1075,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_ice_shelf_supply_cache',
     label: 'The ice shelf supply cache should have three weeks of stores. It has ten days.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1105,7 +1105,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_guild_factor_faction',
     label: 'The Guild Factor here collects more than tolls. She has a second ledger.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'finesse',
     fn: function() {
@@ -1137,7 +1137,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_compacts_archivist_reckoning',
     label: 'The Compacts archivist wants to retire. She knows what a clean record costs.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
@@ -1168,7 +1168,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_signal_fire_reckoning',
     label: 'The signal brazier schedule can be reconstructed. The transfers follow the light.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1198,7 +1198,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_commune_council_faction',
     label: 'The Commune Council has three members who voted against the exemption protocol.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'charm',
     failResult: 'The shelter hall back room is occupied by a mending session. The council member who is available when the approach is made again explains that the minority dissent is already in the posted session minutes — nothing said there is private, and they do not discuss council strategy outside the chamber.',
@@ -1231,7 +1231,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_night_circuit_inspector_second',
     label: 'A second Night-Lantern inspector patrols the hours Aster avoids. Different allegiances.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'finesse',
     fn: function() {
@@ -1262,7 +1262,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_compound_destination_north',
     label: 'The cylinders are going north. The route ends somewhere with no record on the ledger.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
@@ -1294,7 +1294,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     id: 'wb_bridge_plank_cavity_discovery',
     label: 'The re-set planking does not just conceal a space. It conceals a mechanism.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'might',
     fn: function() {

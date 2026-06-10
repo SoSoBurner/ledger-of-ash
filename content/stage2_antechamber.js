@@ -30,7 +30,7 @@ window.STAGE2_ANTECHAMBER = (function() {
         tag: 'risky',
         skill: 'wits',
         dc: 12,
-        xpReward: 50,
+        xpReward: 25,
         fn: function() {
           var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: Math.floor(Math.random() * 20) + 1 };
           if (r.total >= 12) {
@@ -50,7 +50,7 @@ window.STAGE2_ANTECHAMBER = (function() {
         label: 'Being watched and knowing it are two different things.',
         tag: 'safe',
         skill: 'wits',
-        xpReward: 50,
+        xpReward: 25,
         failResult: function() {
           addJournal('You try to act unbothered and the seam shows. The clerk you usually pass without looking up looks up. The corridor feels different walking back than it did walking in.', 'evidence');
           G.flags.stage2_antechamber_acknowledged = true;

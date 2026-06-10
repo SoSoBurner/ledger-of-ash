@@ -12,14 +12,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Panim memorial manifests have been using harvest shipment routing numbers. The records prove it.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The granary archive wing is closed for the daily quota reconciliation — Farlan and two academic recordkeepers are inside cross-checking the morning intake against last week\'s ledger. The corridor smells of damp burlap and lamp oil. The counting table is occupied and the ledger pages stay flat under their hands.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing quota records with Panim memorial manifests');
+      gainXp(37, 'cross-referencing quota records with Panim memorial manifests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -47,14 +47,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A northern shipment six weeks ago. No recognized manifest category. No record of contents.",
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Valen Crestmark is at the threshing floor for the late-afternoon weight-validation rotation — the assessor signs every cart load against the official tally before it crosses to the granary chute. He will not be back at the assessment desk until the rotation finishes. The chalk wall stays out of reach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'investigating anomalous northern shipment with Valen Crestmark');
+      gainXp(35, 'investigating anomalous northern shipment with Valen Crestmark');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -81,14 +81,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A grievance filed: the anomalous shipment moved through restricted grain storage without permission.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorva Helmrune is mediating a quota-distribution dispute between two Soreheim section leads at the communal council table — the proceeding is closed to outside observers and scheduled to run until the second bell. The grievance file stays squared at the corner of her desk. The council hall doors are roped off.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'reviewing commune grievance with Jorva Helmrune');
+      gainXp(33, 'reviewing commune grievance with Jorva Helmrune');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -114,14 +114,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A northern supplier claims dealings with Harvest Circle. Elyra's never seen the contract.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Elyra Mossbane has a line of patron-family clerks at her counting table this morning — quota allocations are being released for the afternoon and every brokerage seat is in negotiation. The supplier ledger stays under her palm. She does not look up. The line stretches past the stall row and into the cart yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing supplier relationships with Elyra Mossbane');
+      gainXp(34, 'cross-referencing supplier relationships with Elyra Mossbane');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -150,14 +150,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A sealed cargo handling fee dispute. The irregularity it exposes is more than the dispute.",
     skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The dispute chamber outer corridor is being repainted — drop cloths cover the bench and the mediator\'s door is sealed against the lime-wash fumes. Velrik sent the day\'s scheduled cases out for rescheduling through the clerk at the front desk. The grey folder stays on his shelf, between the two volumes, unreachable.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'reviewing guild dispute accounting irregularity with Velrik Durnshade');
+      gainXp(32, 'reviewing guild dispute accounting irregularity with Velrik Durnshade');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -183,7 +183,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra turns the supplier ledger face-down when I approach. She knows I've seen the name.",
     skill: 'charm',
     tags: ['stage2', 'harvest_circle', 'npc_escalation'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -213,7 +213,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Chalk marks on the drying rack posts running the wrong direction for moisture tallies.",
     skill: 'wits',
     tags: ['stage2', 'harvest_circle', 'physical_evidence'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -241,7 +241,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Wrong convoy line. The stall holder at the front has already noticed.",
     skill: 'finesse',
     tags: ['stage2', 'harvest_circle', 'social_complication'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -270,7 +270,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A counting court clerk wants my load declaration clarified.",
     skill: 'charm',
     tags: ['stage2', 'harvest_circle', 'social_misstep', 'paperwork'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -297,7 +297,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A panic buyer is shouting about spoilage two stalls down.",
     skill: 'wits',
     tags: ['stage2', 'harvest_circle', 'public_complication'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -324,14 +324,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Valen Crestmark is at the granary chute with the morning cart sequence — the assessment desk is empty and the drawer with the locked logbook is in his direct line of sight from the weighbridge. Approaching it from the corridor would be seen the moment he turned his head. The drawer stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing Valen Crestmark personal logbook tonnage discrepancies');
+      gainXp(34, 'reviewing Valen Crestmark personal logbook tonnage discrepancies');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -363,10 +363,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'examining silo weight records at Panim transit junction');
+      gainXp(33, 'examining silo weight records at Panim transit junction');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -395,10 +395,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The Compact filed against him and his routes stopped. He's still here, still watching.",
     skill: 'charm',
     tags: ['Stage2', 'Charm'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'tracing suppressed complaint against independent grain trader');
+      gainXp(32, 'tracing suppressed complaint against independent grain trader');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -428,14 +428,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Academic transit orders for compound materials are going to distribution sites, not research facilities.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Farlan is hosting a visiting Mimolot recordkeeper in the archive wing this afternoon — the conversation between them is low and continuous, the door propped open onto the corridor for ventilation. The transit order shelves are visible from where they stand. The visit is scheduled to last the full afternoon. The shelves stay watched.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing Mimolot Academy transit orders through Farlan Inkshade records');
+      gainXp(35, 'tracing Mimolot Academy transit orders through Farlan Inkshade records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -466,14 +466,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Brenn Saltash is mid-cycle on the cold storage regulation and the thermal door cannot open until the next bell — the temperature ledger is hooked inside the antechamber where the keeper stands. The compressor hum from the seed vault wall masks anything quieter than a shout. The corridor stays empty and the ledger stays out of reach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing cold storage access gap with the Harvest Circle keeper');
+      gainXp(34, 'tracing cold storage access gap with the Harvest Circle keeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -503,14 +503,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Oswin Tharpe is at the committee offices for the autumn variety review — a seed-keeper attendance requirement. The vault door is sealed under rotation-key protocol and the waxed notebook he keeps inside is unreachable until he returns. The committee session runs through the afternoon and a runner says it may extend.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing missing seed varieties with the Harvest Circle seed-keeper');
+      gainXp(33, 'tracing missing seed varieties with the Harvest Circle seed-keeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -539,14 +539,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The pre-dawn courier saw the Compact's handlers up close. No one has asked him.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Fen Draal is mid-route — the pre-dawn courier carries strict timing windows for each junction marker and stopping him on the lane breaks his arrival log. His supervisor watches from the dispatch window with the duty watch open in her hand. Fen does not look up from the grease-pencil strap as he passes the cart yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'debriefing the pre-dawn offerings courier on Compact handler observations');
+      gainXp(32, 'debriefing the pre-dawn offerings courier on Compact handler observations');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -574,14 +574,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The irrigation channel maintenance log runs through three seasons of sealed access windows nobody authorized.",
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The water-works committee chamber is in mid-session for the seasonal sluice-rotation review — the column book is open on the committee table with three members reading entries aloud. The chamber doors are pinned wide and an enforcer at the threshold logs each visitor before entry. The book stays on the committee table.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing unauthorized irrigation channel access windows');
+      gainXp(33, 'tracing unauthorized irrigation channel access windows');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -610,14 +610,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Meret Osk is mid-preparation behind the partially-closed door — the commune helper at the outer bench holds up four fingers without looking up. Four stages remaining. The preparation room is an uninterruptible custom and the tally ledger sits on the inner table where Meret stands. The door stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'consulting commune ritual herbalist on offering bundle weight anomalies');
+      gainXp(34, 'consulting commune ritual herbalist on offering bundle weight anomalies');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -646,14 +646,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The offering routes were rescheduled to match the Compact's windows. One office holds that authority.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The seasonal dispatch archive is in the granary attic and Farlan Inkshade is hosting the academic visitor at the lower archive bench — the staircase up to the dispatch shelves is in their direct sightline. The committee binder for the current quarter is on the upper landing. The visitor\'s conversation runs steady until evening.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing offering route rescheduling authority through seasonal timing records');
+      gainXp(35, 'tracing offering route rescheduling authority through seasonal timing records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -681,14 +681,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Denet Alvar moved to the eastern stalls. He still watches his old routes.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Denet Alvar\'s eastern stall is at the busy junction of the morning grain queue and a Compact-affiliated buyer has stationed himself two stalls over for the full opening hours — the kind of placement that does not happen by accident. Alvar\'s hands keep moving over the grain weights. His eyes do not lift toward you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'debriefing suppressed trader Denet Alvar on independent route observations');
+      gainXp(32, 'debriefing suppressed trader Denet Alvar on independent route observations');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -716,14 +716,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Two months of gap entries in the night patrol log near cold storage.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The enforcer office front desk is staffed by a duty supervisor — Jorva Helmrune is at the cold storage corridor itself conducting the morning sign-in inspection. The patrol logs are in her office under lock. The duty supervisor reads the request, writes it in the visitor register, and caps the pen. Jorva is not back until evening shift.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'reviewing night patrol gap entries near cold storage corridor');
+      gainXp(33, 'reviewing night patrol gap entries near cold storage corridor');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -751,7 +751,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Routing fraud and ghost supplier confirmed. Report to council or intercept the next shipment.",
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The communal council circle-house is closed for the autumn-assembly preparation rite — the smoke from the council fire is being banked for the evening session and only seated council members are permitted on the assembly floor. The case folder stays in your hand. The first opportunity to present formally is tomorrow at the morning bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -787,14 +787,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The commune ledger office is sealed for the quarterly cross-audit — both the internal allocation book and the guild submission copy are on the audit table with the chief recorder and a Soreheim quota clerk reviewing them line by line. The double-ledger comparison stays off-limits until the audit closes. The clerks do not look up.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'diverted yield allocation');
+      gainXp(10, 'diverted yield allocation');
       G.lastResult = 'Harvest Circle maintains two ledgers: internal allocation and submission to the guild. Cross-checking them: a consistent entry in the guild submission that does not appear in the internal allocation. A portion of the yield has been reported to the guild as allocated to a specific destination, while the commune\'s own records show that portion as submitted without destination. It has been running for three seasons. The internal ledger does not acknowledge it exists.';
       addJournal('Harvest Circle yield records show an allocation listed in guild submissions but absent from internal records — running for three seasons. Source: Harvest Circle commune ledger office.', 'evidence', `har-yield-alloc-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -808,14 +808,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The elder is at the eastern field walking the late-season rows with two younger growers — a knowledge-transfer custom the commune treats as uninterruptible. The elder\'s house is closed and her granddaughter at the door says the rotation walk runs until the supper bell. The crop-language conversation will not happen today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'elder crop language');
+      gainXp(7, 'elder crop language');
       G.lastResult = 'She talks about soil conditions, about what the eastern fields yielded against what was expected, about how a wet season changes the allocation calculus. She is not talking about soil conditions. The timing of what she describes matches the discrepancy in the ledgers exactly. She is explaining how the diversion works — what pressure causes it, what the cost is — entirely in agricultural language. Nothing she says can be written as an admission. She knows that.';
       addJournal('A Harvest Circle elder described the yield discrepancy entirely in agricultural terms — timing and detail match the ledger anomaly precisely. Source: Harvest Circle commune, elder meeting.', 'intelligence', `har-elder-crop-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -828,14 +828,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: 'A work period with no yield record attached to it',
     skill: 'wits',
     tags: ['Records', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The labor archive is in the commune hall basement and the door is propped open for the seasonal volunteer rotation — three new clerks are being walked through the schedule binders by the head archivist. The bound schedule volumes stay on the central table. Reviewing the unattributed work period in front of the training cohort is not an option.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'unattributed work period');
+      gainXp(7, 'unattributed work period');
       G.lastResult = 'The labor schedule logs crew assignments by field and task. One period shows full crew deployment — everyone accounted for, full labor hours logged — with no corresponding yield entry. The work happened. The fields and tasks are recorded. Whatever was produced during that period was not entered into the yield ledger. Either it was harvested and moved without being recorded, or the work was for something that does not produce a yield entry.';
       addJournal('A Harvest Circle labor schedule period shows full crew deployment with no corresponding yield record — work documented, output unrecorded. Source: Harvest Circle labor archive.', 'intelligence', `har-work-gap-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -848,14 +848,14 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Discovery', 'Evidence'],
-    xpReward: 25,
+    xpReward: 12,
     failResult: function() {
       addNarration('', 'The inbound manifest archive is in active use — the supply receiving clerk is logging the morning grant inputs from the administrative source under the carrier\'s standing wait. He has the archive open at the current month. Cross-checking the diversion timeline against grant inputs requires multiple months pulled at once. The carrier does not leave the counter until afternoon.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(25, 'return shipment implication');
+      gainXp(12, 'return shipment implication');
       G.lastResult = 'The commune receives regular supply inputs from outside. Reading the inbound manifests against the diversion timeline: the inputs increased in the same period the diversion began, and scaled proportionally as the diversion grew. The commune is receiving goods in exchange for yield that its own records do not acknowledge sending. The arrangement is not documented as a trade. It is documented as a grant — from an administrative body that does not typically grant agricultural communes material inputs.';
       addJournal('Harvest Circle inbound supply manifests show inputs scaling proportionally with the yield diversion — received as a grant from a non-typical administrative source. Source: Harvest Circle commune supply records.', 'evidence', `har-return-shipment-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';

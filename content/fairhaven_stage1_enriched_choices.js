@@ -14,7 +14,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The ritual words are the same. The time given them is not.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Serin glances toward the chapel door and goes still. The prayer cord is set in the lap and picked up again without looking at it. \"I don't think I can help with this.\" No word of who gave the instruction. No need to say. The bell in the outer hall rings the half-hour and Serin rises to attend it, leaving the bench before the sound has finished. The blessing schedule and any deviation from it runs through the Shrine Keeper's record.",
@@ -26,7 +26,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading blessing pressure');
+      gainXp(35, 'reading blessing pressure');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -61,7 +61,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "Prices have climbed. The broker knows where the gap started.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Supply', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Maris squares a ledger against the table edge and does not open it. The stall fills with purposeful small motions — a rope retied, a receipt stack aligned — until you run out of time to wait them out. Not hostile. Simply decided the conversation has concluded. The harbor master's coordination board carries arrival records for the past month; the routing pattern is visible there without anyone's cooperation.",
@@ -73,7 +73,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'tracing supply manipulation');
+      gainXp(37, 'tracing supply manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -109,7 +109,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The alchemical supplier's stock smells right. The potency tests would say otherwise.",
     tags: ['Investigation', 'NPC', 'Craft', 'Supply', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) < 3; },
     failResult: {
@@ -122,7 +122,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'assessing ingredient authenticity');
+      gainXp(35, 'assessing ingredient authenticity');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -153,7 +153,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The grain moved upstairs. Gareth knows what that does to grain.",
     tags: ['Investigation', 'NPC', 'Supply', 'Storage', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     failResult: {
@@ -166,7 +166,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'investigating supply storage');
+      gainXp(35, 'investigating supply storage');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -194,7 +194,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Halverd has been at this thirty years. He knows when an enchantment hasn't taken.",
     tags: ['Investigation', 'NPC', 'Craft', 'Tools', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Halverd sets his hammer down and squares the finished rack with his hip. \"Craft methods aren't discussed with people who don't work them.\" Not hostile — the flat refusal of a man who has heard the wrong kind of question before and learned not to entertain it. A row of plow blades in the rack behind him. He turns back to his work before you've left the doorway. The alchemical supplier Thalen draws from the same component source and has been less guarded about the failures.",
@@ -206,7 +206,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'analyzing tool integrity');
+      gainXp(35, 'analyzing tool integrity');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -234,7 +234,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Forty-two soldiers last month. Twenty-nine today. The captain filed a written objection.",
     tags: ['Investigation', 'NPC', 'Defense', 'Military', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Vren crosses his arms and doesn't speak. The duty roster on the wall shows three patrol slots empty, chalk half-erased. He doesn't gesture toward it or explain it. He's decided the conversation is over by his accounting, not yours. One of the two soldiers at the door has already moved a step closer to the entrance. The garrison reduction orders were formally filed with the Shrine Keeper — all deployment changes route through shrine authority here.",
@@ -246,7 +246,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'investigating garrison reallocation');
+      gainXp(37, 'investigating garrison reallocation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -277,7 +277,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Shrine Keeper implemented every directive. She hasn't named what came next.",
     tags: ['Investigation', 'NPC', 'Authority', 'Doctrine', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Cevrin folds both hands and waits. Incense ash on the altar rail sits repositioned to one side — not swept, moved. \"Shrine operations follow doctrine. Changes are made in accordance with guidance received.\" The offering cloth is straight. The altar surface is bare. Done with this before it began. The directives came through the regional hierarchy as sealed letters — that correspondence is logged at the regional shrine authority, not here.",
@@ -289,7 +289,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'confronting shrine authority');
+      gainXp(37, 'confronting shrine authority');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -320,7 +320,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Shipments go north first now. The men coordinating them weren't from here.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Vaelis runs the cloth down the bar without looking up. \"I don't discuss other people's arrangements.\" Turns away to resume stacking cups and the bar room settles around the refusal — a corner table of regulars not watching, two cups turned mouth-down at the far end. The harbor coordination board at the dock end posts arrival records for the past month. The routing pattern is visible there without anyone's help.",
@@ -332,7 +332,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'mapping supply logistics');
+      gainXp(35, 'mapping supply logistics');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -362,7 +362,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The warning posts say stay back. The boot prints say otherwise.",
     tags: ['Investigation', 'Survival', 'Glyph', 'Danger', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The glyph field saturates the air from the posted perimeter outward — a low charge in the stone underfoot, hair lifting at the wrist. The clay around the warning markers is too disturbed to give a clean read, the ambient interference erasing whatever trail might have been there. The formations active at the cave mouth are real enough to end a careless approach. Coming back after the disturbance has settled, from a different line of approach, would be the way to read what's been happening here.",
@@ -374,7 +374,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'glyph cave activity analysis');
+      gainXp(35, 'glyph cave activity analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -405,7 +405,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Something stored past the perimeter. The drainage channel was cut on purpose.",
     tags: ['Investigation', 'Survival', 'Supply', 'Hidden', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Glyph interference breaks up the terrain read: distances harder to judge, brush thick enough to cut line of sight every twenty paces, stone formations that look different from the north approach than they did from the south. Boot tracks run into the interference zone and stop being readable. The search area is too large and the conditions too active for a single pass to locate a deliberate concealment. A second attempt from the northern ridge, after the glyph field cycles quieter, would change the odds.",
@@ -417,7 +417,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'locating hidden supply network');
+      gainXp(37, 'locating hidden supply network');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -448,7 +448,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The archive copy and the current formula are not the same document.",
     tags: ['Investigation', 'Craft', 'Magic', 'Enchantment', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The archive shelves hold a season's worth of notation — rolled scrolls, labeled tubes, some volumes not opened in years. Cross-references point to volumes not present in this room. Without a known-good comparison document laid beside the current formula, alterations in the binding sequences don't surface on a single pass. The archive filing index shows the current formula was last revised fourteen months ago. The Oversight Collegium correspondent Avel Prenn has access to the regional standards register and could run the comparison.",
@@ -460,7 +460,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'enchantment formula analysis');
+      gainXp(35, 'enchantment formula analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -491,7 +491,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The seals pass a clerk's check. The paper stock is from the wrong year.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Documents', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The documents hold up to a surface read: seals pressed cleanly, ink consistent, dates in sequence. Without a confirmed authentic set to lay beside these, any forgery too controlled to catch at a glance won't surface here. The alchemical supplier Thalen received the substituted compounds through this same documentation chain. Delivery receipts are still in the workshop — a parallel set of records from the same forger, a different approach to the same thread.",
@@ -503,7 +503,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'detecting document forgery');
+      gainXp(37, 'detecting document forgery');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -534,7 +534,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The old texts called it a threshold. The new pamphlets call it a wall.",
     tags: ['Investigation', 'Lore', 'History', 'Doctrine', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Three centuries of records in a warped wooden case, three scribal hands, the oldest documents requiring the lid lifted at an angle to open. The glyph cave appears across all eras — framed differently in each, the danger calibrated to whoever was writing. Distinguishing deliberate revision from natural theological drift requires a full comparative timeline, not a single afternoon. The current pamphlets cite a doctrine council session from fourteen months ago. That session's minutes are filed with the regional shrine authority.",
@@ -546,7 +546,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'glyph doctrine analysis');
+      gainXp(35, 'glyph doctrine analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -577,7 +577,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The founding texts treated a failed harvest as a logistical problem. The supplements don't.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Doctrine', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Reading table, candles, founding texts alongside supplements issued in the last eighteen months — the older volumes smell of linen storage, the newer ones of fresh pressing. Both describe the same community and the same obligations. The weight given to hardship is different in each. Whether that difference is theological development or deliberate revision, the archive alone can't settle. The eight supplements were distributed through the same sealed-letter channel that authorized the garrison reductions. That correspondence link is the thread.",
@@ -589,7 +589,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'tracing philosophical inversion');
+      gainXp(37, 'tracing philosophical inversion');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -622,7 +622,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The same complaint at every bench in the Sunflower Market, said below a raised voice.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: "The Sunflower Market carries its own murmur — a farmer at the grain stall, a family near the well, the bench crowd by the notice board. Today they're talking about the festival calendar adjustment, the late season, the mill road re-grading. Ordinary complaints. Whatever is being said about the shortages and the shrine is being said in private, in households, not in earshot of a stranger. The broker Maris has been in this community long enough to be trusted with the version that doesn't circulate publicly.",
@@ -634,7 +634,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing market-level grievance');
+      gainXp(32, 'parsing market-level grievance');
       G.stageProgress[1]++;
 
       const rumor = [
@@ -659,7 +659,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A plow snaps mid-furrow. Three weeks old. The rune seam was never fully seated.",
     tags: ['Investigation', 'Evidence', 'Failure', 'Personal', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The break is clean — at the seam rather than through the material. Without a reference copy of the production formula beside the fragment, nothing in the rune seam alone distinguishes deliberate from accidental failure. The farmer retrieves the pieces without comment, the matter closed by routine and exhaustion. Halverd the tool craftsman worked from the same component source and has documented the pattern across his whole production run. His workshop is the place to take this fragment.",
@@ -671,7 +671,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'documenting critical failure');
+      gainXp(37, 'documenting critical failure');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -702,7 +702,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Every household carries the same problem. None of them names it the same way.",
     tags: ['Investigation', 'Evidence', 'Crisis', 'Personal', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Doors stay mostly closed. The ones that open offer the usual deflections — everything is fine, the shrine provides guidance, this is not the season for complaints. Three different households, the same phrasing, the same note struck. Whatever the community has decided to say to outsiders, they decided it together. The salt air off the dock planking, the rope coil at the factor's door — the ordinary texture of a morning that isn't ordinary. The widow near the south well has been here long enough to speak plainly. She's lived through the last three lean seasons.",
@@ -714,7 +714,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'gathering community impact testimony');
+      gainXp(37, 'gathering community impact testimony');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -746,7 +746,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "Laid out together, they stop being coincidences. Every institution bent the same direction, same window.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Confrontation', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     effects: [
       { type: 'heat', polity: 'sheresh', amount: 1 },
@@ -762,7 +762,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing institutional weaponization');
+      gainXp(40, 'exposing institutional weaponization');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -794,7 +794,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The order and receipt cite the same authorization. Only one of them is real.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: {
       text: "The supply records are present and in order — order slips, delivery receipts, authorization codes along the margin. The delivery receipt cites a regional administrative code that isn't in the reference guide on this shelf. The correct guide would cross-reference it. Without the right reference document, the code doesn't resolve. The Shrine Keeper received the same authorization codes in sealed letters from the regional hierarchy. Those letters are logged in the shrine's incoming correspondence register.",
       xp: 0,
@@ -803,7 +803,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'comparing formula supply records');
+      gainXp(36, 'comparing formula supply records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -826,7 +826,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three reduction orders. Each one dated seven days after a doctrine supplement went out.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "The orders are filed with the garrison administration. The duty archivist is away from the desk — expected back after the afternoon bell. The timing pattern the orders carry is visible on a single page if you can get the three together. Captain Vren has a copy in his posting records; he filed a written objection to the first reduction and kept the documentation. His quarters are at the north end of the garrison row.",
       xp: 0,
@@ -835,7 +835,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing garrison reduction orders');
+      gainXp(34, 'reviewing garrison reduction orders');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -853,7 +853,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The morning gathering has a shape. It isn't the shape of a community at rest.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: "The gathering disperses before a pattern settles. Families move in the ordinary way of people with work waiting — stalls to open, loads to shift, children to hand off. The compound smell from the shrine burner lingers on clothing as people pass. Whatever shape the morning gathering holds, it requires more time inside it to read. The eight elders who stay after the public ceremony has cleared work from memory, no text in hand. They know what this community looked like before.",
       xp: 0,
@@ -862,7 +862,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'reading shrine community gathering');
+      gainXp(33, 'reading shrine community gathering');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -883,7 +883,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium has a correspondent here. She's been waiting for hard evidence.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "The civic registry lists a Collegium address on the east lane — a handwritten addition, ink slightly different from the surrounding entries. The building is a cooperage. Barrel staves along the front wall, new-cut oak smell. The owner hasn't heard of anyone by that description and doesn't look like he's being careful when he says so. Either the listing is out of date, or the person it points to doesn't want to be found through that route. The goods trader on the mill road stocks soap and dried lemon peel — an unusual product combination for Fairhaven's supply lines.",
       xp: 0,
@@ -892,7 +892,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'making Oversight Collegium contact');
+      gainXp(34, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -915,7 +915,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Eight people stayed after the gathering cleared. Working from memory, no text.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: "The shrine empties on schedule. Keepers extinguish the compound burners and sweep the threshold — the same closing sequence, done in the same order, the way a task is done when it has been done ten thousand times. The elders who stayed last time aren't present tonight. The door is held open for the final few worshippers and then pulled shut. Whatever is preserved in memory here surfaces on its own time, not on request. Coming back at the same hour on a different day would be the way to find it.",
       xp: 0,
@@ -924,7 +924,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing shrine after hours');
+      gainXp(25, 'observing shrine after hours');
 
         G.lastResult = `When the official gathering clears, eight people stay. Older — the kind of old that predates the shrine's current administration. They move through a shorter ceremony, no compound burned, working from memory. No text in hand. They finish in twelve minutes and leave by three different doors. Whatever is being preserved here exists in their bodies, not in any document the shrine currently holds.`;
       addJournal('Shrine after hours: original pre-revision ceremony preserved by memory in elder community members', 'discovery', `fairhaven-shrine-dusk-${G.dayCount}`);
@@ -936,7 +936,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cassian noticed the compound changed by smell, the first morning. She kept the original batch.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "Cassian refills her cup without being asked and doesn't rush the silence. She watches with the patience of someone who has waited out other people's urgency before and found it usually resolves on its own. The jar she mentioned is somewhere in the cabinet behind her. She'll speak plainly when she decides you're the person to speak plainly to. That decision hasn't landed yet. The elder Mira at the north end of the settlement has fewer reasons to be careful with a stranger.",
       xp: 0,
@@ -945,7 +945,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'speaking to elder keeper');
+      gainXp(34, 'speaking to elder keeper');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -964,7 +964,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Six soldiers stayed after the reduction. All long-posting. All with household knowledge.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: {
       text: "Nyse gives the shortest answer available. \"Orders.\" She keeps her position against the post, arms loose, watching to see if you'll push it. The square behind her is quiet — a market day that ended early. She waits long enough to make clear she hopes you won't. There are five other soldiers who stayed. All long-posting, all with four or more years in this community. The one at the mill road checkpoint is further from the captain's eyeline.",
       xp: 0,
@@ -973,7 +973,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'interviewing retained garrison soldier');
+      gainXp(32, 'interviewing retained garrison soldier');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -992,10 +992,10 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone left before arrival carrying a supply sample case. Not nervous about it.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'receiving rival warning');
+      gainXp(27, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -1025,14 +1025,14 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Boats still come at the same hour. The dock records don't reflect it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 38,
+    xpReward: 19,
     failResult: function() {
       addNarration('', 'The fishing fleet has moved on with the tide before you reach the harbor coordination board — the fields and farm carts cut across your route from the upper market and slow you to a midday crawl. The catch-volume entries are pinned for the day; the boats won\'t return until the evening run.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'observing Fairhaven dock rhythms');
+      gainXp(19, 'observing Fairhaven dock rhythms');
       G.lastResult = `The fishing boats return on the tide as they always have — the same families, the same berths, the smell of salt and cleaned fish on the planking by midmorning. The dock records, posted on the coordination board at the harbor end, show lower catch volumes than what came in. Three boats logged at sixty percent of what you watched them offload. The discrepancy isn't hidden: anyone who stands at the dock and watches and then reads the board will see it. The community doesn't look at the board anymore. They stopped trusting it before they stopped watching.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -1043,16 +1043,16 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The children show a nutritional pattern that takes months of inadequate provision to develop.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'support') {
         G.lastResult = `The children in Fairhaven look thinner than a seasonal lean would explain. Their energy runs low by midday, faces pale in the afternoon light that comes off the water. The grain-store smell from the upper provisioner's window carries warmth when it should carry cool damp — wrong conditions for stored food. The observation is clear enough; without the training to read nutritional patterns, the cause stays out of reach.`;
-        gainXp(30, 'noting Fairhaven child nutrition pattern');
+        gainXp(15, 'noting Fairhaven child nutrition pattern');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(70, 'assessing Fairhaven community nutrition');
+      gainXp(35, 'assessing Fairhaven community nutrition');
       G.stageProgress[1]++;
       G.lastResult = `The pattern is specific: fatigue at midday, pale nail beds, a particular quality of dullness in the skin that comes from sustained protein shortfall rather than acute hunger. This isn't a bad week or a hard month — this took time to develop. Four months minimum based on presentation. The community has been under provisioned long enough that it's written in the children's bodies. Whatever the shrine's doctrine says about sufficiency and spiritual testing, the bodies don't support the narrative.`;
       if (!G.flags) G.flags = {};
@@ -1066,10 +1066,10 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The harbor master's logbook has two numbering systems. One is for something else.",
     tags: ['Pressure', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'examining harbor master logbook structure');
+      gainXp(27, 'examining harbor master logbook structure');
       const bg = G.background || '';
       let result = `The harbor master's logbook runs with two distinct entry number series: a standard sequential series beginning with H- for public dock entries, and a second series beginning with R- that appears irregularly, interspersed with the H- entries but never posted on the coordination board. R-series entries occupy roughly one in six pages. The harbor master pages past them without comment when showing the log.`;
       if (bg === 'sailor' || bg === 'merchant' || bg === 'trader') {
@@ -1084,7 +1084,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: {
     text: "The board holds the usual run of notices — a lost goat, a trading post that closed last month and hasn't been taken down, a festival date that passed. Nothing current. The harbor coordination board at the dock end is updated each morning by the harbor master's clerk. It carries arrival records, routing changes, and the occasional waypoint advisory. More recent than this one.",
     xp: 0,
@@ -1109,14 +1109,14 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The notice is current — the date field was left empty on purpose.",
     tags: ['Records', 'Observation', 'Survey'],
-    xpReward: 55,
+    xpReward: 27,
     stageProgress: 1,
     failResult: "The posting board outside the mill quarter is bare — the morning notices have been cleared and the afternoon batch is not yet pinned. The commune posts on a twice-daily rotation; whatever was there this morning is already filed.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(55, 'found undated official notice on Fairhaven posting board');
+      gainXp(27, 'found undated official notice on Fairhaven posting board');
       G.stageProgress[1]++;
       G.lastResult = "The posting board outside the mill assessor's office carries twelve notices. Eleven have dates — day, month, season marker, assessor's initial. The twelfth is current: the ink is fresh, the paper is dry, the content is administrative and specific, describing a boundary survey conducted along the eastern field corridor. The date field is blank. Not faded, not water-damaged — simply not filled in. The assessor's initial appears at the bottom. The survey apparently happened on no particular day. No one has marked the omission or pulled the notice down.";
       addJournal('Fairhaven mill quarter posting board: one current notice with deliberately blank date field — content specific, assessor-initialled, but undated. Source: mill assessor\'s office exterior board.', 'evidence');
@@ -1147,7 +1147,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The berth locks from this side. One tide window before enforcers reach the dock.",
     tags: ['Combat', 'Risk', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The berth lock is a double-bar system and the second bar has rusted into the bracket. You get the first bar clear before the harbor enforcers come around the dock shed corner. Two of them, armed with boarding pikes. The berth stays locked and the enforcers have your description in the log before the tide turns.',
@@ -1159,7 +1159,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'forcing locked berth before tide');
+      gainXp(32, 'forcing locked berth before tide');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1190,7 +1190,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Three harbor enforcers, one dock. They want me off this pier.",
     tags: ['Combat', 'Confrontation', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'Three harbor enforcers is a confrontation that ends one way on a public dock — with you in the harbor authority log and the pier cleared. You withdraw before it becomes a formal report and settle for watching the dock from the warehouse row. Whatever the pier conceals, a direct approach is closed for this tide cycle.',
@@ -1202,7 +1202,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'holding position against harbor enforcers');
+      gainXp(32, 'holding position against harbor enforcers');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1235,7 +1235,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Tide patterns don\'t repeat like this unless something upstream is holding them.",
     tags: ['Magic', 'Lore', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The tide observation requires a fixed reference point above the waterline, and the only usable one — the harbor authority\'s tidal marker post — has a restricted access radius marked in chalk on the dock. Harbor authority chalk is enforced. The marker post readings are logged and posted at the harbor gate each morning, which gives an indirect route to the same information.',
@@ -1247,7 +1247,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading tide patterns for unlogged shipment window');
+      gainXp(32, 'reading tide patterns for unlogged shipment window');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1278,7 +1278,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Harbor registry markings in the margin. Those aren\'t notations — they\'re a secondary script.",
     tags: ['Magic', 'Lore', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The harbor registry is in the morning session and the reading room is at capacity — four clerks working the current manifests and no open counter space. The marginal markings are visible from the queue but not at a usable reading distance. The afternoon session opens the archive copies, which may carry the same script if it was applied before filing.',
@@ -1290,7 +1290,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'decoding secondary script in harbor registry margin');
+      gainXp(32, 'decoding secondary script in harbor registry margin');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1322,7 +1322,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Harbor log checkpoint opens in thirty seconds. Two dockworkers between me and the gate.",
     tags: ['Stealth', 'Covert', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The harbor log checkpoint opens before the two dockworkers clear the gate. One of them is signing something at the log desk when you reach the gate angle. You have to pull back and wait on the dock side. The log entry window closes before the dockworkers finish. Your movement through the gate will be in the next log cycle.',
@@ -1334,7 +1334,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'slipping through harbor log checkpoint unlogged');
+      gainXp(32, 'slipping through harbor log checkpoint unlogged');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1366,7 +1366,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Guarded vessel, second berth from the end. Watch rotation has a gap at the stern.",
     tags: ['Stealth', 'Covert', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The gap at the stern is narrower than it appeared from the warehouse row — the second watch is running a tighter circuit than the first, and the overlap catches you at the gangplank. You are off the gangplank and back on the dock before the watch reaches the stern corner, but the motion on the gangplank is visible from the dock gate. Someone at the gate saw the movement. You do not know who.',
@@ -1378,7 +1378,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'boarding guarded vessel at stern watch gap');
+      gainXp(32, 'boarding guarded vessel at stern watch gap');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1410,7 +1410,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Dock workers are watching the harbor clerk. They know what a timed distraction costs.",
     tags: ['Support', 'NPC', 'Coordination'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The dock workers are willing but not unified — three different opinions on timing and two on method. The conversation takes long enough that the harbor clerk\'s shift rotation ends naturally and a replacement takes the desk. The distraction opportunity closes because the moment passed while you were arranging it. The dock workers disperse without incident. Nothing was risked. Nothing was gained.',
@@ -1422,7 +1422,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'coordinating dock worker distraction');
+      gainXp(32, 'coordinating dock worker distraction');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1453,7 +1453,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The harbor clerk flagged this discrepancy himself. No one has listened.",
     tags: ['Support', 'NPC', 'Persuasion'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The harbor clerk is at the midpoint of a filing cycle and he cannot pause it — the tide window for that cycle closes in twenty minutes and the entries have to be stamped before it does. He acknowledges the question and says he will be available after. After comes and he has moved on to the next cycle. Harbor clerks live in their windows. The space between windows is where conversations happen, and you missed this one.',
@@ -1465,7 +1465,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'drawing out clerk\'s flagged discrepancy');
+      gainXp(32, 'drawing out clerk\'s flagged discrepancy');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));

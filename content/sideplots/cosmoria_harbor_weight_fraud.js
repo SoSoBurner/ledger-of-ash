@@ -14,7 +14,7 @@ var COSMORIA_HARBOR_WEIGHT_FRAUD = (function() {
         addJournal(G.lastResult, 'evidence');
         (window._rawRenderChoices || window.renderChoices)([
           { id: 'harbor_check_log', text: 'The workers\' tally and the weighmaster\'s log don\'t match.', tag: 'safe',
-            action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
+            action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice');
               G.flags.harbor_fraud_rung1 = true;
               G.lastResult = 'The workers let you see their count records — kept separately, in a pocket ledger. The differences are consistent: always 8–12 percent low in the official log. Always in the same cargo class. The dock foreman has signed every discrepancy.';
               G.recentOutcomeType = 'discovery';
@@ -51,12 +51,12 @@ var COSMORIA_HARBOR_WEIGHT_FRAUD = (function() {
           addJournal(G.lastResult, 'complication');
           (window._rawRenderChoices || window.renderChoices)([
             { id: 'harbor_confront_guard', text: 'The dock guard has seen your face. He\'s coming back with someone.', tag: 'bold',
-              action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
+              action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice');
                 if (typeof enterAuthorityConfrontation === 'function') enterAuthorityConfrontation('cosmouth_archives', { context: 'harbor_guard_confrontation' });
               }
             },
             { id: 'harbor_withdraw', text: 'Pull back. The ledger isn\'t worth a dock fight.', tag: 'safe',
-              action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
+              action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice');
                 G.lastResult = 'You clear the dock before the second guard arrives. The ledger is still out there. So is the foreman\'s name.';
                 if (typeof checkStageAdvance === 'function') checkStageAdvance();
               }

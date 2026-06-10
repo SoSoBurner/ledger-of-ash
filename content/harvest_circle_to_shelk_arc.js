@@ -12,11 +12,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "The same mark on three different containers from three different places.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Harvest Circle with supply chain evidence');
+      gainXp(32, 'departing Harvest Circle with supply chain evidence');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "The transit clerk has seen too many academic transfers to care about one more.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'passing Provision Compact transit office');
+      gainXp(35, 'passing Provision Compact transit office');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -53,11 +53,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "Nann left two days before the records went under review. She took copies.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'meeting Nann on the road south');
+      gainXp(35, 'meeting Nann on the road south');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -80,12 +80,12 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "Not drift error. Someone set the threshold and calibrated just below it.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'decoding routing number anomaly as engineered offset');
+      gainXp(40, 'decoding routing number anomaly as engineered offset');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -100,11 +100,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "Same mark. This far south. On crates he empties and returns north.",
     tags: ['ArcDeepening', 'Investigation', 'Social'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'finding charter mark on road market supply crates');
+      gainXp(37, 'finding charter mark on road market supply crates');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -124,11 +124,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "Karst invented a transit category that doesn't exist in transit law.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'finding Veth Karst\'s transit authority authorization');
+      gainXp(37, 'finding Veth Karst\'s transit authority authorization');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -150,11 +150,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "Granary Steps. The loading intake feeds directly into the dome distribution network.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'arriving at Granary Steps in Shelkopolis');
+      gainXp(35, 'arriving at Granary Steps in Shelkopolis');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -175,11 +175,11 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "The charter mark is on all four maps. Someone in this office already counted.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'making contact at the Ironspool Ward factor\'s office');
+      gainXp(40, 'making contact at the Ironspool Ward factor\'s office');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -204,12 +204,12 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
     label: "Routing anomalies, mark matches, and a picture that only makes sense as a plan.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.harvest_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to following supply chain to Shelkopolis');
+      gainXp(40, 'committing to following supply chain to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.harvest_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

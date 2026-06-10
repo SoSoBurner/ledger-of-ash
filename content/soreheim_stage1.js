@@ -10,11 +10,11 @@ var SOREHEIM_STAGE1 = (function() {
 
     (window._rawRenderChoices || window.renderChoices)([
       { id: 'interim_investigate', plot: 'main', text: 'The dockworker would know why the numbers don\'t match.', tag: 'bold',
-        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); investigateRegistry(); } },
+        action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); investigateRegistry(); } },
       { id: 'interim_observe', plot: 'main', text: 'Watch the man in the clan coat.', tag: 'safe',
-        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); observeClanAgent(); } },
+        action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); observeClanAgent(); } },
       { id: 'interim_ignore', plot: 'main', text: 'This is not your matter. Move on.', tag: 'safe',
-        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); ignoreHook(); } }
+        action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); ignoreHook(); } }
     ]);
   }
 
@@ -51,11 +51,11 @@ var SOREHEIM_STAGE1 = (function() {
   function showResolution() {
     (window._rawRenderChoices || window.renderChoices)([
       { id: 'interim_expose', plot: 'main', text: 'Take the evidence to the Soreheim registry oversight office — make it formal.', tag: 'risky',
-        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); resolveExpose(); } },
+        action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); resolveExpose(); } },
       { id: 'interim_correct', plot: 'main', text: 'Quietly correct the ledger entry through a sympathetic clerk.', tag: 'bold',
-        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); resolveCorrect(); } },
+        action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); resolveCorrect(); } },
       { id: 'interim_confront', plot: 'main', text: 'Confront the Vorrk agent directly — demand a formal accounting.', tag: 'risky',
-        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); resolveConfront(); } }
+        action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); resolveConfront(); } }
     ]);
   }
 

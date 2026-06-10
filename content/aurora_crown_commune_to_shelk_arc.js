@@ -12,11 +12,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Three documents together say something none of them say alone.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Aurora Crown with dome substitution documentation');
+      gainXp(32, 'departing Aurora Crown with dome substitution documentation');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Four days before the inspection teams arrive. South before they do.",
     tags: ['ArcRoad', 'Survival', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'departing before Collegium inspection window');
+      gainXp(35, 'departing before Collegium inspection window');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -53,11 +53,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Orren left a message at the waystation. He signed with his qualification number.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'finding Orren\'s message at the southern waystation');
+      gainXp(35, 'finding Orren\'s message at the southern waystation');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Orren's note is folded into a plain envelope with no name on the front — the waystation keeper hands it over when you describe him. The text is precise: the dome manifold pressure differential corresponds to a source flow rate of 0.3 cubic metres per day. Full residential zone saturation at that rate falls between ninety and one hundred ten days from the substitution start. He calculated the start date as four months ago. He underlines the next sentence: saturation threshold may already be reached. He signed with his qualification number rather than his name.`;
@@ -74,12 +74,12 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Below threshold, nothing. Above it, six weeks of cover built into the compound.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'calculating exposure timeline from filtration documentation');
+      gainXp(40, 'calculating exposure timeline from filtration documentation');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -94,11 +94,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Solind is on the same road. Her pace doesn't adjust to mine.",
     tags: ['ArcDeepening', 'Stealth', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'assessing whether Solind is following or parallel-tracking');
+      gainXp(37, 'assessing whether Solind is following or parallel-tracking');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -116,11 +116,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Three patients from the same road, same week, same symptoms. Seasonal, she says.",
     tags: ['ArcDeepening', 'Survival', 'Lore'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'observing symptom cluster at roadside healer');
+      gainXp(37, 'observing symptom cluster at roadside healer');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -142,11 +142,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Same chassis. Same input manifolds. Same maintenance access points.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'recognizing dome architecture match between cities');
+      gainXp(35, 'recognizing dome architecture match between cities');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -167,11 +167,11 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Someone in Aurora Heights has been building the same comparison for two months.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'making contact at Aurora Heights technical archive');
+      gainXp(40, 'making contact at Aurora Heights technical archive');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -196,12 +196,12 @@ const AURORA_CROWN_TO_SHELK_ARC = [
     label: "Aurora Crown didn't end the operation. It proved the method works.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.aurora_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to bring dome evidence to Shelkopolis');
+      gainXp(40, 'committing to bring dome evidence to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.aurora_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

@@ -12,11 +12,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "The data is in my head now. They cannot take that back.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Glasswake with suppressed shard data');
+      gainXp(32, 'departing Glasswake with suppressed shard data');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "Fen is going the other direction. The data doesn't die with me.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'coordinating with Fen on distributing study copies');
+      gainXp(35, 'coordinating with Fen on distributing study copies');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Fen is heading northeast, not south, and you do not tell her your destination. She hands you a folded copy of the appendix methodology before you part. "Any materials chemist with the right equipment can reproduce the findings from this alone," she says. "The concentration calculations are derivable from the methodology independently." She does not say what she means directly. What she means is: if you are stopped, the data does not die with you.`;
@@ -48,11 +48,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "The monitoring contract covers researcher departures. I am, for the record, a courier.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'circumventing consortium transit monitoring');
+      gainXp(35, 'circumventing consortium transit monitoring');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -74,12 +74,12 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "Toman's numbers say twice the reach. They held the data that proved they knew.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'unpacking consortium liability calculation from Toman\'s notes');
+      gainXp(40, 'unpacking consortium liability calculation from Toman\'s notes');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -94,11 +94,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "Winn sent something south three weeks ago. The channel she chose matters.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'tracing Winn\'s forwarded message south');
+      gainXp(37, 'tracing Winn\'s forwarded message south');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -118,11 +118,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "Permanent. The only intervention that matters is before it enters the system.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'understanding the permanent nature of the shard amplification effect');
+      gainXp(37, 'understanding the permanent nature of the shard amplification effect');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -139,11 +139,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "The Institute's sensors won't catch what I'm carrying until it's too late.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'orienting toward the Atmospheric Sciences Institute');
+      gainXp(35, 'orienting toward the Atmospheric Sciences Institute');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -158,11 +158,11 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "The cipher is useless without someone who can read it formally.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'finding contact to decode cipher and formalize shard data');
+      gainXp(40, 'finding contact to decode cipher and formalize shard data');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -187,12 +187,12 @@ const GLASSWAKE_TO_SHELK_ARC = [
     label: "Without this data, the contamination looks like an accident.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.glasswake_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to carry shard data to Shelkopolis');
+      gainXp(40, 'committing to carry shard data to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.glasswake_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

@@ -9,14 +9,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Shard output tracks against external glyph pressure events. The shards respond to engineered surges.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'reviewing glasswake shard glyph correlation with Toman Iceveil');
+      gainXp(41, 'reviewing glasswake shard glyph correlation with Toman Iceveil');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -42,14 +42,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A suppression order names four specific research conclusions. Together they describe the full mechanism.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'analyzing suppression order contents with Lenna Bannerhold');
+      gainXp(39, 'analyzing suppression order contents with Lenna Bannerhold');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -75,14 +75,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The research and suppression order form a complete package. It needs a protected channel.",
     tags: ['Investigation', 'Craft', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(84, 'routing Toman Iceveil research through protected publication channel');
+      gainXp(42, 'routing Toman Iceveil research through protected publication channel');
 
 
       if (!G.worldClocks) G.worldClocks = {};
@@ -114,14 +114,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A second data set: shard resonance across three clear-sky windows. The amplification is timed.",
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'tracing timed shard resonance pattern with Toman Iceveil');
+      gainXp(40, 'tracing timed shard resonance pattern with Toman Iceveil');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -149,10 +149,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The pylons go dark at low-observation hours. The glyph gradient is readable from the trench.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'reading glyph pressure gradient at the shard formation site');
+      gainXp(40, 'reading glyph pressure gradient at the shard formation site');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -180,10 +180,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A procedural breach flagged. The Concord requires collective sign-off before field access.",
     tags: ['Stage2', 'Persuasion'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'navigating collective process breach with Lenna Bannerhold');
+      gainXp(40, 'navigating collective process breach with Lenna Bannerhold');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -212,14 +212,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The containment warden's field book has two readings absent from the posted log.",
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'comparing containment warden field book against redacted official pylon logs');
+      gainXp(32, 'comparing containment warden field book against redacted official pylon logs');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_containment_warden_pita = true;
@@ -245,14 +245,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression authority's courier left a receipt. The return address isn't in any public registry.",
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'tracing suppression authority courier transit receipt return address');
+      gainXp(32, 'tracing suppression authority courier transit receipt return address');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.suppression_authority_traced = true;
@@ -278,10 +278,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The disposal schedule changed. New hours run when no assessor is on shift.",
     tags: ['Stage2', 'Survival'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing waste shard disposal schedule change at glasswake commune');
+      gainXp(34, 'tracing waste shard disposal schedule change at glasswake commune');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -307,14 +307,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Four years of glyph readings. The last six months don't resemble the earlier record.",
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining glasswake ambient glyph archive for anomalous spike pattern');
+      gainXp(34, 'examining glasswake ambient glyph archive for anomalous spike pattern');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -340,14 +340,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Formula notes in an unrecognized hand inside a returned text. Lenna hasn't decided yet.",
     tags: ['Stage2', 'NPC'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'navigating Lenna Bannerhold compound formula discovery');
+      gainXp(34, 'navigating Lenna Bannerhold compound formula discovery');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -373,14 +373,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A Mimolot researcher arrived and left abruptly. Four words in the visitor log.",
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing Mimolot visitor departure at glasswake commune');
+      gainXp(34, 'tracing Mimolot visitor departure at glasswake commune');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -406,14 +406,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The deviation notes are in a second book at the pylon base.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'accessing Pita Sormund off-record pylon route deviation log');
+      gainXp(34, 'accessing Pita Sormund off-record pylon route deviation log');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -440,14 +440,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The board restricted glyph research eight months ago. The record names who proposed it.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing glasswake commune governance restriction vote record');
+      gainXp(34, 'tracing glasswake commune governance restriction vote record');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -473,14 +473,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The third-watch disposal partner keeps a private tally. It doesn't agree with the run sheets.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing Fen Ashmark disposal partner private shard tally');
+      gainXp(34, 'cross-referencing Fen Ashmark disposal partner private shard tally');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -505,14 +505,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The pylon circuit board is exposed. The timing config isn't from the commune's spec.",
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading glyph pylon timing configuration during maintenance cycle');
+      gainXp(34, 'reading glyph pylon timing configuration during maintenance cycle');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -538,10 +538,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A shard fragment in the lab carries residue that doesn't match the formation's mineral signature.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining shard fragment residue in glasswake containment lab');
+      gainXp(34, 'examining shard fragment residue in glasswake containment lab');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -567,14 +567,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Six months ago a delivery bypassed the standard weighing station. No record of why.",
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing off-scale supply intake manifest at glasswake commune');
+      gainXp(34, 'tracing off-scale supply intake manifest at glasswake commune');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -599,14 +599,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Orend Cavel keeps office hours in the north wing. His meeting calendar is posted outside.",
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'observing Orend Cavel office meeting calendar and correspondence patterns');
+      gainXp(34, 'observing Orend Cavel office meeting calendar and correspondence patterns');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -631,10 +631,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Trench soil residue readable at the surface. The gradient points toward the source.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading compound residue gradient in glasswake disposal trench soil');
+      gainXp(34, 'reading compound residue gradient in glasswake disposal trench soil');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -659,7 +659,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The full mechanism is confirmed. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -697,14 +697,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Two monitoring stations read the same formation. Their numbers have never matched.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'comparing dual-station contamination monitoring discrepancy at glasswake');
+      gainXp(35, 'comparing dual-station contamination monitoring discrepancy at glasswake');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -734,14 +734,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The contamination boundary shrank six months ago. The shards didn't.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'cross-referencing contamination boundary reduction against shard field extent');
+      gainXp(36, 'cross-referencing contamination boundary reduction against shard field extent');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -771,14 +771,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman's original suppression request listed a secondary reviewer. That name is blank now.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracing secondary reviewer erasure on Toman Iceveil suppression request');
+      gainXp(37, 'tracing secondary reviewer erasure on Toman Iceveil suppression request');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -808,14 +808,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The quarterly contamination report omits the northwest cluster entirely.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'auditing quarterly contamination report for northwest cluster omission');
+      gainXp(34, 'auditing quarterly contamination report for northwest cluster omission');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -847,14 +847,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman keeps his most recent fieldwork separate. He calls the folder 'personal notes'.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'gaining access to Toman Iceveil personal fieldwork folder');
+      gainXp(37, 'gaining access to Toman Iceveil personal fieldwork folder');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -884,14 +884,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Lenna pulled the submission logs herself before I arrived. She was already counting.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'learning what Lenna Bannerhold already found in the submission logs');
+      gainXp(36, 'learning what Lenna Bannerhold already found in the submission logs');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -921,14 +921,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman filed a formal complaint once. He won't say what happened to it.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'getting Toman Iceveil to speak about his filed formal complaint');
+      gainXp(39, 'getting Toman Iceveil to speak about his filed formal complaint');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -958,14 +958,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Lenna's been marking the suppression files with a private notation system.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'decoding Lenna Bannerhold private notation system in suppression files');
+      gainXp(37, 'decoding Lenna Bannerhold private notation system in suppression files');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -995,14 +995,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman and Lenna met once before I arrived. That meeting left a mark.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'reading Toman Iceveil and Lenna Bannerhold prior meeting dynamic');
+      gainXp(38, 'reading Toman Iceveil and Lenna Bannerhold prior meeting dynamic');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1034,14 +1034,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The hold mechanism is automated. No person has to sign off on individual suppressions.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'mapping automated suppression routing mechanism at glasswake commune');
+      gainXp(39, 'mapping automated suppression routing mechanism at glasswake commune');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1071,14 +1071,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The secondary review queue has no assigned reviewers. Submissions go in and stop.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'auditing the empty secondary review queue at glasswake commune research office');
+      gainXp(38, 'auditing the empty secondary review queue at glasswake commune research office');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1110,14 +1110,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The same NGOC routing code appears on a suppression order filed at Cosmouth.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'tracing NGOC routing code match between glasswake and cosmouth suppression orders');
+      gainXp(40, 'tracing NGOC routing code match between glasswake and cosmouth suppression orders');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1147,14 +1147,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A Shelkopolis civic register lists NGOC. That address is a postal relay node.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'tracing Northern Glyph Oversight Commission address to Shelkopolis relay node');
+      gainXp(41, 'tracing Northern Glyph Oversight Commission address to Shelkopolis relay node');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1186,14 +1186,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The allocation records show water going somewhere not on the map',
     plot: 'main',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'water allocation diversion');
+      gainXp(10, 'water allocation diversion');
       G.lastResult = 'The allocation ledger lists disbursement points by grid reference. All but one match a location on the commune\'s posted infrastructure map. The last entry — consistent, seasonal, a significant volume — references a grid point that does not correspond to any listed infrastructure, distribution point, or storage basin. It has been there for four seasons. The steward who pulls the ledger for you does not comment on it.';
       addJournal('Glasswake Commune water allocation records show regular disbursements to an unlisted grid reference — four seasons of entries, no infrastructure match. Source: Glasswake Commune allocation office.', 'evidence');
       G.recentOutcomeType = 'success';
@@ -1205,14 +1205,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The steward answers carefully. Her job requires outside relationships',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'steward NPC agenda');
+      gainXp(7, 'steward NPC agenda');
       G.lastResult = 'She does not lie. She is precise about what she says and what she does not say. Every answer describes Glasswake\'s position relative to external bodies — what the commune owes, what it has agreed to, what the review schedule requires. She is protecting the relationships that keep the commune functioning. Anything that threatens those relationships does not get a direct answer. She confirms what is already documented. She does not add to it.';
       addJournal('The Glasswake Commune steward answered questions carefully — only confirming documented positions, deflecting anything that could affect external relationships. Source: Glasswake Commune steward office.', 'intelligence');
       G.recentOutcomeType = 'success';
@@ -1224,14 +1224,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The allocation anomaly predates the current steward by two seasons',
     plot: 'main',
     tags: ['Records', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'pre-steward anomaly');
+      gainXp(7, 'pre-steward anomaly');
       G.lastResult = 'The current steward took her post six seasons ago. The unlisted allocation entry begins eight seasons ago. She did not create it. She inherited it. Which means she found it, evaluated it, and chose to leave it in place — or was told to. The entry is in the same handwriting as the surrounding entries for its first two seasons, then shifts to the current steward\'s notation style. She updated it. She knows exactly what it is.';
       addJournal('The Glasswake allocation anomaly predates the current steward by two seasons — she subsequently updated the notation style, confirming awareness. Source: Glasswake Commune allocation records, handwriting comparison.', 'intelligence');
       G.recentOutcomeType = 'success';
@@ -1244,14 +1244,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The commune knows about the upstream supply issue. They haven\'t reported it',
     plot: 'main',
     tags: ['Discovery', 'Evidence'],
-    xpReward: 25,
+    xpReward: 12,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(25, 'unreported upstream discovery');
+      gainXp(12, 'unreported upstream discovery');
       G.lastResult = 'The upstream measurement posts report flow volume to the guild on a quarterly schedule. Glasswake keeps its own measurements daily — internal only, not submitted. The internal logs show volume consistently lower than the guild\'s posted upstream figures for the past three seasons. The commune is receiving less than the guild\'s records show. Either the guild\'s upstream measurements are wrong or the difference is going somewhere. No discrepancy report has been filed.';
       addJournal('Glasswake Commune internal water measurements show consistent shortfall versus guild upstream figures for three seasons — no discrepancy report filed. Source: Glasswake internal measurement logs.', 'evidence');
       G.recentOutcomeType = 'success';
@@ -1265,7 +1265,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     plot: 'main',
     skill: 'spirit',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1291,7 +1291,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Confrontation'],
     plot: 'main',
     skill: 'might',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       var result = rollD20('might', {dc: 13, locality: 'glasswake_commune', label: 'Monitoring post bluff'});
       if (result.isCrit) {
@@ -1313,7 +1313,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     plot: 'main',
     skill: 'charm',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);

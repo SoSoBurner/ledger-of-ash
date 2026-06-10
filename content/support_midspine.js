@@ -12,7 +12,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     label: "Both factions want the findings first. Whoever I answer second remembers the order.",
     plot: 'main',
     tags: ['Midspine', 'Support', 'Decision'],
-    xpReward: 85,
+    xpReward: 42,
     condition: function() {
       return G.archetype && G.archetype.group === 'support'
         && G.stage === 'Stage I'
@@ -22,7 +22,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'navigating the factional loyalty test');
+      gainXp(42, 'navigating the factional loyalty test');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
@@ -52,7 +52,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     label: "The resources come with a name attached. The name is what they actually want.",
     plot: 'main',
     tags: ['Midspine', 'Support', 'Decision'],
-    xpReward: 90,
+    xpReward: 45,
     condition: function() {
       return G.archetype && G.archetype.group === 'support'
         && G.stage === 'Stage I'
@@ -63,7 +63,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(90, 'evaluating the formal affiliation offer');
+      gainXp(45, 'evaluating the formal affiliation offer');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -93,7 +93,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     label: "One of them will move first. I choose which, without saying I chose.",
     plot: 'main',
     tags: ['Midspine', 'Support', 'Decision'],
-    xpReward: 95,
+    xpReward: 47,
     condition: function() {
       return G.archetype && G.archetype.group === 'support'
         && G.stage === 'Stage I'
@@ -104,7 +104,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(95, 'establishing quiet factional alignment');
+      gainXp(47, 'establishing quiet factional alignment');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 

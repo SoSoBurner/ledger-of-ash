@@ -10,14 +10,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Diplomatic transit arrivals not logged in the main registry. Only in a shadow sub-register.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'exposing arrival registry shadow sub-register with Vale Brokerwell');
+      gainXp(35, 'exposing arrival registry shadow sub-register with Vale Brokerwell');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -44,14 +44,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Parties from prior mediations have now appeared in the same network. The records cross-identify them.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing mediation participants with Vale Ledgermere');
+      gainXp(34, 'cross-referencing mediation participants with Vale Ledgermere');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
@@ -75,14 +75,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Patients with low-level exposure symptoms. All Unity Square residents near the coordination meeting points.",
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Tinmarch\'s street-side dispensary closes early — a clerk you don\'t recognize is at the half-door with the ledger sleeve and a polite, fixed refusal. The tenement row behind the inspection shed is quiet at this hour. The patient list stays with the doctor. You step back into the carrier lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'reviewing suppression exposure symptoms with street physician Vale Tinmarch');
+      gainXp(33, 'reviewing suppression exposure symptoms with street physician Vale Tinmarch');
 
 
       if (!G.worldClocks) G.worldClocks = {};
@@ -110,14 +110,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "A second shadow ledger he didn't build. The handwriting isn't his.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'second shadow ledger discovered via Vale Brokerwell escalation');
+      gainXp(35, 'second shadow ledger discovered via Vale Brokerwell escalation');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -146,14 +146,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Unlogged arrival, consignment weight matching no known cargo class. The staging point is traceable.",
     skill: 'finesse',
     tags: ['Stage2', 'Registry'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing unlogged consignment weight back through loading lane manifests');
+      gainXp(34, 'tracing unlogged consignment weight back through loading lane manifests');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -181,14 +181,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The mediation spills into the open court. One party thinks I'm here to document them.",
     skill: 'charm',
     tags: ['Stage2', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'navigating mistaken-identity friction in ward mediation session');
+      gainXp(33, 'navigating mistaken-identity friction in ward mediation session');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -216,14 +216,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'cross-referencing tally tower clerk observations with shadow register entries');
+      gainXp(32, 'cross-referencing tally tower clerk observations with shadow register entries');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_tally_clerk_fera = true;
@@ -250,14 +250,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The lamplit windows of the third-floor counting room go dark at the strike of the second bell — somebody upstairs knew the timing of your arrival to the minute. The stacked counting house holds its facade in the pre-dawn cold. You pull your coat collar and walk past as if you had business elsewhere.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'observing the unindexed counting house during off-hours');
+      gainXp(32, 'observing the unindexed counting house during off-hours');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.counting_house_interior_seen = true;
@@ -284,14 +284,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'extracting route and timing intelligence from the arbitration runner');
+      gainXp(34, 'extracting route and timing intelligence from the arbitration runner');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -319,14 +319,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing unindexed charter series absence in Ward tax records');
+      gainXp(35, 'tracing unindexed charter series absence in Ward tax records');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -353,14 +353,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Tinmarch's patient remembers which days she got worse. Those days have a pattern.",
     skill: 'vigor',
     tags: ['Stage2', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'interviewing consenting patient about symptom timeline');
+      gainXp(33, 'interviewing consenting patient about symptom timeline');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -385,14 +385,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Without a signature, the diplomatic exemptions expire. One administrator has been signing every renewal.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing diplomatic exemption renewal signatures to institutional enabler');
+      gainXp(34, 'tracing diplomatic exemption renewal signatures to institutional enabler');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -418,14 +418,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The northern laneway gatekeeper post goes unstaffed on a schedule. Someone set that schedule.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The gatekeeper\'s booth is staffed today — by a face you do not know, in a coat that doesn\'t match the standard ward-guard cut. He looks at you the way a tally clerk looks at a discrepancy. You turn the lane corner and let the covered loading shed take you out of his line of sight.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'examining gatekeeper post logs for deliberate scheduling gaps');
+      gainXp(33, 'examining gatekeeper post logs for deliberate scheduling gaps');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -451,7 +451,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The hub is confirmed. Expose the shadow register or intercept the final meeting.",
     skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -487,14 +487,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Archive'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing overlapping awning territory dispute filings in Unity Square registry');
+      gainXp(34, 'tracing overlapping awning territory dispute filings in Unity Square registry');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
@@ -525,14 +525,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing perpetual tally exemption in Unity Square tally tower night log');
+      gainXp(33, 'tracing perpetual tally exemption in Unity Square tally tower night log');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
@@ -563,14 +563,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'tracing street physician supply reroute through Unity Square bonding house');
+      gainXp(33, 'tracing street physician supply reroute through Unity Square bonding house');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
       if (result.isCrit) {
@@ -601,14 +601,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The notice board has a gap where something was taken down",
     skill: 'wits',
     tags: ['Records', 'Observation', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A vendor row clerk approaches the board with a fresh stack of bulletins before you can examine the gap closely — the new postings cover the unmarked nail-holes in three quick stamps. The vendor row goes back to its hum. You walk on. Whatever was there yesterday is not there today, and now never was.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'notice board gap');
+      gainXp(7, 'notice board gap');
       G.lastResult = 'The board is full except for one section — four pins still in the wood, a faint rectangle where the paper absorbed less weather. Something was posted there long enough to leave a mark, then pulled. The surrounding notices are dated this week. The gap is older. A clerk from the hall passes without glancing at the board. She knows what was there.';
       addJournal('A section of the Unity Square notice board shows evidence of a recently removed posting — four pins remain, weathering marks intact. Source: Unity Square public board, morning.', 'intelligence', `unity-noticeboard-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -620,14 +620,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "A civic functionary answers a procedural question with the wrong procedure",
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'procedural inconsistency');
+      gainXp(7, 'procedural inconsistency');
       G.lastResult = 'He gives you the form. Standard process, he says: three copies, stamp from the hall, submit at the eastern window. He says it the way someone who has said it a thousand times says it — but the eastern window has been handling cargo appeals for two seasons. Administrative submissions moved to the northern annex last year. He either does not know or is directing you somewhere that will not process what you are bringing.';
       addJournal('A Unity Square civic official gave outdated processing instructions — directing to a window that no longer handles that category. Source: Unity Square hall, morning duty officer.', 'intelligence', `unity-procedure-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -640,14 +640,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Social', 'Observation', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'faction friction observation');
+      gainXp(10, 'faction friction observation');
       G.lastResult = 'Both are in the square at the same time. One handles transport contracts, the other arbitration filings — they used to coordinate on disputed shipments. Now one is at the fountain, one at the hall steps, and neither has looked in the other direction. The usual handoff point between their roles is empty. Whatever split them has left a gap in the square administrative rhythm that everyone else is working around.';
       addJournal('Two Unity Square guild representatives who normally coordinate are visibly not speaking. Their usual handoff point was unmanned. Source: Unity Square, afternoon observation.', 'intelligence', `unity-guildreps-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -660,14 +660,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "A street crier's route ends earlier than it used to",
     skill: 'wits',
     tags: ['Rumor', 'Observation', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'crier route change');
+      gainXp(7, 'crier route change');
       G.lastResult = 'The morning crier cuts his circuit short at the square northern edge. He used to continue through the registry lane — you can tell by the wear pattern on the cobblestones and the hooks for announcement boards that are now bare. A stall vendor nearby says the crier route changed "a few months back." She does not know why. She does not think it is strange. It is strange.';
       addJournal('The Unity Square morning crier\'s route ends before the registry lane — his circuit was shortened at some point in the past few months. Source: Unity Square, stall vendor near the northern edge.', 'rumor', `unity-crier-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -682,14 +682,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing secondary notations in the arrival registry');
+      gainXp(36, 'tracing secondary notations in the arrival registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
@@ -718,14 +718,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'auditing the holding classification in the arrival registry');
+      gainXp(34, 'auditing the holding classification in the arrival registry');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -751,14 +751,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'cross-referencing charter party arrival intervals');
+      gainXp(37, 'cross-referencing charter party arrival intervals');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -784,14 +784,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'examining the unsigned central registry directive');
+      gainXp(35, 'examining the unsigned central registry directive');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -817,14 +817,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'cross-checking cargo weights against suppression compound volumes');
+      gainXp(39, 'cross-checking cargo weights against suppression compound volumes');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -850,14 +850,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'cross-referencing the registry gap with ward security review dates');
+      gainXp(32, 'cross-referencing the registry gap with ward security review dates');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -885,14 +885,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Mediation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'tracing the third-party listing on bypass forms');
+      gainXp(36, 'tracing the third-party listing on bypass forms');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -918,14 +918,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Mediation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'tracing mediation bypass counter relocations');
+      gainXp(33, 'tracing mediation bypass counter relocations');
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -951,14 +951,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Mediation', 'Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'correlating bypass filing spikes with transit arrival clusters');
+      gainXp(38, 'correlating bypass filing spikes with transit arrival clusters');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -985,14 +985,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Mediation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(71, 'examining sealed administrative exemption bypass routing');
+      gainXp(35, 'examining sealed administrative exemption bypass routing');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -1018,14 +1018,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Mediation', 'Observation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The north-gate boundary stone sits in plain sight under the lantern-arch, the older shadow of its previous bedding still visible in the paving when the light is right. Two ward officers are at the gate post the entire afternoon. You walk the perimeter once and head back into the square without pausing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'documenting the north gate ward boundary marker relocation');
+      gainXp(33, 'documenting the north gate ward boundary marker relocation');
       if (!G.flags) G.flags = {};
       const result = rollD20('survival', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -1053,14 +1053,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'comparing Brokerwell\'s personal archive against the official record');
+      gainXp(37, 'comparing Brokerwell\'s personal archive against the official record');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -1086,14 +1086,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['NPC', 'Mediation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(69, 'documenting bypass processing during Ledgermere\'s absence');
+      gainXp(34, 'documenting bypass processing during Ledgermere\'s absence');
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -1119,14 +1119,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'cross-referencing Tinmarch\'s patient log against the registry gap');
+      gainXp(35, 'cross-referencing Tinmarch\'s patient log against the registry gap');
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -1152,14 +1152,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(77, 'tracing unregistered arrivals through Tinmarch\'s patient records');
+      gainXp(38, 'tracing unregistered arrivals through Tinmarch\'s patient records');
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -1185,14 +1185,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reading Brokerwell\'s margin notes in the transit ledger');
+      gainXp(36, 'reading Brokerwell\'s margin notes in the transit ledger');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -1218,14 +1218,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'learning from Tinmarch about pre-registry tenement deliveries');
+      gainXp(34, 'learning from Tinmarch about pre-registry tenement deliveries');
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -1253,14 +1253,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Cargo', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(79, 'matching transit routing codes to Guildheart Hub outbound manifests');
+      gainXp(39, 'matching transit routing codes to Guildheart Hub outbound manifests');
       if (!G.flags) G.flags = {};
       const result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -1286,14 +1286,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Cargo', 'Observation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The eastern alley has been swept and re-cobbled this morning — too clean to hold the print of any handoff. A carrier in unmarked greys clocks you at the alley mouth and turns to a side door before you can read his guild ribbon. You walk past the inspection shed in the other direction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'documenting the eastern alley cargo handoff outside oversight hours');
+      gainXp(37, 'documenting the eastern alley cargo handoff outside oversight hours');
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -1317,14 +1317,14 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Cargo', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'locating the unmapped staging point for cross-district freight');
+      gainXp(41, 'locating the unmapped staging point for cross-district freight');
       if (!G.flags) G.flags = {};
       const result = rollD20('survival', (G.skills.vigor||0));
       if (result.isCrit) {

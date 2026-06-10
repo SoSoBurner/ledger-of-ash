@@ -11,14 +11,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The sealed charter pattern appears in three filed freight exemptions. Not once by accident.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'reviewing union freight charter exemptions');
+      gainXp(40, 'reviewing union freight charter exemptions');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_sable_ledgermere = true;
@@ -46,14 +46,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three charter-exempt batches loaded at unusual hours without standard inspection.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'questioning freight porter Luthen Ledgermere');
+      gainXp(36, 'questioning freight porter Luthen Ledgermere');
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_luthen_ledgermere = true;
@@ -78,14 +78,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "An import category has been zero-rated at the tariff counter for eight consecutive months.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining systematically zero-rated imports with Derris Ledgermere');
+      gainXp(34, 'examining systematically zero-rated imports with Derris Ledgermere');
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_derris_ledgermere = true;
@@ -110,14 +110,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A regular arbiter guest, working on something for months. She won't name it.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'questioning innkeeper Cala Ledgermere about trade arbiter guests');
+      gainXp(33, 'questioning innkeeper Cala Ledgermere about trade arbiter guests');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_cala_ledgermere = true;
@@ -144,14 +144,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Two conversations at the shrine alcove between parties who should not know each other.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'speaking with shrine attendant Nyra Ledgermere');
+      gainXp(32, 'speaking with shrine attendant Nyra Ledgermere');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_nyra_ledgermere = true;
@@ -177,7 +177,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Selene Brokerwell filed three subsidiary archive requests the same week the charter rider renewed.",
     tags: ['stage2', 'guildheart_hub'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -203,7 +203,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Bay seven crane has chalk marks that don't appear on any active freight manifest.",
     tags: ['stage2', 'guildheart_hub'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -228,7 +228,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Sanction Board queue runs on strict rotation. Cutting it resolves this. The room notices.",
     tags: ['stage2', 'guildheart_hub'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('finesse', G.skills.finesse);
@@ -254,14 +254,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The mystery broker's registration renews monthly. The clerks don't read the attached rider.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing monthly provisional registration renewal at Guildheart Hub');
+      gainXp(34, 'tracing monthly provisional registration renewal at Guildheart Hub');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -288,14 +288,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The notary cipher on the renewal rider should match an active seal. It doesn't.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'cross-referencing Shelk notary cipher against active seal registry');
+      gainXp(36, 'cross-referencing Shelk notary cipher against active seal registry');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -322,14 +322,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The manifest waypoint isn't in the Union registry. It's in a private Shelk charter annex.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'locating northeast waypoint in Shelk charter annex');
+      gainXp(35, 'locating northeast waypoint in Shelk charter annex');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -355,14 +355,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The arbiter filed the tariff exemption review as complete. He never did it.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'confronting Guild Arbiter over fraudulent review completion');
+      gainXp(33, 'confronting Guild Arbiter over fraudulent review completion');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -388,14 +388,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The import stamp belongs to a cultural attaché not stationed here for three years.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'tracing Panim cultural attaché stamp on memorial import classification');
+      gainXp(32, 'tracing Panim cultural attaché stamp on memorial import classification');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -421,14 +421,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three charter-exempt loads never insured. The broker signed a waiver he can't explain.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing uninsured charter-exempt loads at Union bonding house');
+      gainXp(34, 'tracing uninsured charter-exempt loads at Union bonding house');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -456,14 +456,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Coverage gaps during all three off-hours loading windows. Same shift supervisor signed off each time.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'examining Guild Watchers duty roster for coverage gaps');
+      gainXp(35, 'examining Guild Watchers duty roster for coverage gaps');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -489,14 +489,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The volume assigned to that transit node exceeds declared capacity by a factor of four.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'cross-referencing Ithtananalor transit node capacity against assigned volume');
+      gainXp(33, 'cross-referencing Ithtananalor transit node capacity against assigned volume');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -521,14 +521,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The ink-seal press has residue from a non-standard compound. It printed more than charter marks.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining Union ink-seal press for non-standard compound residue');
+      gainXp(36, 'examining Union ink-seal press for non-standard compound residue');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -553,14 +553,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The fire report was reclassified as maintenance. The original described smoke damage to exemption files.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'locating reclassified archive fire report for the charter exemption subroom');
+      gainXp(32, 'locating reclassified archive fire report for the charter exemption subroom');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -585,14 +585,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The labor guild grievance about the off-hours crews was withdrawn. No resolution.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing withdrawn labor guild grievance about off-hours loading crews');
+      gainXp(33, 'tracing withdrawn labor guild grievance about off-hours loading crews');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -618,14 +618,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Sanction Board record lists her as a hearing witness. She was never called.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'locating uncontacted witness named in Sanction Board charter hearing record');
+      gainXp(34, 'locating uncontacted witness named in Sanction Board charter hearing record');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -652,14 +652,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A standing amendment to the exemption category. Nobody signed it. Filed as a clerical correction.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'examining unsigned standing amendment in charter exemption category registry');
+      gainXp(32, 'examining unsigned standing amendment in charter exemption category registry');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -684,7 +684,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The charter, the imports, the shrine exchange — a complete financing chain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -716,14 +716,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Toven at the routing desk has seen Collegium manifests — the numbering is wrong.",
     tags: ['Collegium', 'Stage2', 'Intelligence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'Guildheart Collegium factor');
+      gainXp(36, 'Guildheart Collegium factor');
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit || result.total >= 13) {
         G.flags.met_factor_toven = true;
@@ -748,14 +748,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A Collegium order sits in the transit records with no freight category assigned.",
     tags: ['Collegium', 'Stage2', 'Evidence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'Guildheart Collegium sealed order');
+      gainXp(34, 'Guildheart Collegium sealed order');
       var result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -781,10 +781,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Arbiter alcove has a third chair today.",
     tags: ['Collegium', 'Stage2', 'Faction'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'noticing the moved Arbiter alcove chair');
+      gainXp(30, 'noticing the moved Arbiter alcove chair');
       G.flags.stage2_faction_collegium_aware = true;
       G.lastResult = 'The alcove off the charter hall seats two Arbiters by bench design — a reading chair and a writing chair, fixed. A third chair has been carried in from the clerks row and set at an angle that puts its back to the doorway. The runner on the floor is indented in two places where a heavier chair used to stand. Sable passes the alcove without looking in. Her thumb adjusts the edge of her reference index as she goes, which is what she does when she wants to be seen being busy. Someone from outside the registry is sitting audit in that alcove, and no one on the floor is being told.';
       addJournal('Guildheart Arbiter alcove — third chair placed against protocol, registry staff avoiding the sightline', 'intelligence', `guild-collegium-aware-${G.dayCount}`);
@@ -796,7 +796,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Whoever sits that chair wants something filed.",
     tags: ['Collegium', 'Stage2', 'Faction', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -807,7 +807,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'approaching the Collegium auditor in the alcove');
+      gainXp(36, 'approaching the Collegium auditor in the alcove');
       G.flags.met_auditor_peregrin_vas = true;
       G.flags.stage2_faction_collegium_contacted = true;
       G.lastResult = 'The auditor is an older man in a plain grey coat with no guild mark and a single Collegium cipher stitched at the cuff. He does not rise. He turns the third chair so it faces you and taps the arm twice — an invitation that is also a timing cue. "Peregrin Vas. Oversight." He does not offer a title. His tell is a folded Union registry slip between his first and second fingers like a cigarette he will not light. He wants the Shelk contract rider — the one Sable flagged. A certified copy, filed to Collegium intake before the audit rotation closes in four days. Not taken. Filed. By someone not already on the registry watch.' + applyTensionModifier('collegium_any');
@@ -821,14 +821,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The certified copy needs to reach the auditor before rotation closes.",
     tags: ['Collegium', 'Stage2', 'Faction', 'Payoff'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_collegium_contacted)) {
         G.lastResult = 'The Collegium connection isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake. The Arbitration Hall moves around this pause at its own pace — the shuffle of a queue at the Sanction Board anteroom, a clerk reciting reference numbers to a second clerk, the faint cold smell of chalk dust from the notice boards. The copy sits unsigned, waiting for the moment Peregrin Vas has named.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(90, 'filing the certified contract rider with Oversight');
+      gainXp(45, 'filing the certified contract rider with Oversight');
       G.flags.stage2_faction_collegium = true;
       G.flags.stage2_faction_contact_made = true;
       G.investigationProgress = (G.investigationProgress||0) + 2;
@@ -846,10 +846,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The overnight courier dispatch wall has a route that never posts return times.",
     tags: ['stage2', 'guildheart_hub'],
-    xpReward: 38,
+    xpReward: 19,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'examining courier dispatch wall for missing return logs');
+      gainXp(19, 'examining courier dispatch wall for missing return logs');
       var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13) {
         G.flags.guild_courier_route_traced = true;
@@ -867,10 +867,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The canal-side weigh station prints duplicate tickets on one scale only.",
     tags: ['stage2', 'guildheart_hub'],
-    xpReward: 36,
+    xpReward: 18,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(36, 'examining canal weigh station duplicate ticket mechanism');
+      gainXp(18, 'examining canal weigh station duplicate ticket mechanism');
       var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
         G.flags.guild_weigh_station_traced = true;
@@ -887,10 +887,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The transit ledger's marginalia marks one waypoint with a symbol that isn't in the key.",
     tags: ['stage2', 'guildheart_hub'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(40, 'decoding unmarked waypoint symbol in Guildheart transit ledger');
+      gainXp(20, 'decoding unmarked waypoint symbol in Guildheart transit ledger');
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 14) {
         G.flags.guild_waypoint_symbol_decoded = true;
@@ -912,7 +912,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: 'The factor saw the same pattern weeks before I did',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -922,7 +922,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       G.flags.met_guildheart_factor_cadlen = true;
       G.flags.stage2_faction_contact_made = true;
-      gainXp(20, 'collegium thread contact');
+      gainXp(10, 'collegium thread contact');
       G.lastResult = 'The factor\'s name is Cadlen. He has been with the transit desk eleven years. He pulls the same manifest you flagged — without being asked — and sets it on the edge of the desk facing you. "The authorization stamp is wrong. Third column." He says it the way someone says a thing they have been waiting to say to someone who would understand it. He does not say anything else.';
       addJournal('A Guildheart factor named Cadlen pointed to a mismatched authorization stamp on a transit manifest — unprompted. He\'s been noting it for weeks. Source: Guildheart Hub factor office, Cadlen.', 'intelligence');
       G.recentOutcomeType = 'success';
@@ -935,14 +935,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: 'The amendment registry carries stamps from two different offices',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'amendment registry anomaly');
+      gainXp(10, 'amendment registry anomaly');
       G.lastResult = 'The amendment log goes back four seasons. Through season three, one stamp: the local guild factor\'s mark, green ink, consistent. In season two, a second stamp appears alongside it — smaller, red, Collegium administrative font. In season one, only the red stamp. The local mark did not exist yet. Someone added the local authorization retroactively. Two column dates do not match the binding dates on the same entries.';
       addJournal('The Guildheart Hub amendment registry shows two overlapping authorization stamps with mismatched dates — Collegium administrative and local guild marks applied out of sequence. Source: Guildheart Hub registry annex.', 'evidence');
       G.recentOutcomeType = 'success';
@@ -954,14 +954,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The freight manifest for that route is sealed at the bottom',
     tags: ['Records', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'sealed manifest section');
+      gainXp(7, 'sealed manifest section');
       G.lastResult = 'Three seasons of freight manifests for the northern corridor. The bottom third of the last page is sealed with red administrative wax — not the guild\'s amber, the Collegium\'s red. The seal is intact. The clerk does not offer to break it. She does not acknowledge it. She sets the rest of the manifest in front of you and waits while you read the unsealed portion, which tells you nothing.';
       addJournal('A freight manifest at Guildheart Hub is sealed in the lower third with Collegium-red administrative wax. The clerk made no mention of it. Source: Guildheart Hub loading records desk.', 'intelligence');
       G.recentOutcomeType = 'success';
@@ -975,7 +975,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The routing clerk filed the same deviation note seven times. No response ever came.",
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -983,7 +983,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
-      gainXp(70, 'establishing Collegium contact at Guildheart Hub');
+      gainXp(35, 'establishing Collegium contact at Guildheart Hub');
       var result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 13) {
         G.flags.collegium_contact_1 = true;
@@ -1007,14 +1007,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Guildmaster's charter exemption inquiry was marked received. Never answered.",
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'Guildmaster Selene unanswered inquiry');
+      gainXp(10, 'Guildmaster Selene unanswered inquiry');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('charm', G.skills.charm);
@@ -1039,14 +1039,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The trade record for that charter category runs double the registered capacity for six months.",
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'charter category capacity overage');
+      gainXp(10, 'charter category capacity overage');
       if (!G.flags) G.flags = {};
       var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
@@ -1069,14 +1069,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Sanction Board meeting minutes from the exemption week have a page removed.",
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'Sanction Board minutes missing page');
+      gainXp(10, 'Sanction Board minutes missing page');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('wits', G.skills.wits);
@@ -1105,10 +1105,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Craft'],
     tag: 'risky',
     failResult: "Porter Ledgermere sets his ink-brush on the stand and squares the ledger closed before the question reaches its second clause. Account reconciliation is an internal audit matter — walk-up inquiries are not part of the Counting House public desk's remit. He does not raise his voice. The ledger goes into a locked cabinet below the counter and a fresh sheet of blank paper appears in its place, end of discussion.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'cross-referencing Neutral Counting House dual-column anomaly with Porter Ledgermere');
+      gainXp(35, 'cross-referencing Neutral Counting House dual-column anomaly with Porter Ledgermere');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('spirit', (G.skills.spirit||0));
@@ -1140,10 +1140,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Persuasion'],
     tag: 'bold',
     failResult: "Sena Ledgermere's expression does not change, which is the mediator's version of closing a door. Arbitration records carry formal confidentiality under Union procedural code — the outcome is public, the deliberations are sealed. She can confirm the matter was mediated and resolved. She cannot confirm anything about the deliberation that led to the resolution. She offers a printed copy of the public outcome notice and nothing further.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'pressing Sena Ledgermere at Arbitration Hall on the charter exemption dispute outcome');
+      gainXp(37, 'pressing Sena Ledgermere at Arbitration Hall on the charter exemption dispute outcome');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('charm', (G.skills.charm||0));
@@ -1175,10 +1175,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "Orin Hearthmark clears the manifest from the counter and stacks it under his arm before the sentence ends. Freight Exchange floor inquiries are for buyers and registered shippers only — he checks credentials before discussing any manifest. He does not ask for credentials; he simply stops talking and resumes marking his copy board, which is a more complete answer than any refusal would be.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'pressing Orin Hearthmark at the Freight Exchange over an unqueued manifest');
+      gainXp(34, 'pressing Orin Hearthmark at the Freight Exchange over an unqueued manifest');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('lore', (G.skills.wits||0));
@@ -1210,10 +1210,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Stealth'],
     tag: 'safe',
     failResult: "The Union Notice Board clerk on duty does not locate a Tinmarch posting under that reference number in the current cycle's registry. The retraction slip is on the board, correctly formatted, stamp intact. The board clerk shrugs once: notices can be posted and pulled in the same session without the original entering the permanent log. The retraction exists. The original it was meant to erase does not.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'tracing Renn Tinmarch retraction notice on the Union Notice Board');
+      gainXp(32, 'tracing Renn Tinmarch retraction notice on the Union Notice Board');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('stealth', (G.skills.finesse||0));
@@ -1244,7 +1244,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Three different notary stamps, identical signatures — too consistent to be authentic",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1271,7 +1271,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The archivist's deflection is rehearsed. Authority might break the script.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       var result = rollD20('might', {dc: 14, locality: 'guildheart_hub', label: 'Archivist confrontation'});
       if (result.isCrit) {
@@ -1295,7 +1295,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The senior registrar is exhausted. Someone willing to listen might reach what she knows.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);

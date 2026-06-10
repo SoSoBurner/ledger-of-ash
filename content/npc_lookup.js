@@ -116,7 +116,7 @@
       choices.push({
         label: npc.choice_label || ('Approach ' + npc.name + '.'),
         tags: ['npc', 'tier' + npc.tier, 'first_contact'],
-        xpReward: npc.tier === T1 ? 6 : npc.tier === T2 ? 4 : 2,
+        xpReward: npc.tier === T1 ? 3 : npc.tier === T2 ? 2 : 1,
         fn: (function (n, intro) {
           return function () {
             _narrate(n.name, intro, 'neutral');
@@ -131,7 +131,7 @@
       choices.push({
         label: npc.ask_direct_label || npc.ask_direct,
         tags: ['npc', 'tier' + npc.tier, 'direct'],
-        xpReward: npc.tier === T1 ? 8 : 5,
+        xpReward: npc.tier === T1 ? 4 : 2,
         stageProgress: npc.tier === T1 ? 1 : 0,
         fn: (function (n) {
           return function () {
@@ -155,7 +155,7 @@
       choices.push({
         label: npc.ask_indirect_label || npc.ask_indirect,
         tags: ['npc', 'tier' + npc.tier, 'indirect'],
-        xpReward: npc.tier === T1 ? 7 : 4,
+        xpReward: npc.tier === T1 ? 3 : 2,
         fn: (function (n) {
           return function () {
             var r = _roll20('lore', Math.max(8, (n.dc || 12) - 2), n.id);
@@ -172,7 +172,7 @@
       choices.push({
         label: npc.offer_help_label || npc.offer_help,
         tags: ['npc', 'tier' + npc.tier, 'offer'],
-        xpReward: npc.tier === T1 ? 9 : 5,
+        xpReward: npc.tier === T1 ? 4 : 2,
         stageProgress: npc.tier === T1 ? 1 : 0,
         fn: (function (n) {
           return function () {

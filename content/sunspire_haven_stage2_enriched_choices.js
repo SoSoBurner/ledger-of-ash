@@ -13,7 +13,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The dispatch log uses a sealed charter reference you cannot open without authorization. The week disappears behind procedural access controls.',
     fn: function() {
       advanceTime(1);
@@ -24,10 +24,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'The staging manifest has a seven-day gap — no departures, no arrivals, no weather notation to explain it. Kael signs the surrounding entries but not the blank week. The gap ends on the same date the suppression request pattern in the knowledge registry begins. Whatever used Sunspire during that week left no record of doing so. The cold air off the high plain keeps the manifest pages dry and undamaged. The absence is deliberate — and deliberate gaps in a signed log carry their own weight.';
         addJournal('Sunspire staging: 7-day manifest gap, no weather explanation, coincides with suppression request pattern start', 'evidence', 'sun-manifest-gap-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
       } else {
         G.lastResult = 'The dispatch log entry carries a sealed charter reference in the margin — a string of institutional codes that blocks further access without formal clearance. You copy the code. The clerk behind the counter watches the copy without comment, then turns back to her ledger. The filing desk has a stamp on it that reads "Charter Office — Third Ring." You note the floor number. The corridor back out is long.';
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
       }
     }
   },
@@ -37,7 +37,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Investigation', 'Stage2'],
     plot: 'main',
     skill: 'charm',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'Taldan acknowledges the meeting in his register before you have said anything substantive. The log goes to his supervisory chain.',
     fn: function() {
       advanceTime(1);
@@ -48,10 +48,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'Taldan has been waiting for someone who would ask the right question. He pulls a folder from a locked drawer — his personal copy of the refusals, not the institutional file. Fourteen requests, each citing the same nonexistent authority. He did not comply. He also did not report upward. He says: whoever issued these expected compliance, not a paper trail. He has been building the paper trail anyway.';
         addJournal('Taldan keeps personal refusal copies — 14 requests, same fake authority, building own evidence record', 'evidence', 'sun-taldan-main-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
       } else {
         G.lastResult = 'Taldan enters the meeting in his register before you have said anything of substance. The pen moves precisely: date, time, nature of inquiry (listed as "general archival request"), your name spelled in the formal register. He answers what you ask and nothing more. Each answer closes a door. When you leave, the register stays open on his desk, the entry still drying. He is not protecting himself. He is protecting something specific.';
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
       }
     }
   },
@@ -60,14 +60,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Suppression requests citing a non-existent regulatory authority. The registry keeps receiving them.",
     plot: 'main',
     tags: ['Investigation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'investigating knowledge suppression requests with Taldan Veyst');
+      gainXp(38, 'investigating knowledge suppression requests with Taldan Veyst');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -97,14 +97,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Convoy modification requisitions matching suppression compound transport container descriptions.",
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining convoy modification requisitions with Kael Emberthrone');
+      gainXp(36, 'examining convoy modification requisitions with Kael Emberthrone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -129,14 +129,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A payment dispute over container modification work. The commissioning party's documentation is in it.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining container commission dispute with Orvak Strone');
+      gainXp(34, 'examining container commission dispute with Orvak Strone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -163,14 +163,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Glyph surges disrupting wildlife migration in a pattern Elyra has tracked for four months.",
     plot: 'main',
     tags: ['NPC', 'Survival', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'reviewing ecological glyph impact data with Elyra Mossbane');
+      gainXp(33, 'reviewing ecological glyph impact data with Elyra Mossbane');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -199,14 +199,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A community member filed a report. Convoy handlers receiving payments from an external party.",
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'reviewing convoy handler payment report with Jorva Helmrune');
+      gainXp(32, 'reviewing convoy handler payment report with Jorva Helmrune');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -231,7 +231,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The requisition ledger has a gap where a page was removed. Kael hasn't mentioned it.",
     tags: ['stage2', 'sunspire_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -252,7 +252,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Glyph-scoring marks on the storehouse wall at the wrong height. Not structural, not decorative.",
     tags: ['stage2', 'sunspire_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -273,7 +273,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sealed papers without a family endorsement mark. That kind of error draws attention here.",
     tags: ['stage2', 'sunspire_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -296,7 +296,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A porter's stray errand keeps ending at the same shuttered cart shed.",
     tags: ['stage2', 'sunspire_haven'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('vigor', G.skills.vigor);
@@ -314,7 +314,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A paperwork dispute at stall sixteen pulls a steward at noon.",
     tags: ['stage2', 'sunspire_haven'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -332,7 +332,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The family yard gate expects a retainer greeting I do not know how to give.",
     tags: ['stage2', 'sunspire_haven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('finesse', G.skills.finesse);
@@ -353,14 +353,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The charter exemption number she cited was written for diplomatic pouches, not bulk cargo.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining sealed container weight exemption with shipping clerk');
+      gainXp(34, 'examining sealed container weight exemption with shipping clerk');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -389,14 +389,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The backup archive was last accessed the week the suppression requests started.",
     plot: 'main',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing Knowledge Registry backup access logs');
+      gainXp(35, 'tracing Knowledge Registry backup access logs');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -424,10 +424,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The withdrawn contract dispute has a reference number and no resolution on file.",
     tags: ['Stage2', 'Persuasion'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing withdrawn contract dispute in Elyra Mossbane patronage portfolio');
+      gainXp(33, 'tracing withdrawn contract dispute in Elyra Mossbane patronage portfolio');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -456,10 +456,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The sealed bay was listed as testing infrastructure. The question is what it is testing.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining sealed component bay in machinery section');
+      gainXp(36, 'examining sealed component bay in machinery section');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -489,14 +489,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Researcher Orvaith left tools in his funded workspace. The tools are still there.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining Lenn Orvaith abandoned research workspace');
+      gainXp(34, 'examining Lenn Orvaith abandoned research workspace');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -525,14 +525,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Twelve days in the convoy log with no notation where daily entries should be.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'examining north gate convoy exit log gap with road warden');
+      gainXp(33, 'examining north gate convoy exit log gap with road warden');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -560,14 +560,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The communal grain count and the storehouse physical stock are two different numbers.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reconciling communal grain stock discrepancy with Jorva Helmrune');
+      gainXp(35, 'reconciling communal grain stock discrepancy with Jorva Helmrune');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -596,14 +596,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The handler who took the external payment has avoided the common house for a month.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'locating and speaking with avoiding convoy handler');
+      gainXp(34, 'locating and speaking with avoiding convoy handler');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -630,14 +630,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The night watch rotation during the container work ran four handlers instead of two.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'cross-checking night watch rotation against handler payment records');
+      gainXp(33, 'cross-checking night watch rotation against handler payment records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -665,14 +665,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra's logbook has pages she did not include in her submitted filings.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reviewing Elyra Mossbane unsubmitted ecological field readings');
+      gainXp(36, 'reviewing Elyra Mossbane unsubmitted ecological field readings');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -702,14 +702,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The suppression requests were drafted somewhere — Taldan's junior assistant remembers the handwriting.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'tracing suppression request authorship through Taldan junior assistant');
+      gainXp(32, 'tracing suppression request authorship through Taldan junior assistant');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -736,14 +736,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The charter subsidiary's local agent signed three documents in Sunspire before the modification work began.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing charter subsidiary local agent signature through Orvak Strone records');
+      gainXp(35, 'tracing charter subsidiary local agent signature through Orvak Strone records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -773,14 +773,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression requests targeted the same countermeasure the Compact developed.",
     plot: 'main',
     tags: ['Stage2', 'Lore', 'Arcane'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'connecting suppression requests to Resonance Compact countermeasure research');
+      gainXp(38, 'connecting suppression requests to Resonance Compact countermeasure research');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.arcane_contact_1) {
@@ -815,10 +815,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Taldan's registry has two restricted tiers. The second has no public entries at all.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'auditing magical knowledge registry tiers with Overseer Taldan Veyst');
+      gainXp(38, 'auditing magical knowledge registry tiers with Overseer Taldan Veyst');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -847,10 +847,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Registry intake stamps run unbroken — except a three-week window six months ago.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'auditing Knowledge Registry intake stamp sequence for gaps');
+      gainXp(36, 'auditing Knowledge Registry intake stamp sequence for gaps');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -880,10 +880,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Four restricted access entries share the same charter reference as the suppression requests.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'cross-checking restricted access log against suppression request charter references');
+      gainXp(39, 'cross-checking restricted access log against suppression request charter references');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -911,10 +911,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The registry's physical glyph-ward seals were upgraded after the suppression requests arrived.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining glyph-ward seal upgrade timeline at Knowledge Registry');
+      gainXp(34, 'examining glyph-ward seal upgrade timeline at Knowledge Registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -942,10 +942,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Two researchers applied for restricted section access the same week. Both withdrew applications without explanation.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing withdrawn restricted access applications at Knowledge Registry');
+      gainXp(35, 'tracing withdrawn restricted access applications at Knowledge Registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -972,10 +972,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "An index cross-reference points to a locality that doesn't match any Sunspire district.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing anomalous cross-reference notation in Knowledge Registry index');
+      gainXp(37, 'tracing anomalous cross-reference notation in Knowledge Registry index');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1003,10 +1003,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The registry's copy of the Northern Charter Accord is missing its third annex entirely.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'auditing Northern Charter Accord holdings in Knowledge Registry');
+      gainXp(33, 'auditing Northern Charter Accord holdings in Knowledge Registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1035,14 +1035,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra's forest patrol routes avoid the northern staging road entirely.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'observing Elyra Mossbane patrol route pattern');
+      gainXp(32, 'observing Elyra Mossbane patrol route pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -1069,14 +1069,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Kael's machinery logs have a gap during the last three convoy cycles.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'auditing Kael Emberthrone machinery log continuity');
+      gainXp(34, 'auditing Kael Emberthrone machinery log continuity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -1103,14 +1103,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Orvak keeps the adjudication docket locked after the second bell. Someone came after second bell.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'probing Orvak Strone after-hours docket access incident');
+      gainXp(33, 'probing Orvak Strone after-hours docket access incident');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1137,14 +1137,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Jorva keeps the communal ledger locked after the second bell. The lock is new.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'examining Jorva Helmrune communal ledger security change');
+      gainXp(32, 'examining Jorva Helmrune communal ledger security change');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1171,14 +1171,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Taldan asked the Patron-Family council for oversight authority two months ago. It was denied.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'documenting Taldan Veyst oversight authority request and denial');
+      gainXp(36, 'documenting Taldan Veyst oversight authority request and denial');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1206,14 +1206,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra knows the researcher Orvaith. She has not said so until now.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'cross-examining Elyra Mossbane on Lenn Orvaith connection');
+      gainXp(33, 'cross-examining Elyra Mossbane on Lenn Orvaith connection');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1241,14 +1241,14 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Kael recognized the container specs — he built similar insulation for Guildheart.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracing Kael Emberthrone prior Guildheart commission connection');
+      gainXp(37, 'tracing Kael Emberthrone prior Guildheart commission connection');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -1278,10 +1278,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The northern staging road has two waypoints that don't appear on the Roadwarden's public map.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-checking northern staging road against Roadwarden public waypoint map');
+      gainXp(37, 'cross-checking northern staging road against Roadwarden public waypoint map');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -1309,10 +1309,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The convoy weight declarations at the north gate averaged four hundred pounds under actual load.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing north gate weight declarations against axle-load records');
+      gainXp(38, 'cross-referencing north gate weight declarations against axle-load records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1339,10 +1339,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "A convoy manifest had its origin locality listed as a locality that does not exist.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing false origin locality on convoy manifest');
+      gainXp(35, 'tracing false origin locality on convoy manifest');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1369,10 +1369,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The staging yard's loading crane was rented from an outside party for the modification period.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'tracing staging yard equipment rental for container loading period');
+      gainXp(33, 'tracing staging yard equipment rental for container loading period');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -1399,10 +1399,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Three convoy drivers took the same northern deviation last run. None filed a report.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(69, 'locating convoy drivers who took undocumented northern deviation');
+      gainXp(34, 'locating convoy drivers who took undocumented northern deviation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -1431,10 +1431,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound requires glyph pressure at a specific saturation threshold to activate.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'cross-referencing suppression compound activation conditions from Orvaith workspace data');
+      gainXp(40, 'cross-referencing suppression compound activation conditions from Orvaith workspace data');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1461,10 +1461,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Not a weapon — a suppression agent for active glyph wards. That is more frightening.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'synthesizing compound purpose from registry and workspace evidence');
+      gainXp(41, 'synthesizing compound purpose from registry and workspace evidence');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (G.investigationProgress < 6) {
@@ -1495,10 +1495,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Altitude matters. The calibration required elevation — the compound behaves differently above the plateau line.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'documenting altitude-dependency of suppression compound calibration');
+      gainXp(36, 'documenting altitude-dependency of suppression compound calibration');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -1525,10 +1525,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Orvaith's dispersal dataset is the only thing that can quantify the compound's effective radius.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(77, 'establishing Orvaith dataset as critical missing evidence for compound radius');
+      gainXp(38, 'establishing Orvaith dataset as critical missing evidence for compound radius');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1557,10 +1557,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The charter subsidiary that commissioned the containers holds a registered address in Guildheart.",
     plot: 'main',
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'tracing charter subsidiary registration address to Guildheart');
+      gainXp(41, 'tracing charter subsidiary registration address to Guildheart');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -1588,10 +1588,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "This suppression pattern appeared two weeks north of here before it reached Sunspire.",
     plot: 'main',
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(79, 'cross-referencing Sunspire suppression pattern against prior locality records');
+      gainXp(39, 'cross-referencing Sunspire suppression pattern against prior locality records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1621,7 +1621,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'sunspire_haven', 'Investigation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
@@ -1635,7 +1635,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         addNarration('Three Marks, One Lie', 'The grain broker keeps her contract table at the front of the counting shed. Dry wind off the high plain moves the lamp flame. The pending sheet carries two syndicate stamps and a wax seal in one column. The Helmrune and Crownmere stamps are legitimate. The wax seal is not. Its impress shows the charter subsidiary mark that has run through every other thread of the file. A grain contract has been routed through the same shell that commissioned the container work. The broker squares the page without raising her eyes.', 'success');
         addJournal('Grain contract at Sunspire broker stamped with same charter subsidiary mark as container commission', 'evidence', 'sun-broker-stamps-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(20);
+        if (typeof gainXp === 'function') gainXp(10);
       } else {
         addNarration('The Page Turns', 'The broker turns the contract sheet face-down before the question lands. "Stall-side review is for signatories." Her hand stays flat on the page until you step back from the table. The lamp flame holds steady in the dry altitude air. Behind her, a syndicate clerk takes a half-step nearer the doorway, log in hand. The contract goes into the lower drawer. The drawer key goes into her apron pocket. The next petitioner is already waiting at the counter.', (G && G.lastResultType) || 'failure');
         if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
@@ -1652,7 +1652,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'sunspire_haven', 'NPC', 'Stage2'],
     plot: 'main',
     skill: 'finesse',
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
@@ -1666,7 +1666,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         addNarration('The Skipped Line', 'The shrine attendant runs the convoy departure rite at the cart yard mouth as he has done for the morning batch, the noon batch, and now this third one. The dry plain wind carries the small chime he uses to mark the verses. On the third convoy, he passes over the verse that asks each oath-giver to declare the convoy\'s cargo by category. The omission is small and consistent. The same hauler crew is loading the third yard each time. The crew chief watches the attendant skip the line without flinching, which means the arrangement is known to him.', 'success');
         addJournal('Sunspire departure rite skips cargo-declaration verse for one specific hauler crew — known to crew chief', 'evidence', 'sun-rite-skip-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(20);
+        if (typeof gainXp === 'function') gainXp(10);
       } else {
         addNarration('The Chime Stops', 'The attendant\'s chime stops mid-verse. He looks up from the brazier without turning his head, the way a market clerk looks up when a queue position has been broken. The crew chief in the third yard sets down the strap he is buckling and walks toward the chime, slowly. The dry wind moves through the yard gap. By the time the attendant resumes the rite, the cart you were standing behind has rolled forward, and your sightline to the third yard is gone. The verses finish in proper sequence after that.', (G && G.lastResultType) || 'failure');
         if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
@@ -1682,7 +1682,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);

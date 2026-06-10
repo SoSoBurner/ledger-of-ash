@@ -12,11 +12,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Cadrin kept his log because something felt wrong. He was right.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Whitebridge with Cadrin\'s crossing log');
+      gainXp(32, 'departing Whitebridge with Cadrin\'s crossing log');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Ashe refused to sign the schedule that created the night gaps. Then she was removed.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'meeting former bridge director Ashe');
+      gainXp(35, 'meeting former bridge director Ashe');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -54,11 +54,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Karnn transferred to Shelkopolis last week. He knows what the containers were carrying.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'discovering Karnn transferred to Shelkopolis ahead of you');
+      gainXp(35, 'discovering Karnn transferred to Shelkopolis ahead of you');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Delt Karnn was the crossing authority who created the "district coordination deputy" ghost account. His transfer to Shelkopolis, one week before you depart, is either a promotion for completing Whitebridge's phase of the operation or a repositioning for the final phase. Either way, he's in Shelkopolis now and he knows what the charter mark containers were carrying.`;
@@ -75,12 +75,12 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "The gloves Cadrin described are the standard for reactive atmospheric compound handling.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'identifying handler protocols as reactive compound standard');
+      gainXp(40, 'identifying handler protocols as reactive compound standard');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -95,11 +95,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Three to five tonnes. Twenty-four crossings where Cadrin heard the bridge flex.",
     tags: ['ArcDeepening', 'Craft', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'calculating load weight from bridge stress observations');
+      gainXp(37, 'calculating load weight from bridge stress observations');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -119,11 +119,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Ruts running northeast toward Ironhold. The supply chain is confirmed end-to-end.",
     tags: ['ArcDeepening', 'Survival', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'locating the unmapped east bank staging area');
+      gainXp(37, 'locating the unmapped east bank staging area');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -147,11 +147,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Karnn is somewhere in this city. I enter through freight lanes during peak delivery.",
     tags: ['ArcArrival', 'Stealth', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'entering Shelkopolis knowing Karnn is here');
+      gainXp(35, 'entering Shelkopolis knowing Karnn is here');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -173,11 +173,11 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Karnn's transfer paperwork is forged. The same fabricated category as Whitebridge.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'contacting the Ironspool Ward investigation network');
+      gainXp(40, 'contacting the Ironspool Ward investigation network');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -202,12 +202,12 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
     label: "Thirty-one crossings over five months. The last one eleven days ago. I am behind it.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.whitebridge_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to follow supply chain from Whitebridge to Shelkopolis');
+      gainXp(40, 'committing to follow supply chain from Whitebridge to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.whitebridge_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

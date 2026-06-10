@@ -60,7 +60,7 @@ function _pell_phase1() {
       label: 'The form is real. Refusing escalates this in ways I can\'t predict.',
       tag: 'safe',
       skill: 'wits',
-      xpReward: 50,
+      xpReward: 25,
       failResult: 'This path is closed here, but the inquiry form carries a room number and a time — appearing late is not the same as refusing. Pell has a window to fill. Arriving at the tail of it, with less in hand than he expects, is still a way through.',
       fn: function() {
         addNarration('', 'The room is a third-floor transit office, clean and unremarkable. Pell is already seated when you arrive. He does not stand. The inquiry form you were sent sits face-down on the desk in front of him — he received his copy before you got yours. He waits for you to sit, then turns it over and reads it, as though he has not already read it twice. "Thank you for coming in a timely manner," he says. "Pursuant to the Division\'s current audit scope, I have a few procedural questions." He lays his pen flat — nib toward him — before he says anything further. Nothing about him is rushed.');
@@ -73,7 +73,7 @@ function _pell_phase1() {
       label: 'I can comply and give him nothing useful.',
       tag: 'risky',
       skill: 'finesse',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         var roll = rollD20('finesse');
         var dc = DC_PELL_DISAPPEAR;
@@ -94,7 +94,7 @@ function _pell_phase1() {
       label: 'An inquiry form is not a warrant. His timeline is not mine.',
       tag: 'risky',
       skill: 'vigor',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         var roll = rollD20('vigor');
         var dc = DC_PELL_DISAPPEAR;
@@ -137,7 +137,7 @@ function _pell_phase2() {
       label: 'He was assigned before any complaint existed. That\'s the thread that unravels him.',
       tag: 'bold',
       skill: 'wits',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() { _pell_resolve_expose(); }
     },
     {
@@ -146,7 +146,7 @@ function _pell_phase2() {
       label: 'A clean exit for him means I keep working beneath his notice.',
       tag: 'risky',
       skill: 'charm',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() { _pell_resolve_negotiate(); }
     },
     {
@@ -155,7 +155,7 @@ function _pell_phase2() {
       label: 'His inquiry window expires without a target if I leave now.',
       tag: 'safe',
       skill: 'vigor',
-      xpReward: 50,
+      xpReward: 25,
       failResult: 'This path is closed here, but the inquiry window has days left in it — and Pell filed a pursuit notation the moment the routes went quiet. The transit posts closer to the city boundary are less watched. Working from there while the window runs is still a form of distance.',
       fn: function() { _pell_resolve_disappear(); }
     }

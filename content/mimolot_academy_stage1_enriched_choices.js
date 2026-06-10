@@ -14,13 +14,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The librarian knows which topics disappeared. He also knows he didn't change them.",
     tags: ['Investigation', 'NPC', 'Observation', 'Knowledge'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'gathering research restriction intelligence');
+      gainXp(35, 'gathering research restriction intelligence');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -59,13 +59,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "Scholars working on institutional critique have been reassigned to cataloging. Their projects still exist.",
     tags: ['Investigation', 'NPC', 'Records', 'Research'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering research suppression');
+      gainXp(37, 'uncovering research suppression');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -101,13 +101,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     label: "The sealed sections keep expanding. Behind them is what senior scholars once read freely.",
     tags: ['Investigation', 'NPC', 'Archives', 'Secrets'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'mapping knowledge restriction');
+      gainXp(35, 'mapping knowledge restriction');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -142,13 +142,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     label: "The archivist has both editions and has been logging the differences for months.",
     tags: ['Investigation', 'NPC', 'History', 'Records'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing historical record corruption');
+      gainXp(37, 'exposing historical record corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -185,13 +185,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The strongest critical methodology students aren't getting advanced research placements. The gap has direction.",
     tags: ['Investigation', 'NPC', 'Students', 'Access'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading enrollment manipulation');
+      gainXp(35, 'reading enrollment manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -226,13 +226,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Everything classified in eighteen months has one thing in common. The restriction keeper has noticed.",
     tags: ['Investigation', 'NPC', 'Classification', 'Forbidden'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'uncovering danger justifications');
+      gainXp(35, 'uncovering danger justifications');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -267,13 +267,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Eighteen months of silence in whole subject areas. He knows exactly when it started.",
     tags: ['Investigation', 'NPC', 'Curation', 'Bias'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading collection bias');
+      gainXp(35, 'reading collection bias');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -308,13 +308,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three scribes reassigned. All three had refused to certify documents they flagged as inaccurate.",
     tags: ['Investigation', 'NPC', 'Verification', 'Truth'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing truth verification corruption');
+      gainXp(37, 'exposing truth verification corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -351,13 +351,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The framework was revised. The burden of proof was inverted. Someone knew where to push.",
     tags: ['Investigation', 'Lore', 'Precedent', 'Framework'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'academic framework analysis');
+      gainXp(35, 'academic framework analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -392,13 +392,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The restricted arcane texts are the ones describing how to work without Academy-authorized equipment.",
     tags: ['Investigation', 'Arcana', 'Magical', 'Power'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing arcane knowledge suppression');
+      gainXp(37, 'exposing arcane knowledge suppression');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -433,13 +433,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Request documents on institutional history and get a review entry within twenty-four hours.",
     tags: ['Investigation', 'Investigation', 'Monitoring', 'Control'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'researcher surveillance mapping');
+      gainXp(35, 'researcher surveillance mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -474,13 +474,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Twenty years ago scholars argued across the refectory. The silence now is not contentment.",
     tags: ['Investigation', 'Insight', 'Autonomy', 'Freedom'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'mapping intellectual autonomy erosion');
+      gainXp(37, 'mapping intellectual autonomy erosion');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -515,13 +515,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The charter says the scholarly council governs. The reassignment orders carry signatures from outside faculty.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'administrative hierarchy mapping');
+      gainXp(35, 'administrative hierarchy mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -556,13 +556,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Restriction directives arrive through a sealed external channel. Nobody has asked who sends them.",
     tags: ['Investigation', 'Perception', 'Control', 'External'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering external institutional control');
+      gainXp(37, 'uncovering external institutional control');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -599,13 +599,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The study halls go quiet in a specific way when the wrong people walk through.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing scholarly anxiety narratives');
+      gainXp(32, 'parsing scholarly anxiety narratives');
       G.stageProgress[1]++;
 
       const rumor = ['certain research topics have become forbidden and nobody formally said why', 'scholars who ask wrong questions get quietly reassigned to archival work', 'the sealed archives are growing and nobody knows what\'s being locked away', 'someone is rewriting history and calling it documentation correction', 'the verification system has been corrupted and false information is being certified as true'];
@@ -628,13 +628,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Each piece has an innocent explanation. Together they don't.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Exposure'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing knowledge suppression conspiracy');
+      gainXp(40, 'exposing knowledge suppression conspiracy');
       G.stageProgress[1]++;
       addHeat('mimolot', 1);
       G.rivals = G.rivals || {}; G.rivals.heat = (G.rivals.heat || 0) + 1;
@@ -671,13 +671,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "One of them is complicit and knows it. Can they be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment to truth');
+      gainXp(35, 'making moral commitment to truth');
       G.stageProgress[1]++;
       addHeat('mimolot', 1);
 
@@ -712,13 +712,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "Somewhere a document names who is directing this. The administrative vault is one door further.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of knowledge suppression');
+      gainXp(40, 'discovering origin source of knowledge suppression');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -753,13 +753,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Research suppression, historical revision, verification corruption, enrollment steering — all pointing the same direction.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Knowledge'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'recognizing systematic knowledge capture pattern');
+      gainXp(37, 'recognizing systematic knowledge capture pattern');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -794,13 +794,13 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "This isn't institutional drift. The systems were rebuilt to prevent a specific conclusion.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'achieving knowledge weaponization understanding');
+      gainXp(40, 'achieving knowledge weaponization understanding');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -836,10 +836,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Restricted Holdings alcove in the lower scriptorium. Formula fragments pulled from the main catalogue.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'reading restricted formula fragments');
+      gainXp(37, 'reading restricted formula fragments');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -868,10 +868,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The off-catalogue section requires faculty endorsement nobody hands out freely.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'searching Memory Hall off-catalogue');
+      gainXp(36, 'searching Memory Hall off-catalogue');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -902,10 +902,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Attend an open lecture at Mimolot Academy and read what the room is actually about.",
     tags: ['Investigation', 'Archetype', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading academy lecture dynamics');
+      gainXp(34, 'reading academy lecture dynamics');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -930,10 +930,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The compliance observer watched the suppression unfold from the Archive annexe. No report filed.",
     tags: ['Faction', 'NPC', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reaching House Mimolot compliance observer');
+      gainXp(35, 'reaching House Mimolot compliance observer');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -960,14 +960,14 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Scriptorium Steps at dusk. Worth watching who comes and goes when the Academy closes.",
     tags: ['WorldColor', 'Lore', 'Stage1'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing Academy after hours');
+      gainXp(25, 'observing Academy after hours');
 
       G.lastResult = `After the evening bell, three faculty leave through the side gate and don't come back. A fourth stays — a light moves between second-floor windows for two hours. The Memory Hall stays lit until midnight. At the tenth bell, a courier arrives at the administrative wing's rear entrance and departs carrying a sealed case, moving at the pace of someone with a specific destination. The Academy's formal close is a change in what's visible, not a change in what's happening.`;
       addJournal('Scriptorium Steps: real Academy activity runs after closing hours — Memory Hall, courier exchange', 'discovery', `mimolot-steps-${G.dayCount}`);
@@ -979,14 +979,14 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three faculty members are on academic leave. None of them left willingly.",
     tags: ['PersonalArc', 'NPC', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'meeting suppressed faculty member');
+      gainXp(34, 'meeting suppressed faculty member');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -1005,10 +1005,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A student asked about the previous edition. An auditor wrote his name down.",
     tags: ['Social', 'NPC', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'speaking to surveilled student');
+      gainXp(32, 'speaking to surveilled student');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -1031,10 +1031,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone else asked Archivist Doss about the suppressed papers. They claimed northern scholarly affiliation.",
     tags: ['Rival', 'Warning', 'Stage1'],
-    xpReward: 58,
+    xpReward: 29,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'receiving rival warning');
+      gainXp(29, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -1063,7 +1063,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

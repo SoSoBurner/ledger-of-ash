@@ -13,14 +13,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Relic Wing requisitions under 'northern defense assessment' match suppression compound precursor profiles.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Decon Von Reckshem closes the requisition binder, slides it into the recessed shelf above his standing-desk, and turns to the wall map. The Relic Strategy Wing office on the upper crown floor does not have a second seat at his desk. The conversation ends at his standing posture.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(84, 'examining relic strategy requisitions with Decon Von Reckshem');
+      gainXp(42, 'examining relic strategy requisitions with Decon Von Reckshem');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_decon_von_reckshem = true;
@@ -52,14 +52,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Mordoth approved the distribution contracts. The evidence exists now. He may be willing to negotiate.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Mordoth Valinheim is at the Allocation Hall podium when you reach the floor — the mid-tower assembly chamber rings with the calling of contract numbers, a hundred factors marking ledgers in chorus. He does not break from the rhythm. The exchange is not possible mid-session.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'negotiating with Councillor Mordoth Valinheim');
+      gainXp(40, 'negotiating with Councillor Mordoth Valinheim');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_mordoth_valinheim = true;
@@ -91,14 +91,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The staging location used Soreheim military transport passes. Vorgul commands the logistics chain.",
     skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Vorgul Oxtend stands at the arsenal-floor map table — mid-tower workshop level, racks of shaped steel hanging behind him. Two of his subordinates close the door at your approach and take post at it. The transport-pass ledger stays on the table. You step back into the freight corridor.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'confronting Councillor Vorgul Oxtend on military transport passes');
+      gainXp(38, 'confronting Councillor Vorgul Oxtend on military transport passes');
       const result = rollD20('combat', (G.skills.might||0));
       if (result.isCrit) {
         G.flags.met_vorgul_oxtend = true;
@@ -128,14 +128,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Cron is privately alarmed. Not part of the conspiracy, but he suspects his council colleagues.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cron Udenine\'s judicial chamber on the upper crown floor has a clerk posted at the inner door who logs every appointment. Yours is not on the day-sheet. The clerk turns the page so you can see the blank line and rings the bell that calls the next scheduled petitioner.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'appealing to Councillor Cron Udenine Arbiter of Justice');
+      gainXp(36, 'appealing to Councillor Cron Udenine Arbiter of Justice');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_cron_udenine = true;
@@ -165,14 +165,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The Northern Ambition bloc's expansion projects depend on glyph disruption keeping rivals destabilized.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Roth Udenine\'s budget annex is on the upper governance level — a long room with the expansion-project ledgers shelved in numbered series. The clerk at the entry takes your name without writing it down and tells you the budget files require council sponsorship to consult.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'exposing Northern Ambition funding dependencies');
+      gainXp(34, 'exposing Northern Ambition funding dependencies');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_roth_udenine = true;
@@ -202,7 +202,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The forge manifest allotment numbers don't match the war-production quota ledger.",
     skill: 'wits',
     tags: ['stage2', 'soreheim_proper'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -224,7 +224,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The porter moved those crates. He remembers the seal on the transfer order.",
     skill: 'charm',
     tags: ['stage2', 'soreheim_proper'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -245,7 +245,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A Relic Wing clerk attended a merit ceremony in a councillor's slot.",
     skill: 'finesse',
     tags: ['stage2', 'soreheim_proper'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('finesse', G.skills.finesse);
@@ -266,7 +266,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The tower scribe's permit ledger logs two transit seals for the same night.",
     skill: 'wits',
     tags: ['stage2', 'soreheim_proper', 'paperwork'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -289,7 +289,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Three consecutive buyer permits voided without cause via override.",
     skill: 'wits',
     tags: ['stage2', 'soreheim_proper', 'trade_records'],
-    xpReward: 34,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -311,7 +311,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Two guild authority stamps on the same export manifest.",
     skill: 'spirit',
     tags: ['stage2', 'soreheim_proper', 'guild_authority'],
-    xpReward: 34,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('spirit', G.skills.spirit);
@@ -331,7 +331,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A forge dock foreman and a quota clerk arguing about a reassigned crew.",
     skill: 'charm',
     tags: ['stage2', 'soreheim_proper', 'public_complication'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -352,14 +352,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The transit registry sits on the upper governance floor — a long room with the manifest binders shelved by fiscal quarter. The duty clerk stands when you enter, asks for your Giant Council registry identifier, and closes the current-period binder against her chest when you do not produce one. The exemption code stays under the cover.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing expired exemption code in northern transit ledger');
+      gainXp(34, 'tracing expired exemption code in northern transit ledger');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -390,14 +390,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A junior Wing clerk wrote down what Decon entered. She kept the note.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Relic Strategy Wing outer office on the upper crown floor has a duty desk three steps inside the door. Senne Orvath is not at it. A senior factor is, and he writes your name on a Wing reception slip without looking up. The slip goes into a tray marked for the Wing director. You leave before the next bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'interviewing junior Relic Strategy Wing clerk Senne Orvath');
+      gainXp(34, 'interviewing junior Relic Strategy Wing clerk Senne Orvath');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -426,14 +426,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A Wing courier leaves the third tower every fourth night. No assignment covers the route.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The third tower\'s service corridor at the courier\'s exit point has a maintenance worker scraping forge soot from the wall at the hour the courier always leaves. He looks up once when you take position behind the column, and a second time when you move. The courier does not exit tonight. The maintenance worker stays scraping until the bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'shadowing the off-schedule Relic Strategy Wing courier');
+      gainXp(34, 'shadowing the off-schedule Relic Strategy Wing courier');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -463,10 +463,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The forge ring runs cold one night a week. A crew shows up anyway.",
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'enduring the outer forge ring to observe off-books loading');
+      gainXp(34, 'enduring the outer forge ring to observe off-books loading');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -495,14 +495,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Residue on the staging sleds matches a compound profile never authorized for export.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The alloy export register desk is on the mid-tower workshop floor — a long counter with the binders shelved behind glass. The register clerk asks for your guild craft identifier before you finish describing the sample. The binder stays behind the glass. The compound profile does not get cross-referenced today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'analyzing compound residue against the Soreheim alloy export register');
+      gainXp(34, 'analyzing compound residue against the Soreheim alloy export register');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -531,14 +531,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The wage records for off-books laborers show the same sealed-charter reference Roth's budget used.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The outer-district pay station is a low room at the base of the second tower, with disbursement ledgers chained to the desks. The duty clerk asks for the Giant Council labor registry authorization and slides the request slip across the counter without further comment. Fourteen working days, she writes. The monthly file is six steps away.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing off-books wage records to sealed-charter reference');
+      gainXp(34, 'tracing off-books wage records to sealed-charter reference');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -567,14 +567,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Extra routes when Decon is absent. The destinations don't match any posted address.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The herald\'s mail bench is on the mid-tower courier floor — a long room with dispatch slots numbered along the back wall. Bren Sothwick is at the bench but the route log stays inside his document bag while you speak. Council herald privilege, he says without looking up. The bag stays at his feet.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'pressing council herald Bren Sothwick on irregular dispatch routes');
+      gainXp(34, 'pressing council herald Bren Sothwick on irregular dispatch routes');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -603,14 +603,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The blueprint vault floor plan doesn't match the structure visible from the north bridge.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The blueprint vault is on the upper governance level — a narrow room with the drawers locked along the inner wall. The duty archivist sits at the registry desk that covers the only entrance. She turns the page of her duty log when you appear in the corridor and writes the time. You do not approach the vault door.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'accessing restricted tower blueprint vault to find undisclosed floor space');
+      gainXp(34, 'accessing restricted tower blueprint vault to find undisclosed floor space');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -639,10 +639,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Some passes move through the curfew line without being logged.",
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'enduring a full night on the north bridge curfew line to log post-curfew transit');
+      gainXp(34, 'enduring a full night on the north bridge curfew line to log post-curfew transit');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -671,14 +671,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The forge cavity crate marks don't match any Soreheim stamp.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The metallurgical verification desk is in the mid-tower workshop level, behind a glass partition that fogs in the forge updraft. The duty clerk asks for the council Arbiter authorization slip and writes the request on a triplicate form. The crate fragment stays in your bag. The form goes into a pending tray that is already three deep.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing crate assay marks against Soreheim registered forge stamps');
+      gainXp(34, 'cross-referencing crate assay marks against Soreheim registered forge stamps');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -707,14 +707,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A retired Wing officer designed the override protocols. He left without explanation.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Hassel Dorn\'s outer-ring residential block is three streets from the tower base — a stone landing with two doorways and a window onto the lower forge stacks. He does not come to the door. A neighbour across the landing watches the corridor from her doorway with no particular reason to be standing there. You leave without knocking a second time.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'approaching retired Wing officer Hassel Dorn about internal override protocols');
+      gainXp(34, 'approaching retired Wing officer Hassel Dorn about internal override protocols');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -743,14 +743,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A hidden addendum quietly legalized what the operation needed.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The treaty amendment archive is on the upper crown floor — a narrow room with the council chancellor\'s clerk at the entry desk. She asks your name, writes it on the appointment register, and tells you the next available archive slot is in eight days. The appointment book is full. The volumes stay shelved behind the inner door.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'uncovering suppressed Iron Compact treaty addendum in amendment archive');
+      gainXp(34, 'uncovering suppressed Iron Compact treaty addendum in amendment archive');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -779,14 +779,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A sealed dispatch rider leaves every third morning on a route that avoids the checkpoints.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The factor-address block at dawn is in clear line of sight from the inner-ring gatehouse — a guard at the parapet whose lantern angle covers the alley the rider exits through. The rider leaves at the second bell. By the time you find a position with cover, his pace has carried him past the third turning and out of sight along the east outer-ring road.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'intercepting dispatch rider leaving the factor-address block to read shipment timing');
+      gainXp(34, 'intercepting dispatch rider leaving the factor-address block to read shipment timing');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -814,7 +814,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The command structure is confirmed. Cron's Arbiter seal for prosecution or expose the expansion budget.",
     skill: 'charm',
     tags: ['Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Cron Udenine\'s judicial chamber on the upper crown floor has a clerk at the inner door who reads the file folder before announcing you. He reads to the third page, closes the folder, and tells you the Arbiter is in chambers on a sealed proceeding. The seal does not get applied today. The folder goes back into your bag.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -850,14 +850,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The Hammer Company extraction quota sheet shows a different ceiling than the Iron Accord copy.",
     skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The Hammer Company forge-floor entrance is at the tower base — a wide iron door with a quota board posted to the right of the threshold. The duty foreman blocks the door at your approach and asks for a work assignment seal. The board stays inside. The Iron Accord registry sits across the plaza, but you cannot read both copies in the same trip.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'quota sheet discrepancy');
+      gainXp(10, 'quota sheet discrepancy');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('wits', G.skills.wits);
@@ -882,14 +882,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Decommodification prohibition records list exactly the goods currently moving under the Wing seal.",
     skill: 'spirit',
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The Giant Council intake desk on the mid-tower governance floor has the prohibition register posted in a glass-fronted frame. A factor stands at the frame reading it, takes a notebook out, and writes the date and time before continuing. He does not move when you approach. You step back into the corridor without reading the third panel.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'decommodification prohibition cross-reference');
+      gainXp(10, 'decommodification prohibition cross-reference');
       if (!G.flags) G.flags = {};
       var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
@@ -913,14 +913,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Iron Accord arbitration records show three disputes involving the same shipment reference, all dismissed.",
     skill: 'charm',
     tags: ['Stage2', 'Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The Soreheim trade hall arbitration register sits inside the mid-tower assembly corridor — a clerk\'s counter with the case index bound by quarter. The duty clerk asks for the specific shipment identifier before pulling any volume. Without it, she opens a queue ticket and routes it through the arbiter\'s office. You take the ticket and step back into the corridor.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'Iron Accord arbitration dismissals');
+      gainXp(10, 'Iron Accord arbitration dismissals');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('charm', G.skills.charm);
@@ -948,10 +948,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "One north-gate banner hangs lower than the others.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'reading the altered north-gate banner');
+      gainXp(30, 'reading the altered north-gate banner');
       G.flags.stage2_faction_wardens_aware = true;
       G.lastResult = 'The four Roadwarden banners along the north gate arcade are matched cloth and matched height. One hangs a finger-width lower than its neighbors. The brass grommet below it has been polished where the others carry road grit, which is what a Banner-Master does when she is marking a drop point without writing anything down. The patrol rotation passing under it does not look up. The rotation changes on the half-hour and the banner hangs lowered only during one of those windows. The lowered banner is an invitation from someone senior enough in the Order to move brass on the main gate without a work order.';
       addJournal('Soreheim north gate — Roadwarden banner hung low at one rotation window, brass worked clean as a silent drop mark', 'intelligence', `sor-warden-aware-${G.dayCount}`);
@@ -964,7 +964,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Stand under the low banner at the rotation change. Meet whoever is doing the inviting.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The north gate arcade at the rotation change carries a current of factor traffic — two senior Wing factors are at the gate when the rotation begins, conferring with the gate-sergeant. Standing under the lowered banner now puts you in their direct sightline. The window passes without contact. The brass grommet stays clean.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -975,7 +975,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'making the Wardens command contact');
+      gainXp(36, 'making the Wardens command contact');
       G.flags.met_banner_master_ruven_halse = true;
       G.flags.stage2_faction_wardens_contacted = true;
       G.lastResult = 'Banner-Master Ruven Halse walks past you at the rotation change, does not stop, and says to meet him at the third bay of the mustering yard in twenty minutes. When you arrive he is alone, stripping a patrol saber for cleaning. His register is formal Roadwarden — verbs first, no pleasantries, station numbers as shorthand for places. His tell: he lines the saber parts in the exact order of disassembly and will not speak when a piece is out of sequence. He wants the patrol incident log from Station Forty-Two for a specific seven-day window, pulled from the archive without the duty sergeant signing it out. He needs it to hold a hearing the Order has been quietly refused.' + applyTensionModifier('warden_any');
@@ -990,14 +990,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Station 42 log is the piece Ruven needs — and it's still in the archive.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_wardens_contacted)) {
         G.lastResult = 'Halse has not named the next step yet. The Station 42 archive is in the eastern duty hall, and the log is still in the filing cabinet — he confirmed that much at the mustering yard meeting. Moving without his timing means moving without the hearing as cover, and without the hearing the log is just a stolen document with no admissible chain. Wait for Halse to name the window.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(90, 'delivering the Station 42 incident log');
+      gainXp(45, 'delivering the Station 42 incident log');
       G.flags.stage2_faction_wardens = true;
       G.flags.stage2_faction_contact_made = true;
       G.investigationProgress = (G.investigationProgress||0) + 2;
@@ -1018,14 +1018,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: 'A union procedural filing with a non-union authority hold on it',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The Soreheim union registry sits at the base of the second tower — a low room with the procedural filings shelved by guild sector. The duty registrar reads your request and walks back to the shelf without producing the file. She returns empty-handed. The Collegium hold has flagged the volume for restricted handling, she says. The shelf stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'union filing authority hold');
+      gainXp(10, 'union filing authority hold');
       G.lastResult = 'Union procedural filings are processed by union registrars — that is what union procedure means. This one has an external hold applied to it. The hold stamp is Collegium administrative format. The union registrar who pulls it for you sets it on the desk without comment, which means she either cannot explain it or has been told not to. The union\'s own process is suspended pending the outcome of a process from outside the union\'s authority.';
       addJournal('A Soreheim Proper union procedural filing carries a Collegium administrative hold — union registrar offered no explanation. Source: Soreheim Proper union registry.', 'evidence');
       G.recentOutcomeType = 'investigate';
@@ -1039,14 +1039,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: 'The merchant factor calls it market variance. He\'s wrong and he knows it',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The factor exchange floor is a mid-tower commercial chamber — long tables, brass tally rails, the press of trade clerks running the afternoon session. The factor you came to speak with is at the central table calling buy lots. He does not break the call rhythm. Two clerks at his elbow shift to block your approach. The session does not pause.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'merchant factor framing');
+      gainXp(7, 'merchant factor framing');
       G.lastResult = 'He frames everything as normal trade fluctuation — seasonal pressure, route adjustments, buyer preference shifts. He has the vocabulary for it and he uses it precisely. But the numbers he\'s describing don\'t behave like market variance. They behave like administered pressure: consistent direction, consistent magnitude, no correlation with the commodity indices he\'s citing. He knows this. The framing is what he\'s been told to use.';
       addJournal('A Soreheim Proper merchant factor described economic anomalies as market variance — but the pattern is inconsistent with natural market behavior. Source: Soreheim Proper factor exchange, afternoon session.', 'intelligence');
       G.recentOutcomeType = 'investigate';
@@ -1060,14 +1060,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: 'Pre-Decommodification pressure records follow the same shape as now',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The civic archive sits inside the upper governance level — a long reading room with the pre-Decommodification volumes shelved at the back. The duty archivist asks for the access roll and notes the request in his ledger. He returns from the back shelf with only the index volume. The source volumes themselves are flagged for archival review and not currently available.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'decommodification era pattern');
+      gainXp(10, 'decommodification era pattern');
       G.lastResult = 'The archive holds economic records from before the Decommodification. The pressure pattern in those records — consistent directional force on specific trade categories, administrative holds on appeals, procedural delays concentrated on the same guild sectors — is recognizable. The current pattern is not identical. But it uses the same structure. Someone built the current mechanism by studying what worked before. The Decommodification did not end the method. It interrupted it.';
       addJournal('Pre-Decommodification economic records in Soreheim Proper show pressure patterns structurally identical to current anomalies — same sectors, same hold mechanisms. Source: Soreheim Proper civic archive.', 'evidence');
       G.recentOutcomeType = 'investigate';
@@ -1080,14 +1080,14 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: 'An authority representative is watching me pull these records',
     skill: 'wits',
     tags: ['Complication', 'Observation'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The civic archive reading room has two doors — the duty entrance and a smaller service door at the back. The observer near the duty entrance does not move when you stand. The service door is bolted on the far side. You return the volume you were reading to the request desk and leave the rest unread. The reading room stays at its same low murmur.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'monitored records access');
+      gainXp(10, 'monitored records access');
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = 'The figure near the reading room door is not a regular archivist. The posture is wrong — too still, facing the room rather than the shelves. He has been there since you requested the third volume. He has not asked who you are. He does not need to — he has the request forms. He is noting which volumes you pull, in what order, and how long you spend on each. You finish what you can and leave the rest.';
@@ -1106,10 +1106,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Lyria sets her pen down and turns the allocation ledger face-down without being asked. 'Ward-level reconciliation is administered on a rolling basis. Inquiries should be directed to the Giant Council intake desk.' She picks the pen up again, resettles it in her grip, and returns to the column without looking up. The intake desk will produce a queue ticket and a three-day wait. The ledger stays face-down.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'pressing Lyria Firesoul on northern ward allocation delay');
+      gainXp(35, 'pressing Lyria Firesoul on northern ward allocation delay');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('charm', (G.skills.charm || 0));
       if (result.isCrit) {
@@ -1140,10 +1140,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Survival'],
     tag: 'bold',
     failResult: "The crossing foreman at Ironroot is a large man with a very short memory for faces he does not recognize. He takes the manifest from your hand, reads the date, and hands it back. 'Rotation records are internal Crossing documentation. You'll need a labor assignment to pull those.' He turns back to the loading sled without waiting for a response.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'enduring the Ironroot Crossing yard to read phantom crew entries');
+      gainXp(37, 'enduring the Ironroot Crossing yard to read phantom crew entries');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('vigor', (G.skills.vigor || 0));
       if (result.isCrit) {
@@ -1174,10 +1174,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Eryndor Bladewright crosses his arms and does not uncross them. 'Contribution rankings are a council process. Challenging a ranking without a formal disputation form goes nowhere.' He is not hostile. The forge heat coming off the adjacent station is steady and loud. He is a man who has learned that precise procedure is the only defense available to him, and he is using it without apology.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'approaching Eryndor Bladewright about contribution ranking drop');
+      gainXp(34, 'approaching Eryndor Bladewright about contribution ranking drop');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('charm', (G.skills.charm || 0));
       if (result.isCrit) {
@@ -1208,10 +1208,10 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'bold',
     failResult: "The Assembly clerk at the grievance board desk pulls the register back across the counter before you finish reading the entry. 'Withdrawn postings are not subject to further review. The filing party retracted it.' She closes the register. Withdrawn postings are retracted by the filing party — or retracted for them.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing the vanished Miners Assembly grievance to its source filing');
+      gainXp(36, 'tracing the vanished Miners Assembly grievance to its source filing');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits || 0));
       if (result.isCrit) {

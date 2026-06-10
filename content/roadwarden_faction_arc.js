@@ -27,21 +27,21 @@ var ROADWARDEN_FACTION_MODULE = (function() {
           plot: 'main',
           text: 'A warden waiting at the gate without sending a summons. Wants quiet.',
           tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat1Follow(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat1Follow(); }
         },
         {
           id: 'roadwarden_beat1_cautious',
           plot: 'main',
           text: 'She knew my name and the timing. This was already arranged.',
           tag: 'risky',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat1Cautious(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat1Cautious(); }
         },
         {
           id: 'roadwarden_beat1_decline',
           plot: 'main',
           text: 'Independent jurisdiction means independent agenda. The five minutes she wants are not free.',
           tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat1Decline(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat1Decline(); }
         }
       ]);
     }, 400);
@@ -124,21 +124,21 @@ var ROADWARDEN_FACTION_MODULE = (function() {
           plot: 'main',
           text: 'What you saw in the sub-registry is testimony. The Collegium cannot reach Warden jurisdiction.',
           tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat2Testify(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat2Testify(); }
         },
         {
           id: 'roadwarden_beat2_conditions',
           plot: 'main',
           text: 'Testimony is leverage. The immunity she\'s offering needs to be in writing before it means anything.',
           tag: 'risky',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat2Conditions(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat2Conditions(); }
         },
         {
           id: 'roadwarden_beat2_withhold',
           plot: 'main',
           text: 'Giving testimony closes options. The same information is worth more held than given.',
           tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat2Withhold(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat2Withhold(); }
         }
       ]);
     }, 400);
@@ -235,14 +235,14 @@ var ROADWARDEN_FACTION_MODULE = (function() {
           plot: 'main',
           text: 'Orvaine\'s report is going into the charter record either way. Being in it correctly is better than being in it wrong.',
           tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat3Ally(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat3Ally(); }
         },
         {
           id: 'roadwarden_beat3_refuse',
           plot: 'main',
           text: 'A Road Warden report shapes what gets heard — and what gets buried — by the authority that receives it.',
           tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat3Refuse(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat3Refuse(); }
         }
       ]);
     }, 400);

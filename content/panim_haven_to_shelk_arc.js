@@ -12,11 +12,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Tazren stopped filing. The case didn't stop — he did.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Panim Haven following Tazren\'s trail');
+      gainXp(32, 'departing Panim Haven following Tazren\'s trail');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Harbor district traffic provides the cover of normal movement. I use it.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'bypassing Collegium observation posts via harbor district');
+      gainXp(35, 'bypassing Collegium observation posts via harbor district');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -53,11 +53,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Sera moved before me. She found something that made her leave immediately.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'finding Sera\'s message at the harbor master\'s office');
+      gainXp(35, 'finding Sera\'s message at the harbor master\'s office');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `The note is brief: "Case 4-Reckoning is not closed. Contact the Panim network through the textile factor in Shelkopolis's Verdant Row. Ask for Sana. She's been holding the case record since the Bureau dismissed it." Sera moved faster than you. Whatever she found in Panim Haven was enough to move immediately.`;
@@ -74,12 +74,12 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "The containers moved before the case opened. Tazren saw the overlap.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'connecting Bureau case to coastal passage timeline');
+      gainXp(40, 'connecting Bureau case to coastal passage timeline');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -94,11 +94,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Tazren's case number prefix, but a new suffix. Someone inside continued his work.",
     tags: ['ArcDeepening', 'Investigation', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'observing Bureau courier with familiar case prefix');
+      gainXp(37, 'observing Bureau courier with familiar case prefix');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -118,11 +118,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Callow isn't patrolling. He's watching this specific stretch of road.",
     tags: ['ArcDeepening', 'Survival', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'reading Callow\'s irregular patrol as surveillance of the route');
+      gainXp(37, 'reading Callow\'s irregular patrol as surveillance of the route');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -142,11 +142,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Whatever the Bureau suppressed, the original document may still exist here.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'arriving at Shelkopolis eastern approach');
+      gainXp(35, 'arriving at Shelkopolis eastern approach');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -161,11 +161,11 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Sana has held this case for eight years. Twenty-three documents, Tazren's six included.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'finding Sana with Case 4-Reckoning record');
+      gainXp(40, 'finding Sana with Case 4-Reckoning record');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -190,12 +190,12 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
     label: "The case was suppressed because Tazren was right. I carry what he found.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.panim_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to continue Tazren\'s investigation in Shelkopolis');
+      gainXp(40, 'committing to continue Tazren\'s investigation in Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.panim_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

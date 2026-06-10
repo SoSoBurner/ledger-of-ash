@@ -12,14 +12,14 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sealed charter-period correspondence sits in Aurora Heights archive. The noble registry controls access.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'accessing Aurora Heights formal archive');
+      gainXp(36, 'accessing Aurora Heights formal archive');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -40,14 +40,14 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The high-society network holds off-record knowledge about the charter parties.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'working Aurora Heights social circuit for charter intelligence');
+      gainXp(34, 'working Aurora Heights social circuit for charter intelligence');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -67,14 +67,14 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The registrar's counter-mark is on a low ward eviction — wrong jurisdiction, same hand.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing Aurora Heights registrar signature into low ward filings');
+      gainXp(37, 'tracing Aurora Heights registrar signature into low ward filings');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -98,14 +98,14 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Workers who touched the container modifications end their shifts at the ward taverns.",
     tags: ['Investigation', 'Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'locating Ironspool Ward workers who handled container modifications');
+      gainXp(35, 'locating Ironspool Ward workers who handled container modifications');
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -126,14 +126,14 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A ward fence has been moving suppression compound that leaked from the main supply chain.",
     tags: ['Stealth', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing suppression compound street leakage in Ironspool Ward');
+      gainXp(33, 'tracing suppression compound street leakage in Ironspool Ward');
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -157,14 +157,14 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The pawn window tag has been rewritten four days running.",
     tags: ['RedHood', 'Stage2', 'Faction'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'reading the pawn-window tag pattern');
+      gainXp(30, 'reading the pawn-window tag pattern');
       G.flags.stage2_faction_red_hood_aware = true;
       G.lastResult = 'The cracked lamp in the pawn window has a handwritten tag that is too large for the item. Eleven days the lamp has sat there, and the tag has been rewritten on four of those days — always by the same hand, always with a different numeral string and never with a currency mark. The tag today ends in a short Kerroun syllable that is not a price. It is a broker listing code. The pawn shop is a Red Hood Guild dead-drop window, and the tag is live this morning. A woman in a dark red shawl crosses the lane while you are reading, adjusts the shawl over one shoulder instead of the other, and does not glance back.';
       addJournal('Ironspool Ward pawn window — Red Hood broker listing code live today, dead-drop tag pattern confirmed', 'intelligence', `iron-redhood-aware-${G.dayCount}`);
@@ -176,7 +176,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Quote the listing code back at the counter and ask what the lamp actually costs.",
     tags: ['RedHood', 'Stage2', 'Faction', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -187,7 +187,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reaching the Red Hood broker');
+      gainXp(36, 'reaching the Red Hood broker');
       G.flags.met_broker_anneth_torv = true;
       G.flags.stage2_faction_red_hood_contacted = true;
       G.lastResult = 'The counter clerk disappears into the back and a different woman comes forward — the one in the red shawl, closer now. She introduces herself as Broker Anneth Torv, says it like a credential rather than a name. Her register is Kerroun market — short sentences, a small laugh before any refusal, numbers always spoken in multiples of three. Her tell is that she wears a thin iron ring on her smallest finger and turns it inward before she quotes a price, so the ring-face reads only to her. She wants a specific courier satchel recovered from a Reckoning Quarter confiscation shelf — a satchel the Red Hood lost when a courier was picked up last week.';
@@ -201,7 +201,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The satchel on the confiscation shelf hasn't been signed out properly.",
     plot: 'main',
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -212,7 +212,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(90, 'delivering the recovered Red Hood satchel');
+      gainXp(45, 'delivering the recovered Red Hood satchel');
       G.flags.stage2_faction_red_hood = true;
       G.flags.stage2_faction_contact_made = true;
       G.investigationProgress = (G.investigationProgress||0) + 2;
@@ -232,14 +232,14 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Botanical healers have been quietly documenting suppression compound exposure cases.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing Verdant Row healer exposure documentation');
+      gainXp(34, 'reviewing Verdant Row healer exposure documentation');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -261,14 +261,14 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Every allied healer and recorder here is connected. Waiting for something worth routing.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'building the Verdant Row network');
+      gainXp(32, 'building the Verdant Row network');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.verdant_row_contact = true;
@@ -289,14 +289,14 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A Reckoning Quarter magistrate has been taking depositions inside the healer's collective without local notice.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracking Reckoning Quarter magistrate into Verdant Row');
+      gainXp(36, 'tracking Reckoning Quarter magistrate into Verdant Row');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -320,14 +320,14 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The routing number theft is in the manifests right now. Catch it before it clears.",
     tags: ['Investigation', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'intercepting live manifest routing number theft at Granary Steps');
+      gainXp(35, 'intercepting live manifest routing number theft at Granary Steps');
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -347,14 +347,14 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The ward boundary markers here carry more than paint — something was written over.",
     tags: ['stage2', 'districts'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(30, 'examining Granary Steps ward boundary markers');
+      gainXp(15, 'examining Granary Steps ward boundary markers');
       var roll = rollD20('vigor', G.skills.vigor || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
@@ -373,14 +373,14 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The suppression compound payments are filed as routine asset transfers in the financial records.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing suppression compound payments in Iron Ledger Ward records');
+      gainXp(36, 'tracing suppression compound payments in Iron Ledger Ward records');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -402,14 +402,14 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Guild Arbiter processed that filing — she knows which claim date came first.",
     tags: ['stage2', 'districts'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(30, 'pressing Guild Arbiter on Iron Ledger Ward claim dates');
+      gainXp(15, 'pressing Guild Arbiter on Iron Ledger Ward claim dates');
       var roll = rollD20('charm', G.skills.charm || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
@@ -428,14 +428,14 @@ var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A memorial service provider filed a fraud complaint, then withdrew it. Pressure was applied.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'pursuing withdrawn memorial fraud complaint in Reckoning Quarter');
+      gainXp(35, 'pursuing withdrawn memorial fraud complaint in Reckoning Quarter');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -456,14 +456,14 @@ var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The permit inspector patrols that corridor. One wrong word closes every door in the quarter.",
     tags: ['stage2', 'districts'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(30, 'navigating Reckoning Quarter permit inspector social check');
+      gainXp(15, 'navigating Reckoning Quarter permit inspector social check');
       var roll = rollD20('finesse', G.skills.finesse || 0);
       if (roll.total >= 13) {
         G.investigationProgress++;
@@ -483,14 +483,14 @@ var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Scriptorium Steps has a back-channel that bypasses Academy mail. The evidence needs that route.",
     tags: ['Craft', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'routing findings through Scriptorium Steps back-channel');
+      gainXp(32, 'routing findings through Scriptorium Steps back-channel');
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.stage2_evidence_shared = true;
@@ -511,14 +511,14 @@ var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Scriptorium correspondence to Glasswake scholars is being routed through the Iron Ledger Ward franking office.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining misrouted Scriptorium correspondence through Iron Ledger franking');
+      gainXp(36, 'examining misrouted Scriptorium correspondence through Iron Ledger franking');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -544,14 +544,14 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Charter and contract files in the high quarter hall. The credentials may open the gate.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'requesting high quarter charter record access');
+      gainXp(33, 'requesting high quarter charter record access');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -572,14 +572,14 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The high quarter social circuit keeps its own record of charter activity.",
     tags: ['Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(62, 'working high quarter social circuit for charter intelligence');
+      gainXp(31, 'working high quarter social circuit for charter intelligence');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -602,14 +602,14 @@ var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Market stall traders track every unusual shipment. They share freely.",
     tags: ['Survival', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'gathering market intelligence in common quarter');
+      gainXp(29, 'gathering market intelligence in common quarter');
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -629,14 +629,14 @@ var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Ward workers know which employers are running outside guild contracts.",
     tags: ['Persuasion', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(56, 'gathering off-contract employer intelligence from common quarter labor');
+      gainXp(28, 'gathering off-contract employer intelligence from common quarter labor');
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -659,14 +659,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The low ward tracks contraband movement. Someone here knows the suppression compound edge.",
     tags: ['Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'tapping low ward informant network for compound distribution intel');
+      gainXp(30, 'tapping low ward informant network for compound distribution intel');
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -690,14 +690,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The patrol log skips three nights. The gap lines up with the container transfers.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing constable patrol log gaps with container transfer dates');
+      gainXp(34, 'cross-referencing constable patrol log gaps with container transfer dates');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -724,14 +724,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The bonded yard keeper's private ledger has a back column. Every irregular load. Unnamed.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'pressing the bonded yard keeper for off-books intake records');
+      gainXp(35, 'pressing the bonded yard keeper for off-books intake records');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -757,14 +757,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The weight-check station keeps a shadow manifest for loads that bypass the standard inspector.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'locating shadow manifests at the eastern transit road weight station');
+      gainXp(33, 'locating shadow manifests at the eastern transit road weight station');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -789,14 +789,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The evicted tenant kept her notice papers. She knows who served them.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'tracing dome terminal eviction to the displaced tenant');
+      gainXp(32, 'tracing dome terminal eviction to the displaced tenant');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -821,14 +821,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The stamping tool was ordered from a copy house. The order slip survives.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing charter subsidiary stamp manufacture through Scriptorium bindery log');
+      gainXp(36, 'tracing charter subsidiary stamp manufacture through Scriptorium bindery log');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -854,14 +854,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Three entries in the intake ledger list the same routing code twice.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-checking dome terminal intake ledger for duplicate routing codes');
+      gainXp(34, 'cross-checking dome terminal intake ledger for duplicate routing codes');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -888,14 +888,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Junior Warden officers resent the patrol re-routing orders. No reason was ever given.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'working a rift in the Warden junior officer cohort over unexplained patrol orders');
+      gainXp(35, 'working a rift in the Warden junior officer cohort over unexplained patrol orders');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -922,14 +922,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The night archivist works alone. She has seen what gets filed and pulled before morning.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'approaching the civic hall night archivist for off-hours filing intelligence');
+      gainXp(33, 'approaching the civic hall night archivist for off-hours filing intelligence');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -954,14 +954,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The ghost entity is accepting commodity receipts. It has no warehouse to hold them.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing ghost entity commodity receipts in Ithtananalor trading post ledger');
+      gainXp(36, 'tracing ghost entity commodity receipts in Ithtananalor trading post ledger');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -985,14 +985,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The apothecary delivery records and the treatment logs don't tell the same story.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'cross-referencing apothecary supply volumes against Verdant Row treatment logs');
+      gainXp(32, 'cross-referencing apothecary supply volumes against Verdant Row treatment logs');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -1017,14 +1017,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The route supervisor was removed after filing a discrepancy report. He kept a copy.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'locating the disgraced courier supervisor and his discrepancy report copy');
+      gainXp(34, 'locating the disgraced courier supervisor and his discrepancy report copy');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -1049,14 +1049,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The estate solicitor mentioned the charter holder family once. She didn't finish the sentence.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'pressing the Aurora Heights estate solicitor on her incomplete statement about the charter holder family');
+      gainXp(33, 'pressing the Aurora Heights estate solicitor on her incomplete statement about the charter holder family');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -1080,14 +1080,14 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Workers who handled off-books cargo for extra pay know more than they told their handlers.",
     tags: ['Combat', 'Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'pressing low ward off-books cargo workers');
+      gainXp(29, 'pressing low ward off-books cargo workers');
       var result = rollD20('might', (G.skills.might||0));
       if (result.isCrit) {
         G.investigationProgress++;
@@ -1115,7 +1115,7 @@ AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_ah_registry_ghost_confirmation',
     label: 'The registry records a dissolved entity as active. Someone keeps paying the filing fee.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1150,7 +1150,7 @@ IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_iron_guild_stamp_forgery',
     label: 'The modified containers carry a guild certification stamp. That stamp was not requested.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'spirit',
     fn: function() {
@@ -1185,7 +1185,7 @@ VERDANT_ROW_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_vr_suppression_notice_source',
     label: 'The "Northern Glyph Oversight Commission" left a physical address. It does not exist.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1220,7 +1220,7 @@ GRANARY_STEPS_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_granary_false_weight_pattern',
     label: 'The manifest weights cluster at exactly the exemption threshold. That precision is intentional.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'wits',
     failResult: 'The manifest batch files for the past two months are in active administrative review. External access during an active cycle is suspended under Granary Steps records protocol. The files that would show the weight clustering are precisely the ones locked for internal review.',
@@ -1254,7 +1254,7 @@ IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_ilw_escrow_withdrawal_pattern',
     label: 'The escrow account sends funds in irregular bursts. Each burst follows a compound shipment.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1289,7 +1289,7 @@ RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_rq_magistrate_authorization_chain',
     label: 'The magistrate who authorized the patrol re-routes has a superior who does not know.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'charm',
     fn: function() {
@@ -1325,7 +1325,7 @@ SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_ss_scholar_cross_reference',
     label: 'Three researchers have assembled the same picture from different pieces. They need to compare.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'charm',
     failResult: 'Quenra Quillfire is mid-review cycle, Toman Iceveil is at the transit archive, and Serin Sunweave is unavailable until tomorrow. The window that would allow all three in the same room does not open today. The comparison waits.',
@@ -1363,7 +1363,7 @@ HIGH_QUARTER_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_hq_patron_faction_network',
     label: 'A high quarter patron funds the charter research. She wants the finding before anyone else.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'bold',
     skill: 'charm',
     fn: function() {
@@ -1398,7 +1398,7 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_cq_transit_node_discovery',
     label: 'The transit node alcove near the market has had new hardware bolted to it.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1427,7 +1427,7 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_cq_guild_post_faction',
     label: 'The guild post clerk knows which firms skip the intake window.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'charm',
     failResult: 'Peva Thorns handles the post intake window at full queue pace and does not have space for an unsolicited conversation. Guild intake records are not public record. The queue builds behind the exchange and she returns to it without further comment.',
@@ -1463,7 +1463,7 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_lw_ward_elder_reckoning',
     label: 'The ward elder has seen three rounds of outside inquiry. She knows the pattern.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'charm',
     failResult: 'Cosset is not at the water pump bench today. The neighbor who usually knows her whereabouts says she is visiting a relative in the upper ward. The ward has registered the inquiry and is waiting to see what kind of inquiry it is before deciding what to do with it.',
@@ -1497,7 +1497,7 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_lw_eviction_paper_trail',
     label: 'Five low-ward evictions share the same notary mark.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1528,7 +1528,7 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
     id: 'dist_lw_compound_exposure_firsthand',
     label: 'A ward resident describes the symptoms. She did not choose this exposure.',
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tag: 'safe',
     skill: 'spirit',
     failResult: 'The conversation begins well but the question about the dome terminal timeline comes too early. She pulls back — she has spoken to outsiders before who used her experience to make an argument and then left the ward while she stayed in it. The meeting ends before the calendar appears.',
@@ -1584,7 +1584,7 @@ var SHELKOPOLIS_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The docket sheet is pinned beside the south stair, sun-bleached on the upper third. Three carriage-rate appeals, a guild-mark reissue, a sealed petition with the petitioner name struck through in red ink. The strike-through is administrative; the petition is still on the calendar. The hearing chamber number is the small one on the inner corridor — the one with no public bench. A petition heard in a room with no audience is not a petition. It is a notice.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       addJournal('Shelkopolis High Quarter: sealed petition with struck-through petitioner scheduled in the chamber with no public seating', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1603,7 +1603,7 @@ var SHELKOPOLIS_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'Four councillors cross the upper concourse in single file, oldest first. The order is not seniority — it is shareholding. The man at the back wears no guild mark visible at the lapel, which means he carries it inside the coat, which means he is from a chapter that does not require public display. That is a chapter of two. They board the private rail car. The escort steward checks no passes. The private car has no published schedule.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Shelkopolis High Quarter: private rail car serves councillors of an unmarked chapter — no published schedule, no pass checks', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1622,7 +1622,7 @@ var SHELKOPOLIS_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The seal is the right shape and the right ink. The pressure is wrong. A notary stamp impressed by hand carries a thumb-print of unevenness on the lower edge — the wrist tires across a day. This one is even on all four edges. It was set in a press, not by hand. Press-stamped notaries are reserved for high-volume reissue, which means whoever ruled on this matter ruled on a great many other matters at the same time. The ruling becomes part of a batch you have not seen.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       G.gold = (G.gold || 0) + 6;
       addJournal('Shelkopolis High Quarter: press-stamped notary on a posted ruling — batch processing concealed in single-case format', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -1642,7 +1642,7 @@ var SHELKOPOLIS_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'She walks the southwest corridor to a wall niche that holds nothing — no shrine, no notice, no bench — and stands there for the length of a slow breath, then turns back. Twice in one hour. The third time she does not go to the niche. She goes to the door beside it and unlocks it with a key kept on a separate ring from her duty keys. The room behind it has no window onto the corridor. She is inside for one minute. The handle of her hand is not shaking when she comes out, which is the only thing about her that is not.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       addJournal('Shelkopolis High Quarter: senior clerk maintaining a windowless side room on a separate key — repeated brief visits', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1665,7 +1665,7 @@ var SHELKOPOLIS_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The shorter queue moves at the same pace as the longer one — fewer passengers, identical processing time per passenger. The booth attendant on the short side stamps the fare ticket without looking, then drops the coin into a side tin separate from the till. The till is for the guild. The tin is for someone else. Three regulars pass through the short queue in the time you watch. Each one wears a different shoulder mark. The marks share one detail: a thumb-rub at the lower corner where a chapter wears down with handling.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       G.gold = (G.gold || 0) + 4;
       addJournal('Shelkopolis Common Quarter: transit booth running a side-tin for a chapter identified by handling-wear on the shoulder mark', 'intelligence');
       addNarration('', G.lastResult, 'success');
@@ -1685,7 +1685,7 @@ var SHELKOPOLIS_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The stallboard at the corner shop shows two layers of overwriting under the current mark. Held at the right angle, both prior marks are different chapters from the current one. A trader does not change chapter affiliation three times in one season without a reason — chapters charge a transfer fee, and the fee scales with frequency. He has paid that fee twice. Either the trades have been worth it, or someone else has been paying the fee, or the marks themselves are not real and the scratch-outs are the camouflage.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Shelkopolis Common Quarter: stallboard chapter mark overwritten twice this season — three possible explanations, all worth pursuing', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1704,7 +1704,7 @@ var SHELKOPOLIS_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The bay log binds the day in numbered entries. Entry forty-one has two signatures. The first is the receiving porter — careful capitals, the standard hand. The second is angled smaller, written in a different ink, and placed inside the porter line rather than below it. A second signature inside the line is a correction, not a co-sign. The correction does not amend the count. It amends the consignee. The original consignee has been overwritten by the second hand without striking the first. The shipment was delivered to a different recipient than the one billed.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Shelkopolis Common Quarter: bay log entry forty-one — consignee silently overwritten without strike-out by a second hand', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1723,7 +1723,7 @@ var SHELKOPOLIS_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'He sits under the awning at the third corner from the bay, taking dictation for laborers who cannot write their own filings. His hand is careful and lightly slanted, with the upper loop of the letter G closed at the top — an unusual closure, taught at one of the older charity schools. The same closure appears on the struck petition on the high quarter docket. The petitioner did not file under a false name. The petitioner cannot write. The man who wrote the petition for him is two streets away.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       G.gold = (G.gold || 0) + 8;
       addJournal('Shelkopolis Common Quarter: street letter-writer with the closed-loop G — same hand as the struck high-quarter petition', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -1747,7 +1747,7 @@ var SHELKOPOLIS_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'Count from the loading door: seven rows of nine, plus a partial back row of four. Sixty-seven crates. The morning bay log at the high entrance posted forty-one deliveries through the third bell. The remaining twenty-six are either holdovers from prior days, which the holdover log on the side wall would show, or they are unlogged. The holdover log shows nine. Seventeen crates are sitting in a warded warehouse without a paper trail. Their seals are uniform. The seal stamp is fresh enough that the wax is still soft on the underside.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Shelkopolis Low Ward: overflow warehouse holding seventeen unlogged crates with fresh uniform seals', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1766,7 +1766,7 @@ var SHELKOPOLIS_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The pay window clips tickets in batches. You watch three batches process. The clerk takes the tickets from the morning roster, sets them against the afternoon roster, and clips them to the afternoon. The morning work happened. The afternoon roster bills the work as overtime. Overtime carries a stipend reimbursable from the guild relief fund — the relief fund draws from a separate ledger that is audited only quarterly. Someone is converting normal labor into reimbursable overtime at the clip-point, and the laborers see no difference in their pay.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       G.gold = (G.gold || 0) + 5;
       addJournal('Shelkopolis Low Ward: pay window converting normal labor to overtime at the clip-point — draws on the quarterly-audited relief fund', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -1786,7 +1786,7 @@ var SHELKOPOLIS_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The posted schedule ends at the seventh bell. Two cars come down the spur at the eighth, slow enough that the wheels do not throw spark on the curve. The cars are short — three-quarter length, a build used for assay-grade freight that requires careful handling. They are unlit at the windows and the porter on the platform has the apron of a guild handler but no chapter mark visible at the shoulder. Off-schedule cars to an unmarked porter is a routine. Routines have authors. The author is somewhere upstream of the schedule office.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       addJournal('Shelkopolis Low Ward: off-schedule short-build assay cars after eighth bell — unmarked porter — routine implies upstream author', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1805,7 +1805,7 @@ var SHELKOPOLIS_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The bench is at the lane corner outside the warehouse, in line of sight of the spur platform and the pay window both. He eats slowly. He never finishes the tin. After he leaves, a boy from the printer two doors down clears the bench and takes the tin into the print shop. The tin comes back the next morning. The tin is not lunch. The tin is the drop. The foreman is the runner. The print shop is the desk. He has been doing this for at least nine days, which means he is good at it and someone trusts him to keep being good at it.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       addJournal('Shelkopolis Low Ward: lunch-tin drop at the corner bench — foreman runs, print shop receives — nine-day pattern', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1828,7 +1828,7 @@ var GUILDHEART_HUB_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'He takes the east stair to the chartersmiths\' floor on standard days. On certain mornings — you count three in the last fortnight — he takes the north stair, which serves only the Council annex and the records vault. He carries no portfolio on those mornings. He returns within a quarter-hour. A charter clerk does not visit the records vault without a portfolio unless the visit is verbal — a note delivered to a person rather than a page filed in a binder. The pattern says the person on the receiving end of the note does not want it in writing.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Guildheart Hub High Quarter: charter clerk runs verbal-only notes to the records vault on a roughly five-day cycle', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1847,7 +1847,7 @@ var GUILDHEART_HUB_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The amendment is short — four clauses, posted under glass in the public charter wall. Clause three uses the term "right of approach" with the obsolete restrictive — a usage retired with the Union accords. Modern drafting would use "approach rights" without the article. The obsolete form was preserved in one document family: the pre-Union chartersmiths\' compact, which the modern Hub does not publicly recognize. Whoever drafted this amendment either does not know the term is obsolete, which is unlikely at this level, or is signaling continuity with a compact the Hub does not acknowledge.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 6;
       addJournal('Guildheart Hub High Quarter: posted charter amendment uses pre-Union chartersmiths\' compact language — deliberate signaling', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -1867,7 +1867,7 @@ var GUILDHEART_HUB_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The seat belonged to a chartersmith from the second chapter — the standard rotation would have posted a successor announcement within the week of vacancy, drawn from the chapter\'s standing roster. Three weeks have passed. The roster has not been published. The chapter has not been asked for a nominee. The seat remains empty in the chamber. A Council that leaves a seat empty rather than fill it is either choosing whom to seat very carefully, or has reasons not to convene a quorum that would require the seat to vote. Either reading is worth following.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       addJournal('Guildheart Hub High Quarter: second-chapter Council seat vacant three weeks — no successor process initiated', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1886,7 +1886,7 @@ var GUILDHEART_HUB_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The credential is pinned to the public board outside the chartersmiths\' annex — an attestation of mark verification for a regional trader. The mark itself is reproduced beside the attestation. The chapter sigil on the reproduction is correct. The chapter year-mark beside it is the wrong half — autumn quadrant instead of spring, which is a one-stroke error that the chartersmith reviewing the credential should have caught. The credential was attested anyway. Either the reviewer was incompetent, or the reviewer was bought, or the reviewer is the forger.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 8;
       addJournal('Guildheart Hub High Quarter: attested credential with wrong-quadrant year-mark — attestation either bought or self-signed by the forger', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -1910,7 +1910,7 @@ var GUILDHEART_HUB_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The handle of his hammer carries a chapter mark from a chapter that closed its rolls in the year his master was still indentured. The mark is genuine — the strike-pattern is right and the wear is consistent — but the chapter no longer issues new credentials. Either the hammer was inherited from a master who took the chapter mark with him in death, which is permitted but rare, or the chapter has reopened its rolls quietly without posting the notice. The journeyman is twenty-three. His master died last summer. The math does not quite line up.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Guildheart Hub Common Quarter: journeyman carrying a closed-chapter mark — either irregular inheritance or quiet reopening of the rolls', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1929,7 +1929,7 @@ var GUILDHEART_HUB_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The board is updated weekly by the wages clerk — the standard practice is to overstrike the prior rate in ink, leaving it legible beneath. This week\'s rates are written on a freshly sanded surface. The prior rates are gone. The wages clerk you speak with says the board was damaged and resurfaced — a routine maintenance. The rate she quotes you for skilled bench labor is two coppers lower than the rate her own apprentice quoted you yesterday in conversation at the workshop door. The apprentice was not lying. The clerk is not lying either. The board was changed.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       G.gold = (G.gold || 0) + 5;
       addJournal('Guildheart Hub Common Quarter: wages board resurfaced to erase prior rates — current posted rate two coppers below quoted scale', 'intelligence');
       addNarration('', G.lastResult, 'success');
@@ -1949,7 +1949,7 @@ var GUILDHEART_HUB_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The complaints are about three different workshops on three different streets, filed across nine days, alleging overlapping defects in journeyman work — slop solder, short measure, wrong alloy. The signatures use three different names. The hand is the same: the same down-stroke pressure on the lower letters, the same loop in the cursive R. One person is filing grievance against three workshops in succession under invented identities. The workshops named are competitors of a fourth workshop that is, conspicuously, not on the wall.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Guildheart Hub Common Quarter: three forged grievance filings against rival workshops — fourth workshop conspicuously unnamed', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1968,7 +1968,7 @@ var GUILDHEART_HUB_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The standard schedule runs the chapel bells in rotation around the quarter — east at the third, south at the fourth, west at the fifth, north at the sixth — and the bells are tuned to ring within the same minute as their corresponding neighbours. The mid-quarter chapel rings two minutes off. Two minutes is enough to be heard distinctly. The pattern is not error — the timer is the same timer the others use, set deliberately late. Bells that ring at known offsets carry information. The information is a marker, not a prayer. Someone is reading the offset and acting on it.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       addJournal('Guildheart Hub Common Quarter: mid-quarter chapel bell deliberately offset by two minutes — used as a signal, not a call', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -1991,7 +1991,7 @@ var GUILDHEART_HUB_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The sorting bins hold rod stock and bar stock in cuts that the workshops upstream use as finished outputs — not as scrap inputs. The cuts are clean, the temper is intact, the lengths match standard journeyman commission sizes. Finished goods sorted as scrap is a route — work declared spoiled at the workshop is reclassified at the yard and resold below board through the scrap merchants. The workshop credits the loss against insurance. The yard banks the resale. Two parties profit. The insurance pool — the relief fund — covers the gap.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 7;
       addJournal('Guildheart Hub Low Ward: finished workshop stock laundered as scrap — relief fund covers the declared loss', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -2011,7 +2011,7 @@ var GUILDHEART_HUB_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The old lock is on the bench beside the doorman\'s stool, intact and oiled. The new lock is set higher than the old one — a thumb above the comfortable handle height for an adult, deliberately, because the higher set makes a quick fumble in low light slow enough to be noticed. The doorman is older than is standard for the post. He is reading a roster from a sheet of paper he covers with his sleeve when you pass. The dormitory is not being secured against intruders. It is being secured against the apprentices themselves leaving at the wrong hour.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Guildheart Hub Low Ward: dormitory re-keyed against the apprentices — doorman keeps a roster of who is allowed out', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2030,7 +2030,7 @@ var GUILDHEART_HUB_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'She holds the wallet at the bottom — wage packets are held at the strap, because the strap is what survives the day if you drop it. The bottom grip is for weight. Wages in copper would be lighter at this size; wages in silver would not be carried by a child. The seal is a workshop chapter mark, not a guild relief seal, which means the wallet is not charity. She crosses the lane to the back door of a shop that does not deal in metals on its public floor. The door opens before she knocks. Whoever opens it does not look at her face.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 9;
       addJournal('Guildheart Hub Low Ward: silver-weight wallet under a workshop chapter seal routed by a child to an off-public-trade back door', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -2050,7 +2050,7 @@ var GUILDHEART_HUB_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The notice at the hall door cites a supply shortfall and asks for patience. The grain stores at the back of the hall, visible through the open service door, are not short — three full sacks remain at the head of the row, with the prior delivery date still legible on the chalk slate. The shortfall is not of grain. It is of permission. The hall keeper says, when asked, that the steward who countersigns the evening service has been called to another matter and the countersignature has not been delegated. Three nights without delegation is policy, not absence.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       addJournal('Guildheart Hub Low Ward: charity hall withholding evening meal under cover of supply shortfall — countersignature deliberately undelegated', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2073,7 +2073,7 @@ var COSMORIA_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The chalk on the upper tide board has been wetted and re-set on three sailing entries — the prior figures are still faintly visible under the rewrite. The new times push all three sailings into the same half-bell window, which is not a tide window. It is a window between customs inspector rotations. A sailing scheduled across a roster gap can clear the quay without the inspector who would otherwise read its manifest. Three sailings sharing that gap on the same day is not coincidence. The harbor master either authorized the change or did not see it happen.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       addJournal('Cosmoria High Quarter: three sailings re-timed into the inspector roster gap — chalk rewrite confirms deliberate scheduling', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2092,7 +2092,7 @@ var COSMORIA_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'Customs wax is replenished quarterly. The current quarter\'s stock has a deeper amber tone and a finer grain — the prior quarter\'s wax was coarser and runs cooler under the impress, leaving a wider raised edge. This paper carries a wax seal that matches the prior stock, on a passage dated this quarter. The wax is from a private supply, held by someone who kept a portion of the prior stock past the quarterly turn. The seal is genuine in form. It is irregular in source. Whoever sealed this paper kept the prior wax for a reason.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 9;
       addJournal('Cosmoria High Quarter: passage paper sealed with prior-quarter wax — private holdback of the old stock for off-roster sealings', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -2112,7 +2112,7 @@ var COSMORIA_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The fines ledger is public. Most entries note the offence and the fine in the standard format — short cargo, manifest variance, late mooring fee. The last column records the receiving officer\'s mark for the collection. Three masters cycle through the column on the standard rotation. The fourth mark, appearing in roughly one entry of every nine, belongs to no officer on the public roster. The mark is small and tidy. It has been on the ledger for at least three months. Someone outside the roster has been collecting fines under their own mark, and the ledger records it openly.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Cosmoria High Quarter: public fines ledger shows an off-roster collection mark on roughly one entry in nine — three months running', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2131,7 +2131,7 @@ var COSMORIA_HIGH_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'A consular carriage is cleared at the gate by paper only — the customs officer checks the seal, logs the consulate code, and waves it through. The standard transit is under a minute. This carriage has waited three. The consul inside is not visible behind the curtain. The driver is leaning toward the gate officer in conversation that is not transit business — the angle of his shoulders says he is delivering, not receiving. Whatever changes hands is small enough to pass through the gate window without being seen from the lane. The carriage moves on as if nothing happened.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Cosmoria High Quarter: consular carriage running small handoffs at the customs gate window under cover of clearance delay', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2154,7 +2154,7 @@ var COSMORIA_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The manifest is a fair copy in ink — line items, weights, consignee, port of origin. Beside three line items the weights have been amended in soft pencil, rounded downward by a unit each. Pencil amendments to an inked manifest are not standard; the standard is a strike-through with the corrected figure beside it in fresh ink and a clerk\'s mark. Pencil amends without marks erase as easily as they wrote. Someone is lightening the recorded weight at the window — short of the inspector, the consignee, or both — and intends to erase the change before the manifest files.';
       G.recentOutcomeType = 'success';
-      gainXp(18);
+      gainXp(9);
       G.gold = (G.gold || 0) + 5;
       addJournal('Cosmoria Common Quarter: freight forwarder running pencil-amend weight shorts on a fair-copy manifest — meant to be erased pre-filing', 'intelligence');
       addNarration('', G.lastResult, 'success');
@@ -2174,7 +2174,7 @@ var COSMORIA_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The standard practice is to receive on arrival and queue the offload by lot. This warehouse has turned three carts back since the morning bell, each one ahead of its appointed hour by under a quarter-bell. The carts were carrying standard goods on standard manifests — the foreman did not read them. He counted the bell, looked at the cart, and waved them off. The warehouse is reserving a slot in its receiving for one particular cart whose timing matters more than its manifest. Other carts on time would force the foreman to handle the wrong one in the same hour.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Cosmoria Common Quarter: warehouse foreman holding the receiving slot for a particular cart — manifest does not matter, timing does', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2193,7 +2193,7 @@ var COSMORIA_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'Passage papers are written in standard black ink. Red ink is reserved for the inspector\'s countersign — one nib per clerk, replaced at quarterly inventory. The clerk\'s tin holds four red nibs, three of them worn. Worn red nibs imply heavy use of the red ink — far more countersigns than this clerk\'s desk should produce. Either the clerk is signing the inspector\'s countersign on the inspector\'s behalf, or the inspector signs at this desk often enough to wear out the clerk\'s nibs and that visit pattern has not been logged.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       G.gold = (G.gold || 0) + 6;
       addJournal('Cosmoria Common Quarter: passage clerk\'s nib tin shows heavy red use — countersigns being run off-log at this desk', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -2213,7 +2213,7 @@ var COSMORIA_COMMON_QUARTER_S2 = [
     fn: function() {
       G.lastResult = 'The wage rotation pays porters once per shift at the wage window above the quay. Coin paid outside the rotation is, by Union regulation, taxed under the gratuities head — which is rarely declared. The back room at the dockside inn pays a different kind of coin: small purses, handed over without ceremony, after a specific cart has cleared the quay. The porters do not count the purses at the table. They take the purse, leave the room, count the contents in the lane, and split with whoever is waiting for the split. The waiters are the harbor watch on off-hours.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 10;
       addJournal('Cosmoria Common Quarter: dockside inn back-room running off-rotation purses to porters — splits with off-duty harbor watch', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -2237,7 +2237,7 @@ var COSMORIA_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The bow paint is fresh enough to still smell of solvent at the rail. The name on the bow belongs to a coastal carrier of standard build — a flat-keel for shallow coastal work. The keel under this hull is a deepwater build, shaped for offshore passage. Either the registry has been transferred to a hull that does not match the original certificate of build, or the name has been borrowed from a coastal carrier that is, somewhere else, sitting on the keel that should be here. One name. Two boats. The yard foreman has not flagged it on the dry-dock register.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       addJournal('Cosmoria Low Ward: dry-dock hull running a coastal-carrier\'s name on a deepwater keel — registry decoupled from build', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2256,7 +2256,7 @@ var COSMORIA_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'Wharf lamps along the public quay run at even spacing — the standard interval is six paces, set by the harbor measure. The far quay\'s lamps are now at uneven spacing: four paces, then nine, then four, then nine. The pattern is not for navigation. It throws light and shadow across the quay in regular gaps wide enough to walk a small cart through without crossing illuminated ground. A cart in the dark moves between two pools of light without ever being inside one. Someone has rebuilt the quay\'s lighting to make a specific path invisible.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Cosmoria Low Ward: far-quay lamps reset to four-nine-four-nine pattern — creates a dark corridor for cart traffic between the pools', 'intelligence');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();
@@ -2275,7 +2275,7 @@ var COSMORIA_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'Registry numbers are filed quarterly on the transom in deep stamp. Standard reissue grinds the prior stamp flush, primes the wood, and waits a day for the prime to cure before the new stamp is set. This boatwright has skipped the cure. The new stamp is going in over wet prime, which will not hold a deep impress past the next swelling tide — the number will blur within the week, conveniently. The registry will read as faded rather than reissued. The boat keeps the new identity in the harbor records and shrugs off the new identity at sea.';
       G.recentOutcomeType = 'success';
-      gainXp(22);
+      gainXp(11);
       G.gold = (G.gold || 0) + 7;
       addJournal('Cosmoria Low Ward: boatwright setting registry stamp on wet prime — deliberate blur — boat will read faded by next swell', 'discovery');
       addNarration('', G.lastResult, 'success');
@@ -2295,7 +2295,7 @@ var COSMORIA_LOW_WARD_S2 = [
     fn: function() {
       G.lastResult = 'The standard close is at the eighth bell across the whole market. The inner stalls — the three rows nearest the back gate — close at the seventh on the same day each week. The vendors at the inner stalls walk out together, leave the gate ajar behind them, and meet at a small ale-house two lanes inland. The ajar gate is the signal. Within the hour a cart enters the gate from the lane behind the market, offloads into the empty inner stalls, and leaves before the eighth bell when the outer vendors close. The inner stalls hold the cargo overnight. Whatever it is, it is not fish.';
       G.recentOutcomeType = 'success';
-      gainXp(20);
+      gainXp(10);
       addJournal('Cosmoria Low Ward: inner fish stalls used as weekly overnight holding for off-market cargo — back-gate cart route, inner vendors paid to clear', 'discovery');
       addNarration('', G.lastResult, 'success');
       if (typeof saveGame === 'function') saveGame();

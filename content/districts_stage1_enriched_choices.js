@@ -11,7 +11,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Aurora Heights notice board carries formal announcements. Worth reading.",
     tags: ['District', 'Lore', 'Atmosphere'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -19,7 +19,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'reading Aurora Heights civic notices');
+      gainXp(27, 'reading Aurora Heights civic notices');
       G.lastResult = `Three administrative reviews, two property hearings, one environmental compliance report — standard board rotation on its face. The compliance report is three months old. The filing cycle runs annually; a mid-cycle report means something triggered an unscheduled review outside the normal calendar. The report number sits in the Roadwardens Order's jurisdictional series, not the district's own numbering. Someone above the district level authorized this one.`;
       G.recentOutcomeType = 'neutral';
       addJournal('Aurora Heights: mid-cycle environmental compliance report — Roadwardens Order series, unscheduled', 'discovery', `aurora-heights-s1-notices-${G.dayCount}`);
@@ -30,11 +30,11 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Aurora Heights courts run formal session this morning. The docket is worth attending.",
     tags: ['District', 'Persuasion', 'Social'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'observing Aurora Heights formal session');
+      gainXp(32, 'observing Aurora Heights formal session');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -59,11 +59,11 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The archive reading room. Maintenance records go back years. Something changed eleven months ago.",
     tags: ['District', 'Lore', 'Investigation'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'researching in Aurora Heights archive');
+      gainXp(35, 'researching in Aurora Heights archive');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -87,7 +87,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A sealed letter, carried out quickly. The posture says the contents matter.",
     tags: ['District', 'Stealth', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -95,7 +95,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'following the urgent official from Aurora Heights civic hall');
+      gainXp(32, 'following the urgent official from Aurora Heights civic hall');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -113,7 +113,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared vents.",
     tags: ['District', 'Lore', 'Atmosphere'],
-    xpReward: 60,
+    xpReward: 30,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -121,7 +121,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'studying dome schematics in Aurora Heights civic lobby');
+      gainXp(30, 'studying dome schematics in Aurora Heights civic lobby');
       G.lastResult = `The lobby display is a simplified schematic — general layout, no technical specifications. What it shows clearly: dome sector 4 connects to sectors 2, 5, and 7 through shared pressure equalization vents. The equalization cycle runs continuously. Anything introduced into sector 4 propagates into three additional sectors within one full cycle. The vent shaft access being contested in court isn't limited to sector 4. It's a control point for the entire connected cluster.`;
       G.recentOutcomeType = 'neutral';
     }
@@ -135,11 +135,11 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Ironspool shift change. Workers moving between stations, talking without guards around.",
     tags: ['District', 'Persuasion', 'Social'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'mingling at Ironspool Ward shift change');
+      gainXp(30, 'mingling at Ironspool Ward shift change');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -162,11 +162,11 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Four cargo entries filed under 'dome maintenance.' No part numbers. No contractor references.",
     tags: ['District', 'Lore', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'reviewing Ironspool Ward cargo registry');
+      gainXp(32, 'reviewing Ironspool Ward cargo registry');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -190,7 +190,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Everyone in the Ironspool Ward knows where the exchange point is. Nobody says it directly.",
     tags: ['District', 'Stealth', 'Combat'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -198,7 +198,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'locating the Ironspool contraband exchange point');
+      gainXp(35, 'locating the Ironspool contraband exchange point');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -216,11 +216,11 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Forty years in Ironspool. The dome terminal started getting late-night deliveries three months ago.",
     tags: ['District', 'Persuasion', 'NPC'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'speaking with longtime Ironspool resident near dome terminal');
+      gainXp(32, 'speaking with longtime Ironspool resident near dome terminal');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -249,11 +249,11 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Visit the Verdant Row botanical station — public research space for atmospheric and plant science.",
     tags: ['District', 'Lore', 'Atmosphere'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'visiting Verdant Row botanical station');
+      gainXp(30, 'visiting Verdant Row botanical station');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 11) {
@@ -276,11 +276,11 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Verdant Row healers are treating something they haven't named publicly.",
     tags: ['District', 'Persuasion', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'asking Verdant Row healers about unusual symptom patterns');
+      gainXp(32, 'asking Verdant Row healers about unusual symptom patterns');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -304,7 +304,7 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Verdant Row garden is where the district's real conversations happen.",
     tags: ['District', 'Survival', 'Atmosphere'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -312,7 +312,7 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'observing from Verdant Row community garden');
+      gainXp(27, 'observing from Verdant Row community garden');
       G.lastResult = `Three hours in the Verdant Row community garden. Foot traffic: residents cutting through, a pair of older women who stop at the bench to argue about a recipe, two children who want to know if you know any good jokes. A maintenance crew passes without pausing to speak to anyone — four people, hand tools, moving at the efficient pace of a team that has done this route before. Their tool configuration matches the carry method described for the Ironspool Ward dome terminal night deliveries. A Collegium observer sits at the far end of the path, makes two notebook entries, and leaves without approaching the healer's collective forty meters away.`;
       G.recentOutcomeType = 'neutral';
     }
@@ -326,7 +326,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Granary Steps distribution floor at morning intake. Where Harvest Circle's chain ends.",
     tags: ['District', 'Survival', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -334,7 +334,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'surveying Granary Steps distribution floor');
+      gainXp(32, 'surveying Granary Steps distribution floor');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -354,11 +354,11 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Granary Steps clerk has been countersigning manifests that don't add up.",
     tags: ['District', 'Persuasion', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'questioning Granary Steps receiving clerk');
+      gainXp(32, 'questioning Granary Steps receiving clerk');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -382,7 +382,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Study the charter mark on the supplement containers in the Granary Steps storage bay.",
     tags: ['District', 'Lore', 'Craft'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -390,7 +390,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'examining charter mark on supplement containers');
+      gainXp(35, 'examining charter mark on supplement containers');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -415,11 +415,11 @@ var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three shell entities in the transaction registry, each below the audit threshold on its own.",
     tags: ['District', 'Lore', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'accessing Iron Ledger Ward public transaction registry');
+      gainXp(32, 'accessing Iron Ledger Ward public transaction registry');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -443,11 +443,11 @@ var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three creditors, one template. The exit clauses trap regardless of performance.",
     tags: ['District', 'Persuasion', 'Social'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'consulting Iron Ledger Ward debt specialist');
+      gainXp(32, 'consulting Iron Ledger Ward debt specialist');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -469,11 +469,11 @@ var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Maret Voss flagged the ghost account methodology first. Three months in. She's hit a wall.",
     tags: ['District', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'finding Maret Voss at the Iron Ledger Ward');
+      gainXp(35, 'finding Maret Voss at the Iron Ledger Ward');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -503,11 +503,11 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three cases against northern bloc aliases. Transferred to administrative review. All frozen.",
     tags: ['District', 'Lore', 'Investigation'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'reviewing Reckoning Quarter public docket');
+      gainXp(30, 'reviewing Reckoning Quarter public docket');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -531,11 +531,11 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A former Reckoning Quarter adjudicator, two months off-roster, still at the same café.",
     tags: ['District', 'Persuasion', 'Social'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'speaking with the former Reckoning Quarter adjudicator');
+      gainXp(35, 'speaking with the former Reckoning Quarter adjudicator');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -560,7 +560,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The administrative review office is where frozen cases go. Collegium credentials walk out regularly.",
     tags: ['District', 'Stealth', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -568,7 +568,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'surveilling the administrative review office');
+      gainXp(32, 'surveilling the administrative review office');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -591,11 +591,11 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One text in the atmospheric section has a pencil note: 'See Iceveil for updated findings.'",
     tags: ['District', 'Lore', 'Atmosphere'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'browsing Scriptorium Steps atmospheric science stacks');
+      gainXp(30, 'browsing Scriptorium Steps atmospheric science stacks');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
@@ -618,11 +618,11 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A Roadwardens Order liaison joined the Scriptorium review board. Eleven studies classified since.",
     tags: ['District', 'Persuasion', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'speaking with Scriptorium Steps senior researcher');
+      gainXp(32, 'speaking with Scriptorium Steps senior researcher');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -644,11 +644,11 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Doss works at the Scriptorium now. He was suppressed at Mimolot Academy and knows why.",
     tags: ['District', 'Social', 'NPC'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'finding Doss at Scriptorium Steps');
+      gainXp(37, 'finding Doss at Scriptorium Steps');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -678,11 +678,11 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The High Quarter administrative hearing. District authority and resource allocation in dispute.",
     tags: ['District', 'Persuasion', 'Social'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'attending High Quarter administrative hearing');
+      gainXp(30, 'attending High Quarter administrative hearing');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
@@ -705,11 +705,11 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The pre-Union charter was renewed as a sub-registry. Below the threshold of formal monitoring.",
     tags: ['District', 'Lore', 'Investigation'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'accessing High Quarter formal library');
+      gainXp(32, 'accessing High Quarter formal library');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -733,11 +733,11 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Two people called themselves 'coordinating association representatives.' That's exactly the charter entity type.",
     tags: ['District', 'Persuasion', 'NPC'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'meeting the High Quarter district liaison');
+      gainXp(32, 'meeting the High Quarter district liaison');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -765,11 +765,11 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Common Quarter market. Open stalls, loud, the genuine center of the district.",
     tags: ['District', 'Persuasion', 'Social'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'working the Common Quarter market');
+      gainXp(27, 'working the Common Quarter market');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -792,11 +792,11 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The corner table at the Common Quarter tavern has regular ears for hire.",
     tags: ['District', 'Stealth', 'Lore'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'consulting the Common Quarter information broker');
+      gainXp(32, 'consulting the Common Quarter information broker');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -818,7 +818,7 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Common Quarter community board has warnings posted between the ordinary notices.",
     tags: ['District', 'Survival', 'Atmosphere'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -826,7 +826,7 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'reading Common Quarter community board');
+      gainXp(27, 'reading Common Quarter community board');
       G.lastResult = `Three handwritten warnings about nighttime noise near the dome access terminals — residents asking others not to report the noise to the authorities because "last time someone reported it, the person who filed the report got a housing review visit three days later." The community has learned that reporting observations is dangerous. That's not accidental — that's a pattern of suppression operating at the neighborhood level.`;
       G.recentOutcomeType = 'neutral';
       addJournal('Common Quarter board: residents self-censoring on terminal observations after retaliatory housing reviews', 'discovery', `common-quarter-s1-board-${G.dayCount}`);
@@ -841,7 +841,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Low Ward dock workers move freight the manifests don't fully describe.",
     tags: ['District', 'Combat', 'Persuasion'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -849,7 +849,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'talking to Low Ward dock workers about unusual loads');
+      gainXp(32, 'talking to Low Ward dock workers about unusual loads');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -869,7 +869,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The enforcement contractor's patrol schedule has a gap. Find it before someone else does.",
     tags: ['District', 'Stealth', 'Survival'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -877,7 +877,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'mapping the Low Ward enforcement patrol gap');
+      gainXp(35, 'mapping the Low Ward enforcement patrol gap');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -899,7 +899,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     effects: [
       { type: 'heat', polity: 'shelk', amount: 1 }
     ],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -907,7 +907,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'finding the Low Ward information seller');
+      gainXp(37, 'finding the Low Ward information seller');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -935,7 +935,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: function() {
     addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);

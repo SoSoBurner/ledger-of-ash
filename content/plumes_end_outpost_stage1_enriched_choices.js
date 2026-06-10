@@ -12,10 +12,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The outpost commander's pressure logs were reclassified. She's still here.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'meeting Commander Letha Dawnsilk');
+      gainXp(34, 'meeting Commander Letha Dawnsilk');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -42,10 +42,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Letha's six months of pressure records are sitting on that desk.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 37,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'analyzing pressure gradient data');
+      gainXp(37, 'analyzing pressure gradient data');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -78,10 +78,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone issued that suppression order. The name on it isn't in any standard directory.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing suppression order chain');
+      gainXp(36, 'tracing suppression order chain');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -110,10 +110,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The patrol rangers have been watching the northeast corridors empty out.",
     tags: ['Investigation', 'Survival', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'gathering wildlife behavior data');
+      gainXp(35, 'gathering wildlife behavior data');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -142,10 +142,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The frontier edge has been trying to say something. Walk it and listen.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'reading frontier environment');
+      gainXp(33, 'reading frontier environment');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -172,10 +172,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Roadwardens Order's coordinator doesn't know what Letha has been measuring.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Roadwardens Order contact');
+      gainXp(35, 'making Roadwardens Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -204,10 +204,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Eleven years on this frontier. He knows what the air used to feel like.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'interviewing veteran patrol ranger');
+      gainXp(32, 'interviewing veteran patrol ranger');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -232,14 +232,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The formal channels are compromised. Letha knows it. She's waiting to see if I do.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'Letha is in the watchtower running the dawn instrument calibration — the sequence cannot be paused once started and the lower-deck duty patrol restricts non-Roadwarden traffic during instrument hours. Her reflection in the tower window catches you on the walk-up and she shakes her head once, a small signal across the glass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'Letha escalation decision');
+      gainXp(32, 'Letha escalation decision');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `"If I go through formal channels and they're compromised, I'm just feeding information to the people suppressing it," Letha says. She checks the window before she continues — not the street outside, the reflection in the glass. "If I go around them, I'm potentially violating my chain of command in a way that would give them grounds to dismiss my reports as unauthorized." She has six months of valid, documented data about an atmospheric event that's affecting people's ability to live in the affected zone. And she's been structurally blocked from sharing it. She's asking how to move without losing the authority that makes her reports credible.`;
@@ -256,10 +256,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Something is in that gradient. The outpost equipment might be able to name it.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
-    xpReward: 73,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'analyzing atmospheric gradient chemistry');
+      gainXp(36, 'analyzing atmospheric gradient chemistry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -288,10 +288,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The northeast horizon looks wrong. Letha has been watching it change for six months.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing frontier at dawn');
+      gainXp(25, 'observing frontier at dawn');
 
       G.lastResult = `From the watchtower, the northeast horizon is slightly different from the other directions. Not visible to the eye — more like a quality of light that doesn't quite settle the same way. Letha comes up to check the morning instruments and stands next to you for a moment. "I've been watching it change for six months," she says. "Most people don't notice until I point it out. But once you've seen it, you can't stop seeing it." She goes back to her instruments. You keep watching. She's right.`;
       addJournal('Plumes End watchtower: NE horizon atmospheric difference visible once noticed — Letha has been watching it change for 6 months', 'discovery', `plumes-dawn-${G.dayCount}`);
@@ -309,10 +309,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "This outpost was built to detect something from the northeast. There was a previous event.",
     tags: ['Investigation', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'comparing historical atmospheric records');
+      gainXp(35, 'comparing historical atmospheric records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -339,14 +339,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Letha's six months of records can't stay here. The suppression knows where to look.",
     tags: ['PersonalArc', 'Evidence', 'Exposure', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The patrol dispatch wagon is already on the southbound road — the courier left thirty minutes before the morning bell with the day\'s sanctioned packets. The communications handler at the outpost desk is logging the dispatch and Letha cannot prepare a parallel copy without breaking the staged-review protocol on the cleared outgoing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'securing Letha\'s reports offsite');
+      gainXp(34, 'securing Letha\'s reports offsite');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -366,10 +366,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The supply traders hear everything. The northeast has been producing more worth remembering lately.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'gathering frontier trader rumors');
+      gainXp(30, 'gathering frontier trader rumors');
 
       const rumors = [
         'the northern farming settlements have been having unexplained crop failures for two seasons',
@@ -395,10 +395,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three farming families left their northeast holdings without harvesting. People don't abandon a harvest.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'interviewing displaced frontier farmer');
+      gainXp(33, 'interviewing displaced frontier farmer');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -423,10 +423,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Letha's readings can anchor the radius. Nobody has mapped how far this reaches.",
     tags: ['Investigation', 'Survival', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'mapping affected zone extent');
+      gainXp(36, 'mapping affected zone extent');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -459,10 +459,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "After dark, the northeast horizon has a glow that doesn't match any settlement.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing frontier sky at night');
+      gainXp(25, 'observing frontier sky at night');
 
       G.lastResult = `After dark, the northeast horizon has a faint luminescence — not light from settlements, the wrong color for that. A diffuse glow that pulses very slowly. Letha has been documenting it for two months. "The glasswake shard amplification effect," she says quietly. "That's what it looks like when the compound interacts with a shard-dense area. I've never seen it in the open atmosphere before." She looks at it for a moment. "Someone has made Aurora Crown's dome into a source for this." She sounds like someone who has been hoping they were wrong.`;
       addJournal('Plumes End night sky: NE atmospheric glow consistent with shard amplification effect — Aurora Crown dome converted to atmospheric release point', 'discovery', `plumes-night-sky-${G.dayCount}`);
@@ -480,10 +480,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "If Letha's reports had arrived, the hazard protocol would have triggered four months ago.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'understanding suppression motivation');
+      gainXp(35, 'understanding suppression motivation');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
@@ -506,10 +506,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Letha has three volumes of atmospheric chemistry texts she didn't have six months ago.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 48,
+    xpReward: 24,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(48, 'learning Letha\'s research focus');
+      gainXp(24, 'learning Letha\'s research focus');
 
       G.lastResult = `Letha has three volumes of atmospheric chemistry texts she's been reading since the gradient appeared. She checks the window before she answers — not the street outside, the reflection in the glass. "I'm an operations commander, not a chemist," she says. "But if my reports are going to be taken seriously, I need to understand what I'm measuring well enough to defend the data." She's been educating herself specifically so she can argue for her own observations. The suppression has turned a frontier commander into a self-taught atmospheric scientist. The work she's doing is beyond her job description and she knows it. "Someone needs to understand this," she says simply.`;
       addJournal('Letha self-educating in atmospheric chemistry to defend suppressed data — command competence in response to institutional suppression', 'discovery', `plumes-letha-books-${G.dayCount}`);
@@ -528,10 +528,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Plumes End is detecting the leading edge. The operation is already in progress.",
     tags: ['Investigation', 'Synthesis', 'Stage1', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 38,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'synthesizing Plumes End evidence');
+      gainXp(38, 'synthesizing Plumes End evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -555,10 +555,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A supply runner saw someone moving south from the northeast — too fast, too purposeful.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -588,14 +588,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The patrol calls the northeast wind by a name that's not on any map.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 38,
+    xpReward: 19,
     failResult: function() {
       addNarration('', 'The patrol hand-off is happening in the duty room with the door pulled to — voices low and clipped through the gap. Standing at the threshold during a Roadwarden hand-off counts as listening in, and the duty clerk at the front counter has already noticed. The push and its name stay inside the briefing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'learning the frontier wind name');
+      gainXp(19, 'learning the frontier wind name');
       G.lastResult = `The patrol at Plumes End calls the northeast wind "the push" — named for what it does to the pressure readings, which reliably spike when the wind turns northeast for more than two consecutive days. It's not in any sanctioned meteorological record; the name lives in patrol hand-off notes and verbal briefings and the shorthand entries in Letha's personal log. The meteorological charts the outpost files use compass bearings and seasonal designations. "The push" is a local invention, precise in meaning to anyone stationed here long enough to know what it predicts. Letha uses it without explanation in six months of notes, expecting whoever reads them to know what it means.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -605,17 +605,17 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Patrol routes shortened three months ago. The traders still have the old maps.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const arch = G.archetype || '';
       const isMounted = (arch === 'Knight') || (G.archetype && G.archetype.name === 'Knight');
       if (!isMounted) {
         G.lastResult = `The patrol coverage maps at Plumes End show routes that stop short of where the older maps show them continuing — a ridge line cut drawn across the northeast approach in fresh ink. Someone reduced the patrol depth into the northeast three months ago, quietly, without annotating the reason. The supply platform creaks outside and the cold comes in under the map room door. The discrepancy in the posted versus archived maps is clear; the decision behind it, operational or institutional, is not.`;
-        gainXp(32, 'noting patrol route discrepancy');
+        gainXp(16, 'noting patrol route discrepancy');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(70, 'analyzing patrol route reduction');
+      gainXp(35, 'analyzing patrol route reduction');
       G.stageProgress[1]++;
       G.lastResult = `The amended patrol maps cut the northeast circuit at the ridge line — stopping three leagues short of where the pre-amendment maps showed the boundary. For mounted patrol, three leagues is forty minutes of coverage. The reduction leaves the affected zone unmonitored without removing it from the patrol jurisdiction record: the outpost still formally covers the area, it simply no longer sends patrols there. Whatever is producing the pressure anomalies in the northeast is now in a monitored-but-unvisited zone. The amendment created that status deliberately.`;
       if (!G.flags) G.flags = {};
@@ -629,10 +629,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A monthly manifest line item with no matching equipment in the inventory.",
     tags: ['Pressure', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'checking outpost supply manifest against inventory');
+      gainXp(27, 'checking outpost supply manifest against inventory');
       const bg = G.background || '';
       let result = `The monthly supply manifest includes a recurring line item: "specialized atmospheric monitoring equipment — maintenance allocation." The equipment cache at the outpost carries standard patrol gear, emergency supplies, and survey instruments. No atmospheric monitoring equipment appears in the inventory. The allocation exists. The equipment doesn't. The monthly allocation line has been running for fourteen months.`;
       if (bg === 'soldier' || bg === 'scout') {
@@ -648,14 +648,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Two weeks of outpost dispatches with no acknowledged receipt from coordination.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The communications log lives in the duty station, which runs on Letha\'s posted schedule — the daily administrative period closed forty minutes ago and won\'t reopen until the morning rotation. The duty clerk pulls the bolt on the outer door. Wind off the high route pushes against the shutters as the post settles for evening.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing outpost communications log');
+      gainXp(34, 'reviewing outpost communications log');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `Outpost communications logs run continuous — every transmission sent, every acknowledgment received, dated and signed by the duty clerk. The gap runs from the third to the seventeenth of last month: outpost transmissions continue normally, but the received-acknowledgment column goes blank. Sixteen days of sent dispatches with no return signal. During that same window, Letha's log shows the pressure readings reached their highest recorded value. Someone at the receiving end stopped responding to Plumes End during the period when the outpost's data was most significant.`;
@@ -673,14 +673,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Letha's suppression order is missing a clause every other outpost received.",
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
-    xpReward: 78,
+    xpReward: 39,
     failResult: function() {
       addNarration('', 'Letha is in her office with the suppression-order archive cabinet open against the north wall — the smell of pine-resin sealer carries into the corridor. She is mid-review of the standard-template directives, both the comparison version and the current order under her hand. The door stays closed until the review concludes. She has asked not to be interrupted.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'comparing suppression order versions');
+      gainXp(39, 'comparing suppression order versions');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 14) {
         G.lastResult = `The suppression order that arrived at Plumes End is missing clause four from the standard template — the clause that specifies exemptions for emergency communications when patrol safety is at risk. That clause is in every other suppression order in the outpost's archive of similar directives. Its absence means Letha's staff believed they had no communication exemption even in an emergency. The version sent here was modified before dispatch. Someone specifically targeted this outpost's ability to break the silence under any circumstances.`;
@@ -698,10 +698,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The youngest patrol member keeps taking the northeast route. Nobody else will.",
     tags: ['Pressure', 'Safe', 'NPC', 'Stage1'],
-    xpReward: 58,
+    xpReward: 29,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'talking to the northeast patrol veteran');
+      gainXp(29, 'talking to the northeast patrol veteran');
       G.lastResult = `Recruit Wess has completed the northeast patrol circuit fourteen times — more than any other active member, because nobody else accepts the assignment twice voluntarily. "The air changes about two hours in," he says. He's not alarmed by this; alarm faded somewhere around the sixth patrol. "You can taste it. Sweet, wrong — the kind of wrong you notice once and then spend the rest of the patrol trying not to breathe deeply." He adjusts his route markers when he returns from each one, noting where the air quality boundary moved. The boundary has moved south on every patrol for the past three months. It's getting closer.`;
       if (!G.flags) G.flags = {};
       G.flags.met_wess_patrol = true;
@@ -721,14 +721,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Compact review officer hasn't visited in eight months. No explanation sent.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The duty station\'s external correspondence folder is in Letha\'s locked desk and she is up at the watchtower running the morning instrument check. The wind off the high route pushes under the supply station door — the clerk keeps a woodsmoke fire going against it. The correspondence folder stays in the desk until Letha returns and authorizes.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'inquiring about Compact oversight absence');
+      gainXp(34, 'inquiring about Compact oversight absence');
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `The Compact regional officer was here eight months ago for a standard quarterly review — the last one. The two scheduled reviews since then were postponed, then cancelled with a form notice citing "administrative reorganization." The reorganization notice arrived once. No further explanation followed. Letha filed her quarterly reports to the standard address regardless. Return acknowledgments came back with a different signature each time — different people, different handwriting, no consistent reviewer. The oversight structure for this outpost has been unstaffed or deliberately rotated for eight months.`;
@@ -746,14 +746,14 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The overnight watch keeps the supply station hearth burning even in summer.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 35,
+    xpReward: 17,
     failResult: function() {
       addNarration('', 'The hearth room is closed during the daylight shift — overnight-watch territory by long practice and the day clerk turns visitors back at the inner door. The smoke vent above the supply station roof still shows a faint draw from the banked fire. The watch officer who could explain the practice is off-rotation until evening.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(35, 'observing the outpost overnight hearth');
+      gainXp(17, 'observing the outpost overnight hearth');
       G.lastResult = `The supply station hearth runs through the night on every rotation — not for warmth, which is adequate without it, but because the overnight watch developed the habit after the first northeast patrols started returning with the smell of the affected zone on their gear. The hearth smoke clears the space. Practical in the way frontier adaptations always are: an observation that became a practice that became a rotation standard without ever being written into the duty manual. The current watch officer learned it from the previous one, who learned it from Wess. The outpost's institutional memory lives in the habits, not the records.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -763,10 +763,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The boundary cairns don't match the map. Someone moved them south.",
     tags: ['Pressure', 'Bold', 'Physical', 'Stage1'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'checking northeast boundary cairn positions');
+      gainXp(37, 'checking northeast boundary cairn positions');
       const result = rollD20('vigor', (G.skills.vigor || 0));
       if (result.total >= 13) {
         G.lastResult = `The first boundary cairn on the northeast approach sits thirty meters south of where the patrol map marks it. The second sits forty meters south of its marked position. Both cairns are solid, weathered, look long-established — but the ground around the base of each shows faint disturbance, the kind that comes from moving a heavy stone and resetting the earth to erase the evidence of movement. The boundary of the "unsafe zone" has been physically contracted. Whatever is actually producing the atmospheric anomaly now sits outside the marked boundary, in territory that looks unmapped and unclaimed on any sanctioned document.`;
@@ -783,7 +783,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

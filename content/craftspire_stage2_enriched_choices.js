@@ -11,14 +11,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Specialty chemical inputs appear in the ledgers. No purchase orders exist for them.",
     skill: 'spirit',
     tags: ['Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorin\'s intake-form tray is empty when you reach the Material Ledger Office counter — pulled for the noon recalibration. The audit clerk three desks down watches the empty counter without moving, the way a clerk watches a counter that should not be approached unattended. You step back to the ledger balcony rail.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing specialty chemical input discrepancies with Jorin Ledgermere');
+      gainXp(36, 'tracing specialty chemical input discrepancies with Jorin Ledgermere');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -48,14 +48,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Workshops operating after hours on materials that match suppression compound components.",
     skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Tess\'s Night-Lantern station at the corner of the materials yard is occupied — a floor inspector is there checking lamp-bracket records, and Tess has the careful posture of an inspector who knows she cannot speak with you while another inspector watches. She nods once toward the south lane. You take the south lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reviewing after-hours workshop observations with Tess Ledgermere');
+      gainXp(35, 'reviewing after-hours workshop observations with Tess Ledgermere');
 
 
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -81,14 +81,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Formula copies reproduced under academic exemption. The Mimolot citation is falsified.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Copy Warden\'s copy-authentication desk has a queue stretched back to the chalk gate board — three copyists ahead, a senior journeyman behind them, and the Warden working through the stamps without looking up. Stepping past the queue to ask about the academic exemption shelf would be visible to every certified copyist in the room. You take a place in line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing falsified formula copy citations with the Copy Warden');
+      gainXp(34, 'tracing falsified formula copy citations with the Copy Warden');
 
 
       if (!G.worldClocks) G.worldClocks = {};
@@ -117,14 +117,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "A recurring Collegium credit offsets the no-PO inputs. The record trail is disappearing.",
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Escalation'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorin\'s ledger balcony desk has its second binder closed and tied. The audit-review notice clipped to his blotter is dated this morning; he has not opened the binder since he saw it. He looks at the binder. He looks at you. He does not move. You return to the public side of the balcony rail.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracing Collegium credit offset with Jorin Ledgermere');
+      gainXp(37, 'tracing Collegium credit offset with Jorin Ledgermere');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -153,14 +153,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Unmarked crates moving through the corridor Tess flagged. The floor inspectors can't see it.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Environmental'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The service corridor entrance has two floor inspectors on rotation today instead of the usual one — paired duty, alternating sightlines. The panel-frame door at the corridor\'s end stays sealed. The bonded transit boundary marker at your foot is freshly chalked. You retreat to the public materials yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracking ghost workshop crate transfer through service corridor');
+      gainXp(39, 'tracking ghost workshop crate transfer through service corridor');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -188,14 +188,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "An artisan blocks the copy window. A crowd is watching. The Warden isn't here yet.",
     skill: 'charm',
     tags: ['Stage2', 'Social', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The artisan turns at the copy window before you can speak, the queue behind her tightening into a half-circle. The Copy Bureau intake clerk lifts the procedural placard from the counter and sets it deliberately between the two of you. The crowd reads the gesture. You step back from the window.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'navigating copy queue dispute at the Copy Bureau');
+      gainXp(36, 'navigating copy queue dispute at the Copy Bureau');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -224,14 +224,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The dismissed copyist\'s old bench is at the rear of the copy tower\'s second-floor workroom — the seat now occupied by a probationary copyist who notices everyone who comes through the door. Sovi Maretch is not in the building today. You leave without crossing the workroom.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'speaking with the dismissed copyist outside the ghost workshop corridor');
+      gainXp(32, 'speaking with the dismissed copyist outside the ghost workshop corridor');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_dismissed_copyist_sovi = true;
@@ -258,14 +258,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Guild Council trade registry counter is closed for the afternoon recess — the duty registrar has hung the procedural notice on the panel-frame door and the inquiry window shutter is down. The next intake window opens at the third bell tomorrow. You note the time and step back to the ledger balcony.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'tracing the dormant guild account sustaining the dead charter reference');
+      gainXp(32, 'tracing the dormant guild account sustaining the dead charter reference');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.dead_charter_account_traced = true;
@@ -292,14 +292,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The certification inspector\'s desk in the materials yard administration block is empty. Her tray of unsigned forms has been removed; the shelf behind the desk holds only a procedural binder turned spine-out. A secondary inspector across the room watches you watching the desk. You leave the block.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining unsigned certification forms with the materials inspector');
+      gainXp(34, 'examining unsigned certification forms with the materials inspector');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -327,14 +327,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The furnace hall corridor at pre-dawn carries the orange-deep heat of an active burn through the stone wall, but the access door is locked from the inside and the roster clipboard at the entrance has had its current page torn off cleanly. A workshop foreman is approaching from the materials yard. You move toward the chalk gate before he arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing the ghost-shift furnace operator and his unlisted wages');
+      gainXp(34, 'tracing the ghost-shift furnace operator and his unlisted wages');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -361,14 +361,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest was amended after the shipment left. The correction is in different ink.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The transit office filing shelf is in the middle of its end-of-day reconciliation — every manifest in the outbound rack is being moved to the closed-file cabinets along the back wall. The clerk pauses, hands full of bound copies, and says without looking up that the rack opens again at first bell. You step out of the office.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining the amended transit manifest for the redirected precision tools');
+      gainXp(34, 'examining the amended transit manifest for the redirected precision tools');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -394,14 +394,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The defect report is statistically impossible. No workshop has ever cleared this clean.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Quality Standards Office reading room is at capacity — every reference stack desk has a guild solicitor or copyist seated and working, and the brass-edged partition behind the public summary board carries a closed notice. The summary board shows nothing unusual. You note your name on the wait roster.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing the quality auditor\'s impossible defect report against historical records');
+      gainXp(34, 'cross-referencing the quality auditor\'s impossible defect report against historical records');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -427,14 +427,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The sealed archive predates the charter. It names institutions never supposed to exist here.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The pre-charter archive is held behind the copy tower\'s sealed-stack partition — accessible only after the standing archivist completes her morning shelf walk. She has not yet started today\'s walk. The partition stays closed. The two copy tower clerks at the intake counter mark your inquiry on the daily access slate.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'accessing the sealed pre-charter guild correspondence archive');
+      gainXp(34, 'accessing the sealed pre-charter guild correspondence archive');
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -460,7 +460,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Craftspire is the production facility. Guild authority or supply chain — one path ends here.",
     skill: 'spirit',
     tags: ['Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Guild Council chamber doors are closed for a private session. A clerk at the antechamber desk notes your appointment request without committing to a hearing date. The smell of old ink and linseed oil from the floor boards seeps under the chamber door. You step back to the antechamber bench and wait for a clerk who will not return today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -496,14 +496,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The ledger balcony quota board is being updated — the guild floor coordinator and two posting clerks are working it row by row, blocking direct view of the relevant entries. They will be on the board for the rest of the morning. You step back along the balcony rail and wait for an opening that will not come this shift.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining workshop quota targets against registered capacity');
+      gainXp(34, 'examining workshop quota targets against registered capacity');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
@@ -534,14 +534,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Observation'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The copy tower\'s public-counter daily summary has just been replaced with the early-afternoon update — the prior version pulled before you reached the counter. The clerk who posts the summaries is on the other side of the tower for the next hour. The new summary shows only the eleven standard categories.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'cross-checking copy tower materials intake log against registered process categories');
+      gainXp(32, 'cross-checking copy tower materials intake log against registered process categories');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
@@ -572,14 +572,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Observation'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Heln Varris\'s broker workshop in the materials yard is shuttered for the noon break — the canvas-and-board front pulled down, the inquiry slot taped over with a closed-for-recess notice in her own hand. A workshop neighbor across the lane watches the closed front without comment. You move past without slowing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing withdrawn supply chain complaint in Craftspire guild registry');
+      gainXp(35, 'tracing withdrawn supply chain complaint in Craftspire guild registry');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
       if (result.isCrit) {
@@ -610,14 +610,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The certification log binder is in the certification office\'s upper shelf, and the rolling ladder is locked at the south end of the room for a staff inventory. The duty registrar at the counter says the ladder returns at the third bell. You note the time and step back to the public lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'dual certification stamp');
+      gainXp(10, 'dual certification stamp');
       G.lastResult = 'The certification log shows the piece by item number — a standard finished-goods entry, spring season mark, guild inspector stamp. Two pages later, the same item number appears again under autumn, with a different inspector stamp. Items do not get certified twice. Either the same piece passed through the system twice with different paperwork, or someone is using valid item numbers to certify things that were never inspected.';
       addJournal('A Craftspire certification log shows the same item number certified twice under different seasons by different inspectors. Source: Craftspire guild certification office.', 'evidence', `craft-dualstamp-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -631,14 +631,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The master\'s workshop is mid-pour — her sleeves rolled, the crucible above the bench at working temperature, an apprentice managing the bellows. She does not look up. Interrupting now would cost the pour. You watch through the open door until the metal is set and then leave before she removes her gloves.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'master craftsperson supply chain');
+      gainXp(7, 'master craftsperson supply chain');
       G.lastResult = 'She runs her thumb along the edge of the sample piece — a gesture so automatic it belongs to her hands, not her attention. "The temper is wrong." She sets it down. The supply manifest says the same grade it always said. The pieces are not the same grade. She has been working around it since last winter, adjusting her process, not filing. Filing would mean naming who supplied it.';
       addJournal('A Craftspire master craftsperson confirmed supply materials have been substandard since winter — has been adjusting process rather than filing a supplier complaint. Source: Craftspire workshop, master\'s bench.', 'intelligence', `craft-master-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -652,14 +652,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The certification appeals archive room is closed for the afternoon — a paper notice tacked to the panel-frame door cites a scheduled cabinet reorganization. The duty clerk inside is visible through the high window, sorting binders into stacks. The room reopens at first bell tomorrow. You step back to the queue court.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'quality mark origin trace');
+      gainXp(7, 'quality mark origin trace');
       G.lastResult = 'Three workshops appealing the same quality classification change. Different items, different masters, different seasons — all pointing to one administrative memo from eight months ago that reclassified a material grade downward without a formal review. The workshops were never notified. They found out when their pieces failed certification under the new standard. The memo carries a Collegium filing reference, not a guild one.';
       addJournal('Three Craftspire quality mark disputes trace back to one Collegium administrative memo that reclassified a material grade without formal review or workshop notification. Source: Craftspire certification appeals archive.', 'intelligence', `craft-qualitymemo-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -673,14 +673,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The appeals archive\'s public-access tray is empty — the last batch of rejection letters has been returned to the closed cabinets ahead of schedule. The duty archivist behind the counter does not offer a reason and does not look pleased to be asked. The cabinets reopen at first bell tomorrow.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'appeals archive pattern');
+      gainXp(10, 'appeals archive pattern');
       G.lastResult = 'A full season of rejected certification appeals. Each rejection letter cites a different reason — material standards, process deviation, inspector availability. But in the administrative reference column at the bottom of each letter, the same filing code appears on every one. The code format is Collegium procedural, not guild. Whatever that filing contains, it is the actual reason every one of these appeals failed.';
       addJournal('Craftspire certification rejection letters from the past season all share the same Collegium administrative filing code, despite citing varied rejection reasons. Source: Craftspire appeals archive.', 'evidence', `craft-appeals-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -696,14 +696,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Workshop', 'Records', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorin\'s high window shelf holds the bound volumes today, but the audit clerk has them pulled to her cross-reference desk on the far side of the balcony. Approaching her desk requires crossing the balcony floor in full view of the floor coordinator. You step back to Jorin\'s desk and wait for an opening that does not come.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'cross-checking unit system discrepancy in Craftspire material ledger');
+      gainXp(35, 'cross-checking unit system discrepancy in Craftspire material ledger');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
@@ -732,14 +732,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The classification archive\'s upper-floor reference room requires an appointment slip stamped at the registry counter, and the registry counter has a queue running past the queue court boundary. The next available slip carries a date three days out. You take the slip and step back to the public lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing reclassification timing against inspection schedule changes');
+      gainXp(37, 'tracing reclassification timing against inspection schedule changes');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
@@ -767,14 +767,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The manifest clerk at the stockyard intake desk is shadowed by a senior auditor on the next stool — paired review for the day. Asking about the unmarked column with the auditor at her elbow would mark the question for both of them. You request a generic record reference instead and step out of the intake office.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing anonymous column in stockyard intake manifest');
+      gainXp(34, 'tracing anonymous column in stockyard intake manifest');
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -800,14 +800,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Material Ledger Office ladder is locked to the far wall — a records clerk has been atop it for forty minutes, transferring volumes between high shelves. The winter binder sits at the high end, out of reach. The clerk shows no sign of finishing. You leave a request slip with the duty registrar.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'auditing ledger volume completeness for winter batch period');
+      gainXp(32, 'auditing ledger volume completeness for winter batch period');
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -833,14 +833,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Workshop', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorin\'s copying pace is steady — too steady. He acknowledges your presence with a single nod and returns to the line he is transcribing. The senior copyist at the next desk has her ear angled toward Jorin\'s side of the balcony. He keeps his pen moving. You take a place at the public side of the rail and watch the ink dry.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reading Jorin Ledgermere for what he avoids in the ledger');
+      gainXp(36, 'reading Jorin Ledgermere for what he avoids in the ledger');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('charm', (G.skills.charm||0));
@@ -870,14 +870,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The stockyard measurement office and the Material Ledger Office sit on opposite ends of the district — the measurement office\'s reconciliation window is closed for the duty registrar\'s mid-shift rotation. Moving between the two buildings without a posted reason draws floor-coordinator attention. You return to the queue court.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing stockyard measurement records against ledger totals');
+      gainXp(38, 'cross-referencing stockyard measurement records against ledger totals');
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -905,10 +905,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Workshop', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'observing copy-authentication desk processing speed and warden behavior');
+      gainXp(33, 'observing copy-authentication desk processing speed and warden behavior');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('finesse', (G.skills.finesse||0));
@@ -937,14 +937,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The certificate archive\'s comparison table is occupied by a senior solicitor working a separate review — folios spread across the entire surface, the table booked through the end of the day. The duty archivist will not interrupt a senior member\'s booking. You note the duplicate file numbers on a slip and step back.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'comparing duplicate trade certificate authentication against origin seal');
+      gainXp(39, 'comparing duplicate trade certificate authentication against origin seal');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
@@ -973,14 +973,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Evidence', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The certificate sample binders are kept on the copy tower\'s public-reference shelf, but the high window light needed to read impression depth is direct only between the second and third bells. The second bell has already passed. The shelf will not have usable light again until tomorrow morning. You note the timing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'comparing copy warden validation mark weight across certificate batches');
+      gainXp(36, 'comparing copy warden validation mark weight across certificate batches');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('craft', (G.skills.craft||0));
@@ -1008,14 +1008,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The classification index is pinned behind the copy-authentication desk, but the Copy Warden is at the desk and the index is not visible from the public side of the counter. Approaching to read it directly would put the certificate on the desk in your hand. You step back and wait for the warden\'s shift change.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracing obsolete material classification on active trade certificate');
+      gainXp(37, 'tracing obsolete material classification on active trade certificate');
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
@@ -1041,14 +1041,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Evidence', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Copy Warden\'s return tray sits below the desk edge — visible only from the public counter\'s angle, blocked from view by a senior copyist who has parked a binding cart in front of the desk and started a long conversation with the warden. The cart will not move for the next quarter hour. You step back to the chalk gate boards.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'documenting pre-stamped blank trade certificates at Craftspire authentication desk');
+      gainXp(41, 'documenting pre-stamped blank trade certificates at Craftspire authentication desk');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('finesse', (G.skills.finesse||0));
@@ -1079,14 +1079,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Workshop', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Tess is mid-circuit when you reach the Night-Lantern station — her lantern bracket already pulled, her log under her arm, the next inspection point three lanes away. She does not have the log on the desk and will not have it on the desk again until the next circuit ends. You note the schedule and step back.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'examining inspection log resolution gaps with Night-Lantern Inspector Tess');
+      gainXp(37, 'examining inspection log resolution gaps with Night-Lantern Inspector Tess');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var result = rollD20('lore', (G.skills.wits||0));
@@ -1115,14 +1115,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Tess is at the materials yard north scale today, doing a meter calibration check with a stockyard foreman at her elbow. She nods once when she sees you and returns to the meter. The foreman is the kind of man who reports conversations he does not understand. You move past the scale without slowing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(69, 'learning what prompted Tess Ledgermere to request night-window assignment');
+      gainXp(34, 'learning what prompted Tess Ledgermere to request night-window assignment');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('charm', (G.skills.charm||0));
@@ -1152,14 +1152,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['NPC', 'Evidence', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Copy Warden is at the rear bench today, sleeves rolled to the elbow, working through the morning\'s back-log with no coat in sight. The coat is on a hook in the back office, behind the panel-frame door. Approaching the coat without crossing the warden\'s sightline is not possible from any public-side angle.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'observing Copy Warden carrying unauthorized second authentication stamp');
+      gainXp(40, 'observing Copy Warden carrying unauthorized second authentication stamp');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('finesse', (G.skills.finesse||0));
@@ -1188,14 +1188,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorin is at his desk on the upper ledger balcony. Tess is two floors below in the calibration wing. Their schedules do not overlap in the same room today, and the inner stairway between floors is held open for a delivery crew moving binders. You leave before the crew clears the stairs.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'reading the dynamic between Jorin and Tess Ledgermere in the ledger house');
+      gainXp(33, 'reading the dynamic between Jorin and Tess Ledgermere in the ledger house');
       if (!G.flags) G.flags = {};
       var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -1224,14 +1224,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Copy Warden\'s personnel record is held at the guild administration office across the queue court — a separate building with its own intake protocol and a clerk who logs every requestor by name. Filing today\'s request adds your name to a register the warden will review by the end of the shift. You hold the request.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'placing Copy Warden tenure against authentication system history');
+      gainXp(34, 'placing Copy Warden tenure against authentication system history');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
@@ -1260,14 +1260,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Jorin keeps the conversation on the current entries today — he answers each question about the line he is copying and offers nothing beyond it. The audit notice is still on his blotter. A senior factor passes his desk twice during the exchange. He shows you out at the end of the visit with the careful courtesy of a man counting witnesses.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing Jorin Ledgermere transfer request denial and its aftermath');
+      gainXp(35, 'tracing Jorin Ledgermere transfer request denial and its aftermath');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('charm', (G.skills.charm||0));
@@ -1299,14 +1299,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The allocation records run across three bound series shelved at the long table on the ledger balcony\'s east end — and the east end is occupied by an external auditor working through the same volumes at his own pace. The volumes will be checked back to the shelf when he finishes, not before. You add your name to the queue slate.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'threading Craftspire ledger entries to suppression compound material supply chain');
+      gainXp(39, 'threading Craftspire ledger entries to suppression compound material supply chain');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
@@ -1335,14 +1335,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The inter-locality registration index is held in the Collegium reference room at the rear of the copy tower. Access requires a Collegium-stamped petition slip, and today\'s petition window has closed early — the duty registrar is at the long counter packing the day\'s slips for filing. You step back to the public lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing consortium name between Craftspire records and prior locality documents');
+      gainXp(38, 'cross-referencing consortium name between Craftspire records and prior locality documents');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('lore', (G.skills.wits||0));
@@ -1371,14 +1371,14 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The stockyard inspection walkway above the main floor requires a posted entry purpose — the duty warden at the walkway gate reads each slip before unlatching the rail. The Collegium output reports are accessible at the public archive window, but without the walkway view you have only one half of the comparison. You take the report and leave.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'cross-referencing Craftspire forge output reports against stockyard physical holdings');
+      gainXp(37, 'cross-referencing Craftspire forge output reports against stockyard physical holdings');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       var result = rollD20('survival', (G.skills.vigor||0));

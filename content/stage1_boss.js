@@ -57,7 +57,7 @@ function triggerStage1MiniBoss() {
       label: 'He is running out of time on something. Push that thread.',
       tag: 'risky',
       skill: 'charm',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         var roll = rollD20('charm');
         var dc = 13 + Math.floor(((G.level||1)-1)/2);
@@ -83,7 +83,7 @@ function triggerStage1MiniBoss() {
       label: 'He will not walk away from this without a cost.',
       tag: 'bold',
       skill: 'might',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         // Fumble lock: if this choice was already fumbled, it should be locked in renderChoices
         // On first attempt, proceed to fight — combat outcome handles narrative consequence
@@ -97,7 +97,7 @@ function triggerStage1MiniBoss() {
       label: 'The alley has a second exit and he has not sealed it yet.',
       tag: 'risky',
       skill: 'finesse',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         var roll = rollD20('finesse');
         var dc = 12 + Math.floor(((G.level||1)-1)/2);
@@ -155,7 +155,7 @@ function triggerStage1MainBoss() {
       plot: 'main',
       tag: 'safe',
       skill: 'wits',
-      xpReward: 50,
+      xpReward: 25,
       failResult: 'The room gives back nothing useful before she looks up. The desk is orderly, the lamp positioned toward the chair across from it — details that mean something, but not in time. She is already watching. The interview proceeds on her terms. The file she pulled before you arrived stays face-down on the corner of the desk where she put it.',
       fn: function() {
         var roll = rollD20('wits');
@@ -177,7 +177,7 @@ function triggerStage1MainBoss() {
       plot: 'main',
       tag: 'risky',
       skill: 'might',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         addNarration('', 'You move before the pleasantries. The notice is off the desk and in your coat in the time it takes her to stand. She stands without urgency. "That document is already in registry," she says. "Removing it changes nothing. It also confirms everything I was not certain of." Her lamp swings on its hook as she comes around the desk. The disadvantage is yours now.');
         setTimeout(function() { _stage1MainBossCombat(true); }, 50);
@@ -236,7 +236,7 @@ function _stage1MainBossResolution() {
       plot: 'main',
       tag: 'safe',
       skill: 'wits',
-      xpReward: 50,
+      xpReward: 25,
       failResult: 'The stack resists — the files are bound under the desk lip by a registry cord you did not see. The ward lock begins its release cycle before you clear it. You take your own file and leave the rest. The desk looks orderly when you are done with it, but what was underneath stays underneath. The hall outside is already filling.',
       fn: function() {
         addNarration('', 'You pull the stack and run a fast count: four files besides your own, each with the red notation, each covering a different locality and a different set of movements. The dates span eight months. Someone was running a long review. The files go inside your coat. The desk looks orderly when you are done with it — absent, but orderly.');
@@ -251,7 +251,7 @@ function _stage1MainBossResolution() {
       plot: 'main',
       tag: 'risky',
       skill: 'finesse',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         var roll = rollD20('finesse');
         if (roll.total >= 12) {
@@ -271,7 +271,7 @@ function _stage1MainBossResolution() {
       plot: 'main',
       tag: 'risky',
       skill: 'charm',
-      xpReward: 50,
+      xpReward: 25,
       fn: function() {
         addNarration('', 'You pull the topmost file — your own — and leave the others. Your name goes back in the stack facing outward where the next intake clerk will see it. On the desk you place a single line on intake-form paper: Four files. Same notation. Ask who made them. You do not sign it. The ward lock releases. In the hall, a clerk is already heading for the door. They will find the room. They will find the note. What they do with it is theirs to decide.');
         addJournal('Left a marker in the intake hall pointing toward the file stack. A clerk or registry warden will find it. The choice of what to do with it is no longer only mine.', 'complication');

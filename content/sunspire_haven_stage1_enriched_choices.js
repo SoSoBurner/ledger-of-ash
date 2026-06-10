@@ -14,13 +14,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The yard master signs off on routes he didn't write.",
     tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading convoy diversion patterns');
+      gainXp(35, 'reading convoy diversion patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -54,13 +54,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "Family obligations used to be mutual. Something changed who decides what the obligation means.",
     tags: ['Investigation', 'NPC', 'Family', 'Coercion'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering obligation weaponization');
+      gainXp(37, 'uncovering obligation weaponization');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -96,13 +96,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Resources', 'Food'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading food distribution patterns');
+      gainXp(35, 'reading food distribution patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -134,13 +134,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Bias'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering trade preference bias');
+      gainXp(37, 'uncovering trade preference bias');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -175,13 +175,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The quotas for certain families are set above what their resource allocation can reach.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Production', 'Quotas'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading quota pressure patterns');
+      gainXp(35, 'reading quota pressure patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -216,13 +216,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Some convoys run on instructions not from the yard. She was told not to ask.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Communication', 'External'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'tracing external communication');
+      gainXp(35, 'tracing external communication');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0) + (G.skills.insight || 0) / 2);
@@ -254,13 +254,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The elder still holds the title. The decisions stopped being his some time ago.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Family', 'Authority'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering authority erosion');
+      gainXp(37, 'uncovering authority erosion');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -295,13 +295,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The inspector enforces standards on families who complain and waves through stalls that don't.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Quality', 'Market'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering enforcement bias');
+      gainXp(37, 'uncovering enforcement bias');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0) + (G.skills.insight || 0) / 2);
@@ -338,13 +338,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The work assignments have been pulling family members apart, systematically, for two cycles.",
     plot: 'main',
     tags: ['Investigation', 'Family', 'Structure', 'Organization'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'family structure analysis');
+      gainXp(35, 'family structure analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -376,13 +376,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "More food comes in than goes out to households. The gap is going somewhere.",
     plot: 'main',
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'scarcity engineering documentation');
+      gainXp(37, 'scarcity engineering documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -417,13 +417,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The message board is thinner than it should be. A traveler stopped mid-story.",
     plot: 'main',
     tags: ['Investigation', 'Information', 'Isolation', 'Communication'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'information isolation analysis');
+      gainXp(35, 'information isolation analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -455,13 +455,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "That's not variance — it's a forced choice. Say so directly.",
     plot: 'main',
     tags: ['Investigation', 'Coercion', 'Threats', 'Fear'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'coercion apparatus documentation');
+      gainXp(37, 'coercion apparatus documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -496,13 +496,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Three convoys carry more than their manifests show. Destinations point north past any trade route.",
     plot: 'main',
     tags: ['Investigation', 'Resources', 'Flow', 'Extraction'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'resource extraction tracking');
+      gainXp(35, 'resource extraction tracking');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -534,13 +534,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The communal fire is the right size for a dozen. Four sit around it.",
     plot: 'main',
     tags: ['Investigation', 'Community', 'Bonds', 'Fragmentation'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'community fragmentation documentation');
+      gainXp(37, 'community fragmentation documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -575,13 +575,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The work assignments keep landing members of the same family in locations days apart. Consistently.",
     plot: 'main',
     tags: ['Investigation', 'Family', 'Bonds', 'Fragmentation'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'family fragmentation mapping');
+      gainXp(35, 'family fragmentation mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -616,13 +616,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Every council vote unanimous. No abstentions. No dissent. Not once.",
     plot: 'main',
     tags: ['Investigation', 'Coercion', 'Consent', 'Fiction'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'manufactured consent structure analysis');
+      gainXp(37, 'manufactured consent structure analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -659,7 +659,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The same story at both ends of the market, told quietly. Nobody is coordinating it.",
     plot: 'main',
     tags: ['Investigation', 'Rumor', 'Family', 'Gossip'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
@@ -669,7 +669,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing family narrative');
+      gainXp(32, 'parsing family narrative');
       G.stageProgress[1]++;
 
       const rumor = ['the syndicate is deliberately making resources scarce to control families', 'families that resist are being broken up and scattered', 'food is being stored somewhere outside Sunspire instead of distributed', 'certain families are getting special treatment from the syndicate while others starve', 'someone is taking resources north and nobody knows why'];
@@ -688,13 +688,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The diversion, the scarcity, the family pressure — these aren't separate problems. They're one apparatus.",
     plot: 'main',
     tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Exposure'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing syndicate conspiracy');
+      gainXp(40, 'exposing syndicate conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -731,7 +731,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The family leader cooperated. The question is whether they had any other choice.",
     plot: 'main',
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
@@ -741,7 +741,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment');
+      gainXp(35, 'making moral commitment');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -772,7 +772,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The syndicate takes orders from someone outside Sunspire. The courier receipts came from somewhere north.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
@@ -782,7 +782,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of extraction');
+      gainXp(40, 'discovering origin source of extraction');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -814,14 +814,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The sealed container is heavier than its size. The interior lining isn't trade-grade.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 74,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'analyzing signal-damping container');
+      gainXp(37, 'analyzing signal-damping container');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -844,14 +844,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Filed route and actual route don't match. The detour avoided the only Warden checkpoint.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'mapping convoy route deviation');
+      gainXp(35, 'mapping convoy route deviation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -869,14 +869,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The formal report describes a raid. The site tells a different story.",
     tags: ['Investigation', 'Archetype', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reading disruption site');
+      gainXp(35, 'reading disruption site');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -897,14 +897,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Roadwardens post at the north gate. Either they know already, or they need to.",
     tags: ['Faction', 'NPC', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'making Roadwardens Order contact');
+      gainXp(34, 'making Roadwardens Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -927,14 +927,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Between the second and third signal light, a half-beat pause that isn't in the protocol.",
     tags: ['WorldColor', 'Lore', 'Stage1'],
-    xpReward: 53,
+    xpReward: 26,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(53, 'reading signal tower light pattern');
+      gainXp(26, 'reading signal tower light pattern');
 
       G.lastResult = `The tower keeper lights three sequences: north, east, south. Standard all-clear. But between the second and third, there's a half-beat pause that isn't in the protocol guide. You've seen that pause three times today. It means something — not to you, not yet. But whoever reads these lights from the road already knows. Sunspire is communicating in a layer you don't have the key to.`;
       addJournal('Signal tower: undocumented pause pattern — secondary communication channel suspected', 'discovery', `sunspire-tower-${G.dayCount}`);
@@ -946,14 +946,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The container gets catalogued and locked today. The craftmark needs recording before that happens.",
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
-    xpReward: 62,
+    xpReward: 31,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(62, 'documenting container specifications');
+      gainXp(31, 'documenting container specifications');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -973,14 +973,14 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One guard survived the disruption. He's at the waystation infirmary, still lucid.",
     tags: ['Social', 'NPC', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'interviewing convoy survivor');
+      gainXp(34, 'interviewing convoy survivor');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -999,10 +999,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone asked the innkeeper about the disruption. Their account exceeded any sanctioned report.",
     tags: ['Rival', 'Warning', 'Stage1'],
-    xpReward: 58,
+    xpReward: 29,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'receiving rival warning');
+      gainXp(29, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -1031,7 +1031,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
@@ -1053,7 +1053,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     effects: [],
     fn: function() {
       G.lastResult = 'At this hour the upper facets of the spire catch the angle of the sun and throw a reflected bar of light across the archive annex roofline — a narrow bright line that moves over the course of an hour as the sun tracks west. The stonework at the base is a different material than the upper sections, older by the grain and color, and the seam between the two phases of construction is unmistakable up close. Whatever the Sunspire was first built for, the current structure was extended upward by a later hand with a different purpose. The records office sits in the shadow of the original base.';
-      gainXp(10, 'Sunspire observation');
+      gainXp(5, 'Sunspire observation');
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The angle that makes the spire\'s construction history readable is only visible from the east approach plaza, which is currently blocked by a delivery operation. The view opens again once the cart traffic clears the plaza gate.'
@@ -1066,7 +1066,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     effects: [],
     fn: function() {
       G.lastResult = 'Six reading tables in the archive annex, all occupied by people who came prepared — personal ink, their own marking strips, document stacks already pulled and organized before the morning access bell. The archive staff move between the stacks in a pattern that suggests they know what each reader is after without being asked. Two readers at the far table are working from the same document set and not acknowledging each other. The annex runs on appointment and familiarity: walk-in access is permitted, but the prepared readers hold the table advantage for the morning hours.';
-      gainXp(10, 'archive observation');
+      gainXp(5, 'archive observation');
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The archive annex closes for midday organization — the staff rotate the morning document stacks back to the shelves and won\'t take new requests until the afternoon access window opens at the second bell past noon.'
@@ -1079,7 +1079,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     effects: [],
     fn: function() {
       G.lastResult = 'From the lane beside the archive annex, the yard is visible through a gap in the boundary fence — wide enough to read the loading bays without entering. Three outbound wagons are staged and being loaded. One inbound wagon sits at the far bay, already emptied, the driver sitting on the traces waiting for the return paperwork. Sunspire Haven is an accumulation point by geography; more should be coming in than going out at this stage of the supply cycle. What\'s leaving is crated and rope-tied, the crates marked with a routing stamp that points north rather than toward the local distribution network.';
-      gainXp(10, 'convoy yard observation');
+      gainXp(5, 'convoy yard observation');
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The yard gate has closed for the midday count — the handlers run a manifest tally at this hour and don\'t allow observation from the lane while it\'s in progress. The yard reopens for loading in the early afternoon.'
@@ -1228,12 +1228,12 @@ SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES.push(
     label: 'Kael Emberthrone builds what he is told. Someone told him to build the wrong thing.',
     tags: ['NPC', 'Craft', 'Stage1', 'Bridge'],
     skill: 'wits',
-    xpReward: 72,
+    xpReward: 36,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(72, 'examining workshop requisition with Kael Emberthrone');
+      gainXp(36, 'examining workshop requisition with Kael Emberthrone');
       if (!G.flags) G.flags = {};
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
 

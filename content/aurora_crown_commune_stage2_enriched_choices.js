@@ -12,7 +12,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The memorial registry is maintained under Collegium seal — access requires a formal notation request.',
     fn: function() {
       advanceTime(1);
@@ -23,12 +23,12 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'The memorial registry at the Commune\'s archive rotunda lists forty-seven names across a three-year span. Every column is filled: honorific, origin polity, cause of notation. The date column runs blank for eleven consecutive entries. The entries before and after carry standard date stamps. Someone removed these eleven — not erased, removed: the ink is present but the numbers have been carefully blotted with a matching shade. The blotting is precise. This was done with care.';
         addJournal('Aurora memorial registry: eleven consecutive entries have dates deliberately blotted. Surrounding entries dated normally. The removal was careful, not rushed.', 'evidence', 'aurora-registry-gap-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
         G.recentOutcomeType = 'discover';
       } else {
         G.recentOutcomeType = 'fail';
         G.lastResult = 'The archive rotunda has a restricted partition for Collegium-sealed records. The memorial registry for the relevant period sits behind that partition. A notation clerk at the desk explains the access procedure: a formal request, countersigned by a registered Commune advocate, reviewed within fourteen working days. She has a stack of blank request forms. The forms are printed, not hand-written — a standard response to a common problem.';
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
@@ -39,7 +39,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     plot: 'main',
     skill: 'charm',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The senior aide refers you to the Commune\'s formal testimony process — what she knows is not hers to share without authorization.',
     fn: function() {
       advanceTime(1);
@@ -50,12 +50,12 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'Senne, a devotional aide who has worked the Commune\'s eastern memorial hall for eleven years, remembers the period without prompting. Four individuals came through within a single week — unusual enough that she noted it in her personal record. They were not together. None of them asked for the standard registry process. Two paid in Collegium scrip. Senne pulls her personal record from a locked drawer. The entries are in her hand, not the archive\'s.';
         addJournal('Devotional aide Senne recalls four individuals in one week using the memorial hall outside standard process. Two paid in Collegium scrip. She kept her own record.', 'intelligence', 'aurora-aide-senne-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
         G.recentOutcomeType = 'discover';
       } else {
         G.recentOutcomeType = 'fail';
         G.lastResult = 'The senior devotional aide listens to the question with the patience of someone who has been asked versions of it before. She does not deflect — she explains. What she witnessed during that period is covered under the Commune\'s testimony sanctity clause, which requires formal authorization before she can repeat it to anyone outside the hall. She is sorry. She means it. The clause exists for good reasons. She says this last part quietly. She sets the pen down on the desk between you and does not reach for it again.';
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
@@ -65,14 +65,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The sensors were changed. The dome still reads safe.",
     plot: 'main',
     tags: ['Investigation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'investigating dome sensor recalibration with Sera Whiteglass');
+      gainXp(40, 'investigating dome sensor recalibration with Sera Whiteglass');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -105,14 +105,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Maintenance supply crates arrive monthly. They never reach maintenance.",
     tags: ['NPC', 'Survival', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining filtration maintenance deliveries with Theron Sealwater');
+      gainXp(36, 'examining filtration maintenance deliveries with Theron Sealwater');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -138,14 +138,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The filtration budget tripled. Nothing new was built.",
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining filtration budget anomalies with Cadrin Sealwater');
+      gainXp(34, 'examining filtration budget anomalies with Cadrin Sealwater');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -171,14 +171,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The liaison's documents arrive with one seal. They leave with another.",
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'questioning Mariel Sealwater about Collegium liaison activity');
+      gainXp(33, 'questioning Mariel Sealwater about Collegium liaison activity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -205,14 +205,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The shrine attendance spikes the same week as every delivery.",
     plot: 'main',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'correlating health petitions with delivery schedule via Liora Sealwater');
+      gainXp(35, 'correlating health petitions with delivery schedule via Liora Sealwater');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -242,7 +242,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The commune scribe doesn't file what she can't account for. She can't account for these.",
     tags: ['stage2', 'aurora_crown_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -263,7 +263,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The maintenance gallery smells wrong. The residue doesn't match the manifests.",
     tags: ['stage2', 'aurora_crown_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -283,7 +283,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The dome flagged my transit record. I'm now a repeat non-compliant on paper.",
     tags: ['stage2', 'aurora_crown_commune'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -305,7 +305,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Bastian Sealwater signs off on deliveries his crew was told to skip.",
     tags: ['stage2', 'aurora_crown_commune'],
-    xpReward: 34,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -324,7 +324,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The liaison's name is already moving through the ration court.",
     tags: ['stage2', 'aurora_crown_commune'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('finesse', G.skills.finesse);
@@ -344,7 +344,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The east gate argument is performed — someone wants the steward pulled.",
     tags: ['stage2', 'aurora_crown_commune'],
-    xpReward: 34,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -363,14 +363,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The supplier authorization came from a committee that has not met in six months.",
     tags: ['Stage2', 'NPC', 'Lore'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing filtration chemical supplier change through Warden Sera Whiteglass records');
+      gainXp(34, 'tracing filtration chemical supplier change through Warden Sera Whiteglass records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -401,14 +401,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residents nearest the filtration intake have been attending the shrine the most.",
     tags: ['Stage2', 'NPC', 'Survival'],
     plot: 'main',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'mapping shrine resensitization attendance against filtration intake geography');
+      gainXp(34, 'mapping shrine resensitization attendance against filtration intake geography');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -437,14 +437,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Theron Sealwater knows what the third-bell crates contain. He's decided not to.",
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'pressing Theron Sealwater on east storage bay crate movements');
+      gainXp(34, 'pressing Theron Sealwater on east storage bay crate movements');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -472,14 +472,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The dismissed technician still lives here. She didn't dispute the dismissal.",
     tags: ['Stage2', 'NPC', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'locating dismissed filtration technician and accessing her personal technical log');
+      gainXp(36, 'locating dismissed filtration technician and accessing her personal technical log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -507,14 +507,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Ten times the annual maintenance supply. None of it in the maintenance stores.",
     tags: ['Stage2', 'NPC', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing dome sealant surplus via Cadrin Sealwater market supply ledger');
+      gainXp(34, 'tracing dome sealant surplus via Cadrin Sealwater market supply ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -544,14 +544,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The liaison's credential ran inside the dome on days the liaison wasn't here.",
     plot: 'main',
     tags: ['Stage2', 'NPC', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing liaison credential access history in dome archive');
+      gainXp(34, 'cross-referencing liaison credential access history in dome archive');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -580,14 +580,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A second distribution path runs under the filtration intake. It isn't on any schematic.",
     tags: ['Stage2', 'NPC', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing secondary contamination vector via condensate lines with Orvyn Mast');
+      gainXp(34, 'tracing secondary contamination vector via condensate lines with Orvyn Mast');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -616,14 +616,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The council tabled a motion four months ago. No vote is recorded.",
     plot: 'main',
     tags: ['Stage2', 'NPC', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading commune council meeting minutes for suppressed procedural objection');
+      gainXp(34, 'reading commune council meeting minutes for suppressed procedural objection');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -651,14 +651,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The liaison's private exit log never matches the public entry record.",
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'comparing liaison entry and exit logs via transit steward Pella Greave');
+      gainXp(34, 'comparing liaison entry and exit logs via transit steward Pella Greave');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -687,14 +687,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The east storage bay hasn't been on the maintenance rotation for three months.",
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'physically examining east storage bay where Class-C crates are staged');
+      gainXp(34, 'physically examining east storage bay where Class-C crates are staged');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -722,14 +722,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dismissed technician filed two anomaly reports. Neither reached the maintenance record.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing dismissed technician anomaly reports through dome administrative system');
+      gainXp(34, 'tracing dismissed technician anomaly reports through dome administrative system');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -757,14 +757,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The workers moved from intake didn't ask questions. Someone knows why they didn't.",
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'talking to dome labor representative Sovan Drest about filtration worker reassignments');
+      gainXp(34, 'talking to dome labor representative Sovan Drest about filtration worker reassignments');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -792,10 +792,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The delivery vehicles have fleet marks — Northern Provision Compact has no registered fleet.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining delivery vehicle fleet marks against Northern Provision Compact registration');
+      gainXp(34, 'examining delivery vehicle fleet marks against Northern Provision Compact registration');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -823,14 +823,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dosing pattern matches a technique the Compact documented before the suppression period.",
     plot: 'main',
     tags: ['Stage2', 'Lore', 'Arcane'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'connecting dome dosing method to Resonance Compact pre-suppression documentation');
+      gainXp(40, 'connecting dome dosing method to Resonance Compact pre-suppression documentation');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.arcane_contact_2) {
@@ -861,7 +861,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The evidence is complete. The dome is being dosed. Time to move.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -896,14 +896,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The ritual calendar has a gap. An observance period that never happened',
     plot: 'main',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'calendar gap anomaly');
+      gainXp(10, 'calendar gap anomaly');
       G.lastResult = 'The ritual calendar is maintained in the dome archive — precise, continuous, going back fifteen cycles. Every observance period is logged: preparation, peak, close. One period is absent entirely. The surrounding entries continue without notation. There is no cancellation record, no postponement, no explanation. The gap is the right duration for the period that should be there. The calendar simply skips it, as if the observance never existed.';
       addJournal('Aurora Crown Commune ritual calendar shows a missing observance period — no cancellation or postponement recorded, surrounding entries uninterrupted. Source: Aurora Crown dome archive.', 'evidence', `aur-cal-gap-${G.dayCount}`);
       G.recentOutcomeType = 'success';
@@ -915,14 +915,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The dome keeper deflects questions about the missing period',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'dome keeper deflection');
+      gainXp(7, 'dome keeper deflection');
       G.lastResult = 'She knows which period you mean before you finish naming it. Her answer is about the dome\'s light-indexing system — how the apertures are calibrated, how each cycle\'s records feed the next cycle\'s alignment. It is accurate and detailed and has nothing to do with what you asked. She does not say there is nothing unusual. She does not say the period existed. She answers the question she prefers you to have asked.';
       addJournal('Aurora Crown dome keeper gave a detailed deflection about light-indexing when asked about the missing observance period. Source: Aurora Crown dome archive, keeper\'s office.', 'intelligence', `aur-keeper-deflect-${G.dayCount}`);
       G.recentOutcomeType = 'success';
@@ -934,14 +934,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'Celestial observation records have a gap that matches the calendar',
     plot: 'main',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'observation gap correlation');
+      gainXp(10, 'observation gap correlation');
       G.lastResult = 'The dome\'s observational records and the ritual calendar are kept separately, cross-referenced by date. The observation records for the missing period are there — nightly entries, aperture readings, alignment notes. But they are not cross-referenced to any ritual entry. The observation continued. The ritual did not. Whatever happened during that period was observed but not marked. The dome was watching. The calendar was told to look away.';
       addJournal('Aurora Crown celestial observation records continue through the missing calendar period with no ritual cross-reference — the dome observed, but the period was not marked. Source: Aurora Crown observation archive.', 'evidence', `aur-obs-gap-${G.dayCount}`);
       G.recentOutcomeType = 'success';
@@ -954,14 +954,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'Administrative filings cite the dome calendar as their timing reference',
     plot: 'main',
     tags: ['Discovery', 'Evidence'],
-    xpReward: 25,
+    xpReward: 12,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(25, 'dome calendar timing reference');
+      gainXp(12, 'dome calendar timing reference');
       G.lastResult = 'The dome calendar is public — the commune uses it for everything. Cross-referencing dates: an administrative filing elsewhere cites an Aurora Crown observance date as its effective date. Not a guild date. Not a seasonal date. A specific light-calendar observance from the dome. Someone used Aurora Crown\'s ritual calendar as the timing mechanism for an administrative action taken somewhere else. The missing observance period corresponds to a filing that has no effective date recorded.';
       addJournal('An external administrative filing uses Aurora Crown dome calendar dates as timing reference — the missing observance period corresponds to a filing with no effective date. Source: Aurora Crown archive, cross-reference research.', 'evidence', `aur-cal-timing-${G.dayCount}`);
       G.recentOutcomeType = 'success';
@@ -977,14 +977,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph surge log skips three entries. The intake was active those days.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing glyph surge log gaps with filtration intake active periods');
+      gainXp(37, 'cross-referencing glyph surge log gaps with filtration intake active periods');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1014,10 +1014,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The filtration cycle timer was extended. The air stayed in the dome longer.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(71, 'examining filtration cycle timer extension records in the dome stabilizer corridor');
+      gainXp(35, 'examining filtration cycle timer extension records in the dome stabilizer corridor');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1047,14 +1047,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residue concentration readings are filed monthly. The last three were identical.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'comparing monthly glyph residue concentration reports in dome maintenance archive');
+      gainXp(34, 'comparing monthly glyph residue concentration reports in dome maintenance archive');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1084,14 +1084,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The intake maintenance schedule runs a different corridor than the records show.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'physically mapping intake maintenance route against posted schedule in stabilizer corridor');
+      gainXp(36, 'physically mapping intake maintenance route against posted schedule in stabilizer corridor');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1121,10 +1121,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Theron's porter log has a seven-day blank. The dome was sealed for maintenance.",
     plot: 'main',
     tags: ['Dome', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing porter log gaps with dome sealing records');
+      gainXp(38, 'cross-referencing porter log gaps with dome sealing records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var result = rollD20('finesse', (G.skills.finesse||0));
@@ -1154,14 +1154,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sera Whiteglass has been sleeping in the marshal office. She found something she can't unfind.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'pressing Warden Sera Whiteglass on what she has found in the marshal office overnight');
+      gainXp(39, 'pressing Warden Sera Whiteglass on what she has found in the marshal office overnight');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1192,14 +1192,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Mariel Sealwater keeps a second ledger. She calls it her memory book.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'asking Mariel Sealwater about the second ledger she keeps behind the inn counter');
+      gainXp(35, 'asking Mariel Sealwater about the second ledger she keeps behind the inn counter');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1229,14 +1229,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Cadrin ran the numbers himself. He's been sitting on the result for two weeks.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'asking Cadrin Sealwater what he found when he ran the filtration budget numbers independently');
+      gainXp(36, 'asking Cadrin Sealwater what he found when he ran the filtration budget numbers independently');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1267,14 +1267,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Liora Sealwater started keeping her own tally. She doesn't call it a record.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'asking Liora Sealwater about the tally she has been keeping outside shrine records');
+      gainXp(36, 'asking Liora Sealwater about the tally she has been keeping outside shrine records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1305,14 +1305,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Theron keeps a smell log. He's been writing down the wrong smell since month one.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'asking Theron Sealwater about the smell notations in his porter routing log');
+      gainXp(37, 'asking Theron Sealwater about the smell notations in his porter routing log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1342,14 +1342,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Mariel's two recent guests arrived on the same day and left with the same stamp.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(69, 'questioning Mariel Sealwater about two guests whose arrival and transit stamps align with a delivery day');
+      gainXp(34, 'questioning Mariel Sealwater about two guests whose arrival and transit stamps align with a delivery day');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1381,10 +1381,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound has a signature smell. The dome's drainage has it too.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'tracing suppression compound residue through dome drainage outflow points');
+      gainXp(36, 'tracing suppression compound residue through dome drainage outflow points');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1414,14 +1414,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression residue has a second source. The ventilation grates are coated from both sides.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'examining residential ventilation grates for double-sided residue deposition pattern');
+      gainXp(37, 'examining residential ventilation grates for double-sided residue deposition pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1451,14 +1451,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The amber residue reacts to glyph-sensitive paper. Standard filtration compound does not.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(77, 'testing amber intake residue against glyph-sensitive assay paper from the shrine supply');
+      gainXp(38, 'testing amber intake residue against glyph-sensitive assay paper from the shrine supply');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1488,14 +1488,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residue suppression compound was sourced before the dome was built.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracing compound pre-formulation history against dome construction records');
+      gainXp(39, 'tracing compound pre-formulation history against dome construction records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1527,14 +1527,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The same ghost supplier appears in Harvest Circle's maintenance records.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'cross-referencing Northern Provision Compact supplier name against Harvest Circle maintenance records');
+      gainXp(41, 'cross-referencing Northern Provision Compact supplier name against Harvest Circle maintenance records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1564,10 +1564,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A northern circuit transit rider knows the Collegium liaison by a different name.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Charm'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'pressing a northern circuit transit rider about the Collegium liaison identity discrepancy');
+      gainXp(40, 'pressing a northern circuit transit rider about the Collegium liaison identity discrepancy');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1600,14 +1600,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The intake manifold pressure log shows a spike that wasn't in the filed summary.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'comparing raw intake manifold pressure data against filed summary report');
+      gainXp(37, 'comparing raw intake manifold pressure data against filed summary report');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1637,14 +1637,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph-surge threshold alarm was disabled. The disable log entry is missing a name.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing the glyph-surge threshold alarm disable event in the stabilizer panel log');
+      gainXp(36, 'tracing the glyph-surge threshold alarm disable event in the stabilizer panel log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1674,10 +1674,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The filtration intake flow rate was throttled down for eight hours during each delivery.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(71, 'examining filtration flow rate records against delivery timestamps in the eastern corridor log');
+      gainXp(35, 'examining filtration flow rate records against delivery timestamps in the eastern corridor log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1707,14 +1707,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dome's air quality certification has been renewed annually. The certifier is the supplier.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracing the air quality certification authority against Northern Provision Compact registration records');
+      gainXp(37, 'tracing the air quality certification authority against Northern Provision Compact registration records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1744,14 +1744,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The original filtration schematics were replaced four months ago. The old ones are missing.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'locating the original dome filtration schematics before their replacement by Collegium-filed versions');
+      gainXp(36, 'locating the original dome filtration schematics before their replacement by Collegium-filed versions');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1783,14 +1783,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sera Whiteglass has written up a formal complaint. She hasn't filed it yet.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'pressing Warden Sera Whiteglass on the unsubmitted formal complaint on her desk');
+      gainXp(38, 'pressing Warden Sera Whiteglass on the unsubmitted formal complaint on her desk');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1821,14 +1821,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Mariel Sealwater heard the liaison's name from a second source. It wasn't the same name.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'asking Mariel Sealwater about a second name she has heard associated with the Collegium liaison');
+      gainXp(35, 'asking Mariel Sealwater about a second name she has heard associated with the Collegium liaison');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1858,14 +1858,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Cadrin Sealwater found the supplier's registration date. It's three weeks before the delivery contract.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'asking Cadrin Sealwater about the Northern Provision Compact registration date he found');
+      gainXp(36, 'asking Cadrin Sealwater about the Northern Provision Compact registration date he found');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1896,14 +1896,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Liora Sealwater recognizes the compound profile. She treated something like it before.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'asking Liora Sealwater whether she has seen the amber residue compound profile in a prior context');
+      gainXp(37, 'asking Liora Sealwater whether she has seen the amber residue compound profile in a prior context');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1934,14 +1934,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Theron moved something from the east bay on a day his log shows him off-rotation.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(71, 'confronting Theron Sealwater with the east bay movement on his off-rotation day');
+      gainXp(35, 'confronting Theron Sealwater with the east bay movement on his off-rotation day');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1971,14 +1971,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sera tested the office air. The result is why she moved her desk.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'noticing Sera Whiteglass moved her desk away from the air vent and asking about the personal test result');
+      gainXp(39, 'noticing Sera Whiteglass moved her desk away from the air vent and asking about the personal test result');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2011,10 +2011,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The amber residue is soluble in water. The drinking supply runs through the same loop.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'testing amber residue solubility against the condensate potable water loop at the thermal junction');
+      gainXp(37, 'testing amber residue solubility against the condensate potable water loop at the thermal junction');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2044,14 +2044,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residue accumulation pattern shows delivery day and the day after are both elevated.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'mapping residue accumulation in drainage channel against delivery schedule across six months');
+      gainXp(36, 'mapping residue accumulation in drainage channel against delivery schedule across six months');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2081,10 +2081,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The compound's glyph-interaction leaves a trace on skin. The intake workers show it.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'observing glyph-trace markers on intake corridor workers and cross-referencing with dismissed technician log');
+      gainXp(38, 'observing glyph-trace markers on intake corridor workers and cross-referencing with dismissed technician log');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2114,14 +2114,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression schedule is not monthly. It follows the commune's civic assembly calendar.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(77, 'overlaying delivery dates against the Aurora Crown civic assembly calendar to find the dosing pattern');
+      gainXp(38, 'overlaying delivery dates against the Aurora Crown civic assembly calendar to find the dosing pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2153,14 +2153,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The compound was found at an eastern circuit settlement. That settlement no longer exists.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(83, 'tracing Northern Provision Compact compound use to a dissolved eastern circuit settlement');
+      gainXp(41, 'tracing Northern Provision Compact compound use to a dissolved eastern circuit settlement');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2190,14 +2190,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The Collegium liaison used the same credential at three localities in the same week.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(81, 'cross-referencing Collegium liaison credential usage across three locality archive access logs');
+      gainXp(40, 'cross-referencing Collegium liaison credential usage across three locality archive access logs');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2228,7 +2228,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     plot: 'main',
     skill: 'spirit',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -2255,7 +2255,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Confrontation'],
     plot: 'main',
     skill: 'might',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       var result = rollD20('might', {dc: 13, locality: 'aurora_crown_commune', label: 'Corridor confrontation'});
       if (result.isCrit) {
@@ -2278,7 +2278,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Infiltration'],
     plot: 'main',
     skill: 'finesse',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       var result = rollD20('finesse', {dc: 14, locality: 'aurora_crown_commune', label: 'Ventilation access'});
       if (result.isCrit) {

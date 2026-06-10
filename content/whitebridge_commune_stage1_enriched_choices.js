@@ -12,14 +12,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Cadrin's second log. Three nights repeat. The counts don't agree.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "The crossing station is staffed but Cadrin is mid-count, stylus tracking a cart convoy through the eastern gate. A chalk notation on the door frame reads: NO INTERRUPTIONS DURING LOG ENTRY. The walker at the near end waves you back without looking up. Cadrin's shift ends at the evening handover, when the bridge director's office closes and the overnight crew takes the station. The commune's log protocols run on their own schedule.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'meeting Cadrin the bridge keeper');
+      gainXp(34, 'meeting Cadrin the bridge keeper');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -40,14 +40,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Cadrin's personal log and the commune registry side by side. The new-moon entries don't match.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 37,
     failResult: {
       text: "The commune registry is housed in the administrative building, accessible during posted hours — which closed forty minutes ago. A handwritten schedule on the door lists next opening at the second bell tomorrow. Cadrin's personal log is his property and stays at the station. Without both documents at the same desk, the comparison cannot be made. The archive committee meets Thursday mornings; requests for after-hours access go through them.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing bridge crossing records');
+      gainXp(37, 'cross-referencing bridge crossing records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -69,14 +69,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "That charter mark doesn't belong to any route on record.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: {
       text: "The trade registers for the current season are checked out to a factor from the southern bank who submitted a commercial review request three days ago — return date is Friday. The commune archive clerk writes the mark description onto a request slip and sets it in a tray with seventeen others. The specialized transport registries are held in the regional administrative center, not locally. This path requires either patience or a different route into the record.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'identifying charter mark on night cargo');
+      gainXp(36, 'identifying charter mark on night cargo');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -99,14 +99,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The timing follows the watch gap. Someone mapped the patrol first.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: "The western approach roads carry enough cart traffic that individual ruts dissolve into the general pattern — the clay is worked into uniformity by daily use. Without a distinct marker or a witnessed departure point, the approach yields nothing usable as evidence. The bridge deck sees more than the roads do. Cadrin's crossing timings, laid against the watch rotation schedule, would give the window the roads can't.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'mapping midnight cargo route');
+      gainXp(35, 'mapping midnight cargo route');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -131,14 +131,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The bridge at that hour. What it looks like without watchers.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: "The bridge at low traffic is still a public crossing — a commune worker repairing mortar on the eastern rail, a factor waiting for a cart to clear the center span. Without the crowd, the watchers are easier to notice, and they notice back. The bridge does not give up structural details under observation. The dawn shift reads differently from the night; what the stone holds can be found when the crossing is empty.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'reading the bridge at night');
+      gainXp(33, 'reading the bridge at night');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -159,14 +159,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "That role title isn't in the commune's organizational chart.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: {
       text: "The access log entries encode account identifiers through the commune's administrative cipher before storage. Timestamps and document references are readable; the account name behind each entry is a string of characters that requires the commune's administrative key to resolve. The clerk who holds that key is the bridge director's office — not the archive. Access to the decoded account identifiers runs through the same administrative channel you are trying to trace.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing registry access on alteration days');
+      gainXp(36, 'tracing registry access on alteration days');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
@@ -185,14 +185,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Land-only license on a river crossing. The Compact will have records.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "The trade office counter has a queue and a process: transit compliance inquiries require a written statement with documentation attached before the duty representative schedules a conversation. The form has seven sections, none of them brief. The clerk behind the counter takes the request without comment and sets it in a tray marked PENDING. The Compact representative will review submitted forms tomorrow morning during the posted administrative session.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'making Iron Compact contact');
+      gainXp(34, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -215,14 +215,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The duty walker reported the discrepancy twice. They told him he miscounted.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: {
       text: "Terris is on the bridge approach mid-count, marking a grain convoy through with his brass clicker. He holds up one hand — not dismissive, simply occupied. His tally cannot pause mid-convoy without losing the running total. The count takes priority over conversation; the commune's crossing protocols are explicit on this point. He'll be free at the evening handover, when the next walker takes the post at the eastern station.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'interviewing duty walker');
+      gainXp(32, 'interviewing duty walker');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -241,14 +241,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cadrin needs to know what this becomes before he talks.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'Cadrin evidence decision');
+      gainXp(32, 'Cadrin evidence decision');
       if (!G.flags) G.flags = {};
 
         G.lastResult = `Cadrin closes the log and sets both hands flat on the cover. "Six months I've been writing this down and not saying a word upward." He looks at the bridge through the station window. "If whoever is behind this has reach inside the commune and I file a formal report, my position goes with it. If I don't report and this turns out to be serious, I've been sitting on it for half a year." He turns back. "So I need to know what you're planning to do with what I give you."`;
@@ -266,14 +266,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The eastern flagstones are cracked. Nothing on the manifests explains the load.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: "The bridge deck shows visible wear on the eastern span — compressed mortar at the joints, edge fractures consistent with repeated load. Translating that wear pattern to a specific weight range requires a structural mason's assessment. Without the training, the estimates span a range too wide to carry as evidence. A mason's opinion would close the gap; the commune's bridge maintenance committee meets bi-weekly and keeps records of every structural review.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'analyzing bridge stone load bearing evidence');
+      gainXp(35, 'analyzing bridge stone load bearing evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -294,14 +294,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "How the commune moves around the crossing. What belongs and what doesn't.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: "By mid-morning the bridge is operating at full volume — grain factors, market vendors, message runners, and maintenance workers moving in overlapping patterns. In that density, observing specific behavior requires a fixed position and uninterrupted time. The commune's crossing culture is built for throughput, not for standing still and watching. The early dawn window, before the seventh bell, is when the bridge reads differently.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing commune morning activity');
+      gainXp(25, 'observing commune morning activity');
 
         G.lastResult = `Before the seventh bell, the bridge already carries a grain factor arguing with a carter, two children running messages between the banks, a woman repairing a shoe sitting against the east rail. By the time the market vendors set up mid-span, the crossing is too loud to hold a quiet conversation on. Traffic here isn't occasional — it's constant. In that density, two or four additional carts in darkness leave no impression on anyone awake for daylight business. The crossing's volume swallows its own anomalies.`;
       addJournal('Whitebridge: public crossing culture provides natural cover for unauthorized transits — openness weaponized', 'discovery', `whitebridge-dawn-${G.dayCount}`);
@@ -313,14 +313,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The director filed an inquiry. The ghost account closed it.",
     tags: ['Investigation', 'Authority', 'Exposure', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: "Internal inquiry logs and closed review records are not public documents — they're held in the commune's administrative archive, accessible only with authorization from the bridge director's office. The bridge director's current authorization posture toward outside inquiries is unknown. A formal introduction through Cadrin, who holds a standing relationship with the director's office, would establish the grounds for access that a cold request cannot.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'assessing administration awareness');
+      gainXp(35, 'assessing administration awareness');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -342,14 +342,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cadrin's records can't stay here. Someone will notice he kept them.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The keeper\'s office is shared space — three crossing registries open on the table and a second walker comes in to mark the watch. You leave the records where they are. Cadrin\'s shoulders register the change before his face does. The signal brazier outside the window throws a thin column of smoke at the wind.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'securing Cadrin\'s log offsite');
+      gainXp(34, 'securing Cadrin\'s log offsite');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -368,14 +368,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The inn hears what crosses. Some of it stays as more than rumor.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
-    xpReward: 60,
+    xpReward: 30,
     failResult: {
       text: "The bridge-side inn is quiet tonight — the regular commercial traffic is thin, and the few travelers at the bar are local workers at the end of a shift, not passing merchants. Conversations stay narrow: shift complaints, canal water levels, a dispute over a crossing fee. Nothing surfaces about the midnight runs or the cargo patterns. The inn picks up what the crossing moves through it; when the crossing is quiet, so is the room.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'collecting crossing rumors');
+      gainXp(30, 'collecting crossing rumors');
 
       const rumors = [
         'a northern merchant convoy traveled through Whitebridge without filing standard crossing paperwork last month',
@@ -395,14 +395,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The former director lives across the bridge. She won't look at it.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: "Ashe left Whitebridge two months after handing in her post — relocated across the crossing to a neighboring settlement, close enough that she'd see the bridge lanterns on a clear night if she faced that direction. No one at the commune office will explain the departure, only that it was her choice. Getting to her requires crossing the bridge she no longer manages and finding the address on the far side without a formal introduction.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'interviewing former bridge director');
+      gainXp(33, 'interviewing former bridge director');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -420,14 +420,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "New moon. The staging area. Forty minutes in the watch gap.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 38,
     failResult: {
       text: "The branch track has a watcher posted in the treeline fifty meters back from the staging area — upwind, motionless, positioned where the approach narrows. A low whistle travels down the track. No carts arrive that night; the staging area stays empty until first light. The operation aborted cleanly. The next new moon is twenty-seven days out. The watcher's positioning suggests the approach will be covered again.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'observing midnight cargo crossing');
+      gainXp(38, 'observing midnight cargo crossing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -454,14 +454,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The bridge at the night-to-morning shift. How Whitebridge marks time.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 48,
+    xpReward: 24,
     failResult: {
       text: "The night-to-morning handover happens at the station on the eastern abutment — a brief window when both the outgoing and incoming keepers are present simultaneously. That window closed twenty minutes ago; Cadrin's morning shift partner has already taken the station. The handover ritual is brief and not for observers. Cadrin himself will be at the station through mid-morning before his administrative hours begin.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(48, 'observing bridge dawn transition');
+      gainXp(24, 'observing bridge dawn transition');
 
         G.lastResult = `At first light, Cadrin takes a small handbell from the hook beside the station door and rings it once — not loud, not ceremonial. "Twenty-two years," he says, when you ask. "Every morning. Night log closes, morning log opens. What crossed in the dark is written; what crosses today starts clean." He sets the bell back on its hook and opens the new page. Six months of new-moon crossings are in the closed log behind him, written in the same careful columns he uses for everything else. He hasn't skipped a single entry.`;
       addJournal('Cadrin\'s morning bell: night log closed at dawn, six months of preserved midnight crossing records', 'discovery', `whitebridge-dawn-bridge-${G.dayCount}`);
@@ -474,14 +474,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The ghost account traces to someone not in any public registry here.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
-    xpReward: 73,
+    xpReward: 36,
     failResult: {
       text: "The credential chain leads to a regional body with a name that doesn't appear in any register held at the commune archive. The authorization codes are valid but the issuing authority is not documented locally. Tracing who granted that body its own credentials requires access to institutional records held at the regional administrative center — not in Whitebridge. The Iron Compact's transit compliance office keeps cross-district authorization registries as part of their operational mandate.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'tracing ghost account authorization');
+      gainXp(36, 'tracing ghost account authorization');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 14) {
@@ -500,14 +500,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cadrin's father kept the same log for thirty years.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: "Cadrin is in the middle of a complicated crossing dispute — two factors arguing over toll classification for a mixed-cargo cart, both citing different sections of the commune's fee schedule. He mediates with the particular patience of someone who has run this exact argument many times before. The dispute will take another quarter hour at minimum. The crossing station is his domain; personal conversation waits until the deck is clear.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'understanding Cadrin\'s motivation');
+      gainXp(25, 'understanding Cadrin\'s motivation');
 
         G.lastResult = `"My father worked the Soreheim crossing for thirty years. Kept his own log the whole time." Cadrin straightens the current log's spine against his palm, a habitual gesture. "He told me: sanctioned records get corrected. Personal records don't — they're yours alone. When the two start diverging, the personal one is the one that tells you something's wrong." He doesn't frame it as suspicion or vigilance. He frames it as maintenance. He's been maintaining his father's habit.`;
       addJournal('Cadrin motivation: personal log practice inherited from father — institutional records can be corrected, personal ones remain', 'discovery', `whitebridge-cadrin-why-${G.dayCount}`);
@@ -519,14 +519,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone asked Terris the same questions last week. More specific than mine.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 57,
+    xpReward: 28,
     failResult: function() {
       addNarration('', 'Terris\'s eye drifts past you toward the inn\'s door before you finish the sentence. He has seen this question before from a different mouth. The dispute-table corner of the tavern goes quiet for a beat — the regular signal that a Compact mediator might be needed. You drop the thread.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -554,14 +554,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The river beneath the bridge carries sound differently at dawn than at any other hour.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 38,
+    xpReward: 19,
     failResult: function() {
       addNarration('', 'A loaded wagon comes through before the dawn quiet does. The deck planks take its weight and the river-sound under the central pier vanishes into the cart\'s rumble. The bridgework crew on the morning rope-check waves you back from the rail. The moment for listening is past.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'observing bridge river acoustics at dawn');
+      gainXp(19, 'observing bridge river acoustics at dawn');
       G.lastResult = `Before the first commercial crossing of the day, when the bridge deck carries nothing heavier than the keeper's footsteps and the mist is still sitting on the water, the river underneath runs loud enough to hear from the railing without leaning over. Current on current — the main flow and the eddy system that forms around the bridge's central pier, working against each other, the combination producing a low churning that carries up through the stone. By mid-morning, when the foot traffic and cart weight build, the deck vibration drowns it. Cadrin says you can hear the river's mood in those early minutes, if you learn what to listen for. This morning the eddy sounds harder than usual.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -571,7 +571,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Crossing workers read trust differently from authority. Worth seeing which I read as.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -581,10 +581,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Support') {
         G.lastResult = `The crossing workers are noticeably more guarded around some travelers than others — the distinction isn't wealth or bearing or the weight of the cart behind them. A factor in a good coat gets the same flat courtesy as a laborer with a handcart. The line they're drawing runs somewhere else entirely. There's a quality of attention — the direction a gaze goes when a question lands, whether answers come quick or measured — that marks the division. The screen is real and in active use. The criteria for passing it aren't visible yet from this side of it.`;
-        gainXp(28, 'noting crossing worker social calibration');
+        gainXp(14, 'noting crossing worker social calibration');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(70, 'reading crossing worker social calibration');
+      gainXp(35, 'reading crossing worker social calibration');
       G.stageProgress[1]++;
       G.lastResult = `The distinction they draw is between people they read as likely to report what they hear upward and people they read as unlikely to. The signals are behavioral: how someone holds eye contact when they ask questions, whether they write things down immediately or remember them, whether they respond to unexpected information with concern or professional interest. Workers at a compromised crossing have developed a fast, accurate read of which travelers are safe to talk to. They've placed you in the safe category. They're right. But the fact that the screening exists at all is itself the evidence: they have things to say that they've learned not to say to the wrong people.`;
       if (!G.flags) G.flags = {};
@@ -598,14 +598,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three cargo classes pay from a second rate document. No posting date.",
     tags: ['Pressure', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'comparing crossing fee schedules');
+      gainXp(27, 'comparing crossing fee schedules');
       const bg = G.background || '';
       let result = `The posted crossing fee schedule runs to twelve cargo categories with rates by weight class. At the keeper's station, a second document sits below the posted schedule — same format, different rates for three specific cargo designations. Those three categories pay at the lower rate from the secondary document. Nobody announces this. If you know to check the secondary schedule, the clerk applies it without comment. The secondary schedule has no formal posting date.`;
       if (bg === 'merchant' || bg === 'trader') {
@@ -621,14 +621,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "'Authorized under operational continuity.' The commune's charter contains no such phrase.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The director\'s administrative log sits inside a locked storage rib behind the shelter hall — snow-buried half the year, watched the rest. You can hear the ice cracking on the rib\'s lid in the wind. The duty walker turns the corner with his lantern. You step into the lee of the wall and let the lamplight pass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing bridge director administrative log');
+      gainXp(34, 'reviewing bridge director administrative log');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `The notation appears eighteen times over the past nine months — always adjacent to entries involving the midnight cargo crossings Cadrin's log documents. "Authorized under operational continuity." The commune's charter uses no such phrase. The crossing authority's founding documents use no such phrase. It's a bureaucratic construction with no legal basis in any document governing this bridge, used repeatedly to authorize crossings that needed authorization without a legitimate mechanism to provide it. Whoever wrote those entries invented the authority they cited.`;
@@ -646,14 +646,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The midnight crossing manifests are filed where no one looks by default.",
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
-    xpReward: 78,
+    xpReward: 39,
     failResult: function() {
       addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'locating midnight crossing manifests');
+      gainXp(39, 'locating midnight crossing manifests');
       const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 14) {
         G.lastResult = `The midnight cargo manifests are filed under "supplementary transit authorizations" — a category that exists in the administrative system but carries no public access designation, meaning they're neither sealed nor available by default. They sit in a filing drawer that isn't labeled on the front because it isn't expected to be searched. Three manifests for the past month: all three list the cargo as "consolidated regional goods," all three list the carrier as the same numeric reference code, all three show a destination address that is a Shelkopolis commercial post office box rather than a commercial premises. The address receives cargo without a named recipient.`;
@@ -671,14 +671,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Four months without a quorum. Two members keep filing conflicts.",
     tags: ['Pressure', 'Safe', 'Social', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: {
       text: "The elder council chamber is dark — no session scheduled until the third bell tomorrow, and the clerk who manages the meeting records left an hour ago. The communal governance calendar is posted outside the administrative building: council sessions, committee hearings, public access hours. The conflict-filing pattern would show up in the session records, which are public documents available during the archive's morning hours.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'asking about elder council sessions');
+      gainXp(27, 'asking about elder council sessions');
       G.lastResult = `The commune elder council requires a quorum of five of its seven members to convene formally. For four months, sessions have ended without five members present. One elder explains it without being asked for a reason: "Two members began citing administrative conflicts every session after the crossing irregularities were first raised in chamber. Without those two seats, we're always at four." The four present members have tried calling unscheduled sessions — those require seven-day notice, which gives the absent members time to file conflicts. The community's governance mechanism has been effectively suspended by selective absence.`;
       addJournal('Whitebridge elder council: quorum blocked for 4 months by two members filing conflicts whenever irregularities are on the agenda', 'evidence', `whitebridge-council-${G.dayCount}`);
       G.recentOutcomeType = 'social'; maybeStageAdvance();
@@ -689,14 +689,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Sali has been keeping her own count. Separately from the sanctioned log.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'Sali sees you coming across the bridge deck and turns her shoulder before you can reach her watch post. Her tally book closes one-handed and goes inside her coat. The Loss Ledger Circle meets tonight; her name is on the calling list. The conversation will not happen here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'finding night-shift crossing counter');
+      gainXp(34, 'finding night-shift crossing counter');
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Sali has been keeping a tally on the back of her rotation schedule — hash marks, one per crossing, with a weight estimate beside each based on how the bridge deck responded under the load. She pulls the schedule from her jacket pocket and smooths it flat on the railing with her forearm, the same motion you'd use to clean a surface before writing. "Something to do. And it seemed like the kind of thing someone should know." Seventeen crossings in four months. The high-end loads correspond with the new moon dates Cadrin identified. The bridge deck flexes differently under that weight. Sali noticed. She has no idea what to do with the information.`;
@@ -714,14 +714,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The inn's traveler book goes back forty years. The last eight months are sparse.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 35,
+    xpReward: 17,
     failResult: function() {
       addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(35, 'reading bridge-side inn traveler book');
+      gainXp(17, 'reading bridge-side inn traveler book');
       G.lastResult = `The inn at the western approach keeps a guest book going back forty years — not a requirement, an old custom, the kind that survives because travelers find it interesting to read the names of who came before them. The innkeeper allows browsing without comment. The book runs dense for most years: merchants, pilgrims, officials, families relocating. The last eight months are sparse. The inn is seeing less foot traffic, and what's there is less varied — the commercial names that used to appear regularly are absent, replaced by a narrower set of repeating names traveling the same route on a regular cycle. The crossing still operates. The kind of people who used it have changed.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -731,14 +731,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The founding compact gives Cadrin authority to halt crossings. He doesn't know.",
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'reading crossing authority founding compact');
+      gainXp(37, 'reading crossing authority founding compact');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `The crossing authority's founding compact — the original document establishing Cadrin's position and its powers — includes a provision for "operational suspension on grounds of manifest record discrepancy." If the keeper's crossing count and the administrative record diverge by more than fifteen percent over any thirty-day period, the keeper has authority to suspend crossings pending reconciliation. Cadrin's count and the administrative record diverge by thirty-one percent over the past month. The authority to act exists. Cadrin didn't know the provision existed. He was never shown the full founding compact — only the duty summary.`;
@@ -755,7 +755,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: {
     text: "The notice board outside the crossing station is bare — the morning's postings have been cleared and the afternoon batch isn't up yet. The commune posts notices twice daily; the next posting goes up at the fourth bell. A chalk mark on the board frame says NEXT POSTING: 4TH BELL. Whatever the commune wanted the bridge traffic to know this morning is already gone.",
     next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
@@ -777,14 +777,14 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The route is listed. No one recorded where it goes.",
     tags: ['Records', 'Archive', 'Survey'],
-    xpReward: 60,
+    xpReward: 30,
     stageProgress: 1,
     failResult: "The commune transit registry is held in the crossing station keeper's office and is accessible only during the first and third bells. The current hour falls outside that window; the office door is shut and the keeper is on the bridge.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(60, 'found route in Whitebridge registry with no arrival record');
+      gainXp(30, 'found route in Whitebridge registry with no arrival record');
       G.stageProgress[1]++;
       G.lastResult = "The Whitebridge commune transit registry lists thirty-one active routes. Thirty have standard entries: origin, destination, transit time, last passage notation, crossing fee. The thirty-first has a route designation and an origin point — the western span approach — but the destination field reads only a dash. No transit time. No fee. No passage notation, current or historical. The route was entered in the same hand as the others, on the same date the registry was last audited. Whatever it connects to on the far side of the crossing, the record treats it as a line that goes somewhere and stops before arriving.";
       addJournal('Whitebridge commune transit registry: one of thirty-one listed routes has no destination, no transit time, no passage history — entered in the same audit cycle as all others. Source: crossing station registry.', 'evidence');

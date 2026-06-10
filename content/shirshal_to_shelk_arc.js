@@ -12,11 +12,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Six names signed into the Bureau. None of them exist in any file after.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Shirshal with ghost visitor records');
+      gainXp(32, 'departing Shirshal with ghost visitor records');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Closed but never disposed. Someone kept it accessible without archiving it.",
     tags: ['ArcRoad', 'Lore', 'Investigation'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'following Corin\'s undisposed case number');
+      gainXp(35, 'following Corin\'s undisposed case number');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -53,11 +53,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Wend refused the rerouting order. Three days later, his license was under review.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'getting Wend\'s account of the shipping license suspension');
+      gainXp(35, 'getting Wend\'s account of the shipping license suspension');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -80,12 +80,12 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "They're running the same operation through two different doors.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'connecting ghost vessels to charter mark container supply chain');
+      gainXp(40, 'connecting ghost vessels to charter mark container supply chain');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -100,11 +100,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Clean reports, then a transfer, exactly when the last window closed.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'cross-referencing Parro\'s clean reports with ghost vessel dates');
+      gainXp(37, 'cross-referencing Parro\'s clean reports with ghost vessel dates');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -124,11 +124,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Three berths gone quiet. The maritime phase completed seventeen days ago.",
     tags: ['ArcDeepening', 'Survival', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'surveying the harbor for post-operation signs');
+      gainXp(35, 'surveying the harbor for post-operation signs');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -149,11 +149,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Secondary terminal. Underground channel. The delivery bypassed port inspection entirely.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'reading maritime infrastructure on approach to Shelkopolis');
+      gainXp(35, 'reading maritime infrastructure on approach to Shelkopolis');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -174,11 +174,11 @@ const SHIRSHAL_TO_SHELK_ARC = [
   {
     label: "Six maintenance runs with no maintenance. Someone signed them through.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'making contact at the secondary port registry');
+      gainXp(40, 'making contact at the secondary port registry');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -203,12 +203,12 @@ const SHIRSHAL_TO_SHELK_ARC = [
     label: "The ghost visitors and Wend's testimony are the evidence. Move.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.shirshal_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to move to Shelkopolis after maritime phase conclusion');
+      gainXp(40, 'committing to move to Shelkopolis after maritime phase conclusion');
       if (!G.flags) G.flags = {};
       G.flags.shirshal_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

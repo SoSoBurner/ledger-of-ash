@@ -17,7 +17,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "Eight years of filing statements. He knows when one goes missing.",
     tags: ['Investigation', 'NPC', 'Evidence', 'Records'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Ravel Coilspire's window shutter is pulled halfway down — the clerk's sign for closed business. The hall's outer corridor smells of morning fish oil and wet rope from the channel below. A notice on the glass reads 'Records access: hall hours only, magistrate sponsorship required for active files.' The path through Ravel Coilspire is closed until the hall's rhythm opens him again. The harbor market runs until dusk — word moves there before it reaches any ledger.",
@@ -27,7 +27,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading witness record manipulation');
+      gainXp(35, 'reading witness record manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -57,7 +57,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "He filed what he observed. What's in the log now is not what he filed.",
     tags: ['Investigation', 'NPC', 'Magic', 'Evidence'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The evidence archive shutter is locked mid-morning — a schedule change posted three days ago limits outside access to two designated windows per week. The announcement is handwritten, recent enough that the ink hasn't fully set on the damp salt air. Khalis is visible through the glass, working. He does not look up. The procedural path through the evidence room is closed for now; the record keeper in the main hall keeps cross-referenced closure logs that are still publicly accessible.",
@@ -67,7 +67,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering anomaly documentation corruption');
+      gainXp(37, 'uncovering anomaly documentation corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -99,7 +99,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "Case assignments stopped rotating four weeks ago. Someone above the clerk is choosing now.",
     tags: ['Investigation', 'NPC', 'Process', 'Justice'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The assignment window is staffed by a substitute today — Eris Coilspire is on hall duty until late afternoon, not available for outside queries. The substitute knows nothing useful and says so plainly. Shirshal's outer posting board lists the weekly public docket; magistrate assignment patterns are visible there for anyone patient enough to compare names across successive weeks. The channel smells of low tide. The day's second session starts after the midday bell.",
@@ -109,7 +109,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading case routing manipulation');
+      gainXp(35, 'reading case routing manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -138,7 +138,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "Cases are being closed, not resolved. The witness follow-up fields are blank.",
     tags: ['Investigation', 'NPC', 'Records', 'Procedure'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Sivren Coilspire's post is empty — the inner hall schedule shows him assigned to an inventory review through midday. The resolved case stack sits behind the counter, visible but unreachable without his authorization. A notice in the clerk's window lists the procedural index guide as publicly available at the reading bench near the south entrance. The guide cross-references case status categories and is as close as you can get to the closure records without a keeper present.",
@@ -148,7 +148,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'tracing investigation termination patterns');
+      gainXp(37, 'tracing investigation termination patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -179,7 +179,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The case officers are being given briefings with sections already missing.",
     tags: ['Investigation', 'NPC', 'Information', 'Obstruction'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The case officers' workroom is locked — field rotation day, the hall runs short-staffed through midmorning. A duty board outside lists the active case officers by assignment, all of them out. The community notice board near the harbor fishmonger stalls carries recent postings from citizens whose cases were recently closed; the pattern of what's publicly visible there may lead somewhere the sealed workroom cannot.",
@@ -189,7 +189,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading information obstruction');
+      gainXp(35, 'reading information obstruction');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -217,7 +217,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three witnesses left Shirshal last month. The magistrates accepted every absence without a query.",
     tags: ['Investigation', 'NPC', 'Witness', 'Intimidation'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Luneth's coordination office is marked closed for a witness scheduling session — closed to outside visitors, the notation says, for the duration of active pre-hearing preparation. The harbor-side community knows which families have cases pending; the fish-smoking sheds where workers take their morning break carry word of absent neighbors more freely than any hall office. That's where the thread continues.",
@@ -227,7 +227,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering witness manipulation');
+      gainXp(37, 'uncovering witness manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -258,7 +258,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Different couriers, same back room. She tracks what she's not supposed to notice.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The inn's common room is packed with the midday catch crowd — dock workers and net-menders filling every bench, Mirae moving fast between the counter and the back passage without pausing. This isn't the hour for a conversation. The east channel walkway empties after the late-afternoon bell when the boats are tied and the workers have gone home; the innkeeper sometimes sits outside then, watching the water. That's the hour for a quieter exchange.",
@@ -268,7 +268,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'mapping external communication');
+      gainXp(35, 'mapping external communication');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -296,7 +296,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Prelate checks her rulings against the morning packet. Not her law anymore.",
     tags: ['NPC', 'Authority', 'Pressure'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Examiner Prelate Sira Doveshade's antechamber is locked — the schedule board shows her assigned to closed session for the remainder of the day. The hall's public schedule window lists session types but never participants. In a town this small, the people who supply the hall — salt merchants, the lamp-oil keeper, the woman who delivers the morning rolls — know more about which magistrate keeps what hours than any posted schedule does. Their stalls open at dawn.",
@@ -306,7 +306,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'revealing authority pressure');
+      gainXp(37, 'revealing authority pressure');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -339,7 +339,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The magistrates are meeting outside visitors in rooms that aren't on any schedule.",
     tags: ['Investigation', 'Stealth', 'Surveillance', 'Hidden'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The east corridor is occupied today — a maintenance crew relaying the channel drainage channel has blocked both access points, their work authorizations posted on the hall's outer board. The passage won't clear until tomorrow. The main hall's public gallery remains open for scheduled hearings; observation from the gallery seats is unrestricted and the magistrates' movements between sessions are visible from the upper bench tier.",
@@ -349,7 +349,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'surveillance and observation');
+      gainXp(35, 'surveillance and observation');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -380,7 +380,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Those sealed packets name case numbers beside outcomes that were decided before the cases opened.",
     tags: ['Investigation', 'Stealth', 'Documents', 'Secrets'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The packets are in transit today — a courier run to the archive annex, under escort. The handling protocol has tightened; they're never left in a single room long enough to approach. The case evidence handler keeps duplicated administrative logs that cross-reference packet arrival dates against case status changes; those secondary logs sit in the public-access section of the records room and carry enough metadata to map the delivery pattern without touching the sealed contents themselves.",
@@ -390,7 +390,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'accessing sealed communications');
+      gainXp(37, 'accessing sealed communications');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -421,7 +421,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Shirshal's evidence standards were rewritten. All three revisions in the same six-week window.",
     tags: ['Investigation', 'Lore', 'Law', 'Procedure'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The archive reading room is reserved through the afternoon — a magistrate training session, the door notice says, restricted to hall personnel. The procedural index guide is left on the public reading bench outside the locked room. It cross-references amendment dates without quoting the revised text, but the dates alone are enough to confirm when the changes occurred. The doctrine volumes will be accessible again tomorrow morning when the hall opens at the first bell.",
@@ -431,7 +431,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'procedure law analysis');
+      gainXp(35, 'procedure law analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -462,7 +462,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The founding doctrine says truth is the foundation. The current teaching document says order is.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Justice'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The foundational text volumes have been moved to restricted access since yesterday — no posted reason, just a new classification marker on the shelf. The founding charter is carved into the entrance stone outside; the original text is public and permanent. The gap between what's carved in the entrance and what the current teaching materials say is legible to anyone who reads both. The teaching documents are still displayed at the reading tables in the outer hall.",
@@ -472,7 +472,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'tracing doctrine inversion');
+      gainXp(37, 'tracing doctrine inversion');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -503,7 +503,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The closure signatures are reproductions. Someone built a forgery apparatus for Shirshal's document standard.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The evidence room's public access window is closed for the morning — a logged-access-only session, the warden says, no outside examinations until the afternoon shift. The hall's posted public docket lists the case numbers and closure dates for completed proceedings without the attached documentation; the dates alone, compared against the procedural calendar, can show which closures were anomalously fast. That comparison is available at the clerk's public window right now.",
@@ -513,7 +513,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'evidence document analysis');
+      gainXp(35, 'evidence document analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -544,7 +544,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The magistrates are executing directives from an authority that doesn't exist as claimed.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Authority'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The correspondence is secured in a transit sleeve today, moving between offices under a handling protocol that has no gap. It won't sit unattended until the evening filing session, if then. The import duty office near the harbor keeps its own records of sealed correspondence moving through Shirshal's channels — arrival dates, originating marks, bearer names — a parallel paper trail that exists because harbor customs requires it, not because the hall sanctions it.",
@@ -554,7 +554,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'detecting authority credential forgery');
+      gainXp(37, 'detecting authority credential forgery');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -587,7 +587,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "People stopped repeating what they know. No one acted on it the first time.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: "The market stalls are shuttered — a harbor-wide rest day, one of Shirshal's communal off-hours built around the fishing fleet's return schedule. The channel walkways are quiet, fishers mending nets privately in their yards. The community closes to outsiders on these mornings. Word still moves, but through families and neighbors, not at open stalls. The afternoon market reopens when the fleet's catch is sorted and priced.",
@@ -597,7 +597,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing street-level justice grievance');
+      gainXp(32, 'parsing street-level justice grievance');
       G.stageProgress[1]++;
 
       const rumor = [
@@ -622,7 +622,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three weeks on his own case. He's not permitted to know what they found.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The dock is empty at this hour — the merchant families whose cases were closed keep to the interior market and the covered fish sheds through the midday heat, not the open pier. Shirshal's working community is cautious about strangers asking questions near where their livelihoods are visible. The community meeting hall near the salt warehouse holds an open grievance board; posted notices there name case numbers and closure dates without naming the parties directly.",
@@ -632,7 +632,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'gathering victim testimony');
+      gainXp(37, 'gathering victim testimony');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -663,7 +663,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "One case officer has been keeping personal notes. She's leaving Shirshal at dawn.",
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "The eastern walkway is occupied tonight — a chandler working late repairing a hull lantern, a couple of dock hands finishing off a bottle at the channel edge. Too many people, too little cover for a conversation that needs to go unobserved. Shirshal's case officers rotate through an early morning coffee spot near the hall's north entrance before first session; one of them arrives alone, twenty minutes before the others. That's the window.",
@@ -673,7 +673,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'turning investigative witness');
+      gainXp(37, 'turning investigative witness');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -706,7 +706,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The thread runs clean from external directive to forged authorization to falsified outcome.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: {
       text: "The pieces are gathered but the final link — the connection between the directive packets and the specific case outcomes they produced — sits behind a records access level you don't have. Two case numbers are still locked in the restricted archive, and without them the chain has a gap that undermines the whole. The Oversight Collegium's liaison keeps an office near the harbor master; she's reviewed the re-adjudication patterns independently and may already hold the missing link.",
@@ -716,7 +716,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing justice system conspiracy');
+      gainXp(40, 'exposing justice system conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -750,14 +750,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Fourteen cases cite the Tazren precedent. Six have been re-adjudicated. All six reversed.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 73,
+    xpReward: 36,
     failResult: {
       text: "The archive citation index is being audited today — a scheduled review that has closed the Tazren-era case shelf to outside access until end of week. The public docket board in the main hall still lists the re-adjudicated cases by number and closing date; the dates cluster in a pattern visible to anyone who looks at three months of entries in sequence. That board is accessible right now, no authorization required.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'searching Tazren case precedents');
+      gainXp(36, 'searching Tazren case precedents');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -780,14 +780,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Eight visitors signed the log with no corresponding case. Three visited on Tazren erasure days.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: "The visitor log is kept at the front desk — and the front desk is staffed by a substitute today who has been told not to allow log access without a written request form submitted in advance. The form processing takes two working days. The harbor master's office maintains its own arrival ledger for institutional visitors entering through the waterway gate; it's a duplicate of part of the hall's log, kept for harbor customs reasons, and it's publicly accessible.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'identifying Bureau ghost visitors');
+      gainXp(35, 'identifying Bureau ghost visitors');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -806,14 +806,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Sit in the public gallery and read what the proceeding is actually doing.",
     tags: ['Investigation', 'Archetype', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "The public gallery is closed today — all scheduled hearings moved to closed session without advance notice, a door notice in fresh ink reading 'restricted proceedings, authorized parties only.' The hall's exterior lamp burns at midday as always, signaling open access while the interior runs sealed. The case clerk's public window is still open; the closure decision itself will be logged in the session-type column of the weekly docket, visible to anyone who knows to look for it.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading justice hall hearing');
+      gainXp(34, 'reading justice hall hearing');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -834,14 +834,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium's observer is ready to escalate if the data is there.",
     tags: ['Faction', 'NPC', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: "The Collegium's reception office is locked through midday — the schedule board shows Parro attending a regional compliance review session with no public access until tomorrow's first bell. The Collegium does not receive informal drop-ins; the front procedure exists specifically to manage outside access on its terms. The case clerk's docket lists Parro's name as a compliance observer on three recent hearing records — those records are publicly accessible and show which proceedings she has already flagged.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Oversight Collegium contact');
+      gainXp(35, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -864,14 +864,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The harbor holds what the justice hall took. Former owners watch their vessels at night.",
     tags: ['WorldColor', 'Lore', 'Stage1'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing harbor night activity');
+      gainXp(25, 'observing harbor night activity');
 
       G.lastResult = `Three vessels are moored under low lanterns at the east pier, the water black and still between them. Two were impounded in re-adjudicated cases — property transfers currently classified under "administrative review," which means no access, no timeline, no appeal window posted. Their former owners stand at the pier's edge separately, not together — they haven't found each other yet, or have decided not to. They watch without speaking. They're watching something they no longer hold legal claim to but haven't released in any other sense. The harbor holds what the justice hall took and keeps it visible.`;
       addJournal('Harbor at night: impounded vessels from re-adjudicated cases — former owners still watching', 'discovery', `shirshal-harbor-${G.dayCount}`);
@@ -883,14 +883,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One magistrate refused a re-adjudication and was transferred three days later.",
     tags: ['PersonalArc', 'NPC', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'finding transferred magistrate');
+      gainXp(35, 'finding transferred magistrate');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -909,14 +909,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The law changed after he registered the vessel. They applied it retroactively.",
     tags: ['Social', 'NPC', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: {
       text: "Wend isn't at the pier today — the impoundment notice moved him to the harbor master's dispute queue, where he spends mornings waiting for a clerk who doesn't come. In a working harbor this size, the other vessel owners know his situation. The net-menders working the south dock have watched every impoundment proceeding from fifty feet away and have opinions about all of them. They talk more freely than someone whose livelihood is still at stake.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'speaking to dispossessed shipowner');
+      gainXp(32, 'speaking to dispossessed shipowner');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -935,10 +935,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone else visited Magistrate Corin Coilspire two weeks ago. They knew she had kept copies.",
     tags: ['Rival', 'Warning', 'Stage1'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -968,14 +968,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The courthouse lamps burn through the day. A procedural statement, not a practical one.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 38,
+    xpReward: 19,
     failResult: function() {
       addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'observing courthouse lamp tradition');
+      gainXp(19, 'observing courthouse lamp tradition');
       G.lastResult = `The courthouse lamps at Shirshal run continuously — oil maintained through the night, wicks trimmed at dawn and dusk by a dedicated maintenance role that exists in the courthouse staff roster as a titled position. In midday light the lamps are invisible from more than twenty feet. The tradition dates from the founding charter: the lamps signal that proceedings are accessible at any hour, that the institution does not close. The current lamp keeper is the third generation of her family to hold the role. She trims the wicks at the same hour her grandmother did. The institution signals continuity through the gesture regardless of what proceeds inside.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -986,7 +986,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The physical evidence in Shirshal's case storage shows signs of systematic environmental manipulation.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: function() {
       addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -996,10 +996,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Craft-heavy') {
         G.lastResult = `Some of the physical evidence in Shirshal's case storage appears degraded beyond what age and handling would explain — parchment annotations faded unevenly, wax seals soft where they should be firm, pressed fiber samples brittle without the brittleness of age. The pattern is odd. You note the condition without the knowledge to characterize what produced it or how long the process has been running. The evidence room smells faintly of something chemical beneath the lamp oil.`;
-        gainXp(28, 'noting degraded evidence condition');
+        gainXp(14, 'noting degraded evidence condition');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(72, 'analyzing evidence degradation pattern');
+      gainXp(36, 'analyzing evidence degradation pattern');
       G.stageProgress[1]++;
       G.lastResult = `The degradation pattern on the affected evidence samples is consistent with controlled chemical exposure: a solvent class that attacks organic binding agents over weeks to months, leaving physical materials intact while destroying provenance markings, dated impressions, and ink-based annotations. The effect reads as age at casual inspection. Under close examination, the degradation is too uniform across different material types — parchment and pressed fiber and wax all showing the same degradation rate, which would be impossible under natural aging but consistent under a single applied agent. Someone has been chemically aging specific evidence items.`;
       if (!G.flags) G.flags = {};
@@ -1013,14 +1013,14 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The magistrates' public schedule lists sessions that the court's own interior records show were cancelled.",
     tags: ['Information', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'cross-referencing magistrate schedules');
+      gainXp(27, 'cross-referencing magistrate schedules');
       const bg = G.background || '';
       let result = `The posted magistrate session schedule lists fourteen public hearings for last month. The court's interior proceeding log — accessible at the clerk's public window — records eleven sessions held. Three sessions on the public schedule produced no interior record. For those three dates, the clerk's window was closed and the hearing room was locked. The gap is documented in both directions: the public schedule says sessions happened; the interior record shows the building was unstaffed.`;
       if (bg === 'investigator' || bg === 'lawkeeper' || bg === 'official') {
@@ -1035,7 +1035,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: {
     text: "The board is empty this morning — notices cleared at dawn as part of the weekly rotation, new postings not yet pinned. The harbor master's board near the south dock gate runs on a different schedule and is still current. What gets posted there reflects the fishing community's concerns more directly than the hall's sanctioned board does.",
     next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]

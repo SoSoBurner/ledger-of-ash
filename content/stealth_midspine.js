@@ -12,7 +12,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     label: "The broker sold me out. He doesn't know I know. That gap is the lever.",
     plot: 'main',
     tags: ['Midspine', 'Stealth', 'Decision'],
-    xpReward: 85,
+    xpReward: 42,
     condition: function() {
       return G.archetype && G.archetype.group === 'stealth'
         && G.stage === 'Stage I'
@@ -22,7 +22,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'handling the information broker entanglement');
+      gainXp(42, 'handling the information broker entanglement');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -51,7 +51,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     label: "The buyer wants what I know. The price tells me more than the silence would.",
     plot: 'main',
     tags: ['Midspine', 'Stealth', 'Decision'],
-    xpReward: 90,
+    xpReward: 45,
     condition: function() {
       return G.archetype && G.archetype.group === 'stealth'
         && G.stage === 'Stage I'
@@ -62,7 +62,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(90, 'deciding whether to sell intelligence or protect sources');
+      gainXp(45, 'deciding whether to sell intelligence or protect sources');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -92,7 +92,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     label: "The buyer is one node. The network has a shape and the shape is mappable.",
     plot: 'main',
     tags: ['Midspine', 'Stealth', 'Lore', 'Investigation'],
-    xpReward: 95,
+    xpReward: 47,
     condition: function() {
       return G.archetype && G.archetype.group === 'stealth'
         && G.stage === 'Stage I'
@@ -103,7 +103,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(95, 'mapping the shadow information network');
+      gainXp(47, 'mapping the shadow information network');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 

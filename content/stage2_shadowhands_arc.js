@@ -6,12 +6,12 @@ const STAGE2_SHADOWHANDS_ARC = [
     label: "The chalk mark on the third column means someone left a message. It wasn't there yesterday.",
     skill: 'finesse',
     tags: ['ArcDeparture', 'Stealth', 'Investigation'],
-    xpReward: 40,
+    xpReward: 20,
     condition: function() { return G.stage === 'Stage II' && !(G.flags && G.flags.shadowhands_contacted); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'finding Shadowhands dead-drop signal');
+      gainXp(37, 'finding Shadowhands dead-drop signal');
       G.flags = G.flags || {};
       var result = rollD20('stealth', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (result.total >= 12) {
@@ -33,12 +33,12 @@ const STAGE2_SHADOWHANDS_ARC = [
     label: "The second table from the door. Someone is already sitting there.",
     skill: 'charm',
     tags: ['ArcDeepening', 'Social', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     condition: function() { return !!(G.flags && G.flags.shadowhands_meeting_set && !G.flags.shadowhands_met); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'meeting Shadowhands contact at Anchor');
+      gainXp(42, 'meeting Shadowhands contact at Anchor');
       G.flags = G.flags || {};
       var result = rollD20('charm', (G.skills.charm||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
       if (result.total >= 11) {
@@ -60,12 +60,12 @@ const STAGE2_SHADOWHANDS_ARC = [
     label: "Cover for a document move. The Ironhold ledger pays for it.",
     skill: 'finesse',
     tags: ['ArcDeepening', 'Stealth', 'Risk'],
-    xpReward: 40,
+    xpReward: 20,
     condition: function() { return !!(G.flags && G.flags.shadowhands_ilve_contact && !G.flags.shadowhands_cover_resolved); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(90, 'providing operational cover for Shadowhands document transfer');
+      gainXp(45, 'providing operational cover for Shadowhands document transfer');
       G.flags = G.flags || {};
       var result = rollD20('stealth', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (result.total >= 13) {
@@ -89,7 +89,7 @@ const STAGE2_SHADOWHANDS_ARC = [
     label: "Ilve knows who ordered the Ironhold quota suppression. She'll say it.",
     skill: 'wits',
     tags: ['ArcFinale', 'Investigation', 'Decision'],
-    xpReward: 40,
+    xpReward: 20,
     condition: function() { return !!(G.flags && G.flags.shadowhands_ironhold_ledger && !G.flags.shadowhands_finale_done); },
     fn: function() {
       advanceTime(1);

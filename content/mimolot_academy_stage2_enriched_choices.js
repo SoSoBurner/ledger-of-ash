@@ -12,14 +12,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound formula appears in theoretical texts three years before it was commissioned.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'accessing restricted Academy curriculum');
+      gainXp(41, 'accessing restricted Academy curriculum');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -51,14 +51,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Incoming shipments logged that don't match standard academic supply manifests.",
     skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reviewing Archive Loading Bay delivery records');
+      gainXp(35, 'reviewing Archive Loading Bay delivery records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -87,14 +87,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Three recent acquisitions bypassed tariff entirely. No exemption filed.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining Academy knowledge tariff bypass records');
+      gainXp(34, 'examining Academy knowledge tariff bypass records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -124,14 +124,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "A late-night conversation about 'pressure management protocols.' The guests aren't on the faculty roster.",
     skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'questioning Academy innkeeper about scholar guests');
+      gainXp(33, 'questioning Academy innkeeper about scholar guests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -160,14 +160,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The shrine inscriptions include pre-suppression glyph data that was never formally classified.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reviewing Memory Hall Shrine historical inscriptions');
+      gainXp(36, 'reviewing Memory Hall Shrine historical inscriptions');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -199,10 +199,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Leth Quillfire has been carrying the same sealed ledger for three days without logging it.",
     skill: 'charm',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'confronting Leth Quillfire over unlogged sealed ledger');
+      gainXp(32, 'confronting Leth Quillfire over unlogged sealed ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -234,10 +234,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Restricted Stacks seal is newer than the archive housing it.",
     skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'examining Restricted Stacks seal and archive infrastructure');
+      gainXp(30, 'examining Restricted Stacks seal and archive infrastructure');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var roll = rollD20('wits', (G.skills.wits||0));
@@ -265,10 +265,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Calia Quillfire asked a question in the wrong register and the lecture hall went quiet.",
     skill: 'finesse',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'navigating Calia Quillfire social complication in lecture hall');
+      gainXp(29, 'navigating Calia Quillfire social complication in lecture hall');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -300,14 +300,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Things moved through the night dock that don't appear in the morning intake log.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'pressing Hoven Draske on night-dock off-manifest transfers');
+      gainXp(34, 'pressing Hoven Draske on night-dock off-manifest transfers');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -338,14 +338,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The faculty auditor stopped filing anomaly reports six weeks ago. No explanation given.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'drawing out Pellin Ost on suspended anomaly reporting');
+      gainXp(36, 'drawing out Pellin Ost on suspended anomaly reporting');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -375,14 +375,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "A regular Fairhaven courier stop at the Academy that doesn't appear in the public schedule.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing Draith Calver Fairhaven courier off-schedule Academy stop');
+      gainXp(33, 'tracing Draith Calver Fairhaven courier off-schedule Academy stop');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -413,14 +413,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The archive papers are cited by research that doesn't exist in the Academy's own catalog.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing phantom citation network in glyph resonance theory archive');
+      gainXp(35, 'tracing phantom citation network in glyph resonance theory archive');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -451,14 +451,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest notation isn't Academy standard. Someone with field training filled this in.",
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'decoding non-standard reagent weighing notation in storage manifest');
+      gainXp(34, 'decoding non-standard reagent weighing notation in storage manifest');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -488,14 +488,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The study room access log has entries in the same hand as the charter exemptions.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing study room access log against charter exemption handwriting');
+      gainXp(34, 'cross-referencing study room access log against charter exemption handwriting');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -526,14 +526,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Student stipend disbursements for glyph resonance candidates stopped without a faculty notice.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracing glyph resonance student stipend disbursement halt');
+      gainXp(33, 'tracing glyph resonance student stipend disbursement halt');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -563,14 +563,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "A pressure spike on the same night as a Fairhaven delivery not in any manifest.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'correlating observatory glyph sensor spike with off-manifest Fairhaven delivery');
+      gainXp(35, 'correlating observatory glyph sensor spike with off-manifest Fairhaven delivery');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -601,14 +601,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The credential file holds a Collegium endorsement the Collegium's registry can't confirm.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'verifying visiting lecturer Collegium credential against registry');
+      gainXp(34, 'verifying visiting lecturer Collegium credential against registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -639,14 +639,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The east tunnel approach serviced three times in one month. No maintenance order filed.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'questioning grounds crew lead Torva Seld about unlogged east tunnel maintenance');
+      gainXp(33, 'questioning grounds crew lead Torva Seld about unlogged east tunnel maintenance');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -676,14 +676,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The emeritus office was cleared mid-term. Furniture out, key returned, no sabbatical notice posted.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'tracing sudden mid-term emeritus office vacancy');
+      gainXp(32, 'tracing sudden mid-term emeritus office vacancy');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -714,14 +714,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "After certain seminars the same group leaves together. They don't return to the dormitory.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tailing student group departing seminars to off-dormitory destination');
+      gainXp(33, 'tailing student group departing seminars to off-dormitory destination');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -752,14 +752,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The seal is genuine. The paper it's on was made this year.",
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'conducting materials analysis on external charter document authenticity');
+      gainXp(35, 'conducting materials analysis on external charter document authenticity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -788,7 +788,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Academy's classified research was the theoretical foundation. Expose or contain.",
     skill: 'wits',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -824,14 +824,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Faculty correspondence in the archive hints at outside interference — no name attached.",
     skill: 'wits',
     tags: ['Collegium', 'Stage2', 'Evidence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'Mimolot Collegium academic correspondence');
+      gainXp(35, 'Mimolot Collegium academic correspondence');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       var result = rollD20('wits', (G.skills.wits||0));
@@ -859,14 +859,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Ruveth knows the suppression history cold — until the conversation reaches the Academy itself.",
     skill: 'charm',
     tags: ['Collegium', 'Stage2', 'Intelligence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'Mimolot Collegium scholar evasion');
+      gainXp(37, 'Mimolot Collegium scholar evasion');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       var result = rollD20('charm', (G.skills.charm||0));
@@ -895,10 +895,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The thesis defense schedule has a recurring deferral on one research track.",
     skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 36,
+    xpReward: 18,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(36, 'reviewing academy thesis defense deferrals');
+      gainXp(18, 'reviewing academy thesis defense deferrals');
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.flags.mim_defense_deferrals_traced = true;
@@ -919,10 +919,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The library's late-return register has the same reader's initials on every restricted-stack withdrawal.",
     skill: 'finesse',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 38,
+    xpReward: 19,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'tracing Academy restricted-stack withdrawals');
+      gainXp(19, 'tracing Academy restricted-stack withdrawals');
       var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 14) {
         G.flags.mim_restricted_withdrawal_tracked = true;
@@ -942,14 +942,14 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph damping theoretical texts cite a practitioner network the faculty won't name.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Arcane'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing practitioner network cited in Academy glyph damping theory');
+      gainXp(37, 'tracing practitioner network cited in Academy glyph damping theory');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
@@ -977,10 +977,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The lecturer crossed out a name in his own margin before speaking.",
     skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(40, 'observing a lecturer self-censoring margin notes');
+      gainXp(20, 'observing a lecturer self-censoring margin notes');
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 14) {
         G.flags.mim_lecturer_self_censor_seen = true;
@@ -1003,7 +1003,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Renne's cross-reference code points to a name in the Academy's restricted visitor log.",
     skill: 'charm',
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion', 'Faction'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1016,7 +1016,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'locked';
         return;
       }
-      gainXp(95, 'completing Collegium chain at Mimolot Academy');
+      gainXp(47, 'completing Collegium chain at Mimolot Academy');
       var result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 14) {
         G.flags.collegium_contact_3 = true;
@@ -1042,10 +1042,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'bold',
     failResult: "Quillan is behind the access desk with two faculty members present. He listens to the question, opens a form drawer, and produces the external inquiry protocol sheet without speaking. The faculty members do not look up. The form has seven fields. The review cycle takes fourteen days.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'pressing Quillan Quillmark on restricted-access paperwork he processed');
+      gainXp(37, 'pressing Quillan Quillmark on restricted-access paperwork he processed');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1078,10 +1078,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "Vessa's canon compliance work runs through the faculty review channel, not the public archive. External access to compliance records requires a faculty membership number on file. She writes the reference number for the access form on a slip of paper and slides it across the desk. Her expression is not unkind.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'drawing out Vessa Scriptmere on phantom citation canon compliance failure');
+      gainXp(36, 'drawing out Vessa Scriptmere on phantom citation canon compliance failure');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1114,10 +1114,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'bold',
     failResult: "Valcrest's office door is closed and the schedule posted outside shows his next available appointment is in eleven days. The archive attendant offers to add a name to the waiting list. She does not offer a reason for the delay. The waiting list has four names above the one she writes.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'confronting Archivist Luthen Valcrest on restricted-stack rotation bypass authorization');
+      gainXp(39, 'confronting Archivist Luthen Valcrest on restricted-stack rotation bypass authorization');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1150,10 +1150,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "The Book Tariff Office's authority file index is a restricted administrative document — exempt designation codes and their originating authorities are not public record. The clerk at the counter explains this with the practiced patience of someone who has said it many times. The index stays in its locked cabinet behind the desk.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing Crown Research Protocol authority origin in Book Tariff Office registry');
+      gainXp(34, 'tracing Crown Research Protocol authority origin in Book Tariff Office registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1187,10 +1187,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Sarith's 'theoretical materials' ledger column has no description and no recipient name.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'auditing Sarith Quillfire theoretical-materials ledger column');
+      gainXp(35, 'auditing Sarith Quillfire theoretical-materials ledger column');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1221,10 +1221,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The restricted wing smells of something that isn't in the academy's reagent catalog.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'identifying unregistered reagent odor in restricted Academy wing');
+      gainXp(32, 'identifying unregistered reagent odor in restricted Academy wing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1254,10 +1254,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph resonance text has marginalia in two different hands — neither is faculty.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing non-faculty marginalia in restricted glyph resonance text');
+      gainXp(36, 'tracing non-faculty marginalia in restricted glyph resonance text');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1287,10 +1287,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Three crate labels list Watchers Perch as a transit waypoint, not a destination.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'auditing Watchers Perch transit-waypoint crate labels in loading records');
+      gainXp(34, 'auditing Watchers Perch transit-waypoint crate labels in loading records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1319,10 +1319,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Fairhaven courier's seal matches the wax type on the restricted archive gate.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'comparing courier wax seal to restricted archive gate wax');
+      gainXp(35, 'comparing courier wax seal to restricted archive gate wax');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1352,10 +1352,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The shipment weights don't match what glyph damping theory actually requires.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-checking shipment weights against glyph damping theoretical material requirements');
+      gainXp(37, 'cross-checking shipment weights against glyph damping theoretical material requirements');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1387,10 +1387,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Quenra's restricted access list has forty names. Thirty-seven of them are faculty.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'cross-referencing faculty restricted access with Tutor-Magistrate Quenra Quillfire');
+      gainXp(41, 'cross-referencing faculty restricted access with Tutor-Magistrate Quenra Quillfire');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1421,10 +1421,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Ilys knows which students don't come back after certain seminars.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'drawing out Ilys Quillfire on students absent after specific seminars');
+      gainXp(34, 'drawing out Ilys Quillfire on students absent after specific seminars');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1454,10 +1454,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Velis noticed a second set of footprints at the shrine door. Not students, not faculty.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'drawing out Velis Quillfire on unidentified visitors to the Memory Hall shrine');
+      gainXp(35, 'drawing out Velis Quillfire on unidentified visitors to the Memory Hall shrine');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1488,10 +1488,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Myra's cargo log has an entry she crossed out and re-entered three weeks later.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'drawing out Myra Quillfire on a corrected and re-entered cargo log entry');
+      gainXp(36, 'drawing out Myra Quillfire on a corrected and re-entered cargo log entry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1521,10 +1521,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Sarith filed a discrepancy notice four months ago. Nobody responded.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'drawing out Sarith Quillfire on an unanswered discrepancy notice');
+      gainXp(33, 'drawing out Sarith Quillfire on an unanswered discrepancy notice');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1555,10 +1555,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Myra logged a delivery signed by a porter who doesn't match any staff record.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'tracing Myra Quillfire ghost-porter signature in delivery record');
+      gainXp(38, 'tracing Myra Quillfire ghost-porter signature in delivery record');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1590,10 +1590,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The formula's pressure tolerance range is ten times what academic damping work would need.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'analyzing suppression formula pressure tolerance parameters against academic use');
+      gainXp(37, 'analyzing suppression formula pressure tolerance parameters against academic use');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1623,10 +1623,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound has a stabilizer compound only available outside Academy supply channels.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing suppression compound stabilizer to non-Academy supply source');
+      gainXp(36, 'tracing suppression compound stabilizer to non-Academy supply source');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1656,10 +1656,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The earliest version of the formula lacked the deployment mechanism. It was added later.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracing iterative additions to suppression formula draft sequence');
+      gainXp(39, 'tracing iterative additions to suppression formula draft sequence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1689,10 +1689,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Watchers Perch modification schematics show a conversion, not a construction project.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'analyzing Watchers Perch modification schematics against original installation records');
+      gainXp(37, 'analyzing Watchers Perch modification schematics against original installation records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1722,10 +1722,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The compound's degradation window rules out everything except population-scale deployment.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'analyzing suppression compound degradation timeline against academic vs field application');
+      gainXp(40, 'analyzing suppression compound degradation timeline against academic vs field application');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1757,10 +1757,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The three external clearance codes share a common registration block in the admin ledger.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing shared registration block for external Academy clearance codes');
+      gainXp(35, 'tracing shared registration block for external Academy clearance codes');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1790,10 +1790,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "One external agent attended a faculty-only thesis session. No committee record of it.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-checking external agent attendance against faculty thesis committee records');
+      gainXp(37, 'cross-checking external agent attendance against faculty thesis committee records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1823,10 +1823,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "External agents' key return dates all fall on the same day as Draith Calver's arrivals.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'correlating external agent key return dates with Draith Calver courier arrival schedule');
+      gainXp(36, 'correlating external agent key return dates with Draith Calver courier arrival schedule');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1855,10 +1855,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "One external agent's faculty endorsement is signed by someone who died two years ago.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'verifying visiting faculty endorsement signature against faculty mortality records');
+      gainXp(40, 'verifying visiting faculty endorsement signature against faculty mortality records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};

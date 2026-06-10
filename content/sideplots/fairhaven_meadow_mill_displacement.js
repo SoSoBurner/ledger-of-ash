@@ -18,7 +18,7 @@ var FAIRHAVEN_MEADOW_MILL_DISPLACEMENT = (function() {
         if (typeof updateHUD === 'function') updateHUD();
         (window._rawRenderChoices || window.renderChoices)([
           { id: 'mill_check_order', text: 'The rerouting order has a permit number. Permit numbers have origins.', tag: 'safe',
-            action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
+            action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice');
               G.flags.mill_displacement_rung1 = true;
               G.lastResult = 'The permit number on the rerouting order runs to a batch issued from the Fairhaven civic office eight months ago. That batch was supposed to cover mill access improvements. The property shift is not listed anywhere in the improvement schedule. Someone added this order to the batch after the fact — the ink weight is different from the surrounding entries.';
               G.recentOutcomeType = 'discovery';
@@ -57,12 +57,12 @@ var FAIRHAVEN_MEADOW_MILL_DISPLACEMENT = (function() {
           addJournal(G.lastResult, 'complication');
           (window._rawRenderChoices || window.renderChoices)([
             { id: 'mill_confront_foreman', text: 'The foreman is outside. He\'s been waiting for someone to come looking.', tag: 'bold',
-              action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
+              action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice');
                 if (typeof enterAuthorityConfrontation === 'function') enterAuthorityConfrontation('harvest_measures_board', { context: 'mill_foreman_confrontation' });
               }
             },
             { id: 'mill_withdraw', text: 'Pull back. The routing mark is enough for now.', tag: 'safe',
-              action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
+              action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice');
                 G.lastResult = 'You leave the land office before the foreman can place you. The routing mark is documented. The channel exists whether or not the file is open.';
                 if (typeof checkStageAdvance === 'function') checkStageAdvance();
               }

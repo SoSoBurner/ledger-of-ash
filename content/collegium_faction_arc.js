@@ -25,21 +25,21 @@ var COLLEGIUM_FACTION_MODULE = (function() {
           plot: 'main',
           text: 'Formal channels have teeth. This one is offering to open a door.',
           tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat1Accept(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat1Accept(); }
         },
         {
           id: 'collegium_beat1_cautious',
           plot: 'main',
           text: 'The paper stock alone says this is a managed approach. Worth seeing what they want.',
           tag: 'risky',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat1Cautious(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat1Cautious(); }
         },
         {
           id: 'collegium_beat1_refuse',
           plot: 'main',
           text: 'Any archivist who moves through side doors has already decided what the collaboration looks like.',
           tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat1Refuse(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat1Refuse(); }
         }
       ]);
     }, 400);
@@ -113,21 +113,21 @@ var COLLEGIUM_FACTION_MODULE = (function() {
           plot: 'main',
           text: 'The stamp number is enough. Whatever name is under the line, the path runs through the registry.',
           tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat2Stay(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat2Stay(); }
         },
         {
           id: 'collegium_beat2_push',
           plot: 'main',
           text: 'The name is already known to him. He brought you here to hear you ask for it.',
           tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat2Push(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat2Push(); }
         },
         {
           id: 'collegium_beat2_copy',
           plot: 'main',
           text: 'The folder is open. The stamp is on every page. Daves has stepped out to refill his cup.',
           tag: 'risky',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat2Copy(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat2Copy(); }
         }
       ]);
     }, 400);
@@ -213,14 +213,14 @@ var COLLEGIUM_FACTION_MODULE = (function() {
           plot: 'main',
           text: 'The sanctioned inquiry keeps it contained — but contained means it moves, not disappears.',
           tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat3Ally(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat3Ally(); }
         },
         {
           id: 'collegium_beat3_refuse',
           plot: 'main',
           text: 'A process that cannot guarantee exposure is a process designed to survive without one.',
           tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); beat3Refuse(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); beat3Refuse(); }
         }
       ]);
     }, 400);

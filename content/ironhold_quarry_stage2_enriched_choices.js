@@ -10,14 +10,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Six months of 'special mineral assessment' entries. No assay reports back any of them.",
     skill: 'might',
     tags: ['Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Darian is at the secondary gate post with the assay binder open on the shelf, one hand flat across the page. He reads the question without answering, closes the binder, and waves the next equipment cart through. The gate post stays manned until shift change. You step back to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'investigating special mineral assessment logs with Darian Ironspike');
+      gainXp(37, 'investigating special mineral assessment logs with Darian Ironspike');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('combat', (G.skills.might||0));
       if (result.isCrit) {
@@ -44,14 +44,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Workers in the special extraction section show symptoms matching the Unity Square exposure cluster.",
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Velka\'s desk in the foreman office sits across from the injury log shelf — both within reach when she is alone, neither within reach when the secondary foreman is at the side counter. He is at the counter today, running the day\'s safety tally. She does not open the drawer. The conversation ends at quarry pleasantries.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'investigating worker exposure symptoms with Quarry Overseer Velka Ironspike');
+      gainXp(35, 'investigating worker exposure symptoms with Quarry Overseer Velka Ironspike');
 
 
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -77,14 +77,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The special vein is accessible during night shift handover. The raw mineral needs examining.",
     skill: 'finesse',
     tags: ['Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The lower vein face approach runs past the equipment shed and around the ore staging dock — both lit tonight by the quarry\'s night-floods. A maintenance crew is at the staging dock running a chain repair under the floods. Their work covers the access angle to the special vein. The handover window passes with no clean approach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'examining special extraction vein during shift handover');
+      gainXp(39, 'examining special extraction vein during shift handover');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -112,14 +112,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The detention record sits between us. He has something he didn't say the first time.",
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Escalation'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Darian Ironspike is at the secondary gate when you return — the detention record from the first encounter is on the post shelf beside his ledger. He sees you approach and moves the record into his coat pocket. The gate stays closed. He does not speak. You retreat to the main equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'pressing Darian Ironspike at the secondary gate for the second time');
+      gainXp(38, 'pressing Darian Ironspike at the secondary gate for the second time');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -149,10 +149,10 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The extraction face is visible from the ridge during midday break.",
     skill: 'vigor',
     tags: ['Stage2', 'Physical', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'observing the special assessment section from the ridge during midday break');
+      gainXp(36, 'observing the special assessment section from the ridge during midday break');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -181,14 +181,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Challenge the tally publicly and the whole crew becomes the audience.",
     skill: 'charm',
     tags: ['Stage2', 'Social', 'Complication'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The weighing station queue at end-of-shift is the wrong audience — the prison laborer ahead of you in the line goes silent when you raise the tally question, and the recorder closes the day-book without comment. The crew watching shifts position. The dispute does not get aired. You step out of the queue and the count proceeds.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'navigating a labor-culture dispute at the weighing station');
+      gainXp(34, 'navigating a labor-culture dispute at the weighing station');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -215,14 +215,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The canteen at end-of-shift is crowded — quarry workers four deep at the serving line, the transport crew table empty tonight. The cook is at the range with his back to the room. The crew did not come in for the second seating. The cup of foreign script the cook keeps behind the counter stays out of sight. You take a meal and step out.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'observing the off-manifest transport crew at the quarry canteen');
+      gainXp(32, 'observing the off-manifest transport crew at the quarry canteen');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.transport_crew_identified = true;
@@ -249,14 +249,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The secondary slope rest point is empty at the supervisor\'s usual break — a quarry runner waves you off the slope from the equipment yard below, calling that the night supervisor has been reassigned to the dock today. The wind off the lower vein carries the noise of the dock chains. You retreat down the slope before the next bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'approaching the night tally supervisor at the secondary slope rest point');
+      gainXp(32, 'approaching the night tally supervisor at the secondary slope rest point');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_night_tally_supervisor = true;
@@ -283,14 +283,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Tor is on the standard line at the secondary cut bay when you approach — drill housing under his hands, the section supervisor watching the row from a raised platform thirty paces back. Tor sees you before you reach the row, shakes his head once without breaking the drill rhythm, and turns his back. The supervisor marks his clipboard. You move on.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'approaching the rotated-off extraction worker on the standard line');
+      gainXp(36, 'approaching the rotated-off extraction worker on the standard line');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -317,14 +317,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The weighing station engineer handles the standard ore. The special ore never reaches her scale.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The weighing station queue runs three carts deep when you reach the engineer\'s platform. Osta is mid-calibration, the rod balanced on the scale frame, and a dispute supervisor stands at her elbow logging the morning\'s reconciliation. The line behind you fills the access corridor. The conversation does not get past the calibration noise. You step back into the queue.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'speaking with the weighing station engineer about the missing ore flow');
+      gainXp(35, 'speaking with the weighing station engineer about the missing ore flow');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -350,14 +350,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Six months of those coins. The canteen cook knows exactly when the crew changed.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Observation'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The canteen counter at mid-morning has Prael working the range and a second cook running the pass-through ledge. The transport crew table at the far wall is occupied. Prael sees you, glances once at their table, and turns the conversation toward the day\'s stew batch. The coins stay behind the counter. You step away from the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'talking with the canteen cook about the transport crew composition and timeline');
+      gainXp(34, 'talking with the canteen cook about the transport crew composition and timeline');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -384,14 +384,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'NPC', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Velka\'s foreman office has the draft in her desk drawer when you arrive — drawer half-pulled, paper visible. The shift supervisor is at the open door behind her with the day\'s rotation tally. She slides the drawer closed without looking down. The supervisor stays at the door until you step back into the corridor.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'collaborating with Velka Ironspike to structure an unfiled safety report');
+      gainXp(38, 'collaborating with Velka Ironspike to structure an unfiled safety report');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -420,14 +420,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The schedule board shows two shifts. There are three crews clocking in.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The scheduling annex is locked tonight — the duty clerk has the key on her belt and is at the foreman office discussing the next rotation. The schedule board on the outer wall shows the posted shifts only. Standing at the board long enough to read the cross-reference would draw the duty clerk back. You step away before she returns.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing the shift schedule against the section entry log');
+      gainXp(37, 'cross-referencing the shift schedule against the section entry log');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -454,14 +454,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The quarry infirmary keeps a log the safety office never sees.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The infirmary at midday has two workers admitted from the morning rotation — both on cots in the back room, the orderly between them with a damp cloth. The desk ledger sits open at the front counter and a senior orderly stands beside it. He shakes his head once. You step out into the equipment corridor without asking the question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading the quarry infirmary admissions log');
+      gainXp(34, 'reading the quarry infirmary admissions log');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -488,14 +488,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The secondary cut access tunnel approach runs past the equipment shed and the ore screening wall — both occupied today by the day shift\'s mid-rotation crews. The angle of approach to the tunnel mouth carries through clear sightlines from three crew stations. The gray coat does not appear during your observation window. You retreat to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'tracking the gray-coated extraction supervisor through the quarry site');
+      gainXp(38, 'tracking the gray-coated extraction supervisor through the quarry site');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -524,14 +524,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The secondary cut tunnel mouth is at the lower vein face, downwind of the equipment shed where stone dust settles thick on the flagstones. The eastern guard post has a clear sightline to the tunnel approach. The guard at the post is watching the lower vein when you arrive. The angle does not open during your time at the approach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'assessing the secondary cut excavation method from the access tunnel approach');
+      gainXp(37, 'assessing the secondary cut excavation method from the access tunnel approach');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -558,14 +558,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest gets signed just before the dock seals. That's the window.",
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The transport dock has a public perimeter barrier and a manifest counter inside it. The signing officer reaches the counter at shift-end minus ten minutes, signs the manifest in a block cipher, and seals the document before you reach the barrier rail. The dock handler closes the access gate. The window has shut by the time you arrive.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'approaching the transport dock signing officer at shift-end manifest close');
+      gainXp(35, 'approaching the transport dock signing officer at shift-end manifest close');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -592,14 +592,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The secondary slope rest point at the night break is empty — wind off the lower vein and a single quarry runner crossing the slope toward the equipment yard. The runner reports that Drovish has been pulled to the dock for the overnight tally. The notebook stays in his coat at the dock, out of reach. You retreat down the slope.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'returning to Kael Drovish at the secondary slope with his dock departure count');
+      gainXp(36, 'returning to Kael Drovish at the secondary slope with his dock departure count');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -626,14 +626,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The intake supervisor has assigned this rotation long enough to know the pattern by heart.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The intake annex sits behind the equipment yard — a low room with the assignment ledger chained to the desk. Borek is at the desk, the leather strap across the ledger cover, an ORE labor relations form in front of him. He reads the form rather than looking up. He waves toward the labor relations desk across the equipment yard. The assignment ledger does not open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'pressing the prison labor intake supervisor on special extraction rotation assignments');
+      gainXp(35, 'pressing the prison labor intake supervisor on special extraction rotation assignments');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -659,14 +659,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Every crew's requisition slips go through the same shed. The special crew's are filed separately.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The tool shed is at the equipment yard\'s edge — a long shed with the returned tools sorted in racks along the inside wall. The shed keeper is at the back of the shed running a wear-pattern count, two foremen at the counter discussing the day\'s issue. The red-tabbed folder sits behind the counter, unattended but unreachable. You step back into the yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining the tool requisition records for the special extraction crew');
+      gainXp(34, 'examining the tool requisition records for the special extraction crew');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -692,14 +692,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The quarry survey map on file omits the secondary cut entirely.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The main access corridor where the survey map is posted runs between the quarry gate and the equipment yard — a constant flow of foremen and shift workers passing the map panel at every turn change. Standing at the panel long enough to read the secondary cut zone in detail would draw three sets of eyes. You walk past it instead.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'comparing the posted quarry survey map against the physical site layout');
+      gainXp(36, 'comparing the posted quarry survey map against the physical site layout');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -726,7 +726,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The source is confirmed. ORE command or Roadwarden — the evidence needs a route.",
     skill: 'vigor',
     tags: ['Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The dispatch courier station at the quarry gate sits beside the foreman office — the evidence packets in your bag, the courier slips visible on the counter. The duty foreman is at the counter logging the day\'s outgoing manifests. He looks up. You step back into the equipment yard. The packets do not leave Ironhold tonight.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -764,14 +764,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The supervisor\'s board sits at the quarry floor entrance — quota sheet on the left, output tally on the right. The shift supervisor is at the board updating the day\'s figures, two foremen on either side comparing readings. You cannot stand close enough to read both columns at once. The boards stay in place. You step back into the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'quota discrepancy');
+      gainXp(10, 'quota discrepancy');
       G.lastResult = 'The quota sheet is on the supervisor board — stone weight expected per crew, per shift. The output tally hangs beside it. They should match within tolerance. They are off by enough that it cannot be rounding. Someone has been recording the quota as met when it was not, or recording output that did not go through the main yard. The supervisor initials are on both sheets.';
       addJournal('Ironhold Quarry quota sheet and output tally show a significant discrepancy — both signed by the same supervisor. Source: Ironhold Quarry floor, supervisor\'s board.', 'evidence', `iron-quota-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -784,14 +784,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The worker knows something. He adjusts his grip before every sentence",
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The quarry worker is on the extraction floor at the secondary cut bay — maul in his hands, the floor supervisor pacing the row behind him with a clipboard. The worker sees you approach the bay edge and resets his grip on the maul. He does not speak. The supervisor reaches his position. You step back to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'quarry worker NPC');
+      gainXp(7, 'quarry worker NPC');
       G.lastResult = 'He is not unfriendly. Every time he is about to say something that costs him, his hands reset on the maul — grip, release, grip again — and then the sentence comes out shorter than it started. He knows the gap in the tally sheets. He knows which shift it runs on. He will not say either thing while the floor supervisor is in sight. He adjusts his grip. He goes back to the stone.';
       addJournal('An Ironhold Quarry worker appears to know about the quota discrepancy — spoke carefully, with shift supervisor in view. Source: Ironhold Quarry extraction floor, afternoon shift.', 'intelligence', `iron-worker-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -804,14 +804,14 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The supervisor\'s board has the sealed inspection envelope pinned high on the right side — wax seal intact, the inspector\'s clip beneath it. The board stands in clear sight of the quarry gate post. The gate guard is at the post writing the day\'s rotation log. The seal stays on the envelope. You step away from the board.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'sealed inspection record');
+      gainXp(7, 'sealed inspection record');
       G.lastResult = 'The most recent safety inspection record should be posted open for crew review — guild requirement, posted quarterly. The one on the board is sealed. Red wax, Collegium administrative stamp, applied over the staple holes so the document cannot be opened without breaking it. The supervisor explains that the seal came with the document, already applied. He says this without looking at the board.';
       addJournal('The Ironhold Quarry safety inspection record is sealed with Collegium wax — not open for crew review as required. Supervisor offered no explanation. Source: Ironhold Quarry floor, supervisor\'s board.', 'intelligence', `iron-sealed-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
@@ -824,10 +824,10 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "A safety check means leaving before I finish",
     skill: 'wits',
     tags: ['Complication', 'Stage2'],
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'safety check complication');
+      gainXp(10, 'safety check complication');
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = 'A horn from the upper shaft — three short, one long. Safety evacuation pattern. The floor clears in under a minute; these workers know the signal. The supervisor gestures toward the gate before the secondary tally is done. Outside, the crew waits in the yard. The all-clear takes twenty minutes. When the floor reopens, the supervisor board has been reorganized. The quota sheets are stacked face-down.';

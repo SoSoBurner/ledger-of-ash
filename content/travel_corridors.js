@@ -180,7 +180,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'She runs the stamp across the transit form without comment. The barrier arm lifts. Her finger has already moved to the next column before you reach the road beyond the post.');
-                if (typeof gainXp === 'function') gainXp(10);
+                if (typeof gainXp === 'function') gainXp(5);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The stamp does not come down. She holds the form at arm\'s length, tilting it toward the light. The discrepancy she\'s found is small enough that she doesn\'t name it — she just watches you.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -199,7 +199,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'You ask about the route advisory two posts back — a neutral question, something the board had wrong. She answers it. The stamp comes down while she\'s still correcting the record. She waves you through without looking up again.');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The question lands on the wrong note. She sets the form down and asks a follow-up — specific, procedural, and not something you can answer without either lying or pausing long enough that she notices the pause.');
                 if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -218,7 +218,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'You take the road verge before she finishes the column. She calls something to the next traveler in line — not to you. Her attention has already shifted. You rejoin the road fifty meters on.');
-                if (typeof gainXp === 'function') gainXp(15);
+                if (typeof gainXp === 'function') gainXp(7);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The movement is too deliberate. She steps away from the barrier arm, one hand on the post, and watches you take the verge. She hasn\'t called out yet, but her weight has shifted toward the road.');
                 if (typeof addHeat === 'function') addHeat('shelk', 3);
@@ -244,7 +244,7 @@
                 if (typeof addMaterial === 'function') addMaterial('highland_cloth', 1);
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addNarration === 'function') addNarration('', 'You set your own pace and hold it. He moves at the satchel weight\'s pace, which is slower than yours. The gap grows. By the next mile-marker he is a dark shape behind you, not a shadow at your heels.');
-                if (typeof gainXp === 'function') gainXp(8);
+                if (typeof gainXp === 'function') gainXp(4);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'He closes to conversation range — not urgently, but steadily. He asks which house you\'re carrying for. The Guild satchel on his shoulder is now a prop in something that is not a conversation about cargo.');
               }
@@ -262,7 +262,7 @@
                 if (typeof addMaterial === 'function') addMaterial('highland_cloth', 1);
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addNarration === 'function') addNarration('', 'He steps aside without hesitation. He was tracking the road, not you — same route, different schedule, same destination. The satchel is a hauler\'s satchel. The notched staff is for dogs, not people. You had the same route.');
-                if (typeof gainXp === 'function') gainXp(10);
+                if (typeof gainXp === 'function') gainXp(5);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'He doesn\'t step aside. His feet plant and he asks where you\'re going. The notched staff is in his hands now, not at his side. The Guild satchel has become the subject of a question he hasn\'t asked yet.');
               }
@@ -288,7 +288,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The seal dates are three days old. The manifest is dated two days ago. The cart left Shelkopolis before the manifest was written. You note the crate marks — not standard outfitter codes, but something narrower — and step back before the carter finishes standing up.');
                 if (typeof addJournal === 'function') addJournal('Stopped cart: seal dates mismatched with manifest. Three crates, Roadwarden-marked. Crate codes non-standard.', 'evidence');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'You lean toward the nearest crate to read the mark. The carter is on his feet before you get close. He steps between you and the crates without a word. The inspection ends there.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -307,7 +307,7 @@
                 if (typeof addMaterial === 'function') addMaterial('highland_cloth', 1);
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The wheel seats on the third lift. The carter nods — he doesn\'t say much, but he gets moving. You\'re back on the road faster than the delay cost.');
-                if (typeof gainXp === 'function') gainXp(8);
+                if (typeof gainXp === 'function') gainXp(4);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The wheel won\'t seat. The axle fitting is stripped — this needed a smith before it needed a hand. You spend time on something that cannot be fixed at a road verge and leave the carter sitting where you found him.');
               }
@@ -333,7 +333,7 @@
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Two vertical marks, bisected — the same hand cut both, the same tool made them. The depth is consistent. Not a casual scratch. You get the shape clean on the second try.');
                 if (typeof addJournal === 'function') addJournal('Secondary mark on road milestones — narrow vertical bisected by two horizontals. Not Guild, not Shelk. Same hand, same tool, same depth on both posts.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(10);
+                if (typeof gainXp === 'function') gainXp(5);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The light is wrong for the angle. You get the shape of the first mark but not the second — the shadow hides the depth and the bisection could be two marks or one. The copy is partial.');
               }
@@ -351,7 +351,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The marked posts fall behind you. The road ahead is clear.');
-                if (typeof gainXp === 'function') gainXp(5);
+                if (typeof gainXp === 'function') gainXp(2);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'A Roadwarden maintenance crew rounds the bend ahead, working toward the marked post with tools and a fresh-paint board. They will be at the marks before you are clear of this stretch.');
               }
@@ -420,7 +420,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Personal goods. The ledger-holder notes it — you see her pen move — but she doesn\'t challenge the classification. The patrol passes. The notation stays in her ledger, which is not the same as being stopped.');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'Personal goods. She writes something, then asks for itemized contents. The personal goods classification does not cover what she begins writing down. The ledger is filling with your cargo.');
                 if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -439,7 +439,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'You\'re off the road before they reach you. The patrol passes on the road below. You rejoin the road fifty meters on, behind them now, moving in the same direction — no longer in their path.');
-                if (typeof gainXp === 'function') gainXp(15);
+                if (typeof gainXp === 'function') gainXp(7);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The one watching the road\'s edge has been watching you specifically. He signals before you reach the verge. The patrol stops moving and two of them turn toward where you are standing.');
                 if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -458,7 +458,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'They check. They note. They move on. The ledger closes. The cooperative approach is indistinguishable from a traveler with nothing to hide, which is exactly what cooperative approaches are designed to resemble.');
-                if (typeof gainXp === 'function') gainXp(10);
+                if (typeof gainXp === 'function') gainXp(5);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The posture reads as rehearsed. She takes a step back, asks a secondary question — inventory, specific — and the routine check has become something longer. The other two patrol members stop walking.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -484,7 +484,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The verge is wide enough. You move around without entering the proceeding\'s perimeter. The warden who noticed you has gone back to watching the bound man. The road resumes on the other side.');
-                if (typeof gainXp === 'function') gainXp(8);
+                if (typeof gainXp === 'function') gainXp(4);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The warden who noticed you steps to the verge edge before you reach the widest point. He asks you to stop. He has questions — and the field ledger is still open in the writing warden\'s hands.');
               }
@@ -503,7 +503,7 @@
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Lining-cut means a specific object — document-shaped, from the packing pattern in the spread contents. The coat\'s inner seam was cut by someone who knew where to look. The name stitched into the outer collar is readable from here.');
                 if (typeof addJournal === 'function') addJournal('Roadwarden lining-search on road. Object sought: document-shaped. Name on coat collar legible — see entry.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(25);
+                if (typeof gainXp === 'function') gainXp(12);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'You slow enough to read the lining. The writing warden looks up from the ledger. Your attention on the cut coat is visible from where he is standing. He marks something and looks at you again.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -530,7 +530,7 @@
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The fire ring is permanent, maintained, used weekly. The flat stones around it have been resettled more than once. The standing figure\'s posture shifts when you stop — shoulders down, not hands-up. He is noting you, not moving toward you.');
                 if (typeof addJournal === 'function') addJournal('Permanent fire ring off main road. Watcher at road edge. Regular maintenance pattern — weekly use minimum.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'You step off the road toward the gap in the hedgerow. The standing figure takes a step toward the road before you decide anything. His hands stay at his sides.');
               }
@@ -548,7 +548,7 @@
                 if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Face angled toward the road surface, pace unchanged. The watcher\'s gaze moves past you. He turns back toward the fire before you reach the next bend. You gave him a coat and a direction, not a face.');
-                if (typeof gainXp === 'function') gainXp(15);
+                if (typeof gainXp === 'function') gainXp(7);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The pace change is the tell — a traveler keeping their face down is a traveler keeping their face down. The watcher takes a step onto the road shoulder. You keep moving. He keeps pace for thirty meters before stopping.');
               }
@@ -566,7 +566,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The fire is their business. The road is yours. The watcher watches. You pass.');
-                if (typeof gainXp === 'function') gainXp(8);
+                if (typeof gainXp === 'function') gainXp(4);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The standing figure calls something after you. It is not a question and not a greeting. You do not stop. The words don\'t carry far enough to be clear, but the tone does.');
               }
@@ -592,7 +592,7 @@
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Cord cut, not pulled — deliberate, not hurried. The packing shape held a document case. The manifest tag gives the Shelkopolis outfitter and a departure date four days back. No carter, no cart, no second removal. Whatever was in it left on foot.');
                 if (typeof addJournal === 'function') addJournal('Roadside abandoned crate: Guild seal cord-cut, document-case shaped removal. Shelkopolis outfitter, four days old. No cart or carter present.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(12);
+                if (typeof gainXp === 'function') gainXp(6);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'You get the seal date and origin mark. The packing material has shifted since — the document shape is readable but not precise. The outfitter is clear. The object shape is a guess.');
               }
@@ -610,7 +610,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Both directions of road are clear. You pass the crate without stopping and continue.');
-                if (typeof gainXp === 'function') gainXp(5);
+                if (typeof gainXp === 'function') gainXp(2);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'A Roadwarden approaches from the opposite direction at pace. She has seen you near the crate and she is not slowing down.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -681,7 +681,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The forward two step back when the cost becomes clear. The one with the knife holds for a moment — long enough to be a decision — and then doesn\'t. The fourth figure behind you stays where he is. You move through the gap they leave.');
-                if (typeof gainXp === 'function') gainXp(30);
+                if (typeof gainXp === 'function') gainXp(15);
                 G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The fourth figure from behind closes faster than expected. The forward positioning was designed for this — the road narrows exactly where you\'re standing. The fight is worse than the arithmetic suggested.');
@@ -703,7 +703,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'They want what they think you\'re carrying. When you describe what you\'re actually carrying, the calculation changes visibly. The knife-holder sends the fourth figure to check. He finds nothing worth the trouble. The road clears.');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The conversation takes longer than the positioning allows. The fourth figure has closed from behind by the time you reach the second sentence. The negotiation is over and the terms are different now.');
                 if (typeof modHP === 'function') modHP(-2);
@@ -723,7 +723,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Two competing root systems have left a gap at ground level. You\'re through it before anyone moves. The road on the far side of the hedgerow is clear and runs parallel for two hundred meters before rejoining the main route.');
-                if (typeof gainXp === 'function') gainXp(25);
+                if (typeof gainXp === 'function') gainXp(12);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The gap is shallower than it looked from the road. The figure with the staff reaches the hedgerow before you push through. The position is tighter than it looked.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -750,7 +750,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addNarration === 'function') addNarration('', 'She gives you the dispatch number without the route. She decides that the number is less dangerous than the route — you can see the decision. The seal is intact, the bag is going through. The number is enough to trace the origin checkpoint.');
                 if (typeof addJournal === 'function') addJournal('Injured courier. Dispatch bag sealed, number recorded. No horse — not lost, removed. Origin: two checkpoints south.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'Her hand tightens on the strap when you mention the bag. She stops answering and watches the road behind you instead. The conversation is finished.');
               }
@@ -768,7 +768,7 @@
                 if (typeof addMaterial === 'function') addMaterial('highland_cloth', 1);
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The ankle is wrapped correctly for short travel. She tests it, stands, and can move. She thanks you without using your name — she noticed that you did not give it, and that noticing is visible in the way she said it.');
-                if (typeof gainXp === 'function') gainXp(12);
+                if (typeof gainXp === 'function') gainXp(6);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The cord is wrong for this injury — bone, not tendon. She needs the next post\'s medical kit, not field wrapping. You\'ve added time to her stop without making it shorter.');
               }
@@ -787,7 +787,7 @@
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The dispatch originated two checkpoints south. The horse was taken, not lost — she makes that distinction carefully, specifically, the way you make distinctions that matter for a formal report. She says it once and does not repeat it.');
                 if (typeof addJournal === 'function') addJournal('Courier horse removed, not lost. Dispatch originated two checkpoints south. Pattern: active interception on long route.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(25);
+                if (typeof gainXp === 'function') gainXp(12);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'She answers the first question and stops. Whatever you asked after that closed the conversation. She is watching the road behind you, not looking at your face.');
               }
@@ -813,7 +813,7 @@
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'Route commander rank. The list she\'s working from is name-specific, not cargo-specific — you can see the column layout from the road. The manifests inside have been cross-referenced against something. This is an active directive, not a quota check.');
                 if (typeof addJournal === 'function') addJournal('Crossroads checkpoint: route commander, name-specific list, cross-referenced manifests. Active directive in force — not routine quota.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(25);
+                if (typeof gainXp === 'function') gainXp(12);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'You slow enough to read the rank insignia. She stops checking her list and looks directly at you. Her pen is still in her hand.');
                 if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -832,7 +832,7 @@
                 if (typeof addMaterial === 'function') addMaterial('parchment_roll', 1);
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'She checks the list. Your name is not on it. She waves you through without looking up from the column.');
-                if (typeof gainXp === 'function') gainXp(10);
+                if (typeof gainXp === 'function') gainXp(5);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'She checks the list twice. You pass through, but the pause between checks was long enough that one of the wardens inside looked up from the manifests. You have been noted, if not stopped.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -851,7 +851,7 @@
                 if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The eastern road meets the main route again eight kilometers on. Half a day added, nothing written in the checkpoint ledger. The detour costs time and buys nothing except the absence of a notation.');
-                if (typeof gainXp === 'function') gainXp(20);
+                if (typeof gainXp === 'function') gainXp(10);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The eastern road is gated a kilometer in — seasonal maintenance closure, padlocked, notice board facing the wrong direction. You walk back to the crossroads checkpoint. She watches you rejoin the queue.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -877,7 +877,7 @@
               if (r.total >= dc) {
                 if (typeof addNarration === 'function') addNarration('', 'The name at the bottom is one you recognize from register, not personally. The struck-through text is systematic — every line, same hand, same pressure, not redaction but erasure. The document says something was expected and did not arrive. The case goes into your pack.');
                 if (typeof addJournal === 'function') addJournal('Placed document: Roadwarden header, full text struck through systematically. Single legible name at bottom. Taken for further analysis.', 'evidence');
-                if (typeof gainXp === 'function') gainXp(40);
+                if (typeof gainXp === 'function') gainXp(20);
                 if (typeof addMaterial === 'function') addMaterial('redacted_warrant', 1);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'A Roadwarden patrol appears at the far end of the road as you lift the document from the case. You have the document. They have a clear line of sight. The case is still open in the road.');
@@ -898,7 +898,7 @@
                 if (typeof addMaterial === 'function') addMaterial('iron_shard', 1);
                 if (typeof addNarration === 'function') addNarration('', 'You read the name without touching the case. The placement is deliberate — centered, visible, on a road with regular traffic. Someone placed this for a specific reader. You are not that reader. You step past it.');
                 if (typeof addJournal === 'function') addJournal('Placed document at roadside. Name at bottom readable. Not addressed to you — left for a specific reader on this route.', 'intelligence');
-                if (typeof gainXp === 'function') gainXp(15);
+                if (typeof gainXp === 'function') gainXp(7);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'You read the name and step back. A figure at the road bend thirty meters back has been standing still long enough to have watched you read it. They do not approach. They do not move.');
               }
@@ -983,7 +983,7 @@
         },
         { text: 'Read the dispatch board before pushing on.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_fairhaven',
           action: function() {
-            if (typeof gainXp === 'function') gainXp(15);
+            if (typeof gainXp === 'function') gainXp(7);
             if (typeof addJournal === 'function') addJournal('Fairhaven East Waystation dispatch board: two notices current this week.', 'intelligence');
             if (typeof addNarration === 'function') addNarration('', 'Two current notices on the board — one route advisory, one cargo flag. You note both and continue. The eastern road is yours for another hour before the next waystation.');
             setTimeout(function() {
@@ -1018,7 +1018,7 @@
             var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10, isCrit: false, isFumble: false };
             var dc = 13;
             if (r.total >= dc) {
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
               if (typeof addNarration === 'function') addNarration('', 'The boundary crossing is clean. No allocation warden on duty. The log has your transit number but not your name — the distinction is institutional, not personal, and it will hold.');
             } else {
               if (typeof addNarration === 'function') addNarration('', 'An allocation warden arrives from the south post as you cross. She asks your transit number. You give it. She writes it down. The log now has both the number and the name she asked for after.');
@@ -1053,7 +1053,7 @@
         },
         { text: 'The dome perimeter is monitored. Better to arrive in full daylight.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_sheresh',
           action: function() {
-            if (typeof gainXp === 'function') gainXp(10);
+            if (typeof gainXp === 'function') gainXp(5);
             if (typeof addNarration === 'function') addNarration('', 'The perimeter monitoring operates on a visual cycle, not a time one. Arriving in full daylight means arriving in the window where the sweep already cleared your approach. The next checkpoint is two kilometers in.');
             setTimeout(function() {
               if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
@@ -1087,7 +1087,7 @@
             var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
             var dc = 13;
             if (r.total >= dc) {
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
               if (typeof addNarration === 'function') addNarration('', 'ELEVATED EAST means the ash layer rises toward the settlement boundary. Moving now means moving through the transition zone while it is still crossable. You time it correctly.');
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The ash level east rises faster than the advisory suggested. You reach the boundary but not cleanly — the transition zone was already at threshold when you entered it.');
@@ -1123,7 +1123,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Papers first. She checks, stamps, lifts the arm. The efficiency of it is what she notes — you are the third traveler today who did not make her ask.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The papers are in order but she finds a discrepancy in the departure stamp — the day is correct, the hour is not. She writes something. You are through, but the note goes somewhere.');
               if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -1139,7 +1139,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The name works. She knows it — the warden relaxes by one degree, which in Shelk transit terms means she stops tapping her pen. The barrier arm goes up.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The name does not land the way you expected. She asks a follow-up question about the authorization office location. You guess wrong. The note she writes is longer this time.');
               if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -1161,7 +1161,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The mounted warden\'s gaze moves past you to the cart behind. Keeping pace and posture turned out to be the right calculation. They continue south. You continue north.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The patrol stops ten meters past you, turns, and calls you back. The mounted warden asks where you are coming from and going to, in that order. The answer matters less than how long it takes you to give it.');
               if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -1177,7 +1177,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The verge is lower than the road by half a meter. You descend without stumbling. The wardens pass. Neither looks down.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The movement is too deliberate. The road-watching warden\'s head turns. He does not stop immediately — that is what concerns you more than if he had.');
               if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -1200,7 +1200,7 @@
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The campground is staked and fire-pitted. Three other travelers are already there. The warden notes your arrival but does not question it — you made the right call before the right moment.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The campground is full. The warden directs you to the overflow area, which is a field with no fire pit. The rest is adequate but not comfortable.');
             }
@@ -1215,7 +1215,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The checkpoint is still open. The warden marks your transit and waves you through. The road ahead is darker but passable.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The checkpoint closes fifteen minutes before you reach it. The warden is already inside. The sealed arm is down. You camp at the barrier and wait for first light.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1237,7 +1237,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Thirty minutes in the line. The inspection is thorough but procedural. You pass. The warden stamps your manifest and releases you.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The inspection finds something irregular — not contraband, but a documentation gap. The warden pulls you to the secondary area. The delay costs half a day.');
               if (typeof advanceTime === 'function') advanceTime(0.5);
@@ -1254,7 +1254,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The verge bypass is unmarked but passable. The warden at the edge of the inspection area watches you move but does not call out. You rejoin the road fifty meters past the checkpoint.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden at the edge calls out before you have cleared the inspection zone. You stop. The secondary area is worse than the line would have been.');
               if (typeof addHeat === 'function') addHeat('shelk', 3);
@@ -1280,7 +1280,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Name entered, transit reason accepted — personal travel, non-commercial. The Steward stamps the register page and slides a transit token through the booth window without looking up. The barrier lifts.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The transit reason raises a question — the Steward wants a destination district within Aurora Crown, not just the settlement name. The follow-up takes ten minutes and ends with a provisional entry in the register.');
               if (typeof addHeat === 'function') addHeat('sheresh', 1);
@@ -1296,7 +1296,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Supply delivery, third-party authorization — the Steward checks the reference sheet, finds the category, and moves on. The reason was calibrated correctly: specific enough to be real, vague enough not to generate a secondary log entry.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The transit reason does not match a recognized category on the reference sheet. The Steward asks which authorization tier covers it. There is no good answer. The log entry is flagged.');
               if (typeof addHeat === 'function') addHeat('sheresh', 2);
@@ -1318,7 +1318,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The rod passes over your pack without registering. The Steward retracts it, nods, steps aside. The patrol continues north. Nothing in your kit was warded and nothing read as warded.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The rod hesitates over a corner of your pack — not a full register, but enough that the Steward asks you to open the top section. The inspection is brief but logged.');
               if (typeof addHeat === 'function') addHeat('sheresh', 1);
@@ -1334,7 +1334,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Declaring before the rod sweeps reads as transparency. The Steward checks the warded item against the restricted list — it is not on it. The declaration goes into a separate log, not the heat register. You are through.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warded item is on the restricted list. Not prohibited — but requiring a special transit endorsement you do not have. The Steward writes the endorsement gap into the patrol log.');
               if (typeof addHeat === 'function') addHeat('sheresh', 2);
@@ -1357,7 +1357,7 @@
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The waystation has two bunks free. Registration takes five minutes — name, transit token number, planned departure. The Steward on night duty does not look up from the log. The bunk is narrow but the cold stays outside.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The waystation is at capacity. The night-duty Steward directs you to a covered platform outside — registered, but without the bunk. The cold keeps you half-awake until dawn.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1373,7 +1373,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Transit-cargo exception applies to authorized carriers moving perishables through after-hours. The Steward checks the classification against his reference sheet, finds the category, and allows continued transit. The barrier lifts on a closed road.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exception exists but your cargo does not qualify under it. The Steward is patient but firm. You stay at the waystation until the Domeway reopens at first light.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1395,7 +1395,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The fixed rods do not register your pack. The Steward checks the visual inspection against the scan result, stamps your transit token, and directs you through the barrier. The traveler behind you is less straightforward.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The fixed rods flag something at the edge of their frequency range. The Steward cannot identify a specific item but logs the read. Your transit token gets a secondary mark. It will be visible at the next checkpoint.');
               if (typeof addHeat === 'function') addHeat('sheresh', 1);
@@ -1411,7 +1411,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The ditch is dry and the eastern gap is real — the detection rods do not cover the full width at that angle. You move through without entering the inspection zone. The road rejoins fifty meters past the barrier.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'One of the handheld-rod Stewards is stationed at the eastern edge specifically for the ditch gap. She sees you before you reach it. The secondary inspection is more thorough than the standard line would have been.');
               if (typeof addHeat === 'function') addHeat('sheresh', 3);
@@ -1437,7 +1437,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden checks your declared weight against the scale, enters it in the right column, and stamps the manifest. The Shelk departure figure and the Cosmouth arrival figure align within tolerance. He marks it clean.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The scale reads heavier than your declaration by enough to require a secondary log entry. The warden circles the discrepancy and notes it. You are through, but the entry goes to the harbor ledger.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -1453,7 +1453,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden knows the formula difference — he has been noting it all day. Citing it correctly reads as institutional knowledge, not evasion. He applies the conversion factor, the columns align, the stamp goes on.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The conversion argument requires citing the specific harbor code section. You get the code number wrong. The warden stops writing and looks at you for the first time.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 2);
@@ -1475,7 +1475,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The manifest-holding warden pulls alongside, checks your pack declaration against the board, and moves on without stopping. Personal travel without cargo does not require a ledger entry on this stretch.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden stops his horse and asks for your departure point and cargo category. Personal travel is not on his manifest board and he is not sure which column it goes in. He makes a note in the margin.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -1491,7 +1491,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The salt-grass is dense enough to move through without the road noise changing. The warden watching the verge has his attention on the stretch ahead. You rejoin the road past the patrol without registering on either man\'s manifest board.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The salt-grass is thinner than it looked from the road. The verge-watching warden sees the movement and calls a halt. The patrol turns around.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 2);
@@ -1513,7 +1513,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The post warden is expecting personal travelers — the night log has three entries already. Name, departure point, estimated harbor arrival. He stamps your record and you continue. The harbor lights are closer now.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The post warden has a question about your cargo category that takes longer to resolve than it should. The log entry ends with an asterisk. He does not explain what the asterisk means.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -1529,7 +1529,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Personal-use exemption, section four of the coastal transit code, applies to cargo under a declared weight threshold carried by a single traveler without commercial purpose. You cite it correctly. The warden does not check his reference sheet.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exemption threshold is lower than you cited. The warden checks his reference sheet and finds the correct figure. Your cargo is over it. The log entry is mandatory now, and flagged.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 2);
@@ -1551,7 +1551,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The column check takes four minutes. Your departure declaration matches the harbor ledger entry within the tolerance margin. The warden stamps both columns and waves you through. The ledger stays sealed.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The ledger entry for your departure point is missing — not your fault, but the reconciliation cannot close without it. A secondary check is required. The delay is forty minutes.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -1567,7 +1567,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The personal-goods category exists and the warden consulting the ledger knows it. Requesting it correctly — citing the ledger section, not just the category name — gets you moved to the short column. The reconciliation does not apply to your transit class.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The category exists but your cargo does not qualify under its weight limit. The warden closes the ledger section and sends you back to the main line. You have now been in the line twice.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 2);
@@ -1593,7 +1593,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'She checks both stamps against the directory, finds both valid, marks the seal record, and waves you through. The mid-route post stamp in the directory is from this week. Your seals are current.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'One seal is from a Guildheart office that has since relocated — the directory lists a forwarding address but no updated stamp record. The warden logs the gap. You are through, but the seal record is flagged.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1609,7 +1609,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Explaining the relocation before she reaches that page in the directory reads as preparation, not evasion. She finds the forwarding note, accepts the explanation, and applies the current-office standard to the old stamp. Both seals pass.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The relocated office explanation requires citing the relocation date. The date you give does not match the directory. She marks the seal record as unresolved and asks you to step aside while she checks the secondary register.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -1631,7 +1631,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Opening the case first shortens the interaction to thirty seconds. One warden presses your seal, confirms the wax depth, hands it back. The other is already looking at the traveler behind you.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The seal depth is correct but one warden asks about your route purpose. Guild road patrol asks that question when the seal check does not fully satisfy. The answer goes into the patrol log.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1647,7 +1647,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Correct — personal transit seals require depth check only, not the endorsement-directory verification that cargo seals go through. One warden knows the distinction. He confirms it to the other. Your seal passes the correct standard.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The patrol applies cargo seal standards to personal seals and your seal does not have the cargo endorsement layer. The distinction you cited does not help — the warden does not know it and does not want to be corrected on a public road.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -1670,7 +1670,7 @@
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The waystation has two bunks free and a registered log still open. You enter your name, seal number, and departure time. The Guild warden on overnight duty stamps the booking. The road resumes in the morning.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The waystation log is closed — the overnight warden sealed it at the cutoff time. Your name goes on an addendum sheet that counts as registered but carries an after-cutoff note.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1686,7 +1686,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Apprentice transit exception applies to Guild-affiliated travelers in active transit on a time-sensitive assignment. The warden at the fork knows the category. Your argument lands on the right side of the line between legitimate exception and creative interpretation.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exception requires a current apprentice transit authorization, which you do not have. The warden at the fork knows the difference between citing an exemption and qualifying for one. The waystation it is.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1708,7 +1708,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Ten minutes under the lens. The warden finds no gap between the two stamp layers, no overlap that would indicate a forgery. He closes the lens housing and stamps your transit record. Clean inspection.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The lens finds a minor misalignment between stamps — not a forgery, but a printing variance from the relocated office. The warden logs it and sends you to the secondary table. Secondary takes thirty minutes.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1724,7 +1724,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The side track is overgrown but passable. It rejoins the main road two hundred meters past the inspection point. No warden is posted at the rejoining point. You are back on the Guild road without a lens record.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'A fourth warden is positioned at the side track junction specifically because other travelers have had the same idea. He steps onto the track before you reach the treeline.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -1750,7 +1750,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The log entry is straightforward: destination, estimated transit time, solo or group. You answer all three without prompting. The warden stamps the transit card and checks the moth-level board — current advisory is moderate, not extreme. You continue.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden asks for your route purpose in the forest section specifically. Transit through to Ithtananalor is a valid purpose but requires a destination district entry. You do not have one. The log entry is incomplete.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1766,7 +1766,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Route purpose: through-transit to Ithtananalor, non-commercial, no stops anticipated within the Guild-maintained section. The warden finds the category, logs it, and adds a moth-season advisory to the transit card. His tone is not unfriendly.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The route purpose answer is technically correct but raises a question about the non-stop declaration — the Guild post at the two-kilometer marker requires all travelers to check in. You did not know about it.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1788,7 +1788,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Center-road movement reads as navigation-compliant. The road warden notes you and moves on. The tree-line warden has not changed position — still watching the canopy, not the road. The pair continues their circuit.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The road warden stops you to ask about amber moth exposure — you are in a moderate advisory zone and he wants to verify your navigation kit. The kit check is brief but adds a log entry.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -1804,7 +1804,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The canopy density breaks the tree-line warden\'s sightline at the bend. The road warden is watching traffic, not individuals. You move through the pair\'s circuit gap without entering their thirty-meter radius. The rope between them goes taut as they adjust position.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The tree-line warden does not lose you — the canopy is thinner than the density suggested from the road. He adjusts position and the road warden turns. Both wardens are now watching you.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -1827,7 +1827,7 @@
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Camp on the road center stone, pack as pillow. The amber moths are active in the tree line — visible as drifting orange points at twenty meters — but do not enter the road surface zone. First light comes with the canopy brightening from grey to green.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The road stone is harder than expected for sleeping. The amber moths drift closer than the advisory suggested. You rest badly and wake with the sense that the forest road has moved around you in the dark.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1843,7 +1843,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The moisture line is lower than the road grade here — the moths stay below it. Moving along the dry ridge of the road surface keeps you above the disruption zone. The navigation is difficult but not disorienting. You cover a kilometer before setting camp.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The moisture line is higher than the road grade at this section. The amber moths reach the road surface. The disorientation is mild but enough to lose the center stone. You stop and wait for the effect to pass.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -1865,7 +1865,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The detour signs lead through a section of younger trees where the canopy is thinner. The path has not been walked flat but the ground is firm. Forty minutes added to the transit. The maintenance crew is still working when you rejoin the main road.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The detour path crosses a secondary root system that the maintenance crew has not flagged yet. You stumble through it without injury but the delay adds more time than the signs suggested.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1881,7 +1881,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The exposed stone surface runs under the root mass and continues on the far side of the cavity. The maintenance crew watches you navigate it but does not stop you — they know the stone route exists, they just do not know how to use it. You are past the block in six minutes.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The stone route runs under the root mass but not through it — there is a gap where the stone was pulled up with the roots. The maintenance crew supervisor steps over and redirects you to the detour.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -1907,7 +1907,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden records your declared weight in the secondary log — the human-scale column beside the Giant extraction figures. The scale confirms your declaration within tolerance. He stamps the quota transit card and steps aside.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The weighing platform reads in Giant-scale units. Your pack weight converts to a fraction of a unit and the warden has to do the conversion by hand. He gets a different number than you declared. The discrepancy is small but he logs it.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -1923,7 +1923,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Personal goods travel under the non-extraction category, which has its own column in the secondary log and does not go through the weighing platform at all. The warden knows this — he is relieved not to do the conversion. You are logged and waved through.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden is not sure the non-extraction category applies to your cargo without a declaration form. He does not have the form. He weighs you anyway and notes the category dispute in the log margin.');
               if (typeof addHeat === 'function') addHeat('soreheim', 2);
@@ -1945,7 +1945,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The mounted warden gives you a single look and returns to the cargo cart manifest she was checking. Non-quota personal travel does not interrupt extraction work. You pass the patrol without the mounted warden looking up again.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'One of the foot wardens steps out of the manifest work to check your transit card. He is looking for a quota transit endorsement. Personal travelers through the extraction corridor are supposed to have one. You do not.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -1961,7 +1961,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The road verge on the highland section is narrow but passable. The mounted warden and both foot wardens are focused on a cart with a mismatched manifest. You move through the patrol zone at the verge edge without entering their working radius.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The verge is narrower than it looked from behind — the highland ground drops sharply on the far side. You slow to navigate it and the movement draws the mounted warden\'s attention away from the manifest.');
               if (typeof addHeat === 'function') addHeat('soreheim', 2);
@@ -1984,7 +1984,7 @@
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The human-scale door opens into a room with a ceiling built for Giants. The warden\'s desk is on a raised platform. Name, transit category, planned departure. The log is still open and the entry is clean. The bunk allocation is on a side wall.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The log is sealed. The warden opens an addendum sheet — after-cutoff registration, valid but flagged. The bunk allocation is the overflow floor space, which is a Giant-scale stone floor with a single wool blanket.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2000,7 +2000,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Giant Council transit code section seven: non-extraction personal travel is exempt from the sunset curfew if the traveler carries no quota goods and is in documented through-transit. The warden checks the code section, finds it current, and endorses continued transit. The road is yours.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exemption requires a through-transit declaration filed at the boundary marker before sunset. You did not file one. The exemption does not apply retroactively. The warden is apologetic but the log is already open.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2022,7 +2022,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The scale arm barely registers. The warden records a personal-goods exemption entry in the secondary column — a two-line note rather than a full quota record. The process takes three minutes instead of fifteen. You are through.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The scale arm registers slightly above the personal-goods threshold — the pack weight is on the line. The warden calls for a secondary manual weight check with a handheld scale. The delay is twenty minutes.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -2038,7 +2038,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The verge on the highland side of the scale is wide and the ground is firm. The scale platform does not extend to the verge edge — there is a meter gap between the platform and the drop. You move through it while the wardens are occupied with a cart manifest discrepancy.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The verge gap is real but a fourth warden is positioned there. The quota inspection point is always accompanied by a verge watcher — it is standard protocol. He signals the platform wardens before you clear the gap.');
               if (typeof addHeat === 'function') addHeat('soreheim', 3);
@@ -2064,7 +2064,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden checks your pack for blue wax and for text weight — a brief visual and a press on the pack sides. Nothing sealed, nothing above the threshold. She stamps the boundary entry log and directs you through.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden\'s press on the pack sides finds the density pattern of bound text. She asks to open the pack. Personal notes at non-taxable weight — but the process of demonstrating this takes twenty minutes.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2080,7 +2080,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden knows the distinction — taxable books are bound, titled, intended for distribution. Personal notes are unbound or titled only by hand. She checks the classification, finds your materials on the correct side of the line, and stamps the entry.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The distinction is real but the warden applies the weight threshold regardless of classification for anything that looks like a book. Your materials look like books. She opens the secondary directory.');
               if (typeof addHeat === 'function') addHeat('mimolot', 2);
@@ -2102,7 +2102,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden looks and smells — no blue wax, no cold-resin scent, nothing at text-weight threshold. He closes the pack and moves on to the traveler behind you. The check takes ninety seconds.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden detects something — not blue wax, but a wax adjacent scent from a food-storage seal. He is not certain it is not Academy wax. The secondary check goes into his log.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2118,7 +2118,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden\'s check is scent-primary. Nothing in your pack uses cold-resin wax — you are clear before he reaches hand-check distance. Naming the process correctly makes him more efficient, not suspicious. He passes you and moves on.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'Naming his process makes him more deliberate, not faster. He takes the pack through a full hand-check to demonstrate thoroughness. The check is clean but the extra ten minutes are yours to absorb.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2141,7 +2141,7 @@
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'Category seven on the declaration form: personal transit, non-Academy, through-destination. The waystation warden checks the box and issues a bunk assignment. No secondary questions for category seven. The bunk is narrow but clean.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The declaration form has been updated and category seven has been split into two sub-categories. You check the wrong one. The warden asks you to redo the form. The second attempt is correct, but the delay goes into the overnight log.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2157,7 +2157,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The boundary gate is locked but not watched after dark. The warden\'s single check — is anything Academy-sealed moving out — does not apply to inbound personal travelers. The gate has a traveler-side release for emergency access. It is not locked from your side.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The traveler-side release was replaced last season with a warden-key lock following a breach. The gate does not open from your side. The waystation is where you are going after all.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2179,7 +2179,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The scale confirms sub-threshold weight. The inspector checks the directory anyway — nothing matching your materials. She marks the inspection record with a clear note and waves you through. The directory is old but the threshold weight is current.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The scale reads borderline. The inspector checks the directory for your material type and finds an old entry that may or may not apply. She logs it as unresolved pending clarification from the boundary office.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2195,7 +2195,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('hide_scrap', 1);
               if (typeof addNarration === 'function') addNarration('', 'The reclassification moved your material type from the restricted column to the personal-import column two years ago. The inspector does not have the updated directory. She writes the category name you cited into her inspection log and applies the current standard. You pass.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The reclassification exists but you cited the wrong category name. The inspector checks her old directory, finds the name you cited is not in it, and concludes the reclassification is unverified. The inspection holds until the boundary office can confirm.');
               if (typeof addHeat === 'function') addHeat('mimolot', 3);
@@ -2221,7 +2221,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden finishes his calculation and turns to the entry log. Pack weight, transit category, destination. Non-extraction personal travel goes in the short column. He stamps the transit card and returns to his calculation without comment.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden is at the end of a quota hour — the log is about to close. Your arrival catches him at the transition and the entry goes into the new hour\'s log, which requires a fresh declaration form. The delay is procedural but costs fifteen minutes.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -2237,7 +2237,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The current Giant Council hour is the third allocation period, which maps to transit category three on the declaration form — the category with the shortest log process. Knowing this lets you fill the form correctly the first time. The warden notices and stamps without follow-up.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'Giant Council time and solar time diverge by more than you thought at this altitude. The period you cited has already closed. The warden corrects you and moves your entry to the current period, which has a longer declaration requirement.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -2259,7 +2259,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'One warden checks your transit card while the other continues the marker post comparison. Non-extraction transit card is correct for this road. He stamps the altitude-section entry and steps back. The cold makes everything faster — no one lingers.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden asks for your pack weight anyway — altitude section protocol requires weight verification even for non-extraction travelers due to the supply cache rules in effect above eight hundred meters. The secondary check adds an entry to the altitude log.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -2275,7 +2275,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The eastern track branches off before the patrol\'s marker zone. The wardens are working the main road markers in sequence — they do not cover side tracks during a standard circuit. The eastern track is rougher but it rejoins the main road past the patrol position.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The eastern track is visible from the patrol\'s position on the road. One warden watches you take it and makes a note. Side-track transit is not prohibited but it is logged when seen. The note goes into the altitude ledger.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -2298,7 +2298,7 @@
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The wind-break wall cuts the worst of the highland cold. The flat ground is solid, no root systems. Two other travelers are already at the site. Nobody talks. The Giant Council dusk notice was right about the wind direction. The camp holds through the night.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wind-break wall has a gap on the north face that the posted map does not show. The gap funnels cold through the camp site for most of the night. The rest is adequate but not restorative.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2314,7 +2314,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The wind shifts at the second hour, predictably, from the northwest to the east. Moving at the shift means moving in the calm window between the two directions. You cover two kilometers before the east wind establishes. Camp at the next natural shelter point with the wind at your back.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wind shift comes later than the pattern suggested — the highland weather has its own variation. The east wind catches you in the open. The cold is functional: it slows movement and drains warmth faster than it should.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -2336,7 +2336,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The handheld scale check for personal travelers takes four minutes. The warden marks the exemption category in the reconciliation log, notes the weight in the sub-threshold column, and releases you. The main platform queue is still moving behind you.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The handheld scale reads slightly above the sub-threshold line. The warden is not sure whether to log you as personal-goods or low-extraction. The uncertainty gets referred to the senior warden, whose queue is longer.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -2352,7 +2352,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The unmeasured lane exists for exactly this reason: the reconciliation equipment cannot process sub-threshold weights and the protocol acknowledges it. The lane is not marked but it is real. You move through while a warden is occupied recalibrating the handheld scale.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The lane is real but it is not unsupervised — a junior warden is stationed there to redirect travelers to the handheld scale. The reconciliation protocol closes the gap that the equipment cannot cover.');
               if (typeof addHeat === 'function') addHeat('soreheim', 2);
@@ -2378,7 +2378,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Name, departure point, destination — all the information the Panim form requires. The warden fills in the columns without having to decide which jurisdiction to apply. The form is complete, the stamp is Panim, the road is open. Neither of you raises the sign problem.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden asks which jurisdiction you expect to apply. It is the wrong question for him to ask and he knows it. The delay while he figures out what form to use costs half an hour. The entry ends up in both logs.');
               if (typeof addHeat === 'function') addHeat('panim', 1);
@@ -2394,7 +2394,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Panim authority on Shirshal ground can process departures but cannot log arrivals — the log jurisdiction follows the destination, not the departure. The warden understands the distinction and is quietly relieved someone else has figured it out. The departure log only. You continue.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The jurisdictional argument is correct but the warden does not have authority to act on it unilaterally. She calls it in — which means waiting for a response from whoever is on the other end of the coastal message line. The wait is forty minutes.');
               if (typeof addHeat === 'function') addHeat('shirsh', 1);
@@ -2416,7 +2416,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The jurisdictional discussion is loud enough that neither patrol is watching the road. You pass at walking pace without either group acknowledging you. The sound of the sea fills the gap their conversation leaves.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'One member of the Shirshal patrol notices you and uses the interruption as a reason to redirect the discussion toward who should be processing travelers. Both patrols now want to check your papers.');
               if (typeof addHeat === 'function') addHeat('shirsh', 1);
@@ -2432,7 +2432,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The coastal path is three meters below the road edge, accessible by a cut in the cliff face. The two patrols cannot see the path from where they are standing. You move through the coastal section below their sightline and rejoin the road past their position.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The cut down to the coastal path is visible from the road edge and the Panim patrol has a member watching the cliff face specifically. The maneuver is spotted before you reach the path.');
               if (typeof addHeat === 'function') addHeat('panim', 2);
@@ -2455,7 +2455,7 @@
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Above the tide line, the coastal ground is firm and the cliff provides a windbreak. No patrols, no other travelers. The sea noise is constant but manageable. First light comes with the cliff face brightening before the road does.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The tide line is higher than it appeared in the dark. The camp site floods two hours before dawn. You move to higher ground and lose the rest of the night to repositioning.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -2471,7 +2471,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Low tide. The coastal path below the road is fully passable — two meters of dry rock between the cliff face and the water line. No patrols, no checkpoints, no noise except the sea. You cover three kilometers before the tide turns.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The tide is higher than the path\'s passable threshold. The dry section is narrower than a meter in places. You retreat to the road before the path closes entirely, having covered less distance than staying on the road would have given you.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2493,7 +2493,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Both wardens check your papers against their respective records. The Panim log has you, the Shirshal log has you, the cross-check finds no gap. Both wardens stamp the review record independently and release you. The process takes eight minutes.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The Shirshal log does not have you — the contested checkpoint earlier logged you only in the Panim column. The joint review finds the gap. Neither warden can resolve it without escalation. You wait while they figure out who has authority to close the record.');
               if (typeof addHeat === 'function') addHeat('shirsh', 1);
@@ -2509,7 +2509,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Precedent on this section belongs to Shirshal by the coastal demarcation agreement, which means the Shirshal warden\'s log is the primary record. Naming this before they ask short-circuits the cross-check: the Shirshal warden takes the lead, finds your entry, and closes the review. The Panim warden does not argue.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The precedent argument is correct in principle but the demarcation agreement has an exception for this specific kilometer marker. Both wardens know it. The exception puts you back into joint review. Raising the argument made the process longer, not shorter.');
               if (typeof addHeat === 'function') addHeat('panim', 2);
@@ -2535,7 +2535,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The register entry is straightforward — date, time, destination, solo. The warden stamps it and adds the standard advisory notation. His tone carries no judgment about the solo classification, but he marks the expected return estimate column with a question mark.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden asks for an expected return estimate, which the unmaintained route register requires for solo travelers. You give one. He logs it but adds a note that the estimate is traveler-declared, not warden-verified.');
               if (typeof addHeat === 'function') addHeat('shirsh', 1);
@@ -2551,7 +2551,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden notes the solo departure in the advisory column and adds a personal note that you were informed of the group recommendation. Then he logs you and steps aside. The advisory is not a prohibition. You are in the register and you are moving.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden decides the solo departure requires a secondary authorization form — a recent policy change that the advisory board has not been updated to reflect. The form takes twenty minutes to complete and adds a formal risk-acknowledgment entry to the register.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2573,7 +2573,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The southern side of the road curves away from the nest zone. The wider berth adds two hundred meters but keeps you below the territory threshold. The standing bird watches you leave without moving from the road stone.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wide berth is not wide enough — the nest territory extends further south than the bird\'s road position suggested. The second bird lifts off from the verge grass before you clear the zone. You move through the alarm response without injury but not without noise.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2589,7 +2589,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The path through the north canopy edge is narrow but the birds do not nest on that side of the road. The low branches require crouching but the ground is firm. You emerge on the far side of the nest zone with both birds still focused on the road stone.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The north canopy path is thinner than the tree line suggested — the branches push you back toward the road edge and into the nest zone perimeter. The bird on the road lifts. The alarm call is loud in the unmaintained section.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2612,7 +2612,7 @@
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The stone surface holds its heat from the day. The forest movement stops when you stop — whatever it was, it was tracking motion, not presence. First light comes slowly; the canopy keeps the dawn grey for an hour before it brightens to green.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The stone is harder than expected and the root verge is closer to the road center than the daylight suggested. The camp holds but the forest movement resumes after an hour of silence. You do not sleep deeply.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2628,7 +2628,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The movement pattern is not territorial — it is methodical, surface-following. Something is tracking the stone road as a navigation aid, not tracking you. Stopping and letting it pass reveals a large nocturnal grazer moving along its own route. It does not acknowledge you.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The movement stops when you engage with it directly. The silence is worse than the movement. Whatever it is, the pattern has changed and you cannot read the new one.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2651,7 +2651,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The detour track is marked by previous travelers — broken branches and compressed ground. Two hours of forest walking brings you back to the stone road on the far side of the gap. The root cavity is visible from the road edge where you rejoin. It is deeper than it looked from the other side.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The detour track loses itself in the forest after the first kilometer. The marker sticks stop. You navigate by general direction and rejoin the road at a different point than intended, adding an extra hour to the already extended detour.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2667,7 +2667,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The stone edges hold. The angle is correct. The landing on the far side is on solid road surface, not on the gap edge. You are across in three seconds. The detour track marker stick is still visible behind you on the other side.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The angle is slightly off. You clear the gap but land on the edge, not the flat surface. The edge holds but the landing jars. The detour would have been two hours. This cost only ten minutes, but not without physical consequence.');
               if (typeof modHP === 'function') modHP(-3);
@@ -2693,7 +2693,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden checks for blue wax — visual and then by press, feeling for the wax-depth of an Academy seal. Nothing found. She logs the departure as personal transit, non-Academy, and stamps the boundary exit record. Clean departure.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The press-check finds something that reads like wax but is not blue wax — a food storage seal that the warden cannot immediately classify. She asks to open the relevant pocket. The classification takes ten minutes and ends with a non-Academy notation.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2709,7 +2709,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Secondary-market Academy materials are a known category — binding does not equal seal. The warden checks the book for an Academy colophon and import stamp. Neither present. Secondary-market classification confirmed. The departure log records it correctly and you are through.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The Academy binding is enough for the warden to treat the book as Academy property until proven otherwise. Proving otherwise requires a secondary check against the Academy purchasing records. That check is not available at the boundary checkpoint.');
               if (typeof addHeat === 'function') addHeat('mimolot', 2);
@@ -2731,7 +2731,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Both wardens do a brief visual check — no blue wax visible, pack shape does not suggest Academy cargo format. One warden asks for the Academy boundary exit stamp. You have it. Forest transit authorization is confirmed. They continue their circuit.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The forest wardens want both the Academy exit stamp and a separate forest transit registration, which is a second form that the Academy boundary checkpoint did not provide. The gap between the two authorities\' requirements is your problem.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -2747,7 +2747,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The eighteen-minute circuit has a twelve-minute gap at the far end of the route where both wardens are out of sightline of this section. The timing is exact — you move through the gap and are past the patrol zone before the circuit brings them back around.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The circuit timing has changed — the pair is running a fourteen-minute loop today, not eighteen. The gap is shorter than expected. The road warden is back in sightline before you clear the patrol zone.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -2770,7 +2770,7 @@
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The boundary perimeter waystation is inside the Academy fence line. The overnight log is open. The bunk assignment is standard. The gray zone is someone else\'s problem for tonight and both authorities\' problem in the morning.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The waystation has a mandatory declaration form for overnight guests that the boundary warden is enforcing strictly tonight. The form asks for your transit purpose in the Academy zone — which you technically do not have for an inbound overnight stay.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2786,7 +2786,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Two kilometers at night, on a road that is maintained on one end and unmaintained on the other. The transition between the surfaces is identifiable by sound — the packed stone gives way to earth and root at the forest boundary. You are through the gray zone in thirty minutes.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The forest boundary in the dark is identifiable by the road surface change but the unmaintained section on the far side is not safe to navigate without light. You stop in the gray zone itself — the worst of the three options.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -2808,7 +2808,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'The visual check finds no seals. The instrument check confirms no cold-resin compound. The inspector marks your transit record as clear and moves to the next traveler. The spot-check format is efficient — she does not linger on negatives.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The instrument registers a trace reading near the pack bottom — not a current seal, but residue from previous contents. The inspector asks what was stored there before. The answer determines whether the residue requires a full secondary check.');
               if (typeof addHeat === 'function') addHeat('mimolot', 1);
@@ -2824,7 +2824,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('frontier_fiber', 1);
               if (typeof addNarration === 'function') addNarration('', 'Opening the pack completely and presenting the contents for visual inspection before she begins her instrument check saves four minutes per traveler. The inspector acknowledges the efficiency — no instrument check required when the visual is conclusive. She marks you clear and you move before the next traveler has been processed.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The inspector does not accept self-presented inspections — the protocol requires her to conduct the check, not receive the results of yours. The instrument check proceeds at her pace regardless.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2850,7 +2850,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The Guild agent checks the charter authorization against the lower-stretch pilot registry, finds your authorization current, and stamps the transit record. The floating post rocks gently while he works. The channel ahead is visible and clear from this position.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The pilot authorization is current but the charter number format has been updated this season. The old format is still accepted but requires a manual cross-reference against a secondary registry on the floating post. The cross-reference takes twenty minutes.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -2866,7 +2866,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The draft threshold for waiver is eight centimeters. Your vessel sits at six. The Guild agent measures the waterline, confirms the waiver applies, and logs you under the personal-transit exemption. No pilot authorization required. He adds a channel advisory for the root system section.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The draft threshold you cited is for the upper stretch, not the lower. The lower stretch threshold is different and your vessel does not qualify for the waiver. The Guild agent is polite but the pilot authorization requirement stands.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -2888,7 +2888,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The warden pulls alongside, checks the manifest against the board, stamps the river transit record, and falls back. The check takes four minutes. The patrol boat is already pulling toward the next vessel in the sample before you have stowed the manifest.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'One line item on the manifest uses a cargo category that the warden\'s board lists under a different classification. The discrepancy is minor but she logs it. The stamp goes on but with a secondary notation.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -2904,7 +2904,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The three-passenger threshold for the personal-goods exemption is real and in effect on this stretch. The warden checks the passenger count — one — confirms the exemption category, and stamps the transit record with the exemption notation. No manifest check required.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exemption exists but requires a personal-transit declaration form filed at the departure point. You did not file one at Amber Fountain Inn. Without the form, the exemption cannot be applied retroactively on the water. The manifest check proceeds.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -2927,7 +2927,7 @@
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The river post is a stone bollard with a ring. Tying off takes two minutes. The current pulls gently at the vessel through the night but the tie holds. First light comes with the river mist and the channel line is visible by the second hour of morning.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The post ring is fouled with old rope and the tie is not as secure as it should be. The vessel drifts two meters in the night but does not pull free. The drift means repositioning at first light, which adds an hour to the departure.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -2943,7 +2943,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The root system on this stretch follows the eastern bank consistently. The channel line runs two meters off the western bank at all water levels. Moving at dead slow speed with a pole for depth confirmation keeps the vessel in clear water. You reach the Fairhaven approach before the river wardens\' morning circuit.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The channel line has shifted since last season. The root system on the eastern bank has expanded into the previous center channel. The vessel grounds on a submerged root at low speed — no damage, but the extraction takes two hours and the river wardens are involved before the end of it.');
               if (typeof modHP === 'function') modHP(-1);
@@ -2966,7 +2966,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The river master checks your manifest against the charter, finds them matching, and applies the ledger-lag override process: a manual entry into the current-day log that acknowledges the three-day gap. Standard procedure for recent departures. You are docked.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The ledger-lag override process requires a secondary endorsement from the harbor authority supervisor, who is not currently at the dock. The river master keeps you in the docking queue while he sends for her.');
               if (typeof addHeat === 'function') addHeat('union', 1);
@@ -2982,7 +2982,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The harbor authority supervisor has a deputy with override authority for the ledger-lag process when the supervisor is unavailable. Naming the deputy — and knowing that the override authority was delegated last season — gets you to the front of the authorization queue. You are docked before the third vessel in the original queue has been processed.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The deputy you named was reassigned two months ago. The river master knows the name but not as the current override authority. The misinformation is noted and you return to the standard docking queue.');
               if (typeof addHeat === 'function') addHeat('union', 2);
@@ -3008,7 +3008,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Manifest before scale reads as prepared. The warden accepts the declared weight, runs the scale check, finds it within tolerance, and moves to the open-and-sample step. Nothing unusual in the sample. The inspection record is clean and the dock authorization is issued.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The manifest weight and the scale weight diverge outside tolerance. Not significantly, but enough for the warden to request the secondary weight check. The secondary check confirms the scale; your manifest figure was slightly off. The discrepancy goes in the inspection record.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -3024,7 +3024,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The established-goods shortcut is a real provision — category seven of the Brineland inspection protocol — for cargo with a prior inspection record at this port. Your manifest cites the correct category and the warden confirms the prior record exists. Weight-and-sample only, no open step.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The established-goods provision requires three prior inspection records at Brineland specifically. You have records from Cosmouth but not Brineland. The provision does not transfer between ports. Standard full inspection proceeds.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -3046,7 +3046,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The patrol vessel pulls alongside. The warden checks the manifest against the pre-screen list, stamps a transit code onto the upper corner, and falls back. The transit code at the dock inspection will shorten the process. Heaving to was the right calculation.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The manifest is in order but the pre-screen warden wants a departure authorization stamp from Cosmouth that the Cosmoria departure process does not issue. The gap between what she expects and what the Cosmoria process provides takes fifteen minutes to resolve.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 1);
@@ -3062,7 +3062,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The narrow section between the coastal rocks requires precise navigation that the patrol vessel cannot match at speed. You thread the narrows while the patrol waits for a gap in the cross-current. By the time they have cleared it, you are past the pre-screen zone and approaching the dock queue.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The patrol vessel has the narrows memorized and uses the eastern passage rather than the main lane. They are alongside before you have cleared the rocks. Attempting to evade a harbor patrol in their own approach lane adds a note to the dock inspection record that was not there before.');
               if (typeof addHeat === 'function') addHeat('cosmouth', 2);
@@ -3085,7 +3085,7 @@
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Heaving to at the buoy is the recommended action on amber. Two other vessels are already anchored nearby. The east wind peaks and drops in three hours — not unusual for this passage. The flag shifts to green before the harbor authority issues a formal closure.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wind peaks faster than the thirty-minute estimate. The harbor authority issues a closure while you are anchored at the buoy. The closure holds for six hours. The wait at anchor is cold and the sea state makes rest impossible.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -3101,7 +3101,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The east wind pattern on this passage follows the pressure gradient from the northern shelf — short windows close in under four hours and the amber flag was posted at the beginning of the decline, not the rise. Crossing now means crossing during the drop. The Brineland approach is rough but passable. You dock ahead of the other vessels at the buoy.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The window is longer than the pattern suggested. The east wind holds at threshold for five hours rather than dropping. The crossing is feasible but punishing — every meter of progress costs more than it should. You arrive at Brineland depleted and the dock inspection proceeds without allowance for the passage conditions.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -3125,7 +3125,7 @@
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The harbor authority vessel logs your heave-to compliance and issues a transit hold number. When the closure lifts, the transit hold number determines the docking queue order. You are number four. The closure lifts after four hours. The dock inspection proceeds without complications from the closure.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The heave-to position is in an exposed section of water. The sea state during the closure is worse than at the buoy. The vessel holds but the four hours in the exposed section are not restful.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -3141,7 +3141,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The lee channel requires threading between coastal rocks — gaps of three to four meters, wind-shadow on the northern faces, cross-currents at each gap entry. Physical work: pole and oar, not sail, for most of the channel length. You clear the last gap as the harbor authority vessel begins its second sweep of the main passage. Brineland dock is five minutes ahead.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The lee channel is navigable but the third gap is tighter than the chart suggested. The vessel grounds briefly on a submerged rock ledge. The extraction is manual and damages the hull below the waterline enough to require attention at Brineland before the vessel can continue. The harbor authority logs the lee channel use and the damage.');
               if (typeof modHP === 'function') modHP(-3);
@@ -3204,7 +3204,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'Declaration accepted. The attendant stamps the ledger, tears a receipt strip, and passes it through the window. You will need it at the Ashwake end. The post arm lifts.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The declaration form has a category mismatch — the attendant circles it and asks you to refile. The correction takes time. The receipt is issued but flagged.');
               if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -3220,7 +3220,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'The broker name is recognized. The attendant pulls a pre-stamped authorization form from a side drawer — the broker has standing accounts at this post. The declaration files in thirty seconds.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The broker name is on a dispute list. The attendant notes it and asks for the full declaration anyway, plus the broker authorization number. You do not have it. Secondary review.');
               if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -3242,7 +3242,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'The receipt is current and stamped correctly. The rider checks the date, checks your face, hands it back. The other rider has stopped watching. They continue south.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The receipt format is from two seasons ago — the authority post updated its forms. The rider notes the discrepancy, issues a correction slip, and records the stop. The encounter is procedural, not hostile, but it is recorded.');
               if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -3258,7 +3258,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'The overfull saddlebag is a leverage point neither rider wants examined. The lead rider waves you through without asking for the receipt at all. The transaction is mutual and unspoken.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The rider sees what you are doing before you finish doing it. The saddlebag comment lands wrong. He dismounts. This takes considerably longer than showing the receipt would have.');
               if (typeof addHeat === 'function') addHeat('shelk', 3);
@@ -3281,7 +3281,7 @@
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'The traveler ground is a flat strip of gravel with a fire ring and a windbreak of stacked stone. No fire tonight — the sea wind kills the spark. You sleep in the cold, but the morning patrol passes without comment.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The traveler ground is occupied. Another party has taken both fire rings. You sleep on the verge and wake stiff and cold.');
             }
@@ -3296,7 +3296,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'The fire belongs to a cargo broker\'s shore party, waiting on a delayed vessel. They have food and news. You sleep better than you would have at the traveler ground and learn that the Ashwake declaration desk opens an hour later than posted.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
               G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The fire belongs to an authority night post that is not marked on the road guide. The watch officer takes your name and transit reason and adds it to a log you cannot read. You are not detained, but you are noted.');
@@ -3319,7 +3319,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'Twenty minutes. The attendant wins — the driver agrees to pay the road clearance fee. The cart is righted and the road opens. You lose the time but nothing else.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The argument escalates to a secondary review, which requires a second attendant who is not at the post. The wait is over an hour. The fatigue adds up.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -3335,7 +3335,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('ash_compound', 1);
               if (typeof addNarration === 'function') addNarration('', 'The coastal rise is loose shale but climbable. You pick a line above the blocked section and rejoin the road forty meters past the cart. The attendant watches but does not call out — jurisdiction is genuinely unclear and calling out means paperwork.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The shale gives halfway up. You catch yourself on a brush root but the scramble is visible from the road. The attendant marks you in his log as taking unauthorized road bypass — a minor infraction, but filed.');
               if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -3361,7 +3361,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Both desks stamp both forms. The Sheresh clerk does not look at the Shelk stamp. The Shelk clerk does not look at the Sheresh stamp. The door to the southbound road opens.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The Shelk form requires a transit origin that the Sheresh form left blank. The clerk sends you back to the Sheresh desk. The Sheresh clerk requires a counter-signature from the Shelk desk to reopen the form. This takes a while.');
               if (typeof addHeat === 'function') addHeat('sheresh', 1);
@@ -3378,7 +3378,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The Sheresh clerk has been here long enough to have a workaround. A single consolidated form, known to both desks, that satisfies both requirements in one filing. He fills it in himself. You are through in ten minutes.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The consolidated form gambit requires the Shelk clerk\'s cooperation, which is not forthcoming today. The Shelk clerk files a non-compliance note. You complete both standard forms and leave with a flag on your transit record.');
               if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -3400,7 +3400,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'Neither patrol stops you. Staying in the gap means neither has clear jurisdictional claim on the stop. You walk through the zone and emerge on the plains side with nothing filed against you.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The Shelk patrol drops back and closes the gap before you can clear the zone. The lead warden asks for transit papers. The Sheresh patrol keeps moving and is out of sight before the check is done.');
               if (typeof addHeat === 'function') addHeat('shelk', 1);
@@ -3416,7 +3416,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'A brief explanation of your transit direction is enough for the Sheresh patrol leader to allow the attachment. The Shelk wardens watch but do not stop a group moving in Sheresh company. You peel off at the boundary marker.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The Sheresh patrol leader does not want the complication. She waves you off. The Shelk patrol has been watching the exchange and considers it suspicious enough to stop you when you separate.');
               if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -3439,7 +3439,7 @@
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The transit desk is closed for the night but the camp is on the open side of the barrier — accessible before the forms are filed. You find a berth. The cold eases. The desk opens at first light.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The camp is full. The night warden points you to a windbreak shelf cut into the hillside — technically outside camp. The rest is inadequate and the cold is thorough.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -3455,7 +3455,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'A leeward rock shelf thirty meters off the road, high enough to block the wind, low enough to retain heat. You spend the night there. No patrol passes. The border zone infrastructure gap works in your favor for once.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
               G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The shelter you find is exposed on one side and the wind shifts after midnight. You sleep in intervals. The morning arrives before you are ready for it.');
@@ -3479,7 +3479,7 @@
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The bench outside the transit building is cold but covered. You sleep against the wall in your pack. The desks open two hours after first light. Both clerks pretend the delay did not happen. Your papers are stamped without comment.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The bench fills up. Six travelers are waiting when the desks open and the clerks process them in the order they arrived. You are fifth. The wait adds another three hours to your day.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
@@ -3495,7 +3495,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('cold_iron', 1);
               if (typeof addNarration === 'function') addNarration('', 'The road is genuinely unwatched. Both clerks are in the review room. You are through the zone in twenty minutes and on the Shelkopolis side before either desk reopens. No record of transit — which means no record of you.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'One clerk stepped out for air and sees you moving through the unmonitored zone. The review is paused. Your unauthorized transit goes into both authority logs simultaneously — a rare double-filing.');
               if (typeof addHeat === 'function') addHeat('shelk', 2);
@@ -3522,7 +3522,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Registration complete. The officer assigns a convoy position — third behind the lead extraction vessel. The convoy flag is a red pennant. You depart in the next window.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The manifest has a cargo category the officers cannot process without a senior sign-off. The senior officer is on the second platform. The delay pushes you to the following convoy window.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -3538,7 +3538,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'Independent transit authorization — valid for vessels carrying less than quota-threshold cargo. The officer checks, confirms, and issues a solo transit permit. You depart on your own schedule instead of the convoy\'s.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exemption category you cite was suspended two seasons ago when independent transit was reclassified. The officer notes the attempted citation and assigns your vessel to mandatory convoy escort — which means waiting.');
               if (typeof addHeat === 'function') addHeat('soreheim', 2);
@@ -3560,7 +3560,7 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The red pennant is visible before the officer raises the scope. He checks it, notes the convoy number, and logs you as authorized inbound. The extraction vessel passes without signaling a stop.');
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The pennant is obscured by rigging at the moment the officer is looking. He signals a vessel identification request. The exchange takes ten minutes of close approach and flag exchange before clearance is given.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -3576,7 +3576,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'A natural course adjustment — wind shift, not evasion. The distance you gain means the officer cannot note your vessel numbers clearly. The log entry reads "inbound solo vessel, unresolved" — which is not the same as flagged.');
-              if (typeof gainXp === 'function') gainXp(15);
+              if (typeof gainXp === 'function') gainXp(7);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The course change reads as evasion at the range the officer is watching. He radios ahead to the Soreheim approach post. You are flagged for enhanced registration when you arrive.');
               if (typeof addHeat === 'function') addHeat('soreheim', 2);
@@ -3599,7 +3599,7 @@
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The night passage is uneventful. The convoy running lights stay steady. You take two watch periods and sleep between them. The crossing is monotonous in the way only open water at night can be — completely uniform, no reference points.');
               G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The watch rotation goes wrong — someone misses a period and you cover it. By morning you have worked two full watch periods without a sleep interval. The crossing is done but fatigue is compounding.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
@@ -3615,7 +3615,7 @@
             if (r.total >= 16) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The lights-out run shaves hours off the crossing. The sea reads differently without the running light bleeding into your night vision. You arrive at Soreheim approach two hours ahead of the convoy. The registration desk is open and uncrowded.');
-              if (typeof gainXp === 'function') gainXp(25);
+              if (typeof gainXp === 'function') gainXp(12);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'Running lights-out on a convoy route means the convoy loses track of your position. When you arrive at Soreheim, you are logged as a missing vessel for twelve hours. The paperwork required to resolve a missing-vessel log is substantial.');
               if (typeof addHeat === 'function') addHeat('soreheim', 3);
@@ -3638,7 +3638,7 @@
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The weather system is rough but not dangerous. Three hours of roll and spray. The convoy maintains pace. You arrive at Soreheim damp, fatigued, and on schedule. The quota post is not particularly sympathetic but the arrival is logged correctly.');
               G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
-              if (typeof gainXp === 'function') gainXp(10);
+              if (typeof gainXp === 'function') gainXp(5);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'Maintaining convoy pace in the weather costs more than expected. A fitting on the vessel gives way under the strain and requires emergency securing. The convoy continues; you fall behind and arrive outside the expected window. The quota post logs the arrival gap.');
               if (typeof modHP === 'function') modHP(-2);
@@ -3655,7 +3655,7 @@
             if (r.total >= 13) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The system passes in ninety minutes. You resume speed and arrive at Soreheim three hours behind the convoy, but the quota post accepts the weather delay as a valid variance. The vessel is undamaged. The difference in arrival condition is visible to the post officer.');
-              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The system does not pass in the time you allocated. You wait four hours, arrive well outside the convoy window, and the quota post requires a detailed explanation of the variance. The weather log from the day does not match your arrival gap cleanly.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
@@ -3678,7 +3678,7 @@
         { text: 'Log the entry yourself and raise the arm.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'The entry is plausible. The arm raises on its counterweight. No one comes back before you are past sight of the post.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The entry is plausible. The arm raises on its counterweight. No one comes back before you are past sight of the post.'); gainXp(5); }
             else { addNarration('', 'The handwriting is close but not close enough. The guild archivist who reviews this log will notice the discrepancy in the entry sequence.'); addHeat('union', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3686,7 +3686,7 @@
         { text: 'Wait at the barrier. Someone will return.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'The warden returns in forty minutes. She checks the log, checks you, stamps your transit card without comment. The arm goes up.'); gainXp(15); }
+            if (r.total >= 13) { addNarration('', 'The warden returns in forty minutes. She checks the log, checks you, stamps your transit card without comment. The arm goes up.'); gainXp(7); }
             else { addNarration('', 'The warden is accompanied by a colleague. The second warden is the one who asks questions. Her questions are specific.'); addHeat('union', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3700,7 +3700,7 @@
         { text: 'Name the road you came from and where you are going. Specific answers disarm suspicion.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'Specific answers land correctly. The warden notes something in a pocket log and nods. Her partner has already moved on.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Specific answers land correctly. The warden notes something in a pocket log and nods. Her partner has already moved on.'); gainXp(5); }
             else { addNarration('', 'The answer is too specific in the wrong way — the road junction you named doesn\'t match the usual westbound route. She asks a second question.'); addHeat('shirsh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3708,7 +3708,7 @@
         { text: 'Step off the path into the tree margin before they reach you.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The tree margin is deep enough. They pass. The one watching the tree line looks directly at where you are standing and sees nothing worth stopping for.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The tree margin is deep enough. They pass. The one watching the tree line looks directly at where you are standing and sees nothing worth stopping for.'); gainXp(10); }
             else { addNarration('', 'Movement in the trees is exactly what the tree-line watcher is trained for. She signals her partner without raising her voice.'); addHeat('shirsh', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3722,7 +3722,7 @@
         { text: 'Build a fire at the roadside and wait for dawn.', skill: 'vigor', tag: 'safe',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 7) { addNarration('', 'The fire works. Whatever was moving stops. The road at dawn is quiet and you are rested enough to continue.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The fire works. Whatever was moving stops. The road at dawn is quiet and you are rested enough to continue.'); gainXp(5); }
             else { addNarration('', 'The fire draws a different kind of attention — a traveler coming the other way, moving fast, who asks too many questions before continuing east.'); addHeat('shirsh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3730,7 +3730,7 @@
         { text: 'Keep moving. Whatever is in the trees has not stepped onto the road yet.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The parallel movement stops after another half mile. The road widens as the forest thins. The plains boundary is ahead.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The parallel movement stops after another half mile. The road widens as the forest thins. The plains boundary is ahead.'); gainXp(10); }
             else { addNarration('', 'The parallel movement stops — and something steps onto the road ahead of you instead of beside you.'); addHeat('shirsh', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3744,7 +3744,7 @@
         { text: 'Test the surface carefully before committing weight.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Testing the edge first tells you where the firm substrate is. The crossing takes time but nothing gives way.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Testing the edge first tells you where the firm substrate is. The crossing takes time but nothing gives way.'); gainXp(5); }
             else { addNarration('', 'The test was not thorough enough. The surface holds for the first thirty meters and fails on the last ten. Wet boots, a turned ankle, a lost hour.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3752,7 +3752,7 @@
         { text: 'Move fast across the worst section. Speed is better than weight.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'The surface moves under you but you are across before it can decide what to do about it.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The surface moves under you but you are across before it can decide what to do about it.'); gainXp(10); }
             else { addNarration('', 'Fast is not right here. The surface gives at the midpoint. The recovery costs time and gear.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3769,7 +3769,7 @@
         { text: 'Present the transit papers before she asks for them.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'The papers are in order. She checks the Academy seal, checks the date stamp, hands them back. The barrier arm goes up.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The papers are in order. She checks the Academy seal, checks the date stamp, hands them back. The barrier arm goes up.'); gainXp(5); }
             else { addNarration('', 'The papers are in order but the departure time listed conflicts with the road distance. She flags it for review.'); addHeat('mimolot', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3777,7 +3777,7 @@
         { text: 'Name the transit administrator who approved the route.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The name is correct and she knows it. The verification that would otherwise take ten minutes takes two. The arm goes up.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The name is correct and she knows it. The verification that would otherwise take ten minutes takes two. The arm goes up.'); gainXp(10); }
             else { addNarration('', 'The name is correct but she asks which office processes that administrator\'s approvals. The answer is not in the papers.'); addHeat('mimolot', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3791,7 +3791,7 @@
         { text: 'Keep moving at even pace. Nothing to indicate otherwise.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'The pack assessment does not turn into a stop. The patrol continues its pattern. You continue yours.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The pack assessment does not turn into a stop. The patrol continues its pattern. You continue yours.'); gainXp(5); }
             else { addNarration('', 'The patrol circles back. The traveler-checker asks where you\'re going and what your business is on the Academy road.'); addHeat('union', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3799,7 +3799,7 @@
         { text: 'Produce the transit papers before the patrol reaches you.', skill: 'wits', tag: 'risky',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 13) { addNarration('', 'Producing papers preemptively reads as compliance. The patrol reviews them at pace without stopping.'); gainXp(15); }
+            if (r.total >= 13) { addNarration('', 'Producing papers preemptively reads as compliance. The patrol reviews them at pace without stopping.'); gainXp(7); }
             else { addNarration('', 'Producing papers preemptively reads as anxiety. The patrol stops to conduct a full inspection.'); addHeat('union', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3813,7 +3813,7 @@
         { text: 'Produce the transit papers and claim urgent Academy business.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'Academy business is a recognized category. The warden checks the seal and waves you through with a note for the morning log.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Academy business is a recognized category. The warden checks the seal and waves you through with a note for the morning log.'); gainXp(5); }
             else { addNarration('', 'The warden checks the seal and it is correct, but the request for an urgent-transit endorsement note goes poorly. He writes the stop in the log.'); addHeat('union', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3821,7 +3821,7 @@
         { text: 'Leave the road before the checkpoint and rejoin it after.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The verge is flat enough to navigate by starlight. The checkpoint lamp is behind you before the warden\'s eyes adjust to the dark.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The verge is flat enough to navigate by starlight. The checkpoint lamp is behind you before the warden\'s eyes adjust to the dark.'); gainXp(10); }
             else { addNarration('', 'The verge is flat but the checkpoint warden has a lantern on a post that covers the standard deviation distance. She sees the movement.'); addHeat('union', 3); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3835,7 +3835,7 @@
         { text: 'Stop and wait the storm out with your back to the wind.', skill: 'vigor', tag: 'safe',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 7) { addNarration('', 'The storm passes in an hour. The dust settles unevenly — thicker on the eastern side, thinner on the road surface itself. You continue.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The storm passes in an hour. The dust settles unevenly — thicker on the eastern side, thinner on the road surface itself. You continue.'); gainXp(5); }
             else { addNarration('', 'The wait costs more than an hour. The dust has settled into your kit and the road surface is altered enough that the next stretch is slow.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3843,7 +3843,7 @@
         { text: 'Navigate by the wind direction alone. West to east. Keep moving.', skill: 'wits', tag: 'risky',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 13) { addNarration('', 'The wind is consistent and so is the road surface under your feet. You arrive at the next route marker without having stopped.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The wind is consistent and so is the road surface under your feet. You arrive at the next route marker without having stopped.'); gainXp(10); }
             else { addNarration('', 'The wind shifts twice. The road does not. You leave the road surface without realizing it and spend thirty minutes reorienting.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3860,7 +3860,7 @@
         { text: 'Address the Panim warden first. The originating jurisdiction takes precedence.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Addressing the Panim warden first is the correct protocol. The second warden accepts the Panim clearance and adds his own stamp. Both arms go up.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Addressing the Panim warden first is the correct protocol. The second warden accepts the Panim clearance and adds his own stamp. Both arms go up.'); gainXp(5); }
             else { addNarration('', 'The Panim warden is satisfied but the second warden has a different question set. She asks about cargo weight and the answer is approximate, not exact.'); addHeat('panim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3868,7 +3868,7 @@
         { text: 'Present the papers to both simultaneously. Efficiency as compliance.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'Both wardens accept the simultaneous presentation as confidence. The clearance is faster than standard. You are through in four minutes.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Both wardens accept the simultaneous presentation as confidence. The clearance is faster than standard. You are through in four minutes.'); gainXp(10); }
             else { addNarration('', 'The wardens have a protocol dispute about which clearance is primary. You are held at the post for twenty minutes while they resolve it between themselves.'); addHeat('panim', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3882,7 +3882,7 @@
         { text: 'Join the queue behind the current traveler being checked. Orderly.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'The queue approach signals compliance. Your check is faster than the previous traveler\'s — her warden is warmed up and the papers are routine.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The queue approach signals compliance. Your check is faster than the previous traveler\'s — her warden is warmed up and the papers are routine.'); gainXp(5); }
             else { addNarration('', 'The previous traveler\'s check reveals something irregular. The warden\'s attention level is elevated by the time she reaches you.'); addHeat('panim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3890,7 +3890,7 @@
         { text: 'Turn onto the beach access path before reaching the check point.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The beach access path is not the road and the patrol is working the road. You rejoin the coastal road two hundred meters north of the checkpoint.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The beach access path is not the road and the patrol is working the road. You rejoin the coastal road two hundred meters north of the checkpoint.'); gainXp(10); }
             else { addNarration('', 'One of the three wardens is watching the beach access path. It is the third warden, not the lead, which is worse.'); addHeat('panim', 3); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3904,7 +3904,7 @@
         { text: 'Approach the post and report travel delay — weather, road condition, route error.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'The warden accepts the delay explanation and marks it in the log. Night-transit approval is noted as situational. You continue.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The warden accepts the delay explanation and marks it in the log. Night-transit approval is noted as situational. You continue.'); gainXp(5); }
             else { addNarration('', 'The warden accepts the explanation but asks for a specific route confirmation. The route you name has a checkpoint record that would show your timing.'); addHeat('panim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3912,7 +3912,7 @@
         { text: 'Use the beach margin. Below the road edge, below the lamp radius.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The beach margin is below the lamp radius and the warden is watching the road, not the tide line. The post is behind you.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The beach margin is below the lamp radius and the warden is watching the road, not the tide line. The post is behind you.'); gainXp(10); }
             else { addNarration('', 'The tide line is higher than the visible mark from the road. The margin is narrower than calculated.'); addHeat('panim', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3926,7 +3926,7 @@
         { text: 'Find the highest edge of the road and move carefully across the flooded section.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'The highest road edge holds firm. The crossing is wet but nothing gives way under the water.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The highest road edge holds firm. The crossing is wet but nothing gives way under the water.'); gainXp(5); }
             else { addNarration('', 'The apparent high edge is not the actual high edge. The soft section is on the right side, not the left.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3934,7 +3934,7 @@
         { text: 'Move quickly and accept the wet kit. The delay of waiting is worse.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'Quick movement keeps you in the shallower water. The kit is wet but functional. You are past the flooded section in three minutes.'); gainXp(15); }
+            if (r.total >= 13) { addNarration('', 'Quick movement keeps you in the shallower water. The kit is wet but functional. You are past the flooded section in three minutes.'); gainXp(7); }
             else { addNarration('', 'Quick movement finds the soft section before the firm section. Recovery costs time and a boot.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3951,7 +3951,7 @@
         { text: 'Declare Shirshal origin and present the full transit record.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Full declaration matches the cross-reference register. The warden stamps the transit card with the boundary clearance mark. Straightforward.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Full declaration matches the cross-reference register. The warden stamps the transit card with the boundary clearance mark. Straightforward.'); gainXp(5); }
             else { addNarration('', 'The Shirshal origin declaration triggers a secondary check for the item classification list. One item in your kit is on the list.'); addHeat('shirsh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3959,7 +3959,7 @@
         { text: 'Omit the Shirshal origin and declare the boundary post as origin point.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The boundary post as origin is not common but not implausible. The warden accepts it without the secondary check. You continue.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The boundary post as origin is not common but not implausible. The warden accepts it without the secondary check. You continue.'); gainXp(10); }
             else { addNarration('', 'The boundary post origin does not match the road wear on your kit. The warden knows what a two-day road journey looks like.'); addHeat('shirsh', 2); addHeat('union', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3973,7 +3973,7 @@
         { text: 'Answer the Principalities warden first. Her jurisdiction is where you are going.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'The Principalities warden takes the lead and is satisfied quickly. The Shirshal warden adds one question and accepts your answer. Joint patrol clears you.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The Principalities warden takes the lead and is satisfied quickly. The Shirshal warden adds one question and accepts your answer. Joint patrol clears you.'); gainXp(5); }
             else { addNarration('', 'The Principalities warden is satisfied but the Shirshal warden has a different question — about your activities in Shirshal, specifically.'); addHeat('shirsh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3981,7 +3981,7 @@
         { text: 'Step off the road onto the coastal verge as if checking your pack.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The pack-check reads as traveler behavior, not avoidance. The patrol passes. You rejoin the road.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The pack-check reads as traveler behavior, not avoidance. The patrol passes. You rejoin the road.'); gainXp(10); }
             else { addNarration('', 'The Shirshal warden specifically watches travelers who step off the road before being checked. That is the behavior he was briefed on.'); addHeat('shirsh', 3); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3995,7 +3995,7 @@
         { text: 'Wait off-road for the patrol to pass before continuing.', skill: 'vigor', tag: 'safe',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 7) { addNarration('', 'The patrol passes within forty meters of where you are waiting. The lamp does not sweep the road margin. You continue when the light is far enough south.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The patrol passes within forty meters of where you are waiting. The lamp does not sweep the road margin. You continue when the light is far enough south.'); gainXp(5); }
             else { addNarration('', 'The wait is correct but the patrol interval is shorter than standard. A second lamp appears before you have moved far enough north.'); addHeat('shirsh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4003,7 +4003,7 @@
         { text: 'Flag the patrol and declare night travel. Easier than avoiding it.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The patrol logs the night transit declaration and issues a temporary clearance. Legal, documented, done.'); gainXp(15); }
+            if (r.total >= 13) { addNarration('', 'The patrol logs the night transit declaration and issues a temporary clearance. Legal, documented, done.'); gainXp(7); }
             else { addNarration('', 'The declaration triggers the Shirshal warden\'s interest in why you are moving at night on this specific road.'); addHeat('shirsh', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4017,7 +4017,7 @@
         { text: 'Move along the left edge, away from the drop. Slower but controlled.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Left edge is correct. The road surface is firm there and you have enough margin to move safely through the full stretch.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Left edge is correct. The road surface is firm there and you have enough margin to move safely through the full stretch.'); gainXp(5); }
             else { addNarration('', 'Left edge is soft in the middle section where a second failure point has not yet opened fully. The surface dips under your weight.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4025,7 +4025,7 @@
         { text: 'Move quickly across the narrow section. Less time on the unstable ground.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'Speed across the narrow section keeps you on the firm surface. You are past the erosion damage in thirty seconds.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Speed across the narrow section keeps you on the firm surface. You are past the erosion damage in thirty seconds.'); gainXp(10); }
             else { addNarration('', 'Speed works against you when the wind gusts. The movement is fine; the wind is not.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4042,7 +4042,7 @@
         { text: 'Declare non-extraction status immediately. The separate process is faster.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Non-extraction transit is a narrow but recognized category. The warden uses a shorter form. The gate opens in ten minutes.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Non-extraction transit is a narrow but recognized category. The warden uses a shorter form. The gate opens in ten minutes.'); gainXp(5); }
             else { addNarration('', 'Non-extraction declaration requires a purpose statement. The warden asks what business takes a traveler on the direct mountain road to Fairhaven.'); addHeat('soreheim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4050,7 +4050,7 @@
         { text: 'Use the guild transit seal to bypass the quota authority process.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The guild seal correctly overrides the quota authority process for non-extraction transit. The warden is not happy about it but the protocol is clear.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The guild seal correctly overrides the quota authority process for non-extraction transit. The warden is not happy about it but the protocol is clear.'); gainXp(10); }
             else { addNarration('', 'The quota authority warden checks with her supervisor before accepting the guild seal override. The supervisor takes fifteen minutes to arrive.'); addHeat('soreheim', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4064,7 +4064,7 @@
         { text: 'Answer the three standard questions before they are asked. Road preparation.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Pre-answering the standard questions signals familiarity with Soreheim transit procedure. The patrol leader marks the log quickly and moves on.'); gainXp(15); }
+            if (r.total >= 7) { addNarration('', 'Pre-answering the standard questions signals familiarity with Soreheim transit procedure. The patrol leader marks the log quickly and moves on.'); gainXp(7); }
             else { addNarration('', 'Anticipating the questions reads as rehearsal. The patrol leader adds a fourth question that is not standard.'); addHeat('soreheim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4072,7 +4072,7 @@
         { text: 'State the transit purpose plainly. Specific detail deflects further questioning.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'Specific purpose and destination detail satisfies the patrol leader\'s threshold. She does not ask the third standard question.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Specific purpose and destination detail satisfies the patrol leader\'s threshold. She does not ask the third standard question.'); gainXp(10); }
             else { addNarration('', 'The specific destination triggers a cross-reference check — there is a travel advisory for the route you named that you were not aware of.'); addHeat('soreheim', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4086,7 +4086,7 @@
         { text: 'Request temporary shelter at the extraction crew camp.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'Extraction crew camps regularly take in transit travelers. The crew leader assigns you a fire position and charges nothing. By morning the temperature has dropped another six degrees outside.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Extraction crew camps regularly take in transit travelers. The crew leader assigns you a fire position and charges nothing. By morning the temperature has dropped another six degrees outside.'); gainXp(5); }
             else { addNarration('', 'The crew leader accepts the shelter request but asks which quota authority issued your non-extraction transit clearance. The answer is in the papers but the papers are in your pack.'); addHeat('soreheim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4094,7 +4094,7 @@
         { text: 'Continue past the camp and find natural shelter in the rock formations above the switchback.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'The rock formation provides good windbreak. The temperature is manageable and you are moving again before the extraction crew has finished breakfast.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The rock formation provides good windbreak. The temperature is manageable and you are moving again before the extraction crew has finished breakfast.'); gainXp(10); }
             else { addNarration('', 'The rock formation is good windbreak but poor thermal mass. The cold settles in over three hours and does not lift until after dawn.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4108,7 +4108,7 @@
         { text: 'Assess the debris field and plot a line through it before moving.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'The assessment finds a line through the debris that avoids the unstable large blocks. The crossing is slow but nothing shifts under you.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The assessment finds a line through the debris that avoids the unstable large blocks. The crossing is slow but nothing shifts under you.'); gainXp(5); }
             else { addNarration('', 'The assessed line is correct until the fourth large block, which has a different stability than it appears from a distance.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4116,7 +4116,7 @@
         { text: 'Move continuously across the debris field. Continuous weight distribution is safer than static.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'Continuous movement works. The debris shifts in places but not enough to catch a moving foot. You are across in four minutes.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Continuous movement works. The debris shifts in places but not enough to catch a moving foot. You are across in four minutes.'); gainXp(10); }
             else { addNarration('', 'Continuous movement finds the wrong stone at the wrong angle. The recovery is possible but the right ankle is slow for the next day.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4133,7 +4133,7 @@
         { text: 'State the transit purpose specifically: destination, time, reason.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'The purpose declaration satisfies the compliance register threshold. The warden stamps the outbound record and opens the gate.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The purpose declaration satisfies the compliance register threshold. The warden stamps the outbound record and opens the gate.'); gainXp(5); }
             else { addNarration('', 'The destination is accepted but the time declared conflicts with the road distance. The warden asks for a route explanation.'); addHeat('soreheim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4141,7 +4141,7 @@
         { text: 'Present the Sunspire Haven transit authorization seal.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The Sunspire Haven seal is recognized. The warden checks the date stamp, finds it current, and processes the outbound transit without the standard declaration.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The Sunspire Haven seal is recognized. The warden checks the date stamp, finds it current, and processes the outbound transit without the standard declaration.'); gainXp(10); }
             else { addNarration('', 'The seal is recognized but the Sunspire Haven authorization requires counter-signature from a Soreheim quota officer. The warden asks where to find one on this road.'); addHeat('soreheim', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4155,7 +4155,7 @@
         { text: 'Open your pack for inspection before they ask. No undeclared material.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Voluntary inspection reads as confidence. The patrol checks quickly and moves on. Their changed approach was not about you.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Voluntary inspection reads as confidence. The patrol checks quickly and moves on. Their changed approach was not about you.'); gainXp(5); }
             else { addNarration('', 'Voluntary inspection finds nothing declarable, but one item in the pack has a material profile that requires a cross-reference check. It takes twenty minutes.'); addHeat('soreheim', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4163,7 +4163,7 @@
         { text: 'Match the patrol\'s changed approach by slowing your pace. Let them come to you.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The pacing reads as patience, not concern. The warden reaches you and runs a standard check — their changed approach was about the previous traveler, not you.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The pacing reads as patience, not concern. The warden reaches you and runs a standard check — their changed approach was about the previous traveler, not you.'); gainXp(10); }
             else { addNarration('', 'Slowing down on the road when a patrol has visually acquired you is interpreted as hesitation. The patrol stops early.'); addHeat('soreheim', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4177,7 +4177,7 @@
         { text: 'Move by the road edge on the uphill side. Stay on the firm surface.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Uphill edge is the right call. The road curves left at the steep section and the uphill edge keeps you on the inside of the curve. You reach the marker.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Uphill edge is the right call. The road curves left at the steep section and the uphill edge keeps you on the inside of the curve. You reach the marker.'); gainXp(5); }
             else { addNarration('', 'Uphill edge is correct until the switchback where uphill becomes downhill. The transition in fog takes a moment to process.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4185,7 +4185,7 @@
         { text: 'Stop and wait for the fog to lift or for dawn. Either ends the hazard.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'The fog lifts two hours before dawn. The road is clear and you are moving again in good time.'); gainXp(15); }
+            if (r.total >= 13) { addNarration('', 'The fog lifts two hours before dawn. The road is clear and you are moving again in good time.'); gainXp(7); }
             else { addNarration('', 'The fog does not lift before dawn. Dawn only makes the fog visible. You lose four hours.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4199,7 +4199,7 @@
         { text: 'Cross quickly at the section with the smallest crack gap.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'The smallest crack section is also the most recently cracked — the edges are sharp enough to grip. The crossing is quick.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The smallest crack section is also the most recently cracked — the edges are sharp enough to grip. The crossing is quick.'); gainXp(5); }
             else { addNarration('', 'Smallest gap is not smallest subsidence. The road surface flexes under weight at that point.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4207,7 +4207,7 @@
         { text: 'Move at the road edge where the bedrock outcrops. Solid ground underneath.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'Bedrock outcrop at the road edge holds. The subsidence has not reached that section. You are across.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Bedrock outcrop at the road edge holds. The subsidence has not reached that section. You are across.'); gainXp(10); }
             else { addNarration('', 'The bedrock outcrop is correct but narrow. The kit catches on the road edge crack. Recovery costs time.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4224,7 +4224,7 @@
         { text: 'Present Sheresh transit papers to the Sheresh warden and Principalities transit to the other.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Presenting authority-specific documents to the correct warden in sequence is the expected protocol. Both clear you without consultation.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Presenting authority-specific documents to the correct warden in sequence is the expected protocol. Both clear you without consultation.'); gainXp(5); }
             else { addNarration('', 'The Sheresh papers are current but the purpose declaration on the Principalities side requires cross-referencing the Sheresh record. They confer.'); addHeat('sheresh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4232,7 +4232,7 @@
         { text: 'Use the guild seal as the primary clearance document. Both wardens accept guild authority.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'Both wardens accept the guild seal as primary — they have seen this before and neither side wants to dispute guild transit authority on this road.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Both wardens accept the guild seal as primary — they have seen this before and neither side wants to dispute guild transit authority on this road.'); gainXp(10); }
             else { addNarration('', 'The Sheresh warden accepts the guild seal. The Principalities warden asks which guild office issued it and which transit route was originally filed.'); addHeat('union', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4246,7 +4246,7 @@
         { text: 'Open the kit fully. Nothing undeclared from the commune.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Full kit presentation reads as compliance with the outbound inspection protocol. The patrol marks the log and clears you.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Full kit presentation reads as compliance with the outbound inspection protocol. The patrol marks the log and clears you.'); gainXp(5); }
             else { addNarration('', 'Full kit presentation is accepted but one item has a material signature they note. They ask where it was acquired.'); addHeat('sheresh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4254,7 +4254,7 @@
         { text: 'Name the Sheresh transit coordinator who processed the outbound clearance.', skill: 'charm', tag: 'risky',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 13) { addNarration('', 'The name is current and known to the patrol leader. She checks the log and finds the clearance. The outbound inspection is waived.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'The name is current and known to the patrol leader. She checks the log and finds the clearance. The outbound inspection is waived.'); gainXp(10); }
             else { addNarration('', 'The name is current but the coordinator works a different sector. The patrol leader asks which sector issued the clearance.'); addHeat('sheresh', 2); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4268,7 +4268,7 @@
         { text: 'Stop at the post, declare night transit, and present the outbound clearance.', skill: 'charm', tag: 'safe',
           action: function() {
             var r = rollD20('charm');
-            if (r.total >= 7) { addNarration('', 'The declaration and clearance are in order. She logs the night transit and hands back the clearance with a time stamp. The road ahead is clear.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'The declaration and clearance are in order. She logs the night transit and hands back the clearance with a time stamp. The road ahead is clear.'); gainXp(5); }
             else { addNarration('', 'The clearance is accepted but her standard follow-up question about activity in the commune area takes twenty minutes to satisfy.'); addHeat('sheresh', 1); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4276,7 +4276,7 @@
         { text: 'Leave the road before the halfway marker and rejoin it after the post.', skill: 'finesse', tag: 'risky',
           action: function() {
             var r = rollD20('finesse');
-            if (r.total >= 13) { addNarration('', 'The highland road margin is wide here and the terrain beyond it is flat. The post lamp does not cover the margin at this distance. You rejoin the road north of the post.'); gainXp(25); }
+            if (r.total >= 13) { addNarration('', 'The highland road margin is wide here and the terrain beyond it is flat. The post lamp does not cover the margin at this distance. You rejoin the road north of the post.'); gainXp(12); }
             else { addNarration('', 'The watch post has a second lamp on the margin side that is not visible from the road approach. The warden\'s field of view is wider than estimated.'); addHeat('sheresh', 3); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4290,7 +4290,7 @@
         { text: 'Navigate by road marker sequence alone. The markers are posted and numbered.', skill: 'wits', tag: 'safe',
           action: function() {
             var r = rollD20('wits');
-            if (r.total >= 7) { addNarration('', 'Marker navigation is slower but reliable. The route is marked at every half mile. You reach the territorial boundary without deviation.'); gainXp(10); }
+            if (r.total >= 7) { addNarration('', 'Marker navigation is slower but reliable. The route is marked at every half mile. You reach the territorial boundary without deviation.'); gainXp(5); }
             else { addNarration('', 'Marker navigation works until marker 14, which is missing — removed or fallen. The gap requires a best-estimate decision.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -4298,7 +4298,7 @@
         { text: 'Use terrain features — high ground, road surface, sun position — to continue.', skill: 'vigor', tag: 'risky',
           action: function() {
             var r = rollD20('vigor');
-            if (r.total >= 13) { addNarration('', 'Terrain navigation works well in highland. The sun position and road surface quality give enough information to stay on route.'); gainXp(20); }
+            if (r.total >= 13) { addNarration('', 'Terrain navigation works well in highland. The sun position and road surface quality give enough information to stay on route.'); gainXp(10); }
             else { addNarration('', 'The terrain navigation is adequate until the cloud cover changes. Without sun position the terrain features look similar in three directions.'); }
             setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }

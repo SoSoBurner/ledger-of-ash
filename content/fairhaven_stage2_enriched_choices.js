@@ -12,14 +12,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Thalen is mid-distillation when you cross the workshop yard — the copper still hisses and he cannot leave the burner unattended for the next two bells. The ledger sits closed under a stack of charter receipts on the high shelf. He nods toward tomorrow without looking up from the gauge.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'investigating glyph suppression contracts');
+      gainXp(39, 'investigating glyph suppression contracts');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -51,14 +51,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The chapel doors are wedged with the evening prayer block — Felujitas observance, the side path roped off so the sanctuary stays undisturbed for the next hour. Serin is inside leading the responses. The sighting log stays on the chancel desk behind him.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'reviewing celestial creature sighting records');
+      gainXp(38, 'reviewing celestial creature sighting records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -88,14 +88,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Maris is in the middle of the morning manifest reconciliation when you reach the counter — three porters are queued behind you with bonded crates and the supervisor is already counting time. She gives you the small headshake of someone who cannot speak now without being overheard. The earmarked ledger stays under the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'examining Fairhaven market manifests');
+      gainXp(37, 'examining Fairhaven market manifests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
@@ -124,14 +124,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Vaelis has a full house this evening — a Soreheim cartage party occupies the long table and she is moving plates and managing the kitchen pass alone. Every approach to the guest desk gets intercepted by a request for ale or a meal count. The register stays under her hand and the conversation never opens.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'questioning Vaelis Sunweave innkeeper');
+      gainXp(36, 'questioning Vaelis Sunweave innkeeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -160,14 +160,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Watchers Perch path is wet from a low overnight rain — the upper shale section is too slick to climb without rope and the back-route is blocked by a Sunweave shepherd moving a small flock down the ridge. The cave mouth stays out of reach for the rest of the morning.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'examining Watchers Perch glyph cave');
+      gainXp(40, 'examining Watchers Perch glyph cave');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
@@ -196,7 +196,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['stage2', 'fairhaven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -220,7 +220,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['stage2', 'fairhaven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -243,7 +243,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['stage2', 'fairhaven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -269,7 +269,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['stage2', 'fairhaven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -293,7 +293,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['stage2', 'fairhaven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -316,7 +316,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['stage2', 'fairhaven'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -340,7 +340,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['stage2', 'fairhaven', 'dock_records'],
-    xpReward: 34,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -361,7 +361,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['stage2', 'fairhaven', 'manifest_anomaly'],
-    xpReward: 34,
+    xpReward: 17,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('spirit', G.skills.spirit);
@@ -383,14 +383,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The checkpoint office is closed for the noon shift change — the duty warden walked the half-mile to the inn for the meal break and the log book is locked in the desk behind him. The replacement warden arrives an hour late, citing weather on the upper road. The window for unsupervised review has passed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing Roadwarden checkpoint transit logs');
+      gainXp(34, 'cross-referencing Roadwarden checkpoint transit logs');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -421,14 +421,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Aldra Wennis is mid-inspection on the lower wharf when you reach the registry — a Shelkopolis trader has arrived with a manifest dispute and the harbormistress is required to mediate before she returns to her desk. The clearance ledger is closed in the registry office and the deputy waves you toward the morning roster.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'confronting harbormistress Aldra Wennis on night clearance authorizations');
+      gainXp(36, 'confronting harbormistress Aldra Wennis on night clearance authorizations');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -459,14 +459,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A Sunweave shepherd is pasturing the late flock on the north scrub when you reach the cutoff — the dog watches you the moment you leave the main road, and the shepherd straightens to track your direction. Following the secondary path under his sightline is the kind of mistake that ends up retold at the inn.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracking secondary approach to Watchers Perch cave');
+      gainXp(33, 'tracking secondary approach to Watchers Perch cave');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -497,14 +497,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Thalen will not surface the supplier route during the day — the workshop fronts the market street and the wrong customer at the wrong moment would carry the question back. He suggests the evening, after the burner cools and the shutters are down. Until then the supply records stay in the cedar cabinet under his bench.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing suppression compound supply chain to Shelkopolis origin');
+      gainXp(35, 'tracing suppression compound supply chain to Shelkopolis origin');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -535,10 +535,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'timing courier cycle against tide schedule at Fairhaven dock');
+      gainXp(33, 'timing courier cycle against tide schedule at Fairhaven dock');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -569,10 +569,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining equipment barn at western field road terminus');
+      gainXp(34, 'examining equipment barn at western field road terminus');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -603,14 +603,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Orra Seld is treating a goat-kick fracture at the Sunweave east farmhouse and will not be back in the dispensary before dusk — the runner who came for her left the front door propped open with a slate, the herb counter unattended, and the symptom calendar on the back wall out of reach until she returns.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'consulting Fairhaven physic on compound exposure cases');
+      gainXp(35, 'consulting Fairhaven physic on compound exposure cases');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -640,14 +640,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'A Cyfoes blessing-rite is in progress at the shrine basin — four field-hands kneel at the offering ring while Brael recites the seasonal prayer. He cannot break observance to speak. The side door, where his pocket log sits on its hook, is roped off until the rite completes.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'examining Cyfoes shrine visitor log held by attendant Brael');
+      gainXp(33, 'examining Cyfoes shrine visitor log held by attendant Brael');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -678,14 +678,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Pell Orvast is two days into a wheel-iron commission for a Sunweave cart and the forge is hot — he gives you the small shake of someone who cannot leave the bellows. The tin box under the wheel-iron rack stays untouched until the rim is set. He nods you toward the evening shutter-down.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing sealed-compartment crate commission with local cartwright Pell Orvast');
+      gainXp(36, 'tracing sealed-compartment crate commission with local cartwright Pell Orvast');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -715,14 +715,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Deputy Sava is on the lower wharf when you reach the registry — she is supervising a quarterly hull-inspection sweep across three docked traders and cannot be drawn aside. The amendment log stays in the registry desk drawer. Her thumb runs the edge of her clipboard in a tight rhythm that says she has noticed the approach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'pressing deputy harbormistress Sava on night clearance protocol authorship');
+      gainXp(37, 'pressing deputy harbormistress Sava on night clearance protocol authorship');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -753,14 +753,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Veth Olan is dispatched to the upper road on a foot-search for missing cartage from the Shelkopolis quarterly run — he is gone before the post opens and not expected back for two full watches. The desk drawer that holds his notation ledger has a Roadwarden seal across the latch. The post clerk does not have the key.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing Roadwarden commander Veth Olan personal notation ledger');
+      gainXp(34, 'reviewing Roadwarden commander Veth Olan personal notation ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -791,14 +791,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The market exchange counter is shut for the morning audit cycle — the voluntary trader register is locked under the shutter and the desk clerk has been called to the back office for the quarterly reconciliation. The shutter does not lift until the third hour. Ashwick has already passed through and gone.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'tracking traveling factor Deen Ashwick across two Fairhaven charter stops');
+      gainXp(33, 'tracking traveling factor Deen Ashwick across two Fairhaven charter stops');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -829,14 +829,14 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The guild certification office is closed for the inspector route-review session — the clerk has the calendar binder open across the back desk and a Shelkopolis liaison is reading entries aloud over her shoulder. The counter shutter stays down until the session ends, the murmured cross-checks audible from the street.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'tracing lapsed guild certification inspector route for Fairhaven district');
+      gainXp(32, 'tracing lapsed guild certification inspector route for Fairhaven district');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -869,10 +869,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Tavian directs the request to the exchange's formal inquiry process — a form, a two-week queue, a response window he describes without looking up. He has the sealed column right beside him. The form is already on the counter before the question finishes.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'pressing Tavian Silkgate on sealed manifest column totals');
+      gainXp(36, 'pressing Tavian Silkgate on sealed manifest column totals');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -905,10 +905,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
     failResult: "Elandra's expression does not change, but her pen cap comes off and goes back on twice before she answers. 'Commodity classification is proprietary to the brokerage.' She does not deny a glyph-suppression grade line. She says the classification is proprietary and means every subsequent question has the same answer.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'confronting Elandra Velvetmere on glyph-suppression commodity pricing');
+      gainXp(39, 'confronting Elandra Velvetmere on glyph-suppression commodity pricing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -941,10 +941,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Corin listens past the first sentence and then straightens in his chair. 'Checkpoint logs are district property. Any cross-reference request goes to the post commander in writing.' He sets his hands flat on the desk. His tone is not hostile — it's the register of a man who has been told what to do with questions like this one.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'cross-referencing Roadwarden Sergeant Corin Bloomcrest checkpoint notes');
+      gainXp(35, 'cross-referencing Roadwarden Sergeant Corin Bloomcrest checkpoint notes');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -977,10 +977,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Aelric says he takes time away from the forge when the season turns. He says it plainly, without embellishment, and the plainness is the door closing. He has given the answer before. The forge behind him has a six-week dust line on the top shelf that contradicts the season explanation and he does not acknowledge it.",
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining Aelric Sunweave forge gap against cave modification timeline');
+      gainXp(34, 'examining Aelric Sunweave forge gap against cave modification timeline');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -1011,7 +1011,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Roadwarden post is sealed for the morning shift change — the duty commander has not arrived from his quarters above the inn and the night warden refuses to receive a formal report without command oversight. The folder of cross-references stays in your hand. The post clock above the door ticks slowly into the next quarter-bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1050,7 +1050,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Investigation'],
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       if (!G.flags) G.flags = {};
@@ -1072,7 +1072,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation'],
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     fn: function() {
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       if (!G.flags) G.flags = {};

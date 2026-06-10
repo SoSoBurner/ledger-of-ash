@@ -15,11 +15,11 @@ var SHERESH_STAGE1 = (function() {
     setTimeout(function() {
       (window._rawRenderChoices || window.renderChoices)([
         { id: 'sheresh_ask_elder', plot: 'main', text: 'An elder would remember what was before the gap.', tag: 'bold',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); askElder(); } },
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); askElder(); } },
         { id: 'sheresh_search_older', plot: 'main', text: 'Search older records — find evidence she existed before the gap.', tag: 'risky',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); searchOlderRecords(); } },
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); searchOlderRecords(); } },
         { id: 'sheresh_sit_with_it', plot: 'main', text: 'Sit with the knowledge. What does it mean that she is gone from here too?', tag: 'safe',
-          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); sitWithIt(); } }
+          action: function() { if (typeof gainXp === 'function') gainXp(10, 'choice'); sitWithIt(); } }
       ]);
     }, 400);
   }
@@ -95,14 +95,14 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
     label: 'The commune record board is open. Something was filed and then not followed up on.',
     plot: 'main',
     tags: ['Records', 'Observation', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     skill: 'wits',
     dc: 7,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading commune record board');
+      gainXp(32, 'reading commune record board');
       G.stageProgress[1]++;
       var result = rollD20('wits', (G.skills && G.skills.wits) || 0);
       if (result.total >= 12) {
@@ -122,14 +122,14 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
     id: 'sheresh_water_route',
     label: 'The water-route marks moved north without a vote.',
     tags: ['Survey', 'Observation', 'Stage1'],
-    xpReward: 60,
+    xpReward: 30,
     skill: 'vigor',
     dc: 7,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(60, 'surveying eastern water route');
+      gainXp(30, 'surveying eastern water route');
       G.stageProgress[1]++;
       var result = rollD20('vigor', (G.skills && G.skills.vigor) || 0);
       if (result.total >= 10) {
@@ -148,14 +148,14 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
     id: 'sheresh_provisioning_log',
     label: 'One year in the provisioning log is nearly empty.',
     tags: ['Records', 'Inquiry', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     skill: 'wits',
     dc: 7,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading provisioning log');
+      gainXp(32, 'reading provisioning log');
       G.stageProgress[1]++;
       var result = rollD20('wits', (G.skills && G.skills.wits) || 0);
       if (result.total >= 10) {

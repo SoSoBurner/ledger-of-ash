@@ -12,11 +12,11 @@ const NOMDARA_STAGE1_CHOICES = [
     label: "Sable: wound or fatigue removal. She finds what ails you.",
     skill: 'wits',
     tags: ['Nomdara', 'Healing', 'Service'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'receiving Nomdara healing from Sable');
+      gainXp(27, 'receiving Nomdara healing from Sable');
       if (!G.flags) G.flags = {};
 
       const hasWound = G.wounds && G.wounds.length > 0;
@@ -43,11 +43,11 @@ const NOMDARA_STAGE1_CHOICES = [
     label: "Purchase a rumor from Lorn. He does not sell certainty. He sells what the road has heard.",
     skill: 'wits',
     tags: ['Nomdara', 'Information', 'Service'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(60, 'purchasing world-color rumor from Lorn');
+      gainXp(30, 'purchasing world-color rumor from Lorn');
       if (!G.flags) G.flags = {};
 
       const rumors = [
@@ -74,11 +74,11 @@ const NOMDARA_STAGE1_CHOICES = [
     label: "Wren reads the road ahead. Ash and distance are the same to her.",
     skill: 'charm',
     tags: ['Nomdara', 'Social', 'NPC'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'speaking with Wren, Nomdara route shaman');
+      gainXp(27, 'speaking with Wren, Nomdara route shaman');
       if (!G.flags) G.flags = {};
       G.flags.met_wren_nomdara = true;
 

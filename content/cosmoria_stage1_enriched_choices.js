@@ -14,13 +14,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "Three brigs at anchor, idle cranes. Cosmouth vessels have their berths.",
     tags: ['Investigation', 'NPC', 'Maritime', 'Commerce', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading maritime trade pattern shifts');
+      gainXp(35, 'reading maritime trade pattern shifts');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -61,13 +61,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "Forty for Cosmouth crews. Twenty for independents. Different hand wrote the correction.",
     tags: ['Investigation', 'NPC', 'Resources', 'Supply', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering supply chain manipulation');
+      gainXp(37, 'uncovering supply chain manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -109,13 +109,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     label: "Some crews get the full rite. Others get turned away. The list decides.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading corrupted maritime ritual patterns');
+      gainXp(35, 'reading corrupted maritime ritual patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -151,13 +151,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     label: "Three vessels, identical manifests word for word. Different ships, different dates.",
     tags: ['Investigation', 'NPC', 'Archives', 'Records', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering archive record tampering');
+      gainXp(37, 'uncovering archive record tampering');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -194,13 +194,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The ruling arrived before the hearing. She ruled differently. Her credentials were reviewed.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Districts', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering mediation system corruption');
+      gainXp(37, 'uncovering mediation system corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -235,13 +235,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "His record says acute. The health roll says seasonal minor. Different date, different severity.",
     tags: ['Investigation', 'NPC', 'Health', 'Records', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading population health corruption patterns');
+      gainXp(35, 'reading population health corruption patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -276,13 +276,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A gap on the archive shelf — dust-free at the edges. That level is new.",
     tags: ['Investigation', 'NPC', 'Archives', 'History', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering archive destruction conspiracy');
+      gainXp(37, 'uncovering archive destruction conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -317,13 +317,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Cosmouth joins: approved. Identical independent joins: eleven days under review.",
     tags: ['Investigation', 'NPC', 'Craft', 'Quality', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering shipwright safety corruption');
+      gainXp(37, 'uncovering shipwright safety corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -360,13 +360,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Five amendments in eight months. Each one adds a Cosmouth clause.",
     tags: ['Investigation', 'Structure', 'Organization', 'Maritime', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'maritime hierarchy analysis');
+      gainXp(35, 'maritime hierarchy analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -398,13 +398,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Sixty-four independent merchants three years ago. Forty-one now. It was selectively cleared.",
     tags: ['Investigation', 'Networks', 'Maritime', 'Displacement', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'merchant network displacement mapping');
+      gainXp(37, 'merchant network displacement mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -439,13 +439,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three pages of public access last year. One page now. The gap covers everything before.",
     tags: ['Investigation', 'Archives', 'System', 'Information', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'archive system integrity analysis');
+      gainXp(35, 'archive system integrity analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -477,13 +477,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three new positions, same administrative cycle, all filled by the same harbor authority office.",
     tags: ['Investigation', 'Ambition', 'Power', 'Tracking', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'personal ambition pattern mapping');
+      gainXp(37, 'personal ambition pattern mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -518,13 +518,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Process, delay, paperwork — until the person at the center understands what it wants.",
     tags: ['Investigation', 'Institutions', 'Dependency', 'Power', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'institutional dependency system documentation');
+      gainXp(37, 'institutional dependency system documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -559,13 +559,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Full deliveries arrive. Independents get sixty percent. The rest is reserved, nothing scheduled.",
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'resource scarcity manipulation mapping');
+      gainXp(35, 'resource scarcity manipulation mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -600,13 +600,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Cosmouth crews get the full rite. Independent crews are turned away — again.",
     tags: ['Investigation', 'Faith', 'Ritual', 'Control', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'ritual weaponization documentation');
+      gainXp(37, 'ritual weaponization documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -643,13 +643,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three people in an hour, all treating it the same way — quietly.",
     tags: ['Investigation', 'Rumor', 'Maritime', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing maritime crew narrative');
+      gainXp(32, 'parsing maritime crew narrative');
       G.stageProgress[1]++;
 
       const rumor = ['the stable factor is taking bribes to assign dock berths', 'independent merchants are being systematically frozen out of maritime trade', 'arrival records are being falsified to hide secret cargo movements', 'someone is stealing maritime supplies and sending them northward', 'ship captains are being forced to swear loyalty oaths to House Cosmouth'];
@@ -672,13 +672,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The reading room has its own current. Scholars share things quietly — already accepted.",
     tags: ['Investigation', 'Rumor', 'Archives', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing archival research narrative');
+      gainXp(32, 'parsing archival research narrative');
       G.stageProgress[1]++;
 
       const rumor = ['historical records are being destroyed to hide precedent for merchant independence', 'archive access is being restricted to control what citizens can learn', 'documents proving House Cosmouth overreach are being sealed permanently', 'the archive keeper is being forced to cooperate with document destruction', 'Cosmoria\'s entire historical foundation is being deliberately rewritten'];
@@ -701,13 +701,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Nine documents from nine institutions. None point at each other. All point the same direction.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing institutional corruption conspiracy');
+      gainXp(40, 'exposing institutional corruption conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -742,7 +742,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "They've been waiting for someone to ask. They don't know if it helps.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     effects: [
       { type: 'heat', polity: 'cosmouth', amount: 1 },
@@ -752,7 +752,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment');
+      gainXp(35, 'making moral commitment');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -786,13 +786,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The money came first. The charter amendments followed. Cosmoria's institutions didn't change from inside.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of institutional corruption');
+      gainXp(40, 'discovering origin source of institutional corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -828,10 +828,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Seven vessels, no return manifests. Same administrator cleared all seven on irregular days.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 73,
+    xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'identifying ghost vessel registry entries');
+      gainXp(36, 'identifying ghost vessel registry entries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -858,10 +858,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Seven departure manifests, seven different vessels and dates, one identical document filed seven times.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracing maritime cargo laundering chain');
+      gainXp(35, 'tracing maritime cargo laundering chain');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -883,10 +883,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Berths four and six load at the noisiest hour. Scheduled to disappear in the noise.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading harbor activity pattern');
+      gainXp(34, 'reading harbor activity pattern');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -911,10 +911,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Iron Compact's projections have a gap. Seven ghost vessels fit it exactly.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Iron Compact contact');
+      gainXp(35, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -941,14 +941,14 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The last name on the tide markers is two years old. The tradition just stopped.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', 'The tide markers are below the walk and the tide has come back in faster than the harbor gate board predicted. Salt spray covers the lower carvings; the names you wanted to read are under three fingers of brine. Low tide returns before dawn.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'reading Cosmoria tide markers');
+      gainXp(25, 'reading Cosmoria tide markers');
 
       G.lastResult = `The tide markers at the harbor mouth are worn smooth by three hundred years of hands and salt spray. Names and dates run up both sides — the oldest near the base, faded to bare suggestion, the recent ones still sharp. The most recent carved entry is dated two years and four months ago. The stone above it is unmarked. There's no posted restriction. No locked gate. No sign. The tradition just stopped. A sailor you pass on the walk back says he knows about the markers but he wouldn't carve his name there now. He doesn't say why.`;
       addJournal('Harbor tide markers: departure tradition stopped two years ago without explanation — harbor culture shifted', 'discovery', `cosmoria-tides-${G.dayCount}`);
@@ -960,14 +960,14 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The log is on the desk. Just enough written to fill the space.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The administrator looks up from the desk as you cross the corridor — the harbor mouth visible through their window keeps them facing that direction by habit, but the slightest movement in the corner pulls their attention. You step out of the sightline before they fix on you. The log stays in the office.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'obtaining administrator appointment log');
+      gainXp(35, 'obtaining administrator appointment log');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -986,10 +986,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One crew came back. Private mooring, sealed cases, no return manifest.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'interviewing returning crew member');
+      gainXp(34, 'interviewing returning crew member');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -1013,10 +1013,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone else was asking about those ghost vessels. A week ahead of me.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -1045,7 +1045,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: function() {
     addNarration('', 'The notice board outside the counting house is full of older pins — manifest disputes, tide-schedule adjustments curling at the edges from salt air. Nothing posted since this morning has been replaced. The wind off the lower harbor lifts a corner of yesterday\'s sheet and sets it back.', (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
@@ -1063,11 +1063,11 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The dockside tavern has a different kind of ledger — who owes whom.",
     tags: ['Tavern', 'Social', 'Maritime'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(55, 'at the dockside tavern');
+      gainXp(27, 'at the dockside tavern');
       var result = rollD20('wits', (G.skills.wits||0) + (typeof getTraitBonus==='function'?getTraitBonus('lore'):0));
       if (result.total >= 11) {
         G.lastResult = "The barman at the Anchor counts his coin between every exchange — a habit, not suspicion. He mentions that the southern berths have been rotating faster than seasonal demand explains. Two vessels arrived, took on no cargo, and left within a day. He doesn't know what that means. He knows it isn't nothing. A dockworker at the far end of the bar sets down his cup when the barman says it. He doesn't look up. He doesn't have to. The barman switches topics.";
@@ -1092,14 +1092,14 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The harbor clerk answered something. Not what I asked.",
     tags: ['NPC', 'Records', 'Inquiry'],
-    xpReward: 55,
+    xpReward: 27,
     stageProgress: 1,
     failResult: "The harbor registry window closes at the third bell and the afternoon clerk has not yet arrived. A handwritten card taped to the sill gives the reopening time. Whatever was logged this morning is filed; the current shift can only access afternoon intake.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(55, 'harbor clerk deflected with a different answer');
+      gainXp(27, 'harbor clerk deflected with a different answer');
       G.stageProgress[1]++;
       G.lastResult = "The harbor registry clerk listens to the question about the unlogged manifest discrepancy. Then she explains the standard manifest logging process: intake, stamp, routing code, secondary verification. The explanation is patient and complete and describes a process that has nothing to do with the specific discrepancy. When the explanation ends, she looks up as if waiting for a follow-up. The original question is still unanswered. She did not mishear it — the room was quiet, the words were plain. The process she described is correct. It simply does not apply to the thing that was asked.";
       addJournal('Cosmoria harbor registry: clerk responded to a question about a manifest discrepancy by explaining standard intake procedure — question not addressed. Source: harbor registry window, morning shift.', 'complication');
@@ -1124,7 +1124,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Two watchers, blocking line of sight to the harbor gate. Signal the moment they split.",
     tags: ['Combat', 'Confrontation', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The watchers do not split — one steps back but the second moves to compensate, closing the angle before it opens. They have practiced this. A third watcher appears from the salt merchant row and the harbor gate access is now monitored from three directions. You withdraw before the third watcher establishes your position. The harbor gate approach is closed for this watch rotation.',
@@ -1136,7 +1136,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'suppressing watchers at harbor gate');
+      gainXp(32, 'suppressing watchers at harbor gate');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1168,7 +1168,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Harbor gate is blocked. The bar on the other side hasn\'t been properly seated.",
     tags: ['Combat', 'Risk', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The bar is more firmly seated than the gap in the gate suggested — enough play to show the misalignment but not enough to give on impact without a tool you do not have. The watchers in the salt merchant row are already turning. You step back from the gate before they reach their signal position.',
@@ -1180,7 +1180,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'forcing blocked harbor gate');
+      gainXp(32, 'forcing blocked harbor gate');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1213,7 +1213,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Coastal marker stones carry inscriptions. That one has a second layer underneath the Roazian marks.",
     tags: ['Magic', 'Lore', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The coastal marker stone is on the tidal shelf below the harbor walk, accessible only at low tide, which was two hours ago. The current tide has covered the lower section of the stone where the secondary inscription is likely to be. The stone will be accessible again at the next low tide, which the harbor gate board lists for six hours from now.',
@@ -1225,7 +1225,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading secondary inscription in coastal marker stone');
+      gainXp(32, 'reading secondary inscription in coastal marker stone');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1256,7 +1256,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Port authority record room. The ward on the archive cabinet is newer than the cabinet.",
     tags: ['Magic', 'Lore', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The archive cabinet is in the restricted section of the port authority records room, which requires a port authority access token to enter. The ward is visible from the public section through the grille, but reading it at this distance loses the fine-grain sigil detail needed to distinguish the inscription layers. The public section holds filed copies; the ward on the original archive is inaccessible from here.',
@@ -1268,7 +1268,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading arcane ward on port authority archive cabinet');
+      gainXp(32, 'reading arcane ward on port authority archive cabinet');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1300,7 +1300,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The watched building, second floor east window. Someone inside who shouldn\'t be visible at all.",
     tags: ['Stealth', 'Covert', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The building entrance is covered from two angles — one watcher in the salt row, one at the harbor walk corner. The east window is not accessible from the street. The alley behind the building is gated and the gate latch is on the inside. Whatever access exists, it does not run through the main street or the alley entrance.',
@@ -1312,7 +1312,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'extracting person from watched building');
+      gainXp(32, 'extracting person from watched building');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1343,7 +1343,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Port authority checkpoint at night. One clerk, one log, and twenty seconds between entries.",
     tags: ['Stealth', 'Covert', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The clerk\'s entry rhythm is irregular — sometimes eight seconds between log entries, sometimes thirty-five. The window you mapped is not reliable. You hold at the checkpoint corner for ten minutes and never find two consecutive gaps wide enough for the crossing. The checkpoint stays active through the night.',
@@ -1355,7 +1355,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'slipping through port authority checkpoint unlogged');
+      gainXp(32, 'slipping through port authority checkpoint unlogged');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1388,7 +1388,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The watcher has been in the salt row for four hours. Not watching the harbor.",
     tags: ['Support', 'NPC', 'Persuasion'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The watcher has nothing to give and nothing to gain. He was told to stand in the salt row and he is standing in the salt row and the conversation ends when you stop contributing to it. His posture closes off slowly, without hostility, the way someone closes off when they realize the conversation is not going anywhere for either party. He watches the harbor.',
@@ -1400,7 +1400,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'turning suspicious watcher through patient conversation');
+      gainXp(32, 'turning suspicious watcher through patient conversation');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1432,7 +1432,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The salt merchant controls port access. He knows it. He\'s waiting for acknowledgment.",
     tags: ['Support', 'NPC', 'Negotiation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The salt merchant wants acknowledgment and he wants a specific kind — not gratitude, not deference, but a concrete offer that treats his control as legitimate rather than assumed. Whatever you offered did not reach that threshold. He goes back to his display arrangement and the harbor gate access he manages informally remains closed.',
@@ -1444,7 +1444,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering deal with salt merchant who controls port access');
+      gainXp(32, 'brokering deal with salt merchant who controls port access');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));

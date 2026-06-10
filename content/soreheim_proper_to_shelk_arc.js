@@ -14,11 +14,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "The numbers are damning. Leaving them here means leaving them reachable.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'preparing to carry evidence south');
+      gainXp(32, 'preparing to carry evidence south');
       if (!G.flags) G.flags = {};
 
       if (!G.worldClocks) G.worldClocks = {};
@@ -34,11 +34,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "The checkpoint guard has seen too many academic transfers today to care about one more.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'passing the Compact checkpoint');
+      gainXp(37, 'passing the Compact checkpoint');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -65,11 +65,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "Nine workers dismissed the same day. The form was identical. This was coordinated.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'encountering displaced worker on the road');
+      gainXp(35, 'encountering displaced worker on the road');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -95,12 +95,12 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "Quota escalation. Displacement. Unmanned operation. This was designed.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'synthesizing Soreheim evidence into larger pattern');
+      gainXp(40, 'synthesizing Soreheim evidence into larger pattern');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -125,11 +125,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "Wrong name on the letter. The courier turned off rather than continuing north.",
     tags: ['ArcDeepening', 'Investigation', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'evaluating suspicious courier contact');
+      gainXp(37, 'evaluating suspicious courier contact');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       const target = 13;
@@ -153,11 +153,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "She's been watching the southern road for three weeks. On her own time.",
     tags: ['ArcDeepening', 'Social', 'Risk'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'approaching the off-duty logistics officer');
+      gainXp(37, 'approaching the off-duty logistics officer');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -188,11 +188,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "Faint brassiness at deep inhale. Early-stage gradient. The dome is visible on the skyline.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'entering Shelkopolis outer district');
+      gainXp(35, 'entering Shelkopolis outer district');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -216,11 +216,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "Three people from other localities came through before me. She already has a file.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'making first contact in Shelkopolis investigation network');
+      gainXp(40, 'making first contact in Shelkopolis investigation network');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -245,11 +245,11 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "Workers walk past the dome access points without looking. They've learned not to.",
     tags: ['ArcArrival', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'orienting in Ironspool Ward');
+      gainXp(37, 'orienting in Ironspool Ward');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -280,12 +280,12 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
     label: "Names, dates, templates, patterns. Together they constitute something worth suppressing.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.soreheim_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'acknowledging the weight of accumulated evidence');
+      gainXp(40, 'acknowledging the weight of accumulated evidence');
       if (!G.flags) G.flags = {};
       G.flags.soreheim_arc_departing = true;
 
@@ -302,12 +302,12 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
     label: "Someone picked me up at the checkpoint. They haven't stopped.",
     tags: ['ArcGate', 'Stealth', 'Combat', 'Risk'],
     plot: 'main',
-    xpReward: 85,
+    xpReward: 42,
     condition: function() { return G.level >= 6 && (G.flags && G.flags.soreheim_arc_departing) && !(G.flags && G.flags.soreheim_arc_tail_resolved); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'losing the Iron Compact tail');
+      gainXp(42, 'losing the Iron Compact tail');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0) + (G.skills.might || 0));

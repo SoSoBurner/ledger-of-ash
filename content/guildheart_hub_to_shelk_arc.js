@@ -12,11 +12,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Forty years old and still protecting something. Someone renewed it recently.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Guildheart with pre-Union charter fragment');
+      gainXp(32, 'departing Guildheart with pre-Union charter fragment');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Three months of deflections. Each venue named the next one. No one accepted it.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'talking with Paerun Delst about complaint filing failures');
+      gainXp(35, 'talking with Paerun Delst about complaint filing failures');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -54,11 +54,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Calla's transfer was approved in forty-eight hours. Standard takes three weeks.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'assessing Calla Trent\'s immediate transfer approval');
+      gainXp(35, 'assessing Calla Trent\'s immediate transfer approval');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Calla Trent's transfer was approved in forty-eight hours. Standard Collegium reassignments take two to three weeks — longer for regional transfers involving housing allocation. A forty-eight-hour approval requires a senior sign-off and a stated operational need. She filed the transfer request three days after your activity became visible in Guildheart. The monitoring and repositioning are not reactive — they are structured. Someone in the operation watches for inquiry patterns and moves assets before the inquiry can conclude.`;
@@ -75,12 +75,12 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Binding agreements, unrecorded. The charter makes them legal and invisible at once.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'understanding charter-backed guild agreements');
+      gainXp(40, 'understanding charter-backed guild agreements');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -95,11 +95,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Four deaths in six months. Each within three weeks of filing an objection.",
     tags: ['ArcDeepening', 'Survival', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'noticing elevated guild memorial bell frequency');
+      gainXp(37, 'noticing elevated guild memorial bell frequency');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -119,11 +119,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Renewed off-cycle for entities that don't exist in any registry.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'tracing charter renewal history');
+      gainXp(37, 'tracing charter renewal history');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -145,11 +145,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Forty years of records. The renewal that shouldn't exist is in there somewhere.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'arriving at Shelkopolis guild district');
+      gainXp(35, 'arriving at Shelkopolis guild district');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -164,11 +164,11 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "Twelve amendments missing from every record. Someone kept the copies.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'finding the Shelkopolis off-channel arbitration counterpart');
+      gainXp(40, 'finding the Shelkopolis off-channel arbitration counterpart');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -193,12 +193,12 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
     label: "The legal case exists in Shelkopolis or it does not exist at all.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.guildheart_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to trace charter infrastructure to Shelkopolis');
+      gainXp(40, 'committing to trace charter infrastructure to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.guildheart_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

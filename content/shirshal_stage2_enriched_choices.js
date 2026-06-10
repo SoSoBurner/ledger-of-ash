@@ -15,7 +15,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The accord registry requires a Magistratus certification to access expired clause records.',
     fn: function() {
       advanceTime(1);
@@ -27,12 +27,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discover';
         G.lastResult = 'Accord clause 14-C governed the secondary transit rights through Shirshal\'s northern corridor. It expired eighteen months ago. The renewal process requires a cosignatory from the originating polity — a cosignatory no longer in their position. You trace the vacancy: three months after the expiration, a shipment began routing through the corridor without the required documentation. No one filed a complaint. The registry clerk who would have caught it transferred to a different office two weeks before the shipment started.';
         addJournal('Accord clause 14-C expired eighteen months ago. Northern corridor used without documentation since. The clerk who would have flagged it transferred just before shipments began.', 'evidence', 'shirshal-accord-14c-' + (G.dayCount||0));
-        if (typeof gainXp === 'function') gainXp(40);
+        if (typeof gainXp === 'function') gainXp(20);
       } else {
         G.recentOutcomeType = 'fail';
         G.lastResult = 'The accord registry index lists clause 14-C as expired, but the supporting documentation sits in a Magistratus-certified archive partition. Access requires a certification you do not currently hold. The registry clerk produces the certification request form without being asked. The form has a twelve-week processing window printed at the bottom. Someone has added a handwritten note: "Expedited review available — see Annex C." Annex C is not attached.';
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
-        if (typeof gainXp === 'function') gainXp(15);
+        if (typeof gainXp === 'function') gainXp(7);
       }
     }
   },
@@ -41,14 +41,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
     tags: ['Investigation', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(84, 'cross-referencing with Magi Magistratus investigator Tazren Coilspire');
+      gainXp(42, 'cross-referencing with Magi Magistratus investigator Tazren Coilspire');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -79,14 +79,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three glyph case evidence packages marked delivered. None logged at destination.",
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'tracing missing evidence transfers with Luneth Coilspire');
+      gainXp(38, 'tracing missing evidence transfers with Luneth Coilspire');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
@@ -114,14 +114,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Suppression compound precursors flowing through Shirshal under false material classifications.",
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining arcane material import classifications');
+      gainXp(36, 'examining arcane material import classifications');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
@@ -150,14 +150,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "She's watched magistracy patterns for years. She knows who doesn't belong on the roster.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'questioning Mirae Coilspire about magistracy personnel patterns');
+      gainXp(34, 'questioning Mirae Coilspire about magistracy personnel patterns');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
@@ -186,14 +186,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A cluster of glyph-locality petitions dismissed simultaneously under a single ruling. Three months ago.",
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reviewing registry shrine petition dismissal records');
+      gainXp(35, 'reviewing registry shrine petition dismissal records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -223,7 +223,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Two sets of transcripts. One filed, one hidden. The gap is where real testimony went.",
     tags: ['stage2', 'shirshal'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -245,7 +245,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "One calibration stone misaligned in a way no standard maintenance cycle would produce.",
     tags: ['stage2', 'shirshal'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -266,7 +266,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Eris controls restricted sections. The wrong question ends up in a Magistratus incident log.",
     tags: ['stage2', 'shirshal'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
@@ -289,7 +289,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A clerk in the magistracy corridor has mistaken me for a Magistratus runner.",
     tags: ['stage2', 'shirshal'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('finesse', G.skills.finesse);
@@ -308,7 +308,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A rumor about the suppressed case is circulating in the magistracy break room.",
     tags: ['stage2', 'shirshal'],
-    xpReward: 30,
+    xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('charm', G.skills.charm);
@@ -327,7 +327,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The archive gate goes unattended for four minutes at shift change.",
     tags: ['stage2', 'shirshal'],
-    xpReward: 32,
+    xpReward: 16,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       var roll = rollD20('wits', G.skills.wits);
@@ -346,14 +346,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A northern staging courier. Sealed packet to the same unlisted sub-registry Luneth mapped.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'intercepting northern courier packet');
+      gainXp(36, 'intercepting northern courier packet');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -383,14 +383,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A woman from Panim Haven arrived with testimony. Not seen inside since the first morning.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'locating Panim Haven witness');
+      gainXp(34, 'locating Panim Haven witness');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -420,14 +420,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The sub-registry code is in the magistracy's own charter. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing Magistratus sub-registry in Magi Magistratus charter amendments');
+      gainXp(37, 'tracing Magistratus sub-registry in Magi Magistratus charter amendments');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -457,14 +457,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Two of Tazren's supervisors in the building today. One signed the original case closure order.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'confronting magistracy supervisors who closed Tazren case');
+      gainXp(39, 'confronting magistracy supervisors who closed Tazren case');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -495,14 +495,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The transit post kept a field rotation log. The magistracy never asked them to stop.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing external Magistratus rotation log at transit post');
+      gainXp(34, 'tracing external Magistratus rotation log at transit post');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -532,14 +532,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A retired archivist near the registry shrine. She left under circumstances the record doesn't describe.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'speaking with retired magistracy archivist');
+      gainXp(35, 'speaking with retired magistracy archivist');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -569,14 +569,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The north road at the hour Mirae named. The ten-day cycle leaves from here.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'surveillance on north road departure — ten-day cycle contact');
+      gainXp(36, 'surveillance on north road departure — ten-day cycle contact');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -606,14 +606,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The residue on the calibration stone is a compound, not sediment. Specific formulation.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'analyzing residue on misaligned warding stone');
+      gainXp(33, 'analyzing residue on misaligned warding stone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -643,14 +643,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The surge reports and dismissal dates don't match the filed account.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing glyph surge incident dates against petition dismissals');
+      gainXp(37, 'cross-referencing glyph surge incident dates against petition dismissals');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -680,14 +680,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Verdant Row network tracks which localities received the suppressed materials.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'contacting Verdant Row network on material distribution');
+      gainXp(38, 'contacting Verdant Row network on material distribution');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -717,14 +717,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The override code appeared in a second magistracy branch three months before here.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing override code appearance in a second magistracy branch');
+      gainXp(34, 'tracing override code appearance in a second magistracy branch');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -754,14 +754,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The hidden transcripts name three surge witnesses. One is still in Shirshal.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'locating glyph surge witness named in Ravel hidden transcripts');
+      gainXp(35, 'locating glyph surge witness named in Ravel hidden transcripts');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -795,14 +795,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The archivist's index uses three notation systems. The third one appears nowhere in the key.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracing notation discrepancies in archive index');
+      gainXp(39, 'tracing notation discrepancies in archive index');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -830,14 +830,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three filing slots in the restricted section show evidence of re-ordering within the past month.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining recent re-ordering of restricted archive section');
+      gainXp(36, 'examining recent re-ordering of restricted archive section');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -864,14 +864,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern transit depot logs show a standing gap — same three-week window, annually.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'auditing northern transit depot receipt logs for annual gap pattern');
+      gainXp(37, 'auditing northern transit depot receipt logs for annual gap pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -899,14 +899,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Fairhaven staging ledger has a Shirshal magistracy notation that Fairhaven never authorized.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing Fairhaven staging ledger against Shirshal magistracy records');
+      gainXp(38, 'cross-referencing Fairhaven staging ledger against Shirshal magistracy records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -933,14 +933,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The archive's material transfer log skips four entries without an annotation. Ink date matches.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'examining material transfer log for skipped entries');
+      gainXp(35, 'examining material transfer log for skipped entries');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -967,14 +967,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern route compliance cert is signed by an officer who retired two years ago.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'verifying certification signatory against personnel records');
+      gainXp(34, 'verifying certification signatory against personnel records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1002,14 +1002,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The sealed-section catalog shows forty-three files. The shelf holds forty.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'counting sealed archive section against catalog');
+      gainXp(36, 'counting sealed archive section against catalog');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1036,14 +1036,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Water-damage noted on the file box. Inside: pristine files, not a warped edge.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'examining water-damage misfiled box in archive wing');
+      gainXp(32, 'examining water-damage misfiled box in archive wing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1072,14 +1072,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Luneth signs for packages he wasn't told the contents of — keeping a private tally.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'reviewing Luneth Coilspire private package tally');
+      gainXp(40, 'reviewing Luneth Coilspire private package tally');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1109,14 +1109,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Khalis ran the same import category through three classification requests. All three came back identical.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'reviewing Khalis Coilspire duplicate classification requests');
+      gainXp(37, 'reviewing Khalis Coilspire duplicate classification requests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1146,14 +1146,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Sivren's shrine records a dedication rite that no charter recognizes. Performed on petition dismissal day.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'examining Sivren Coilspire shrine rite record against petition calendar');
+      gainXp(36, 'examining Sivren Coilspire shrine rite record against petition calendar');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1183,14 +1183,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Mirae knows which guests never signed the visitors' book. She tracked them separately.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'reviewing Mirae Coilspire private guest record');
+      gainXp(39, 'reviewing Mirae Coilspire private guest record');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1220,14 +1220,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Tazren drew a network map before the case closed. It's still in his drawer.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(85, 'accessing Tazren Coilspire suppression network map');
+      gainXp(42, 'accessing Tazren Coilspire suppression network map');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1258,14 +1258,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The porter rotation excluded Luneth from the restricted wing. He noticed the week it happened.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'speaking with Luneth about restricted wing rotation change');
+      gainXp(35, 'speaking with Luneth about restricted wing rotation change');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1294,14 +1294,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Mirae's spare room is always reserved for the same party. No name. Standing block.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'examining Mirae Coilspire standing reservation block');
+      gainXp(34, 'examining Mirae Coilspire standing reservation block');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1333,10 +1333,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Resonance compound uses an import sub-tier that hasn't been valid since the charter revision.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'auditing resonance compound import classification against current charter');
+      gainXp(37, 'auditing resonance compound import classification against current charter');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1364,10 +1364,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Compound shipments arrive light — declared weights don't match what the depot receives.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'comparing border weight declarations to depot receipt weights');
+      gainXp(36, 'comparing border weight declarations to depot receipt weights');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1394,10 +1394,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The transit manifest lists a handling agent that doesn't appear in any magistracy contractor registry.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'cross-checking transit manifest handling agent against contractor registry');
+      gainXp(35, 'cross-checking transit manifest handling agent against contractor registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1425,10 +1425,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A second compound type moving through the same route. Different classification. Same handler.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'identifying second compound type in transit route');
+      gainXp(38, 'identifying second compound type in transit route');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1455,10 +1455,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern transfer receiving signature is initials only — same two initials on every form.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing receiving signature initials across northern transfer forms');
+      gainXp(34, 'tracing receiving signature initials across northern transfer forms');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1485,10 +1485,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The shipment schedule repeats on a 73-day cycle. Axial flip timing. Not coincidence.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'identifying 73-day axial cycle pattern in compound shipment schedule');
+      gainXp(40, 'identifying 73-day axial cycle pattern in compound shipment schedule');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1517,10 +1517,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Guildheart's staging records carry a Shirshal notation. Neither authority signed off.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing Guildheart staging records against Shirshal magistracy authorizations');
+      gainXp(38, 'cross-referencing Guildheart staging records against Shirshal magistracy authorizations');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1548,10 +1548,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A Shelkopolis ward registry entry names Shirshal as co-administering authority. No Shelkopolis record matches.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing Shelkopolis ward registry against Shirshal co-administration claim');
+      gainXp(37, 'cross-referencing Shelkopolis ward registry against Shirshal co-administration claim');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1578,10 +1578,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Panim Haven's compliance clerk queried Shirshal six months ago. The reply wasn't from the magistracy.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing Panim Haven compliance query response origin');
+      gainXp(36, 'tracing Panim Haven compliance query response origin');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1608,10 +1608,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three Fairhaven glyph surge reports list a Shirshal case number. Shirshal denies it exists.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'cross-checking Fairhaven glyph surge case numbers against Shirshal magistracy records');
+      gainXp(39, 'cross-checking Fairhaven glyph surge case numbers against Shirshal magistracy records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1639,10 +1639,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A carrier remembers the last shipment he couldn't ask questions about. He remembers everything.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'interviewing northern route carrier about suppressed shipment');
+      gainXp(35, 'interviewing northern route carrier about suppressed shipment');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1671,10 +1671,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A magistracy oversight auditor has arrived. Her case list includes my name.",
     tags: ['Heat', 'Authority', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'managing magistracy oversight auditor inquiry');
+      gainXp(41, 'managing magistracy oversight auditor inquiry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1706,10 +1706,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The magistracy's heat on this wing has doubled since the charter amendment came up.",
     tags: ['Heat', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'assessing heightened magistracy surveillance of archive wing');
+      gainXp(32, 'assessing heightened magistracy surveillance of archive wing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1738,10 +1738,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A Magistratus man sits in the magistracy lobby since the courier intercept. Not reading.",
     tags: ['Heat', 'Authority', 'Stage2'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'evading Magistratus surveillance in magistracy lobby');
+      gainXp(39, 'evading Magistratus surveillance in magistracy lobby');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1772,7 +1772,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Coordinated evidence management confirmed. magistracy director or route around it — both paths are open.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1808,7 +1808,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Seal degradation rates don't match the recorded dates — these pages are too new",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1834,7 +1834,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The records officer stopped searching. He's waiting for me to leave.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       var result = rollD20('might', {dc: 13, locality: 'shirshal', label: 'Records officer confrontation'});
       if (result.isCrit) {
@@ -1857,7 +1857,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The auditor has run this review loop three years without resolution.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);

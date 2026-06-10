@@ -14,7 +14,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The arbitrator's rulings have gone the same direction for weeks.",
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -24,7 +24,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading guild dispute patterns');
+      gainXp(35, 'reading guild dispute patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -59,7 +59,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "The merchants who lost agreements last month all trade the same goods. That's not coincidence.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Agreements', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -69,7 +69,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering trade agreement manipulation');
+      gainXp(37, 'uncovering trade agreement manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -106,7 +106,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Quality', 'Standards', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -116,7 +116,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading quality control patterns');
+      gainXp(35, 'reading quality control patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -144,7 +144,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Access', 'Membership', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -154,7 +154,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering access control manipulation');
+      gainXp(37, 'uncovering access control manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -185,7 +185,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The ledger master handles every account. Wrong numbers means someone told him.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Records', 'Finance', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -195,7 +195,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading ledger manipulation patterns');
+      gainXp(35, 'reading ledger manipulation patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -226,7 +226,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Bay Seven has the same crates for days. The broker knows it's not an accident.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -236,7 +236,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'tracing merchandise diversion');
+      gainXp(35, 'tracing merchandise diversion');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -264,7 +264,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The new initiation oath asks about household doubts. That was never in the ceremony before.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Membership', 'Coercion', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -274,7 +274,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering coercive membership practices');
+      gainXp(37, 'uncovering coercive membership practices');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -305,7 +305,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Weight assessment and independent arbitration were year-one skills. Now they're locked behind Level Four.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Craft', 'Knowledge', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -315,7 +315,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering craft knowledge suppression');
+      gainXp(37, 'uncovering craft knowledge suppression');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -348,7 +348,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Three department heads gone, merchant council now 'advisory.' That change wasn't announced.",
     plot: 'main',
     tags: ['Investigation', 'Structure', 'Organization', 'Power', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -358,7 +358,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'guild hierarchy analysis');
+      gainXp(35, 'guild hierarchy analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -386,7 +386,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Seventeen merchants dropped in eight months. Fifteen replaced by names sharing one endorsing signature.",
     plot: 'main',
     tags: ['Investigation', 'Networks', 'Commerce', 'Displacement', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -396,7 +396,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'merchant network displacement mapping');
+      gainXp(37, 'merchant network displacement mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -427,7 +427,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Two merchants, opposite ends of the quarter, the same phrase. They don't know each other.",
     plot: 'main',
     tags: ['Investigation', 'Information', 'Communication', 'Control', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -437,7 +437,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'information flow analysis');
+      gainXp(35, 'information flow analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -465,7 +465,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Every merchant who filed a complaint lost something four days later. Same interval, different mechanism.",
     plot: 'main',
     tags: ['Investigation', 'Coercion', 'Fear', 'Threats', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -475,7 +475,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'coercion apparatus documentation');
+      gainXp(37, 'coercion apparatus documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -506,7 +506,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Nineteen percent to 'administrative coordination, external.' No service contract for that line.",
     plot: 'main',
     tags: ['Investigation', 'Resources', 'Flow', 'Redirection', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -516,7 +516,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'resource flow tracking');
+      gainXp(35, 'resource flow tracking');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -544,7 +544,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The common bench is empty at midday. Merchants who arrived together stand at separate walls.",
     plot: 'main',
     tags: ['Investigation', 'Trust', 'Institutions', 'Faith', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -554,7 +554,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'institutional trust erosion documentation');
+      gainXp(37, 'institutional trust erosion documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -585,7 +585,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Rulings cluster on merchants with one route, no backup suppliers. Someone mapped them first.",
     plot: 'main',
     tags: ['Investigation', 'Vulnerability', 'Economics', 'Exposure', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -595,7 +595,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'merchant vulnerability mapping');
+      gainXp(35, 'merchant vulnerability mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -626,7 +626,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "No issuing body, no number — just his name on the outcome.",
     plot: 'main',
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -636,7 +636,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'authority structure opacity analysis');
+      gainXp(37, 'authority structure opacity analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -669,7 +669,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The merchant quarter is running a story that doesn't need to be accurate. Just possible.",
     plot: 'main',
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -679,7 +679,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing merchant narrative');
+      gainXp(32, 'parsing merchant narrative');
       G.stageProgress[1]++;
 
       const rumor = ['the arbitrator is taking bribes to fix disputes', 'independent merchants are being systematically frozen out of the guild', 'arbitration decisions are made before the hearing even starts', 'someone is stealing guild resources and sending them north', 'the guild membership oaths are being used to coerce merchants into illegal activities'];
@@ -698,7 +698,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The loading crews talk after hours. Someone heard something near Bay Seven.",
     plot: 'main',
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -708,7 +708,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing merchant narrative');
+      gainXp(32, 'parsing merchant narrative');
       G.stageProgress[1]++;
 
       const rumor = ['the arbitrator is taking bribes to fix disputes', 'independent merchants are being systematically frozen out of the guild', 'arbitration decisions are made before the hearing even starts', 'someone is stealing guild resources and sending them north', 'the guild membership oaths are being used to coerce merchants into illegal activities'];
@@ -727,7 +727,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The paper trail of arbitration corruption is assembling. Time to compile and show it.",
     plot: 'main',
     tags: ['Investigation', 'Evidence', 'Proof', 'Corruption', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -737,7 +737,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing arbitration conspiracy');
+      gainXp(40, 'exposing arbitration conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -768,7 +768,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "A guild officer is complicit. Protect them or expose them.",
     plot: 'main',
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     effects: [
       { type: 'heat', polity: 'union', amount: 1 },
       { type: 'rival', amount: 1 }
@@ -782,7 +782,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment');
+      gainXp(35, 'making moral commitment');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -812,7 +812,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The corruption in guild arbitration runs through an external hand nobody has named.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -822,7 +822,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of arbitration corruption');
+      gainXp(40, 'discovering origin source of arbitration corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -854,14 +854,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The current mandate cites authority the pre-Union charter doesn't contain.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reading charter discrepancy evidence');
+      gainXp(36, 'reading charter discrepancy evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -884,14 +884,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The senior arbiter's schedule ends at close of hall. Where he goes after is unfiled.",
     tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracking off-channel contacts');
+      gainXp(37, 'tracking off-channel contacts');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -918,14 +918,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The guild floor has a second accounting beneath the first. That one is what matters.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading the trading floor');
+      gainXp(34, 'reading the trading floor');
       var arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -947,14 +947,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium observer has been here sixty-two days. That's monitoring, not an inquiry.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'Trent finishes his copyist row and slides the manifest into the bonded warehouse bin without looking up. The formal submission channel he described — written, signed, specific — is still open at the registry counter two pavilions over.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Oversight Collegium contact');
+      gainXp(35, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -977,14 +977,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The bell rings nine times. There are twelve registered guilds now.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 52,
+    xpReward: 26,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(52, 'reading local memorial culture');
+      gainXp(26, 'reading local memorial culture');
 
       G.lastResult = `The bell rings nine times. One for each guild in the original Guildheart compact. The factor finishes marking her manifest before answering. "Twelve registered guilds now. Bell still rings nine." She caps her ink. "Nobody's changed the bell because nobody wants to be the one who changed the bell." She moves to the next stall. The last ring fades into a yard that has three more members than the bell counts for.`;
       addJournal('Guild memorial bell: original nine-guild compact no longer reflects current power structure', 'discovery', `guildheart-bell-${G.dayCount}`);
@@ -996,14 +996,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Everything that leaves Guildheart gets logged at the guild desk. Mandatory for a year now.",
     tags: ['PersonalArc', 'Stealth', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'The guild desk clerk turns the logging slip toward you with three duplicate manifests already stamped behind her. The wool merchant who runs the outlying settlement loop three times a week leaves from the canal-side loading lane, not this counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'establishing courier drop');
+      gainXp(32, 'establishing courier drop');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -1022,14 +1022,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three factors pulled last month for the same violation. Two kept their licenses. One didn't.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: function() {
       addNarration('', 'Paerun\'s empty stall space still carries his registration number along the arbitration pavilion fence — visible from where you stand. The registry hall records will show who filed the enforcement action when the morning queue clears.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'hearing displaced factor account');
+      gainXp(33, 'hearing displaced factor account');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -1048,14 +1048,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A factor passes a note. Someone has been asking about me. The questions are detailed.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 58,
+    xpReward: 29,
     failResult: function() {
       addNarration('', `The dockside factor is in conversation with a hall clerk when you approach — a formal exchange, ledger open between them, nothing to interrupt. She clocks your approach without acknowledging it and keeps her attention on the clerk. The note she meant to pass stays in her apron. When the clerk leaves she moves directly to her next stall. The passage for it will come later — she'll look for you at the freight counter's east end during the slow hour before close of yard, which is where she handles anything that shouldn't be handed over in a crowd.`, (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'receiving rival warning');
+      gainXp(29, 'receiving rival warning');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -1086,7 +1086,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Two officials at the freight counter. One said a number. The other looked at me.",
     tags: ['Suppression', 'Observation', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1095,7 +1095,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(55, 'overhearing freight counter exchange');
+      gainXp(27, 'overhearing freight counter exchange');
 
       G.lastResult = `The Guildheart freight counter runs along the east wall of the hub yard, open on one side to the loading bays. Late morning: the yard noise fills in around conversations. Two administrators stand at the far end of the counter — one with a routing folio open against his forearm, one with both hands on the counter edge. The one with the folio says: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." The other glances toward where you are standing. It is a single look, no expression behind it, lasting less than a second. The folio closes. Neither administrator speaks again. Neither leaves. They stand where they were and do not resume the conversation.`;
       addJournal('Overheard at Guildheart Hub freight counter, mid-morning: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." Conversation ended when second party noted observer. Neither official left — they stopped in place.', 'intelligence');
@@ -1107,7 +1107,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: function() {
     addNarration('', `The notice board is bare — stripped for the daily re-posting that happens at close of hall. A clerk with a stack of fresh notices is making her way from the east annexe, cards in hand, but she's been stopped at the corridor junction by a registrar with a question. The board will be current again in ten minutes. The old postings, the ones taken down, accumulate in a wire basket below the board for three days before filing. Yesterday's notices are still in the basket, rubber-banded and legible.`, (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
@@ -1125,14 +1125,14 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'Two officials. One number. Then they see me',
   tags: ['Intelligence', 'Observation'],
-  xpReward: 15,
+  xpReward: 7,
   failResult: function() {
     addNarration('', `The manifest desk is empty — both officials gone, the counter clear, the shift handoff in progress. A replacement clerk is still coming up from the lower office. The reference code that stopped the earlier conversation is no longer being spoken; it's filed somewhere in the routing stack behind the counter, visible only to desk staff. The public routing board on the adjacent wall lists active administrative references by category. An administrative reference code, heard in context with a Category D hold and a Bay Seven clearance, narrows to a small section of that board — three or four entries at most.`, (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {
     advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-    gainXp(15, 'overheard administrative reference');
+    gainXp(7, 'overheard administrative reference');
     G.lastResult = 'Two factors near the manifest desk. The shorter one says a number — not a sum, a reference code, the kind stamped on an administrative filing. The other glances toward you. The conversation ends. Neither leaves. They stand there, not speaking, until you move toward the stairs. The reference code stays with you the way things do when someone decides you should not have heard them.';
     addJournal('Overheard at the Guildheart Hub transit floor: an administrative reference code, spoken between two factors before they spotted me. Source: Guildheart Hub manifest desk, morning shift.', 'intelligence');
     G.recentOutcomeType = 'investigate';
@@ -1147,7 +1147,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The factor started to name the routes that don't move. Then he didn't.",
     plot: 'main',
     tags: ['NPC', 'Trade', 'Observation'],
-    xpReward: 60,
+    xpReward: 30,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The factor is in a closed session on the upper floor of the counting hall. The annexe clerk takes a note but cannot say when the session ends. The routing corridor board on the ground floor lists active contracts by category — publicly accessible.', (G && G.lastResultType) || 'failure');
@@ -1157,7 +1157,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(60, 'factor self-censored mid-sentence about suppressed routes');
+      gainXp(30, 'factor self-censored mid-sentence about suppressed routes');
       G.stageProgress[1]++;
       G.lastResult = "The factor keeps his voice low and his back to the manifest desk. He says there are routes that don't — and then he stops. The sentence doesn't trail off; it ends, the way a door closes when someone hears footsteps. He clears his throat and asks if you need a standard routing form. His hands are already moving toward the form stack. He does not look at you while he asks. Whatever the routes don't do, he has decided that saying it aloud in this building is not something he will do today.";
       addJournal('Guildheart Hub factor: began naming suppressed routes, stopped mid-sentence on approach of desk staff. Source: transit floor, lower manifest station.', 'intelligence');
@@ -1176,7 +1176,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Staged blockade on the transit route. Three people, one road, and they know we\'re coming.",
     plot: 'main',
     tags: ['Combat', 'Risk', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The three blocking the route are better positioned than they look — two have the high ground on the road shoulder and the third is behind a loaded cart that would take both of you to move. The blockade is professionally set. You withdraw and circle to the waymark post through the secondary footpath, which adds two hours to the route.', (G && G.lastResultType) || 'failure');
@@ -1186,7 +1186,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'clearing transit route blockade');
+      gainXp(32, 'clearing transit route blockade');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1217,7 +1217,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Guild courier approaching the relay post. One intersection left before he\'s inside.",
     plot: 'main',
     tags: ['Combat', 'Confrontation', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The courier is already past the intersection when you clear the staging area corner. He is inside the relay post gate before you reach the intersection. The gate closes with the standard relay post security lock. The dispatch is filed. Whatever it contained is now inside the post record, and the post record is guild-restricted access.', (G && G.lastResultType) || 'failure');
@@ -1227,7 +1227,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'intercepting guild courier at relay post approach');
+      gainXp(32, 'intercepting guild courier at relay post approach');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1260,7 +1260,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Caravan manifest has a cipher running through the route codes. Not guild-standard.",
     plot: 'main',
     tags: ['Magic', 'Lore', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
@@ -1270,7 +1270,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'decoding route cipher in caravan manifest');
+      gainXp(32, 'decoding route cipher in caravan manifest');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1301,7 +1301,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Waymark inscription on the transit post. Underneath the guild marks there\'s a second message.",
     plot: 'main',
     tags: ['Magic', 'Lore', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
@@ -1311,7 +1311,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading secondary waymark inscription');
+      gainXp(32, 'reading secondary waymark inscription');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1343,7 +1343,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Transit district at third bell. The courier takes the same route every time.",
     plot: 'main',
     tags: ['Stealth', 'Covert', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
@@ -1353,7 +1353,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'shadowing guild courier through transit district');
+      gainXp(32, 'shadowing guild courier through transit district');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1384,7 +1384,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Caravan staging area at night. One guard, long circuit, manifest box in the open shed.",
     plot: 'main',
     tags: ['Stealth', 'Covert', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
@@ -1394,7 +1394,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'infiltrating caravan staging area at night');
+      gainXp(32, 'infiltrating caravan staging area at night');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1426,7 +1426,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "Emergency route arrangement. The factor wants something first and he\'s not pretending otherwise.",
     plot: 'main',
     tags: ['Support', 'NPC', 'Negotiation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
@@ -1436,7 +1436,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering emergency route arrangement');
+      gainXp(32, 'brokering emergency route arrangement');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1467,7 +1467,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     label: "The route discrepancy is a risk to the waymark factor's own operation.",
     plot: 'main',
     tags: ['Support', 'NPC', 'Persuasion'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', (G && G.lastResultType) || 'failure');
@@ -1477,7 +1477,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'making route discrepancy the factor\'s risk');
+      gainXp(32, 'making route discrepancy the factor\'s risk');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));

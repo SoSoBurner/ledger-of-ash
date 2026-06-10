@@ -12,7 +12,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Vale Brokerwell's decisions have been reshaping who controls these routes. He knows someone is looking.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: `The intake clerk at the coordination hall records your name in the daily visitor log without looking up. "Senior arbiter is in session until the fourth bell." She points at the waiting bench — plain wood, no back support, positioned so anyone sitting there faces away from the schedule board. The square outside the window is mid-morning busy: vendors at their licensed spots, announcement runners crossing paths at the central marker. Brokerwell is in there. You are on a bench with a number.`,
       xp: 0, effects: [],
@@ -20,7 +20,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'meeting Vale Brokerwell');
+      gainXp(34, 'meeting Vale Brokerwell');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -41,7 +41,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The public register and the parties' private outcome copies don't say the same thing.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 37,
     failResult: {
       text: `The public register is behind the coordination desk, accessible during stated hours to parties with registered standing. The clerk on duty checks your name against the intake list, finds nothing, and shakes her head without apology. "Standing parties only." At the notice board outside, a runner pins a new coordination announcement over the corner of an older one without straightening either. The record exists. The access to compare it against anything doesn't, not today.`,
       xp: 0, effects: [],
@@ -49,7 +49,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'cross-referencing arbitration records');
+      gainXp(37, 'cross-referencing arbitration records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -72,7 +72,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A private outcome document names a case. The public register has no record of it.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 38,
     failResult: {
       text: `Without the private outcome document in hand, there is no case number to query. The public register shows consecutive entries, no gaps in the index, pagination uninterrupted. An announcement runner crosses the plaza at a jog, pulling the previous posting from the board and replacing it without breaking stride. Whatever was deleted left no visible seam. The thread leads back to whichever party holds the original private outcome copy.`,
       xp: 0, effects: [],
@@ -80,7 +80,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'tracing deleted arbitration case');
+      gainXp(38, 'tracing deleted arbitration case');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -105,7 +105,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The plaza at peak hours reads like a document, if I know how to look.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: `The plaza at peak hours is dense enough that individual threads are hard to separate from the background churn. Runners, vendors, factors, advocates — all moving at different speeds with different purposes. The licensed announcement caller at the south post is reading the morning slate in a voice calibrated to carry over the noise. The pattern, if there is one, hasn't surfaced yet. The square gives up its information to people who know what they're looking at.`,
       xp: 0, effects: [],
@@ -113,7 +113,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'reading coordination hub activity');
+      gainXp(33, 'reading coordination hub activity');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -134,7 +134,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Brokerwell's appointment used an emergency succession protocol. His predecessor retired — voluntarily.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: `The public appointment record at the coordination registry shows Brokerwell's name and date, as expected. The deliberation materials — council meeting minutes, confirmation correspondence, the review notes — are filed under sealed session protocol. Reading them requires council authorization that isn't available through open inquiry. The stamp is sanctioned. What produced the stamp is behind a door that opens for registered parties only. The appointment stands on its own, for now.`,
       xp: 0, effects: [],
@@ -142,7 +142,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'auditing Brokerwell\'s appointment');
+      gainXp(35, 'auditing Brokerwell\'s appointment');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -165,7 +165,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium posted an observer here. Both prior complaints went to the council for self-review.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: `The Collegium observer's desk is in the public documentation area — a small placard, institutional grey, easy to miss beside the announcement board. The current occupant isn't in. The schedule card shows she's posted on a rotation: three days per week, specific hours only. The desk has an intake form tray, currently empty. At the board behind it, a runner is removing yesterday's coordination announcements and replacing them with today's. She'll be back. The schedule says when.`,
       xp: 0, effects: [],
@@ -173,7 +173,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Oversight Collegium contact');
+      gainXp(35, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -196,7 +196,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The winning party has the outcome document. The register says the case never existed.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: `Rell is at a corner table in the waiting hall with her advocate's notes spread in front of her and a cup going cold beside them. When you approach, her advocate's hand comes up before you finish your first sentence. "Active proceedings. No informal discussion." Rell doesn't look up from her papers. The waiting hall continues around you — queue numbers being called, clerks moving between desks, the low steady noise of two dozen parties and their representatives. She knows why you're here. Today isn't the day she can say so.`,
       xp: 0, effects: [],
@@ -204,7 +204,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'interviewing dispossessed routing party');
+      gainXp(33, 'interviewing dispossessed routing party');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -223,14 +223,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The junior arbiter by the archive door enters Brokerwell's corrections into the public record.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'confronting complicit arbiter');
+      gainXp(32, 'confronting complicit arbiter');
       if (!G.flags) G.flags = {};
 
         G.lastResult = `Sevv has a junior arbiter's table near the archive door — close enough to the register that corrections can be filed quickly. "Brokerwell sends the correction notes through the internal routing sheet. I enter them into the public record." She looks at the table. "He calls it interpretive alignment — updating the summary to reflect current doctrine." She stops. "I never read the original outcomes before entering the corrections. I was entering the corrections, not reading the cases." She isn't pretending she didn't do it. She's worked out that the administrative framing was designed for her. She wants to know what comes next, specifically for her.`;
@@ -247,7 +247,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The same principals appear in trade registrations across three localities under three different names.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: {
       text: `The Unity Square commercial registry holds local registrations only. Cross-referencing principals against other jurisdictions requires pulling records from at least two additional localities, and those registries don't talk to each other — each one is its own archive, maintained by its own administrative body. The Northern Route Coordination Consortium is legitimately registered here. Whether the same principals operate elsewhere under different names stays theoretical without the outside data to compare against.`,
       xp: 0, effects: [],
@@ -255,7 +255,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'identifying northern commercial bloc');
+      gainXp(36, 'identifying northern commercial bloc');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -278,7 +278,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The marker stone at the center of the square. Worth watching from there.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: `The square is busy enough that standing at the marker stone means being moved around. Runners cut between vendors and the coordination hall entrance. A licensed crier at the south post is working through a stack of announcements in a voice that carries but doesn't distinguish. The plaza doesn't pause for observation. The marble inscription on the marker stone — "Equal Distance from All" — is visible for a moment between passing bodies, then blocked again. The square is easier to read from an edge than the center.`,
       xp: 0, effects: [],
@@ -286,7 +286,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing coordination hub activity');
+      gainXp(25, 'observing coordination hub activity');
 
         G.lastResult = `The central marker stone is waist-high, white-grey granite, worn at the corners by fifty years of hands passing. The inscription runs around its four faces: "Equal Distance from All." The arbitration hall sits at the square's geometric center, equidistant from the residential quarter, the commercial arcade, the transit registry, and the public board. The positioning was deliberate — an architectural argument that no single interest owned the process. The cart-fee notice is posted over the gate inscription. The marker stone stands in the middle of the plaza, undisturbed.`;
       addJournal('Unity Square central marker: "Equal Distance from All" — coordination architecture designed for neutrality, undermined by captured arbitration', 'discovery', `unity-marker-${G.dayCount}`);
@@ -298,7 +298,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Brokerwell's filing drawer is accessible. The correspondence with the northern consortium goes back twelve months.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: {
       text: `Brokerwell's clerk is at the outer desk from the time the hall opens to the time it closes. The corridor between the reception and his office is visible from her position the entire length. No gap in her presence has presented itself today. The filing drawer's contents are in there. So is the clerk, so is the occupied feeling of a building where someone is always watching the passage. The correspondence will require a different window — a different time, or a different entry route.`,
       xp: 0, effects: [],
@@ -306,7 +306,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'obtaining Brokerwell correspondence');
+      gainXp(36, 'obtaining Brokerwell correspondence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -333,14 +333,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The private outcome documents need to reach the Collegium observer without passing through Brokerwell's network.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'compiling and transferring evidence collection');
+      gainXp(34, 'compiling and transferring evidence collection');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -359,7 +359,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The factors in the waiting hall have stopped expecting the process to be neutral.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
-    xpReward: 60,
+    xpReward: 30,
     failResult: {
       text: `The waiting hall benches are full, but the people on them are the kind of full that comes from waiting with advocates — heads down, documents flat on laps, conversations kept low. No one is idle enough to talk to a stranger without reason. A runner calls a case number through the hall and three people check their slips. The room has all the information you want somewhere inside it. None of it is moving today.`,
       xp: 0, effects: [],
@@ -367,7 +367,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'listening to waiting parties');
+      gainXp(30, 'listening to waiting parties');
 
       const rumors = [
         'experienced factors have stopped using Unity Square for sensitive decisions — they go directly to Shelkopolis now',
@@ -387,7 +387,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Brokerwell's predecessor retired without explanation and has moved twice since. The forwarding address leads nowhere.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: `The forwarding address on Polt's retirement record leads to a rented room, vacated. The neighbor at that address says he left without notice a few weeks after arriving — no forwarding, no explanation. Two moves in eight months, nothing left behind at either address. Whether someone was tracking him or he simply expected them to, the result is the same: he's somewhere the sanctioned record can't reach. The trail from Unity Square ends at the second empty room.`,
       xp: 0, effects: [],
@@ -395,7 +395,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'finding Brokerwell\'s predecessor');
+      gainXp(33, 'finding Brokerwell\'s predecessor');
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
       if (result.total >= 11) {
@@ -414,7 +414,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The mandate board shows seven agreements. The filing index shows seventeen.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: `The mandate board near the coordination hall entrance lists seven active agreements, formatted with current dates and signatory blocks. It looks complete. Without access to the filing index behind the coordination desk, there is no comparison point — the board presents what Unity Square chose to publish, and the rest of what it administers stays in a room that requires registered standing to enter. The public face of the system is what the system wants visible.`,
       xp: 0, effects: [],
@@ -422,7 +422,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'mapping coordination hub scope');
+      gainXp(35, 'mapping coordination hub scope');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
@@ -439,7 +439,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The public gallery is open. I can see the process from there.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: `The gallery door is closed. A small card pinned to it reads: "Session in progress — gallery sealed for duration." The clerk at the hall entrance confirms there are no more public sessions scheduled today; the morning hearing ran long. The coordination chambers operate on their own clock. From the corridor, you can hear a low procedural voice behind the door — measured, unhurried — and nothing else. The session is happening. You are on the other side of it.`,
       xp: 0, effects: [],
@@ -447,7 +447,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing arbitration session');
+      gainXp(25, 'observing arbitration session');
 
         G.lastResult = `Brokerwell runs the session from a raised seat at the room's center, equidistant from both parties. He reads the question, hears responses, takes notes in a small notebook rather than the formal ledger. His questions are precise. He interrupts twice to correct procedural framing — not the substance of arguments, just the form. The decision he reads at the end is balanced, citing both parties' positions before naming the outcome. The parties leave without appealing. From the gallery, the process is impeccable. Whatever happens to the record in the archive afterward happens somewhere else, under different hands, in a room nobody watches.`;
       addJournal('Arbitration session: publicly impeccable process, corruption operates entirely post-session in record alteration — appearance launders outcomes', 'discovery', `unity-session-${G.dayCount}`);
@@ -459,7 +459,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three interventions: deleted routing restriction, two altered contract terms. Each invisible on its own.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: {
       text: `The structural picture is visible from the outside: three interventions, each benefiting the same commercial interests. What each intervention is actually worth in commercial terms — cargo volumes, route fee margins, contract differentials — lives inside the parties' private ledgers. Each party is in active proceedings and none of them are opening their accounts to someone with no registered standing. The scale of the benefit exists. The numbers that prove it are behind the same wall as everything else.`,
       xp: 0, effects: [],
@@ -467,7 +467,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'calculating northern bloc gains');
+      gainXp(36, 'calculating northern bloc gains');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -490,7 +490,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The square at close of business. Worth watching who leaves and how they move.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 48,
+    xpReward: 24,
     failResult: {
       text: `The plaza clears faster than expected. Vendors pack their licensed spots at the bell without delay — Unity Square's operating hours are enforced by the coordination office and nobody tests them. By the time the light shifts to its late-afternoon angle, the plaza is down to runners completing final deliveries and clerks shutting the secondary doors. The square's character at closing is institutional, not communal. It empties like a workplace, not a public space.`,
       xp: 0, effects: [],
@@ -498,7 +498,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(48, 'observing Unity Square at dusk');
+      gainXp(24, 'observing Unity Square at dusk');
 
         G.lastResult = `A factor from a small settlement stops at the central marker on her way out, after a coordination session that didn't go her way. She puts her hand flat on the inscription and holds it there for a moment — "Equal Distance from All" — then lifts it and walks toward the gate without looking back. She came in expecting a fair process. She left accepting an outcome she disagrees with, because the process appeared to be what it claimed. The square's archive is corrupted. The session was clean. She has no way to know the difference between the two.`;
       addJournal('Unity Square: trust in fairness is the actual asset being exploited — parties accept unfavorable outcomes because process appears legitimate', 'discovery', `unity-dusk-${G.dayCount}`);
@@ -511,7 +511,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Routing rights captured here feed supply lines directly into Shelkopolis. This isn't isolated.",
     tags: ['Investigation', 'Networks', 'Exposure', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: `The connection between Unity Square's arbitration outcomes and Shelkopolis's commercial conditions is visible in outline — shared parties, overlapping routes, contracts that reference Shelkopolis district access. Making the downstream implications specific requires reading the contracts in detail and cross-referencing against Shelkopolis trade data from the other end. That work requires access and time that aren't available at this end of the route. The outline is there. The proof stays in Shelkopolis.`,
       xp: 0, effects: [],
@@ -519,7 +519,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'identifying Shelkopolis connection');
+      gainXp(35, 'identifying Shelkopolis connection');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -543,10 +543,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone visited the Collegium observer before me and left fabricated evidence.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -574,14 +574,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The waiting hall has a numbered queue system. Everyone ignores it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 38,
+    xpReward: 19,
     failResult: function() {
       addNarration('', 'A factor with the wrong colored guild ribbon catches the wall clerk\'s attention before you do and the queue board ticks two slots past your number without anyone moving. You step back into the vendor row aisle. The numbered tickets in your hand are now worth less than the carrier slip in his.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'observing Unity Square queue dynamics');
+      gainXp(19, 'observing Unity Square queue dynamics');
       G.lastResult = `The intake desk at Unity Square issues numbered queue slips, printed on pale blue paper with the current date stamped at the corner. The board above the door posts the active number. The number on the board and the order in which parties are actually called into the coordination chambers diverge by mid-morning: certain parties are called before their number comes up, without announcement, while others with lower numbers wait through three rotations. The intake clerk tracks it with a separate ledger — a second queue running parallel to the visible one, managing the same traffic but answering to a different priority system than the posted numbers suggest.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -591,16 +591,16 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The coordination chamber layout is designed to put petitioners at a disadvantage before they speak.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Support') {
         G.lastResult = `The coordination chamber puts the petitioner's bench lower than the arbitration table — a small elevation difference, easy to miss. The light comes from behind the arbiter's position, leaving the arbiter's face in partial shadow while the petitioner's is fully lit. The cold of the stone floor sits heaviest in the petitioner's corner. The room is designed to work before any argument begins, and the design is doing its work.`;
-        gainXp(30, 'observing chamber layout');
+        gainXp(15, 'observing chamber layout');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(70, 'analyzing coordination chamber positioning');
+      gainXp(35, 'analyzing coordination chamber positioning');
       G.stageProgress[1]++;
       G.lastResult = `The chamber is a controlled environment: petitioner bench set eight inches lower than the arbitration table, lighting angled to put the petitioner's face in full illumination while the arbiter's expression is in partial shadow, a four-second acoustic delay from the petitioner's position to the record-clerk station that creates an unconscious speaking-lag pressure. These aren't accidental design choices. This is a space built to extract concessions through environmental pressure before a single argument is made. The cold of the stone floor settles fastest in the petitioner’s corner — the wall there holds no heating flue. The system runs on the layout before Brokerwell says anything.`;
       if (!G.flags) G.flags = {};
@@ -614,10 +614,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The coordination ledger has a new binding. Old stitching marks are still visible inside.",
     tags: ['Pressure', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'examining coordination ledger binding');
+      gainXp(27, 'examining coordination ledger binding');
       const bg = G.background || '';
       let result = `The coordination ledger on the public reference shelf has a new binding — the spine is fresh, the thread clean, no wear at the corners. Inside the front cover, ghost marks from the old stitching run a different pattern: the previous binding held more pages than the current one. The ledger was rebound after pages were removed. The current version is shorter than whatever it replaced.`;
       if (bg === 'scholar' || bg === 'clerk') {
@@ -633,14 +633,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The parties who win coordination decisions in Brokerwell's chamber share a single commercial sponsor.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing coordination outcomes and sponsorships');
+      gainXp(34, 'cross-referencing coordination outcomes and sponsorships');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `The public record of coordination outcomes lists the parties and results — not the commercial sponsors, which are in the registered affiliation section of the intake forms, a separate file. Cross-referencing the two: eleven of the last fifteen coordination decisions in Brokerwell's chamber found in favor of parties affiliated with a single commercial sponsor designation: "Northern Commercial Compact Sub-registry Seven." The same sponsor code on every winning party, across eleven different case types, over fourteen months. The pattern is visible if you look across both files at once. Nobody has been looking across both files.`;
@@ -658,10 +658,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Brokerwell's private office has a second door that doesn't appear on the building's floor plan.",
     tags: ['Pressure', 'Bold', 'Physical', 'Stage1'],
-    xpReward: 78,
+    xpReward: 39,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'locating hidden office exit');
+      gainXp(39, 'locating hidden office exit');
       const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 14) {
         G.lastResult = `The second door is behind a shelving unit that swings on a recessed pivot — not locked, not concealed particularly carefully, the kind of modification that works because nobody looks for it. The corridor it opens to runs parallel to the main passage and exits at the building's eastern service entrance. Brokerwell has a route from his office to the street that bypasses the reception, the waiting hall, and the public entrance log entirely. The modification isn't recent: the floor shows wear patterns from regular use. He's been using this exit for long enough that the path is worn smooth.`;
@@ -679,7 +679,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The regulars in the waiting hall have stopped bringing their own clerks.",
     tags: ['Pressure', 'Safe', 'Social', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: {
       text: `The waiting hall is in session-heavy rotation today — every bench occupied, advocates keeping their clients focused, nobody available for a casual exchange. The most experienced factors are recognizable by what they don't carry: no case files out on the bench, no clerks in tow, just themselves and one sealed document each. They know something. Today they're too deep in their own proceedings to surface it. The hall operates on its own schedule.`,
       xp: 0, effects: [],
@@ -687,7 +687,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'observing factor behavior change');
+      gainXp(27, 'observing factor behavior change');
       G.lastResult = `Experienced commercial factors bring their own record-keepers to coordination proceedings — standard practice when the outcome will be cited in future disputes. Three of the most active factors at Unity Square stopped bringing their clerks six months ago. One of them explains it directly when asked: "I stopped bringing witnesses when I stopped trusting the outcomes to stay what they were decided to be." He says it without heat, the way someone describes a weather change. He still comes. He's stopped expecting the record to match what happens in the room.`;
       addJournal('Experienced factors stopped bringing clerks to Unity Square proceedings — distrust in record accuracy explicitly stated', 'evidence', `unity-factors-${G.dayCount}`);
       G.recentOutcomeType = 'social'; maybeStageAdvance();
@@ -698,14 +698,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium observer has filed six months of reports. None have been acknowledged.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The observer\'s desk in the sanctioned dispute corner is unattended — note pinned to the partition, "attending bargaining floor four." You walk the loading lane to floor four. The dispute has already adjourned and the observer is gone. The covered lane carries only the squeak of empty wagon springs.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'speaking with the Collegium observer');
+      gainXp(34, 'speaking with the Collegium observer');
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Observer Tena works from a desk in the public documentation area — technically on-site, technically visible, functionally ignored. "Six months of weekly reports. The first two received acknowledgment. After the third the acknowledgments stopped." She slides a carbon copy of her last report across the desk. "I kept filing. At some point you file because the record needs to exist, not because anyone is reading it." She's been documenting the same pattern you're documenting, from inside the building, for six months, without institutional backing. Her reports are accurate and unread.`;
@@ -723,14 +723,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The coordination seal is worn past readability. Nobody has requested a replacement.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 35,
+    xpReward: 17,
     failResult: function() {
       addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(35, 'observing coordination seal degradation');
+      gainXp(17, 'observing coordination seal degradation');
       G.lastResult = `The coordination seal at Unity Square — the stamp applied to every outcome document — has worn thin enough that the impression it leaves is legible only under direct light held at an angle. The outer ring detail is gone. The center device, which is supposed to show the Union's interlocking mark, now reads as an undifferentiated oval. The stamp has been in this condition long enough for the degradation to become familiar: clerks press harder to compensate, which is why the outer edge has worn further than the center. A replacement stamp is a routine administrative request. No replacement has been ordered.`;
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
     }
@@ -740,14 +740,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The founding charter has a recall provision that has never been used or publicized.",
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'The founding charter is stored in a stacked counting house above the inspection sheds — third floor, two locked doors, a clerk\'s assistant who recognizes the form your inquiry took and answers nothing. The stairs back down smell of varnish and old ink. The provision stays unread by you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'locating charter recall provision');
+      gainXp(37, 'locating charter recall provision');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `Section fourteen of Unity Square's founding charter covers arbiter recall: a two-thirds vote of registered commercial parties with active coordination cases can trigger a full administrative review of the current arbiter's tenure, including access to all sealed case records. The provision requires sixty days' notice filed with the Collegium and a petition signed by qualifying parties. It has never been used — not because the mechanism doesn't exist, but because nobody outside the original drafters has read section fourteen. The current situation qualifies. The mechanism is available.`;
@@ -764,7 +764,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: {
     text: `The notice board outside the coordination hall is fresh-posted from this morning's runner circuit — vendor license renewals, a coordination schedule update, a lost property notice with neat lettering. Nothing that surfaces anything about the routing dispute or the record irregularities. The board changes by midday when the second runner circuit comes through. A runner pauses to straighten a curling corner, then walks on without reading the text. What the square knows publicly and what it knows privately run on different posting schedules, posted side by side without touching.`,
     xp: 0, effects: [],

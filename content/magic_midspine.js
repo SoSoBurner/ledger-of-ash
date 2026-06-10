@@ -12,7 +12,7 @@ const MAGIC_MIDSPINE_CHOICES = [
     label: "This copy of the Iceveil study shouldn't exist. The margin notes are someone else's.",
     plot: 'main',
     tags: ['Midspine', 'Magic', 'Lore', 'Decision'],
-    xpReward: 85,
+    xpReward: 42,
     condition: function() {
       return G.archetype && G.archetype.group === 'magic'
         && G.stage === 'Stage I'
@@ -22,7 +22,7 @@ const MAGIC_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'studying the unsanctioned Iceveil copy');
+      gainXp(42, 'studying the unsanctioned Iceveil copy');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -50,7 +50,7 @@ const MAGIC_MIDSPINE_CHOICES = [
     label: "The formal record protects this. The formal record also buries it.",
     plot: 'main',
     tags: ['Midspine', 'Magic', 'Decision'],
-    xpReward: 90,
+    xpReward: 45,
     condition: function() {
       return G.archetype && G.archetype.group === 'magic'
         && G.stage === 'Stage I'
@@ -61,7 +61,7 @@ const MAGIC_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(90, 'deciding on disclosure vs. protection of the forbidden knowledge');
+      gainXp(45, 'deciding on disclosure vs. protection of the forbidden knowledge');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -89,7 +89,7 @@ const MAGIC_MIDSPINE_CHOICES = [
     label: "Whoever wrote those margins is still alive and still working. The hand is traceable.",
     plot: 'main',
     tags: ['Midspine', 'Magic', 'Lore', 'NPC'],
-    xpReward: 95,
+    xpReward: 47,
     condition: function() {
       return G.archetype && G.archetype.group === 'magic'
         && G.stage === 'Stage I'
@@ -100,7 +100,7 @@ const MAGIC_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(95, 'finding the anonymous annotator of the Iceveil study');
+      gainXp(47, 'finding the anonymous annotator of the Iceveil study');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 

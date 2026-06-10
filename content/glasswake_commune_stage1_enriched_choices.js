@@ -13,14 +13,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "A researcher cited in suppressed documents is still here. Waiting for someone to ask.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', "The research annex is quiet this time of day, reed-thatch smell drifting in from the waterline. Toman Iceveil's colleagues deflect without meeting your eyes — formal hours, prepared statements, nothing beyond that. One of them straightens sample jars that were already straight. His name keeps surfacing, then getting pulled back. He works after the committee leaves. The estuary at evening is where the administrative visibility ends; that's where a real conversation becomes possible.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'locating key researcher');
+      gainXp(35, 'locating key researcher');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -42,14 +42,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "Sections marked 'pending administrative review.' Filed fourteen months ago. No review entry exists.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 37,
     failResult: function() {
       addNarration('', "The catalogue lists sections 7 through 12 in plain sight — not hidden, just walled. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then corrects herself too quickly. Water light moves across the archive table from the estuary window. Toman works late, after the committee leaves. He's the name. He's always been the name.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'identifying reclassified shard research');
+      gainXp(37, 'identifying reclassified shard research');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -72,14 +72,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The reclassified sections describe a mechanism. Toman has the numbers in a locked drawer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 76,
+    xpReward: 38,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'obtaining shard amplification data');
+      gainXp(38, 'obtaining shard amplification data');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -103,14 +103,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Three of five committee members appointed eighteen months ago. Reclassification filed that month.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', "The committee roster is posted in the research hall — five names, areas of expertise, current roles. No appointment history on the posting. Tracing how the three external members arrived requires the archive appointment records, pulled during regular hours with a researcher endorsement. The sluice channels outside carry the morning smell of reed and standing water. Researcher Fen has a working access credential and hasn't yet learned what questions to avoid.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'mapping committee authority');
+      gainXp(35, 'mapping committee authority');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -131,14 +131,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Walk the commune's research quarter at evening — read what the researchers' behavior tells you.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', "The research quarter at evening is quieter than it should be. Doors closed, walkway lamps reflected in the channel water below, the smell of net-rope and old mineral compound mixing in the mist off the estuary. Researchers move with their heads down and their cases close. Something is being communicated in the collective posture of this place, but the specific pattern isn't readable from outside. Toman knows the quarter's rhythms well enough to translate what the behavior means.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading research quarter');
+      gainXp(34, 'reading research quarter');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -159,14 +159,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "She hasn't learned yet what she's not supposed to say.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', "Fen keeps glancing toward the corridor. The older researchers told her to be careful with visitors she doesn't know — the caution was passed down in exact language and she's repeating its shape. 'I can show you the public catalogue.' Through the estuary-facing window behind her, morning mist sits low on the water, net floats half-visible. She wants to help. She was told not to. Toman's name is the one that came up before hers, and his hours are known.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'speaking to junior researcher');
+      gainXp(32, 'speaking to junior researcher');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -185,14 +185,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium has a liaison here. Toman's complaint was acknowledged fourteen months ago.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', "The Collegium liaison table stands unmanned near the administrative hall entrance. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk slides a blank form across the counter without looking up — written request, registered party affiliation, supporting documentation attached. The room smells of floor wax and old paper. The consortium connection, three committee members appointed through an unprecedented procedural category, is the kind of documentation that changes what a formal petition can compel.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Oversight Collegium contact');
+      gainXp(35, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -215,14 +215,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three committee members receive sealed letters from the north before each suppression decision.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(75, 'tracing committee external correspondence');
+      gainXp(37, 'tracing committee external correspondence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -249,7 +249,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Toman needs to know what I plan to do before he risks giving me everything.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     effects: [
       { type: 'heat', polity: 'sheresh', amount: 1 },
       { type: 'rival', amount: 1 }
@@ -260,7 +260,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'making evidence decision');
+      gainXp(34, 'making evidence decision');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Toman's question is direct. "If you take this data to Shelkopolis, it will enter the inquiry there and I lose control of how it's used. If you keep it here, it stays safe but it doesn't move the inquiry forward. I've protected this data for over a year. I need to know who I'm giving it to." The choice is real: trust him with your plan and get everything, or keep your sources compartmented and get only what he's willing to give a stranger.`;
@@ -275,14 +275,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Toman's submission was deferred fourteen months ago. The deferral was requested by someone else.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: function() {
       addNarration('', "The Regional Science Review's public response log shows a single entry: 'received — deferred pending institutional review, per current review protocol.' The entry is dated two days after submission. Invoking that protocol requires a registered reviewing institution to formally request it. The Review's partnership agreements are public charter filings. One of them was signed shortly before Toman's submission date — the register is accessible at the commune archive during regular hours.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'tracing suppressed publication fate');
+      gainXp(36, 'tracing suppressed publication fate');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
@@ -301,14 +301,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The public shard gallery shows visitors a curated version of glasswake.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', "The gallery is open and unmanned. Shard samples behind glass, interpretation panels on the walls, the low sound of water moving through the sluice channel beneath the floor. The display is polished and complete — too complete. Aesthetic framing, spiritual significance, nothing about resonance or amplification. The panels were recently updated; the older text is still faintly legible under the new layer near the mounting hardware. Toman can tell you what the original interpretation said before it was revised.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'reading shard gallery curation');
+      gainXp(25, 'reading shard gallery curation');
 
       G.lastResult = `The gallery emphasizes glasswake shards as aesthetic objects — beautiful, decorative, spiritually significant. The resonance properties that make them scientifically important are described in one small panel using language that sounds like poetry and explains nothing. The gallery was recently updated: the older interpretation panels, which mentioned the amplification potential, have been replaced. The commune's own public educational material has been revised to make the shards less scientifically interesting. The gallery is curation as suppression.`;
       addJournal('Shard gallery: amplification properties removed from public interpretation panels, replaced with aesthetic/spiritual framing', 'discovery', `glasswake-gallery-${G.dayCount}`);
@@ -320,14 +320,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The amplification data needs to leave Glasswake through a secure route.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'securing data offsite');
+      gainXp(36, 'securing data offsite');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -346,14 +346,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Two voted against reclassification. Three voted for it. The vote record is buried.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', "The committee proceedings file is classified under the same order that covers the reclassified research — the archivist locates the file number without difficulty, then stops. Committee authorization is required to open it. One committee member could share the record informally. Researcher Winn voted against the reclassification and stayed on the committee specifically to keep the dissent inside the record. She keeps notes on every session and keeps them somewhere the classification order can't reach.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'obtaining committee vote record');
+      gainXp(35, 'obtaining committee vote record');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
@@ -372,14 +372,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Consortium holds licensing rights to what Toman's study would implicate. Not coincidence.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 37,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'mapping consortium benefit from suppression');
+      gainXp(37, 'mapping consortium benefit from suppression');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -400,14 +400,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "One researcher who voted against reclassification stayed. She's been building a written record.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', "Researcher Winn listens to the first sentence, then sets her pen down and straightens papers that were already straight. 'I'm not in a position to speak informally about committee proceedings.' Each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name — that record is in the same classified file as Toman's research, but Winn keeps her own parallel notes outside the committee's filing system.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'speaking to dissenting committee member');
+      gainXp(34, 'speaking to dissenting committee member');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -426,14 +426,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The commune knows something is wrong. They don't have the full shape of it yet.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
-    xpReward: 62,
+    xpReward: 31,
     failResult: function() {
       addNarration('', "The commune is aware something is wrong — you can hear it in the careful pauses, the way conversations shift when certain names come up near the committee hall. Nobody has the full shape of it. The notice board near the water-clock tower carries community postings; the morning crier covers what the board doesn't. Between the two, a partial picture assembles. The missing part is the part that requires someone who was in the room when the vote happened.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(62, 'gathering community rumor');
+      gainXp(31, 'gathering community rumor');
 
       const rumors = [
         'Toman\'s research would have prevented three recent shell failures in other settlements',
@@ -453,14 +453,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Toman's lab is different after the administrative committee leaves for the day.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 52,
+    xpReward: 26,
     failResult: function() {
       addNarration('', "The research annex is locked at this hour. Through the window: a lamp still burning over Toman's worktable, a measuring rig he built himself positioned in the middle of the room, shard samples in their brackets. He's inside. The door is closed to people he doesn't yet trust. The estuary path runs behind the annex building — the side entrance is where he comes and goes after hours, away from the main corridor.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(52, 'seeing active research space');
+      gainXp(26, 'seeing active research space');
 
       G.lastResult = `After hours, Toman's lab is alive in a way it isn't during official time. Equipment running. Notes spread. He works the way someone works when they know they're right and can't stop. Three shard samples are positioned in a measuring frame he built himself — not standard equipment, a custom rig for precise resonance capture. "I've been refining the measurement protocol," he says without looking up. "When they finally release this research, it needs to be irrefutable." He's still building the evidence that's already been suppressed.`;
       addJournal('Toman\'s lab: still actively refining suppressed research, building irrefutable measurement protocol', 'discovery', `glasswake-lab-night-${G.dayCount}`);
@@ -474,14 +474,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "Toman's work built on an earlier study. Someone noticed the amplification first.",
     tags: ['Investigation', 'Lore', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', "The founder's study is in the archive under standard classification — not restricted. A reading table near the estuary window, pages smelling of old binding and mineral dust. The anomaly observation is in a supplementary appendix, footnoted in a smaller hand than the rest of the document, never referenced in the main body. Thirty years of research passed over it. The observation was always there; the question is why no one was looking for it. Toman's work made it relevant, and he can tell you how he found it.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'researching predecessor study');
+      gainXp(34, 'researching predecessor study');
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
@@ -498,14 +498,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Consortium has a registered address here. It looks like a mineral trading office.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'documenting consortium presence');
+      gainXp(35, 'documenting consortium presence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -528,14 +528,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Naming Toman strengthens the case. It also gives the committee grounds to move against him.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'protecting source decision');
+      gainXp(32, 'protecting source decision');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Toman's data is the keystone of the Glasswake evidence chain. If his name enters the formal record, the committee has grounds to challenge his employment status and potentially seize his equipment. If his name stays out, the evidence is weaker but he remains operational. The choice affects both the case and the person who built it. He's asked you to make the call.`;
@@ -550,14 +550,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The shard field at first light, before anyone else is there to watch.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 48,
+    xpReward: 24,
     failResult: function() {
       addNarration('', "The shard field path is gated before sunrise — a rope-and-plank barrier across the access walkway, mist off the estuary sitting thick over the planks. A notice on the barrier post lists field access hours: sunrise to midday, midday rest break excluded. The shards are visible past the gate, dark against the pale water behind them. The morning water-clock chime is still an hour off. The access window opens with the light.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(48, 'observing glasswake shards at dawn');
+      gainXp(24, 'observing glasswake shards at dawn');
 
       G.lastResult = `The shards catch first light differently from anything you've seen — not reflected, refracted into spectrum bands that shift as the sun angle changes. They don't glow. They translate. Light comes in white and leaves changed. Watching it, you understand why a community built its identity around studying these things. You also understand what would be lost if that study is permanently closed off. The shards are still doing what they always did. The suppression hasn't stopped that. It's only stopped people understanding it.`;
       addJournal('Glasswake shards at dawn: light translation properties visible — the phenomena continues despite suppressed study', 'discovery', `glasswake-dawn-${G.dayCount}`);
@@ -569,10 +569,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Two months ago someone came claiming to help. Toman didn't trust them.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 58,
+    xpReward: 29,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'receiving rival warning');
+      gainXp(29, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -602,14 +602,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The sluice channels were built to move water and light simultaneously.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
-    xpReward: 38,
+    xpReward: 19,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(38, 'observing Glasswake sluice design');
+      gainXp(19, 'observing Glasswake sluice design');
       G.lastResult = `The sluice channels running through Glasswake Commune were engineered with a secondary purpose visible only when the water is moving slowly: the channel floors are surfaced with polished pale stone that acts as a reflector, and the shard samples stored in the adjacent study alcoves were positioned to catch the reflected light from below rather than direct light from above. The founders understood the shards' light-translation properties required indirect, diffuse illumination for accurate observation. The infrastructure is a study instrument. Walking through it, you're inside the apparatus.`;
       addJournal('Glasswake sluice infrastructure: engineered for indirect light distribution to study alcoves — settlement built as integrated research apparatus', 'discovery', `glasswake-sluice-${G.dayCount}`);
       G.recentOutcomeType = 'observe'; maybeStageAdvance();
@@ -620,7 +620,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Toman's shard samples show a reaction profile that shouldn't be possible under known material science.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -630,10 +630,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Craft-heavy') {
         G.lastResult = `Toman's shard samples react to reagent exposure in ways he can't fully explain — the results fall outside his reference framework, and he knows it. He points at the measurement column in his notebook: the output values don't follow the curve that material science would predict. Something is happening in the reaction that the standard model doesn't account for. The specific mechanism is beyond what you can characterize from here, but the anomaly itself is unmistakable. These samples are doing something they shouldn't be able to do.`;
-        gainXp(30, 'noting shard anomalous reaction profile');
+        gainXp(15, 'noting shard anomalous reaction profile');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
-      gainXp(72, 'analyzing shard chemical reaction profile');
+      gainXp(36, 'analyzing shard chemical reaction profile');
       G.stageProgress[1]++;
       G.lastResult = `The reaction profile Toman documents is a class that doesn't appear in the standard material reference — the shards respond to reagent introduction with an energy output that exceeds the input by a consistent factor. Not random, not variable: a reliable multiplier that holds across forty-seven tested samples. That isn't degradation, contamination, or observer error. That's a material with an energy-amplification property that the current material science framework doesn't account for. Suppressing study of this isn't administrative tidiness. Something significant depends on this property remaining unstudied.`;
       if (!G.flags) G.flags = {};
@@ -647,14 +647,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The committee's composition changed three years ago. A majority arrived in the same cycle.",
     tags: ['Information', 'Background', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'reviewing committee appointment history');
+      gainXp(27, 'reviewing committee appointment history');
       const bg = G.background || '';
       let result = `The Glasswake administrative committee has nine members. Five of the current nine were appointed in the same cycle three years ago — all five nominated by the same regional authority body. Under the commune's own charter, this level of concentrated appointment requires a supermajority ratification vote. The ratification happened on a date when two of the committee's longest-serving members were documented as absent for illness. The vote passed with the minimum margin.`;
       if (bg === 'scholar' || bg === 'administrator') {
@@ -670,14 +670,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The archive holds founding-generation shard records. They contradict the suppression rationale.",
     tags: ['Information', 'Risky', 'Records', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading founding generation shard records');
+      gainXp(34, 'reading founding generation shard records');
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `The founding generation records describe direct shard observation over forty years of study — results logged, methods documented, researchers named. The current committee's stated reason for suppressing ongoing research is "unresolved safety concerns." The founding records don't show safety incidents. They show the opposite: a community that worked with shards continuously for forty years without harm. The suppression rationale contradicts the documented historical record. Someone on the committee knows what the archive contains and cited safety concerns anyway.`;
@@ -695,14 +695,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The committee's correspondence names a specific study outcome they needed prevented.",
     tags: ['Information', 'Bold', 'Records', 'Stage1'],
-    xpReward: 78,
+    xpReward: 39,
     failResult: function() {
       addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'reading committee-authority correspondence');
+      gainXp(39, 'reading committee-authority correspondence');
       const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 14) {
         G.lastResult = `The correspondence file between the committee and the regional authority runs thirty-one letters. Most are administrative. Letter nineteen is different: a response from the regional authority acknowledging the committee's request for "acceleration of the amplification study closure" and noting that "the energy multiplier finding must not enter the public record before the parallel project reaches completion." The parallel project isn't named. The energy multiplier is Toman's forty-seven-sample finding. Someone outside Glasswake knew about that finding and acted to suppress it before it was published.`;
@@ -720,14 +720,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The shard field is larger now than when the settlement was founded. The shards grow.",
     tags: ['Information', 'Safe', 'Lore', 'Stage1'],
-    xpReward: 52,
+    xpReward: 26,
     failResult: function() {
       addNarration('', "The survey maps Toman references are in the research annex during formal hours — publicly accessible, not restricted. The annex is closed this afternoon for scheduled maintenance. The water-clock chime marks the hour from somewhere further along the sluice channel. The comparative maps showing the original field boundaries and the current ones are posted in the shard gallery's back room, available during gallery hours, no endorsement required.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(52, 'learning about shard growth rate');
+      gainXp(26, 'learning about shard growth rate');
       G.lastResult = `Toman has the original survey maps alongside the current field boundaries — the shard formation has expanded by roughly twelve percent in the settlement's recorded history, growing outward from the original cluster at a consistent rate. Not fast enough to alarm, not slow enough to be negligible. The growth raises a question the founding research was beginning to address before the suppression: what drives the expansion, and does the energy-amplification property scale with the total formation size. The current shard field is twelve percent more capable — of whatever it's capable of — than the one the founders studied.`;
       addJournal('Glasswake shard formation: 12% growth in settlement history, consistent rate — amplification properties may scale with formation size', 'discovery', `glasswake-growth-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -738,14 +738,14 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Two members who voted against the suppression still attend. They take notes on everything.",
     tags: ['Information', 'Risky', 'NPC', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', "Arven and Missa are visible in the committee chamber from the public gallery — two figures at the far end of the long table, notebooks open, pens moving. The session ends in forty minutes. The corridor outside the chamber is where people linger after adjournment, away from the formal record. They carry their own notebooks, not the committee's standard forms. Whatever they document, it lives outside the committee minutes. The corridor at session end is the window.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'meeting the dissenting committee members');
+      gainXp(32, 'meeting the dissenting committee members');
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Arven and Missa have attended every committee session since the suppression vote and objected in the record to every decision made by the majority bloc. Their notes are comprehensive — every procedural motion, every stated rationale, every dissent. "We document because we know the official minutes are edited before filing," Arven says. He doesn't say it with particular emotion. "The edited minutes are what the record shows. Our notes show what happened in the room." Two years of parallel documentation, the committee's version and the accurate version sitting in different places.`;
@@ -762,7 +762,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: function() {
     addNarration('', "The notice board near the water-clock tower is crowded with overlapping postings, several layers deep at the center. The newest sheet is pinned at the corner where the reed-thatch overhang keeps the mist off — dry paper, recent ink. Nothing useful surfaces today. The morning crier covers the settlement at the second water-clock chime; her route ends near the canal gate where the sluice authority keeps its tally board.", (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);

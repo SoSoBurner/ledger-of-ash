@@ -13,7 +13,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Connected families log light. Independent farmers get extra review and lower counts.",
     tags: ['Investigation', 'NPC', 'Grain', 'Quotas', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: 'Svala sets the tally rod down and squares her shoulders toward the scale mechanism, not toward you. The weighing station is busy — harvest crew moving sacks, an authority supervisor making a slow circuit of the tally boards. Whatever she knows about quota instructions, this morning she has decided is not the morning to say it. The smell of dry chaff and warm timber fills the air between you. The Halversen family\'s field section borders the eastern annex — the land protector on that side may know what the quota keeper will not say.',
@@ -25,7 +25,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading quota manipulation patterns');
+      gainXp(35, 'reading quota manipulation patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -54,7 +54,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Festival pricing used to be the elder council's. Now it arrives pre-circulated to buyers.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Prices', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'Varik puts his pen back in his hand before the question finishes — a gesture that means the transaction is already concluded. The price sheets stay in the drawer. Market row stalls stretch out behind him, tally rolls pinned beneath each listing in the same careful hand. The elder council still approves the posted festival rates — the authorization stamp is public record. A session notice posted to the market hall entrance would show who signed the preliminary schedule before the council ever saw it.',
@@ -66,7 +66,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering price manipulation');
+      gainXp(37, 'uncovering price manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -97,7 +97,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Fields maintained by family standing now. The Halversen blight risk has been real six weeks.",
     tags: ['Investigation', 'NPC', 'Land', 'Protection', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: 'Elyra keeps walking at the same pace, maintenance log under her arm. Sacred land work does not explain itself to people who do not work with their hands in it. The eastern fields stretch to the annex wall, the cut-chaff smell drifting toward you on the morning air. Three other protectors move in the middle distance, each to their assigned section. The Halversen family itself farms the border strip — the family patriarch has been watching the eastern annex coverage for six weeks and may be less cautious about saying what they\'ve seen.',
@@ -109,7 +109,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading land protection corruption patterns');
+      gainXp(35, 'reading land protection corruption patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -140,7 +140,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Festival allocation: forty tonnes. Private transfer: forty tonnes, same date.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Storage', 'Resources', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'The keeper holds their position between you and the inventory ledger without apparent effort, the way a post holds a door open — structural, patient. The grain store smells of dry timber and last season\'s chaff. The records room door stays closed. What is open is the outbound staging area log at the distribution hall, which tracks movements after grain leaves the store rather than before — a different clerk, a different authority, and a different conversation.',
@@ -152,7 +152,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering grain storage diversion');
+      gainXp(37, 'uncovering grain storage diversion');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -183,7 +183,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Premium offering for patron families. Standard share for independents. The draft isn't from the council.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Festival', 'Distribution', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'The distribution sheet stays face-down on the table between you, its edges flush with the table surface. Festival planning is a community matter and the Coordinator has decided this community matter is closed. The festival preparation crew sets banner poles along the granary steps in the middle distance, morning light catching the canvas. The elder council\'s ceremony approval record is posted in the reading room — it carries the authorization stamps and shows whose signature approved the final draft.',
@@ -195,7 +195,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering festival manipulation');
+      gainXp(37, 'uncovering festival manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -226,7 +226,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Delivery figure higher than the summary confirms. Ink shade different. He has six like this.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Records', 'Documents', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: 'Farlan closes the folder with both hands, dust rising from the cover. Documentation requires training to interpret correctly — his grounds are professionally sufficient and his posture confirms it. The reading room has a public wall register of all documentation format changes, organized by date and issuing authority. Format changes leave a paper trail even when the documents that changed do not. A format change seven months ago that modified ink-column standards would be there, with the name of whoever authorized it.',
@@ -238,7 +238,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading record falsification patterns');
+      gainXp(35, 'reading record falsification patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -270,7 +270,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "He marks it, files the mark. Two days later it's gone — passed.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Quality', 'Inspection', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'Garren keeps the inspection terminology precise and the log pressed flat under his palm. The lantern above the grain scales throws the same steady light. What the inspection process produces is one set of records. What the inspection supervisor files is another. The supervisor\'s office is at the north end of the storage yard — the posted schedule shows afternoon rounds when the inspection station is unstaffed and the filed results are accessible to anyone authorized to review compliance records.',
@@ -282,7 +282,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering quality inspection corruption');
+      gainXp(37, 'uncovering quality inspection corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -314,7 +314,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "He had the outcome note before the hearing. The Halversen family lost eleven years.",
     plot: 'main',
     tags: ['Investigation', 'NPC', 'Mediation', 'Conflicts', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'Velrik sets his hands on the desk and leaves them there. Mediation is confidential and the families involved have not consented to external review. The mediation register sits to his left, closed. The Halversen family was one of the losing parties in the most recent session — they are not bound by the same confidentiality. Their storage access was stripped eleven years in, and they know exactly what they lost and on what grounds. They farm the border strip east of the annexes.',
@@ -326,7 +326,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering mediation corruption');
+      gainXp(37, 'uncovering mediation corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -359,7 +359,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Three steward positions absorbed in eighteen months. The council's rulings are now advisory.",
     plot: 'main',
     tags: ['Investigation', 'Structure', 'Hierarchy', 'Authority', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: 'The charter page shows the current position titles but not the reporting lines that changed beneath them. The patron-family representative\'s footstep is still audible in the corridor. A different entry point is available: the elder council\'s own session minutes are posted publicly by charter obligation, and a session from eighteen months ago would show whether the absorption motions were contested or passed without debate — and who moved them.',
@@ -371,7 +371,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'grain hierarchy analysis');
+      gainXp(35, 'grain hierarchy analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -399,7 +399,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Fourteen families gone from current records. Seven left in the same eight-week window.",
     plot: 'main',
     tags: ['Investigation', 'Networks', 'Farming', 'Displacement', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'The family roster alone does not hold the context to explain the exits. The archivist puts the second volume back on the shelf without comment. The exits are documented under administrative categories — storage dispute resolution, quota non-compliance — but the appeal records for those disputes are held separately. An appeal filing is public record by charter. Five years of appeal filings from independent farming families would show who adjudicated each case and which authority received the costs.',
@@ -411,7 +411,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'farming family network displacement mapping');
+      gainXp(37, 'farming family network displacement mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -442,7 +442,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Same harvest, same season — stored two different ways. The gap is one administrative decision.",
     plot: 'main',
     tags: ['Investigation', 'Spoilage', 'Degradation', 'Analysis', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: 'The storage supervisor\'s clipboard is already moving toward the incident log. The annexes close behind you, the smell of dry chaff and warm timber sealing off. What remains accessible is the maintenance schedule posted at the storage yard entrance — a public-facing document that shows pest trap replacement dates, ventilation servicing intervals, and which annex received each maintenance cycle. Two seasons of that schedule would show the gap without requiring access to the grain inside.',
@@ -454,7 +454,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'spoilage analysis');
+      gainXp(35, 'spoilage analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -482,7 +482,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Two families in governance for the first time fourteen months ago — same three-week session.",
     plot: 'main',
     tags: ['Investigation', 'Power', 'Ambition', 'Tracking', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'Internal patron-family politics are not committed to the public record before the appointment is final. The governance register shows outcomes, not process. But the council chair who ratified the fourteen-month appointments was replaced the following month — and the personnel register records replacements under the outgoing person\'s name. That name, and the date of replacement, is accessible. It points to when something changed, and who changed after it.',
@@ -494,7 +494,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'family power pattern mapping');
+      gainXp(37, 'family power pattern mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -525,7 +525,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Every farmer threaded through dependencies that make non-compliance catastrophic. By design.",
     plot: 'main',
     tags: ['Investigation', 'Quotas', 'Dependency', 'Control', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: 'The families wrap their answers in weather language and seasonal variance. They know exactly how exposed they are, and they are not describing it to someone they don\'t yet trust. Cut chaff smell drifts across the field rows; the communal fire has most crews eating apart from each other at midday. A different approach is available: the quota credit terms are printed on the intake form every farmer signs at the start of each season. That form is public-facing. The intake desk at the quota office will have a current copy.',
@@ -537,7 +537,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'quota dependency system documentation');
+      gainXp(37, 'quota dependency system documentation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -568,7 +568,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "The new draft names covenant families first. That category didn't exist before.",
     plot: 'main',
     tags: ['Investigation', 'Festival', 'Unity', 'Division', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: 'The reading room clerk steps in front of the ceremony script stack with quiet authority. One draft isn\'t enough to confirm the revision was deliberate rather than seasonal drift. But ceremony scripts are archived after each festival — the archive holds four seasons and access to the archive is governed by a different clerk on a different authority. An archive request for comparative historical ceremony records, framed as cultural research, does not require festival committee approval.',
@@ -580,7 +580,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'festival weaponization mapping');
+      gainXp(35, 'festival weaponization mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -613,7 +613,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "The field rows have a theory. Everyone in them shares it.",
     plot: 'main',
     tags: ['Investigation', 'Rumor', 'Farming', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The field rows are quiet at this hour, most crews inside for the midday allocation. The earth here carries the season\'s work — turned soil, chaff caught against the stake lines, the low smell of grain dust on the air. When workers are present they talk, and what they talk about circulates. The communal fire draws crews together in the evening, when supervisors are in the authority building finishing tally work and the field rows belong to the people who worked them.',
@@ -625,7 +625,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing farming narrative');
+      gainXp(32, 'parsing farming narrative');
       G.stageProgress[1]++;
 
       const rumor = ['the quota measurer is falsifying weights to help connected families', 'independent farmers are being systematically frozen out of grain distribution', 'spoilage is being artificially created to destroy independent farmer harvests', 'someone is stealing grain from storage and sending it to outside families', 'festival distribution is being rigged to favor certain families over community'];
@@ -644,7 +644,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "The cloth trader says it at normal volume. The caution wore off.",
     plot: 'main',
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The market square is quiet between the morning convoy and the midday distribution. Stall tally rolls hang across their listings, undisturbed. Merchants who are busy do not tell strangers things. Merchants who are between customers sometimes do. The festival square stalls draw the heaviest foot traffic in the late afternoon, when the patron-family representatives have finished their rounds and are back in the authority building — and the people left in the square have no particular reason to be careful.',
@@ -656,7 +656,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing merchant narrative');
+      gainXp(32, 'parsing merchant narrative');
       G.stageProgress[1]++;
 
       const rumor = ['market prices are being set to favor certain families', 'broker rates are being manipulated to destroy independent merchant competitiveness', 'festival pricing is rigged so connected families always profit', 'quality inspection is being weaponized against merchants who refuse family allegiance', 'grain distribution is controlled by family influence rather than fair exchange'];
@@ -675,7 +675,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "The paper trail linking grain and festival corruption to coordinated family strategy exists.",
     plot: 'main',
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: {
       text: 'The pieces are present but the connection between them requires something that places the same hand across multiple institutions at the same time. What\'s on the table is a pattern, not a mechanism. The gap is legible: a single document from outside Harvest Circle\'s internal record system — a courier manifest, an external authorization mark, a transaction record with provenance that doesn\'t trace back to any local charter body — would close it. The outbound staging area receives courier traffic from outside the commune twice a week.',
@@ -687,7 +687,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing harvest system conspiracy');
+      gainXp(40, 'exposing harvest system conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -718,7 +718,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "A Harvest Circle officer is complicit. Protect them or expose their role.",
     plot: 'main',
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     effects: [
       { type: 'heat', polity: 'sheresh', amount: 1 },
@@ -734,7 +734,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment');
+      gainXp(35, 'making moral commitment');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -763,7 +763,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The family consolidation at Harvest Circle has an external hand behind it.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: {
       text: 'The courier manifests and authorization marks are present but the origin is built to be hard to read — careful distance between instructions and names, constructed over enough time to look like ordinary logistics. The shape of the hand is visible in the work. What names the hand directly is a transaction record rather than an instruction document — money moves under real names even when letters do not. The Iron Compact liaison tracks incoming cargo and may hold the financial provenance that the courier manifests are built to obscure.',
@@ -775,7 +775,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of harvest system corruption');
+      gainXp(40, 'discovering origin source of harvest system corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -806,7 +806,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "Northern interests are controlling grain resources through corrupted local systems. Confirm the scope.",
     plot: 'main',
     tags: ['Investigation', 'Origin', 'Conspiracy', 'External', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: {
       text: 'The full scope extends further than what\'s visible from this position. Quota manipulation, storage diversion, falsified records, festival hierarchy — each documented. The coordinating source behind all of them remains partially obscured. A single confirmed transaction between an external party and a Harvest Circle authority body — one record showing money or instruction crossing the commune\'s border under a named external entity — would close the gap. The Provision Compact liaison keeps incoming transaction records for compliance purposes. Those records are accessible under a formal Compact inquiry.',
@@ -818,7 +818,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'confirming full external harvest conspiracy');
+      gainXp(40, 'confirming full external harvest conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -850,11 +850,11 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Compact's routing records may show shipments Harvest Circle never logged.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 73,
+    xpReward: 36,
     failResult: 'This path is closed here, but the charter-marked container bearing the northern merchant consortium stamp may be reachable through the outbound staging area directly.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'analyzing routing number anomalies');
+      gainXp(36, 'analyzing routing number anomalies');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -877,7 +877,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The charter-marked container in the routing anomaly. Find where it went.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: {
       text: 'The outbound staging area log shows departure entries but not secondary charter marks — those are recorded at the point of loading, not departure. The loader\'s handoff record is a separate document maintained by the staging crew lead, who works the morning shift. The crew lead stamps the handoff at the container, not at the desk, and the carbon copy stays in the staging shed until the end of the week. The staging shed is accessible during active loading hours.',
       xp: 0,
@@ -886,7 +886,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'tracking charter mark container');
+      gainXp(35, 'tracking charter mark container');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -904,7 +904,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The labor patterns at dawn say what the records don't about actual production.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: {
       text: 'The fields are still dark at this hour, the harvest crews not yet on the rows. Dawn at Harvest Circle belongs to the land protectors on their barrier rounds and the overnight storage crew finishing the night shift. The night shift crew is the one group that sees the full staging area before the section leads divide it — they load what comes in, they load what goes out, and they do both before anyone with a clipboard is watching. A conversation at the end of their shift, in the lane between the threshing floor and the grain store, would find them less careful.',
       xp: 0,
@@ -913,7 +913,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'reading harvest field labor patterns');
+      gainXp(33, 'reading harvest field labor patterns');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -934,11 +934,11 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Iron Compact liaison tracks what the distribution records don't explain.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: 'This path is closed here, but documented evidence of a compliance issue affecting Iron Compact interests — the routing number anomaly — would open a different conversation with the liaison.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Iron Compact contact');
+      gainXp(35, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -961,7 +961,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Granary Steps at distribution hour show how food actually reaches the community.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: 'The granary steps are empty this hour — distribution has finished and the families have returned to work. The steps face east, toward the field rows. Cut chaff clings to the stone at the base where the allocation crates rested. The communal fire is visible from here, unlit at this hour, the logs set for evening. Distribution happens again at the close of work. A second hour at the steps, when the allocation is smaller and the families know it, may show what the midday line was built not to show.',
       xp: 0,
@@ -970,7 +970,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'observing granary distribution');
+      gainXp(25, 'observing granary distribution');
 
       G.lastResult = `The distribution line moves efficiently. Families receive their allocation with practiced acceptance — no negotiation, no question. This is a community that's learned to take what it's given without asking why the amount changed from last season. Two seasons ago there would have been comparison, dispute, memory of better yields. That institutional memory has been quietly managed away. Harvest Circle's population has been acclimatized to reduced allocation so gradually they don't name it as reduction.`;
       addJournal('Granary Steps: community accepts reduced allocation without naming reduction — gradual acclimatization to scarcity', 'discovery', `harvest-granary-${G.dayCount}`);
@@ -982,14 +982,14 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The numbers only match if no one counts twice.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The painted corner stakes around the west mid-field section define the keeper authority boundary, and section leads have closed the row-walks for the afternoon weighing rotation. The granary clerks are inside the measurement zone with the official slate. Standing here longer attracts the supervisor making his rounds along the cart track.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'running independent harvest count');
+      gainXp(34, 'running independent harvest count');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -1008,11 +1008,11 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone who was here before the quota change would know what shifted.",
     tags: ['Social', 'NPC', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: 'This path is closed here, but the long-tenure workers remember what the central scale showed before the section leads took over — a second visit once trust has accumulated may open it.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'interviewing long-tenure worker');
+      gainXp(32, 'interviewing long-tenure worker');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -1031,10 +1031,10 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A transport driver says someone traveled with his convoy last week asking about routing.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -1063,7 +1063,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {

@@ -14,14 +14,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The quota numbers shifted. The foreman watched it happen.",
     tags: ['NPC', 'Labor', 'Pressure'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'This path is closed here, but Foreman Thrace holds the morning briefing every day at the yard gate — arriving before the shift bell, before the coordinators, when the stone-cut cold still carries sound cleanly, may be a better window.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading labor pressure patterns');
+      gainXp(35, 'reading labor pressure patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -51,14 +51,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "The ceiling is set high. The floor rises on failure. Both ends move.",
     tags: ['Investigation', 'NPC', 'Records', 'Bureaucracy', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: 'This path is closed here, but Clerk Serin rotates to the secondary archive desk on odd-numbered afternoons when the labor coordinator is off-floor — that desk sits outside the range of the main stamp counter. She brings her own lamp oil on those shifts, which means she stays past the standard close. The side corridor to that desk passes the correction log cabinet, which is a separate filing system from the one behind the authorization window.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering quota manipulation');
+      gainXp(37, 'uncovering quota manipulation');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -89,7 +89,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The parts are on the shelf. The approval to use them isn't.",
     tags: ['Investigation', 'NPC', 'Craft', 'Equipment', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) < 3; },
     failResult: 'This path is closed here, but Halden posts his workshop schedule on the side door — the late-shift cleaning window runs without oversight and he works long past the bell when a repair is behind. The door stays propped open during those hours to clear the solvent fumes. The parts shelf he mentioned is against the back wall, visible from the doorway without entering. A count of what is stocked against what the repair log shows pending would be readable from there.',
@@ -97,7 +97,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading equipment sabotage patterns');
+      gainXp(35, 'reading equipment sabotage patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -124,7 +124,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three accidents this month. Nobody is filing complaints. That's the point.",
     tags: ['Investigation', 'NPC', 'Safety', 'Labor', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     align: {type: 'morality', n: 1},
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
@@ -133,7 +133,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering workplace endangerment');
+      gainXp(37, 'uncovering workplace endangerment');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -164,14 +164,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "They used to pray for harvest and travel. Now they pray to keep their position.",
     tags: ['Investigation', 'NPC', 'Faith', 'Community', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'This path is closed here, but the shrine takes an oil delivery at midmorning when the inner room is empty — Kestra carries the canisters herself and the outer door stays propped open for the full half-hour. She sets them in sequence along the base of the offering shelf before filling the reserve lamp, which means both hands are occupied and the conversation can run without her needing to end it. The side alcove by the candle supply is out of sight from the road.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading spiritual pressure patterns');
+      gainXp(35, 'reading spiritual pressure patterns');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -199,14 +199,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Displaced workers are scattered — Sunspire, northern routes, agricultural circuits. Scattered workers don't organize.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'This path is closed here, but Broker Meth files his outbound placement ledgers at the guild registry on the last day of each quarter — the filing clerk there handles the submission and has no standing order to restrict discussion of public placement counts.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'mapping labor displacement flows');
+      gainXp(35, 'mapping labor displacement flows');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -234,14 +234,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Workers are being removed from the record. Not from the city — from the record.",
     tags: ['Investigation', 'NPC', 'Records', 'Documentation', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: 'This path is closed here, but Record Keeper Parol submits his weekly corrections log to the external audit board every fifth day — that submission is a matter of guild charter and cannot be withheld, and the audit board holds a copy. The audit board office is in the trade registration annex, two buildings north of the records room, staffed by a different clerk under a different chain of authority. A corrections log that cannot be suppressed at the source may still be readable at the receiving end.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering documentation erasure');
+      gainXp(37, 'uncovering documentation erasure');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -272,14 +272,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Work that failed three months ago now ships. The workers who caught it are gone.",
     tags: ['Investigation', 'NPC', 'Craft', 'Integrity', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: 'This path is closed here, but Craftsperson Aldren enters his standards complaints in the guild grievance log, which is a charter-protected public document — the log desk is in the guild hall annex, not the administration building. The annex clerk has no standing order to restrict access to grievance entries. A log that records the specific pieces Aldren flagged, dated, would show which tolerances were failing and when the complaints stopped being filed. That gap would be its own record.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'reading craft standard erosion');
+      gainXp(37, 'reading craft standard erosion');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -314,14 +314,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The skills that made Soreheim independent have been cut out post by post.",
     tags: ['Investigation', 'Labor', 'Analysis', 'Pattern', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'This path is closed here, but the common housing block posts a new-arrival board by the entrance — intake dates, trade designations, origin marks — a public document no one has thought to restrict yet.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'workforce composition analysis');
+      gainXp(35, 'workforce composition analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -349,14 +349,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Safety stops count against output. Preventing an accident means failing quota.",
     tags: ['Investigation', 'Systems', 'Economics', 'Control', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: 'This path is closed here, but the quota methodology document was submitted as part of the seasonal charter renewal, which is a matter of public record at the outer guild registry window — the renewal clerk operates independently of the labor administration stamp system.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing quota system architecture');
+      gainXp(37, 'exposing quota system architecture');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -387,14 +387,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Outbound carts outnumber inbound three to one. The stamps on those manifests face inward.",
     tags: ['Investigation', 'Industrial', 'Supply', 'Flow', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'This path is closed here, but the dispatch yard gate log is posted at the entry pillar each morning — a tally of cart counts in and out, no manifest detail, but the ratio is there in plain figures for anyone who stops to read the board.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'supply chain flow analysis');
+      gainXp(35, 'supply chain flow analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -422,14 +422,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The administrator runs the briefing. Every directive carries a northern stamp.",
     tags: ['Investigation', 'Authority', 'Structure', 'Power', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: 'This path is closed here, but the morning briefing is open to floor supervisors, and supervisors are permitted to bring a registered trade observer — the guild hall issues observer tokens at the front desk, no authorization stamp required. A token holder seated in the back row of the briefing room would hear every directive read aloud, including which ones carry the northern header stamp and which are still originating from Bresn. The directives are numbered. The gaps in that numbering would show which ones never get read out in full.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing authority restructuring');
+      gainXp(37, 'exposing authority restructuring');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -460,14 +460,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Labor petitions come back stamped but never forwarded. The city is talking to itself.",
     tags: ['Investigation', 'Communication', 'Networks', 'Control', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'This path is closed here, but courier Fess runs the pre-dawn route before the relay station opens — he loads from the side window, not the counter, and that window has a different supervisor on the early half-shift.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'communication network analysis');
+      gainXp(35, 'communication network analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -495,7 +495,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "No formal warnings — just reassignments, always timed precisely.",
     tags: ['Investigation', 'Resistance', 'Suppression', 'Fear', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     align: {type: 'order', n: -1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the reassignment notices themselves are filed in the personnel board record, which is posted by guild charter at the annex entrance — the pattern is readable in the dates without requiring anyone to speak. A reassignment dated within three days of a quota objection is not random correlation when it happens four times running. The board shows names and dates. The grievance log shows names and dates. The overlap is arithmetic, not inference.',
@@ -503,7 +503,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing suppression apparatus');
+      gainXp(37, 'exposing suppression apparatus');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -534,7 +534,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "This isn't an economy under pressure. Someone drew the pressure map first.",
     tags: ['Investigation', 'Survival', 'Vulnerability', 'Pressure', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     align: {type: 'morality', n: 1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the housing allocation ledger is posted at the residential block entrance by district ordinance — names, dependency counts, and tenure status in a single column, no authorization required to read the board. Cross-referencing those names against the displacement log shows which workers with children or elderly dependents were cut first. The tenure column shows how long each person had worked here before removal. That sequence is a map of who was most exposed and who got targeted first.',
@@ -542,7 +542,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'worker vulnerability mapping');
+      gainXp(35, 'worker vulnerability mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -573,14 +573,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The posted notices recycle three phrases. Those exact phrases appeared in a northern Compact bulletin.",
     tags: ['Investigation', 'Narrative', 'Control', 'Justification', 'Meaningful'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: 'This path is closed here, but the Iron Compact maintains a public bulletin archive at the trade registry — bound quarterly by the filing clerk, available without stamp, the northern bulletins shelved in order by date.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'official narrative deconstruction');
+      gainXp(37, 'official narrative deconstruction');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -613,14 +613,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The story moves down the meal hall bench in pieces. Too consistent for coincidence.",
     tags: ['Investigation', 'Rumor', 'Labor', 'Gossip', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: 'This path is closed here, but the meal hall empties slowly on the north side after second bell — the workers who stay longest are the ones who have already decided they have nothing left to lose by talking.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing worker narrative');
+      gainXp(32, 'parsing worker narrative');
       G.stageProgress[1]++;
 
       const rumor = ['displaced workers are being sent to mines further north', 'the quota increases came from outside Soreheim', 'safety violations are being covered up systematically', 'workers who protest disappear for weeks then come back broken', 'someone is deliberately replacing skilled workers with inexperienced ones'];
@@ -639,7 +639,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "They hit ninety-two percent of sustainable output every day. They fail quota every day.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Exposure', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     align: {type: 'morality', n: 1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the two-year-old capacity survey was submitted to the guild council as part of a public works assessment — that report is bound and filed at the council clerk office, available on request without labor administration authorization. The survey recorded sustainable daily output under normal conditions: crew size, equipment state, seasonal adjustment. Placed next to the current quota baseline and this month\'s actual output, those three numbers produce a comparison that requires no interpretation. The arithmetic does the work.',
@@ -647,7 +647,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing quota system conspiracy');
+      gainXp(40, 'exposing quota system conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -680,7 +680,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "They're waiting to learn what this conversation costs them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     align: {type: 'morality', n: -1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the NPC\'s name is already in the displacement log — approaching them through the documented record rather than direct confrontation removes the personal threat and gives them a different kind of opening.',
@@ -688,7 +688,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment');
+      gainXp(35, 'making moral commitment');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -719,14 +719,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The orders predate the quota increase by three weeks. Soreheim was the plan.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: 'This path is closed here, but the administration archive has a secondary entrance through the north corridor that is unstaffed after second bell — the courier receipts are filed in the outer cabinet, not the locked interior stacks. The outer cabinet is a two-drawer lateral chest beside the window. The receipts inside are sorted by week, not by origin, which means finding the northern correspondence requires reading headers by lamplight rather than pulling a specific index. The corridor lamp stays lit through the night shift.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of displacement');
+      gainXp(40, 'discovering origin source of displacement');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -758,11 +758,11 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three outbound crates carry a stamp not in the Soreheim registry. No manifest entry.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: 'This path is closed here, but the Iron Compact arbiter Keln Vare holds office inside the shift administration building — the anomalous freight marks fall inside his stated area of oversight. A neutral trade arbiter has standing to request manifest clarification from the dispatch yard without triggering the same authorization chain a private party would face. Whether Vare would use that standing on your behalf is a different question. He already knows the marks are there. He has been choosing not to act on them.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'reading shipment routing evidence');
+      gainXp(36, 'reading shipment routing evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -785,12 +785,12 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Thirty-one workers crossed out in a different hand. Notation says transferred. No destination.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     align: {type: 'morality', n: 1},
     failResult: 'This path is closed here, but the displacement log was drafted before it was filed — Record Keeper Parol works the outer desk alone on the morning half-shift, before the labor administrator arrives with the stamp.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'recovering discarded documentation');
+      gainXp(34, 'recovering discarded documentation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -808,11 +808,11 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Shoulders loose, weight back, eyes on the gate. This yard is paused, not tired.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: 'This path is closed here, but the shift yard is most readable at the bell change when supervisors are occupied with the handover count — the workers move freely for four minutes before the new shift coordinator reaches the gate. In those four minutes, the posture of the yard changes. Groups form that don\'t form at any other time. Words get exchanged that don\'t get exchanged under supervision. The yard\'s real social structure is visible in those four minutes more clearly than in any other window of the shift.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reading crowd pressure');
+      gainXp(35, 'reading crowd pressure');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -833,11 +833,11 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The youngest clerk asked why they changed the dating system. Nobody told him.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: 'This path is closed here, but Davel is still at the evening shift tomorrow — bringing something that shows what the dating code maps to may give him a reason to talk. He filed documents for three weeks without knowing what the new system was indexing. He would recognize a translation key if he saw one. He\'s nineteen and working alone in a building that smells of wax and old paper, and he has been waiting for someone to offer him a reason to ask the question he has been not asking.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'building low-pressure rapport');
+      gainXp(32, 'building low-pressure rapport');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
@@ -856,12 +856,12 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Compact arbiter's office is inside the shift administration building. Unusual for a neutral party.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 36,
     align: {type: 'order', n: -1},
     failResult: 'This path is closed here, but Vare said even-numbered afternoons during shift administrator reviews — the office runs a posted schedule and the secretary records every name that waits. The waiting area is a bench in the corridor outside the Iron Compact door. Anyone sitting there is visible from the administration hall end of the building. Being seen waiting to speak with the arbiter carries its own signal. Whether that signal is a cost or a useful one depends on what comes out of the meeting.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'making Iron Compact contact');
+      gainXp(36, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -884,11 +884,11 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The plaque has been recently cleaned. Someone still believes the story is worth dusting.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: 'This path is closed here, but the guild annex holds a bound history of the Relic Strategy Wing — the founding registry is a public charter document, available at the clerk desk without authorization.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'reading local history');
+      gainXp(27, 'reading local history');
 
       G.lastResult = `Seventeen names in pressed metal, small lettering. Crafters who held production through eleven months of supply blockade during the last Resource War. The footer reads: "They kept the forge burning so the alliance did not starve." The plaque has been recently cleaned — no grime in the letter grooves. Whoever dusts it still believes that story is worth dusting. The quota board is visible from here, two buildings down, with this week's targets in fresh paint.`;
       addJournal('Relic Strategy Wing plaque — Soreheim craft heritage tied to alliance survival', 'discovery', `soreheim-plaque-${G.dayCount}`);
@@ -900,7 +900,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Decide how to secure the documentation you've gathered before it can be confiscated.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 34,
     align: {type: 'order', n: -1},
     failResult: function() {
       addNarration('', 'A junior factor crosses the tower-base corridor with an inventory clipboard, takes the long route past the shrine alcove, and notes it. Whatever cache plan you had for that alcove is gone before it was made. Pick another night and another wall.', (G && G.lastResultType) || 'failure');
@@ -908,7 +908,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'securing evidence cache');
+      gainXp(34, 'securing evidence cache');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -928,11 +928,11 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The courier's route doubles back before heading north. Two seals — one I don't recognize.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
-    xpReward: 78,
+    xpReward: 39,
     failResult: 'This path is closed here, but the courier Fess loads his pre-dawn batch from the side window before the relay station supervisor arrives — that window has no standing order to check observer credentials. Fess is already running by the time the supervisor clocks in; the load manifest gets signed in absentia on a hook by the door. A figure standing near that hook while the batch loads would be close enough to read the seal colors on the outbound packets without needing to touch them.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'intercepting strategic correspondence');
+      gainXp(39, 'intercepting strategic correspondence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -961,10 +961,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A veteran organizer warns me — someone has been following this inquiry by one day.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
-    xpReward: 60,
+    xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'receiving rival warning');
+      gainXp(30, 'receiving rival warning');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -996,14 +996,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A past-season ledger is a routine request. The refusal was not routine.",
     tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', 'The registry-floor clerk closes the window before you reach the counter — third-bell shift change, the partition slides down with a brass click. The shift roster says she will not be back at this counter until the following morning. The blue-spine ledger stays behind glass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'reading institutional refusal pattern');
+      gainXp(25, 'reading institutional refusal pattern');
 
       G.lastResult = `The registry window looks out onto the shift yard. Morning light comes in hard from the east, catching the dust on the sill. The clerk finds the relevant section without needing to search. "That filing is not available at this registry level." No pause. No hesitation. She sets her pen back against the column she was working and does not look up again. No hostility — just completion. The transaction is finished. There is no next step she is offering, and no question she has left room for. The refusal has been given before. The phrasing was chosen in advance for exactly this request.`;
       addJournal('Soreheim Proper registry — past-season ledger request refused at counter level without explanation. Refusal language was prepared.', 'intelligence');
@@ -1016,14 +1016,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The clerk's answer came too fast — that refusal has been given before.",
     tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: function() {
       addNarration('', 'A second clerk steps up behind the partition while you stand at the anteroom counter, watches the first clerk write your name in the inquiry register, and folds his hands. The wax-and-fiber smell of the registry corridor stays the same. The answer does not change.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'reading institutional refusal pattern');
+      gainXp(27, 'reading institutional refusal pattern');
 
       G.lastResult = `The registry anteroom smells of pressed fiber and warm wax. Stamp sounds move through the partition wall at a steady rhythm — someone working through a backlog. The clerk behind the counter finds the entry without being asked to search for it. "That filing is not available at this registry level." No pause. No look-up. She sets her pen back to the column she was working and resumes writing. The transaction is complete. There is nothing left to stand there for.`;
       addJournal('Factor authorization log request refused at registry level — clerk showed no hesitation', 'intelligence', `soreheim-refusal-${G.dayCount}`);
@@ -1033,14 +1033,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'A past-season ledger should be easy to pull',
   tags: ['Records', 'Intelligence'],
-  xpReward: 15,
+  xpReward: 7,
   failResult: function() {
     addNarration('', 'A senior factor crosses from the inner registry corridor with three apprentices in step, and the records-desk clerk straightens. The shelf door behind him swings shut with a flat tower-floor echo. The blue-spine ledger goes back into its slot before anyone speaks.', (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {
     advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-    gainXp(15, 'reading institutional refusal pattern');
+    gainXp(7, 'reading institutional refusal pattern');
     G.lastResult = 'The clerk sets down his stamp. "That filing is not available at this registry level." He does not look up. He has returned to stamping before the sentence is complete. Behind him, through the half-open door, the correct shelf is visible. Blue spine, last season\'s date on the edge tab. He does not explain. He does not look at the shelf.';
     addJournal('A routine records request at the Soreheim Proper guild registry was refused without explanation. The ledger was visible on the shelf behind the clerk. Source: Soreheim Proper guild registry, records desk.', 'intelligence');
     G.recentOutcomeType = 'investigate';
@@ -1050,7 +1050,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: 'This path is closed here, but the board is refreshed at the morning bell — the posting clerk pins the new notices before the yard fills and the crowd has not yet gathered to read them. That window, before the shift bell and before the crowd, is also when the board is closest to the administration window — the clerk walks the notices from the window directly. A second pair of eyes on what gets pinned, and what gets removed, before either the crowd or the supervisors arrive.',
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
@@ -1070,14 +1070,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The district coordinator quoted the procedure before I asked a question.",
     tags: ['NPC', 'Records', 'Inquiry'],
-    xpReward: 55,
+    xpReward: 27,
     stageProgress: 1,
     failResult: "The district coordination office handles intake requests during morning hours only. The door is staffed but the coordinator has stepped out for an inter-office review. The wall chart lists the rotation schedule — the next available window opens at the second bell.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(55, 'procedural deflection from district coordinator');
+      gainXp(27, 'procedural deflection from district coordinator');
       G.stageProgress[1]++;
       G.lastResult = "The district coordinator listens for approximately four seconds before citing Section 14 of the inter-office allocation framework, which governs supplemental record requests from non-registered parties. He does not pause to see if you know what Section 14 says. He does not ask what you intended to request. The citation is fast and even, the way a door closes. Behind him, on the slanted writing shelf, a stack of bound ledger copies sits open to a tabbed section. He turns back to it before you speak again. The allocation framework has apparently just become very urgent.";
       addJournal('Soreheim district coordinator: cited procedure before hearing the request — no question asked, no alternative offered. Source: district coordination office, morning shift.', 'complication');
@@ -1091,14 +1091,14 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The allocation ledger skips from 440 to 464. Nothing marks the gap.",
     tags: ['Records', 'Archive', 'Observation'],
-    xpReward: 60,
+    xpReward: 30,
     stageProgress: 1,
     failResult: "The allocation ledger is signed out to an internal review party. The desk clerk has a note but not a name. The ledger returns when the review closes — no projected date given. The prior volume may be accessible through the standard stack request.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(60, 'found missing entries in allocation ledger');
+      gainXp(30, 'found missing entries in allocation ledger');
       G.stageProgress[1]++;
       G.lastResult = "The allocation ledger runs in sequence: entries 438, 439, 440 — then 464. Twenty-three entries absent. The surrounding pages are intact; the binding shows no sign of removal. Entry 440 ends mid-column, and 464 opens with the same ink, the same hand, as if the sequence is unbroken. No notation marks the gap. No cross-reference directs to a secondary volume. Entries 441 through 463 are simply not there. The ledger is otherwise current, signed off through this week, stamped by the same coordinator who cited Section 14 at the intake window twenty minutes ago.";
       addJournal('Soreheim allocation ledger: entries 441–463 absent with no notation, surrounding pages intact, sequence otherwise unbroken. Source: records reading room, stack access.', 'evidence');
@@ -1116,7 +1116,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     effects: [],
     fn: function() {
       G.lastResult = 'The eastern and western cuts show fresh stone at the upper edge — pale gray where the surface is new, dark below where the cut has been exposed long enough to weather. The middle cut is different: the face is the same uniform gray from top to bottom, no fresh break visible, the hoist cables slack on their overhead rail. A work crew moves through the stopped cut without tools, doing something administrative — counting, marking, not cutting. Two supervisors stand at the base watching the crew without participating. The middle cut has been producing nothing and receiving attention in equal measure.';
-      gainXp(10, 'quarry face observation');
+      gainXp(5, 'quarry face observation');
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The supervisor viewing area is blocked by a supply movement — a line of carts crossing the access lane needs to clear before the cut face is readable from outside the perimeter. The dock-side route runs past the processing shed where the cut output gets sorted, which may show the same pattern from a different angle.'
@@ -1129,7 +1129,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     effects: [],
     fn: function() {
       G.lastResult = 'Four stone towers anchor the corners of the original quarry perimeter, each one twice the height of anything built adjacent to them, the construction style different enough from the current processing sheds that the generations of work are easy to read. The towers carry lifting gear at the top — block and tackle frames, still functional, used for the heaviest quarry loads. Between the towers, the newer infrastructure clusters: processing sheds, sorting stations, a covered weighing yard. The new operation grew inside the old frame and uses the towers as load-bearing anchors. Whoever built this second phase understood the first phase well enough to build around it rather than through it.';
-      gainXp(10, 'Titan Tower observation');
+      gainXp(5, 'Titan Tower observation');
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The tower base access is restricted during shift change — the hoist operators need clear sight lines to the upper frames and workers are moving through the zone. The lane around the eastern perimeter stays open and gives a read of the tower profiles without entering the restricted corridor.'
@@ -1142,7 +1142,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     effects: [],
     fn: function() {
       G.lastResult = 'At the processing dock, palletized stone moves from the sorting shed to the waiting freight platform at a pace that doesn\'t match what the active cuts are producing today. The active eastern cut runs one crew at a moderate pace; the dock is loading as if three cuts are running full shifts. Either there is stockpiled material being drawn down from somewhere not visible from here, or the dock is processing quarry output from a source that isn\'t this yard. The freight platform stamps are Soreheim registration. The volume on the platform is not Soreheim\'s current output.';
-      gainXp(10, 'dock output observation');
+      gainXp(5, 'dock output observation');
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The dock gate is closed for an inspection check — the freight coordinator is running numbers against the platform stack before the next barge loads. The processing shed side entrance stays open and the sorted output waiting for the dock is visible from there without needing dock authorization.'
@@ -1163,7 +1163,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
       if (result.success) {
         G.lastResult = 'Allocation Hall, sub-floor nine of Tower Twelve: rows of clerks, quota ledgers ceiling-high, the smell of forge heat rising from below. The permit system here is vertically integrated — each floor carries its own quota authority. You note which tower sectors are under-provisioned and which are running surplus. The floor structure makes every quota decision local and unappealable from outside.';
-        gainXp(15, 'tower allocation hall observation');
+        gainXp(7, 'tower allocation hall observation');
         addJournal('Soreheim allocation system: permit-based, tower-vertical, floor-authority structure. Tower Twelve sub-floor nine is a processing hub.', 'intelligence');
       } else {
         G.lastResult = 'The clerk processes the permit without explanation and hands it back without looking up. Sub-floor nine is a processing hub run at deliberate opacity — the layout and the staff both designed to redirect rather than inform. You leave the tower knowing the system is there and knowing it does not want to be understood by anyone without a quota stake in it.';
@@ -1189,7 +1189,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
       if (result.success) {
         G.lastResult = 'The bridge is wide enough for two cargo sleds side by side. Below, the volcanic plain runs to the horizon — extraction zones blasted in horizontal layers, the quarry work legible at this height in a way it is not from the ground. The towers cast long shadows east. You reach the far platform in the freight flow without attracting notice.';
-        gainXp(10, 'tower freight bridge transit');
+        gainXp(5, 'tower freight bridge transit');
       } else {
         G.lastResult = 'The bridge surface is coated in fine volcanic grit, the kind that accumulates in a single shift of forge-wind from the levels below. You keep pace with the freight traffic but arrive on the far platform winded and conspicuous — two haulers give you the look workers give someone who slowed a moving load.';
       }
@@ -1203,7 +1203,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     id: 'sore_magma_forge_base3',
     label: "The tower-base forge is running at full quota. The heat reaches the entry stairs.",
     plot: 'main',
-    xpReward: 20,
+    xpReward: 10,
     tags: ['Wits', 'Soreheim'],
     tag: 'risky · DC 9',
     effects: [],
@@ -1216,7 +1216,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
       if (result.success) {
         G.lastResult = 'The forge crew works rotation — ten minutes on, ten off, face shields down. Output crates move on roller conveyors to the staging platform above. You watch long enough to understand the throughput rhythm and the shift handoff protocol: two workers sign the crate count, the outgoing crew does not leave until the count matches the overhead ledger. Every unit accounted for before anyone rests.';
-        gainXp(12, 'magma forge observation');
+        gainXp(6, 'magma forge observation');
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
         addJournal('Tower forge, base level three: rotation crew, roller conveyors, staging platform transfer. High-volume, systematized, double-signed handoff.', 'intelligence');
       } else {
@@ -1370,12 +1370,12 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     id: 'soreheim_allocation_hall',
     label: "Token 47. The window shows 29. This queue has architecture worth reading.",
     tags: ['Location', 'System', 'Bureaucracy'],
-    xpReward: 45,
+    xpReward: 22,
     failResult: 'The Allocation Hall processes requests by token order only — arriving before the morning shift bell means joining the queue before it reaches double digits. The outer token dispenser is to the left of the main corridor entrance. Officer-tier windows operate on a separate counter but the same logbook.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(45, 'reading the Allocation Hall system');
+      gainXp(22, 'reading the Allocation Hall system');
 
       var _result = rollD20('wits', G.skills ? (G.skills.wits || 0) : 0);
 
@@ -1395,12 +1395,12 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     id: 'soreheim_crew_grime',
     label: "You carry road dust. Every crew here reads that in under three seconds.",
     tags: ['Social', 'Observation', 'Infiltration'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: 'The mid-level access gate requires floor assignment grime that matches your stated purpose. Foundry workers carry black soot in the finger creases; quarry crew carry pale stone dust; stonecutters carry grey slurry. The transit junction supervisor reads these passively, not actively — he is not looking for it. He is just reading it.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(40, 'understanding crew floor-marking system');
+      gainXp(20, 'understanding crew floor-marking system');
 
       var _hasSorBg = G.background && G.background.region === 'Soreheim Proper';
       var _result = rollD20('finesse', G.skills ? (G.skills.finesse || 0) : 0);
@@ -1427,13 +1427,13 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     label: "The cutting tools are worn to the nub. Quota forbids stopping to dress them.",
     tags: ['Craft', 'Evidence', 'Labor'],
     skill: 'craft',
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: 'The tool maintenance shed is locked between shifts. The equipment log is posted at the forge-base junction — each tool\'s last dressing date is recorded by the maintenance clerk.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(65, 'reading tool wear against quota pressure');
+      gainXp(32, 'reading tool wear against quota pressure');
       G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
 
       var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
@@ -1456,13 +1456,13 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     label: "The bridge anchor bolts are at triple load. Stress marks, six weeks old.",
     tags: ['Craft', 'Evidence', 'Structure'],
     skill: 'craft',
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'The tower maintenance ledger is held at the engineering authority office, two floors above the bridge level. The bridge inspection schedule is posted at the base platform — the last inspection date is on record.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(70, 'reading structural stress evidence');
+      gainXp(35, 'reading structural stress evidence');
       G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
 
       var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
@@ -1484,12 +1484,12 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     label: "The forge runs hot. The calibration log's last signature belongs to a displaced worker.",
     tags: ['Craft', 'Evidence', 'Forge'],
     skill: 'craft',
-    xpReward: 60,
+    xpReward: 30,
     failResult: 'The forge calibration records are in the operating authority vault. The base-level technician holds a working copy of the current settings — it is a required safety document, posted in the lead technician\'s station.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(60, 'reading forge calibration drift');
+      gainXp(30, 'reading forge calibration drift');
 
       var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
       if (_result.total >= 12) {
@@ -1508,12 +1508,12 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     label: "The ward at the worker assembly point was adjusted. It now prevents organized speech.",
     tags: ['Spirit', 'Magic', 'Labor', 'Control'],
     skill: 'spirit',
-    xpReward: 68,
+    xpReward: 34,
     failResult: 'Ward adjustments are recorded at the magic authority registry under the allocation office. The ward inscription at the assembly point is visible from the public walkway — the modification layer sits above the original in a different hand.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(68, 'reading ward modification intent');
+      gainXp(34, 'reading ward modification intent');
 
       var _result = rollD20('spirit', G.skills ? (G.skills.spirit || 0) : 0);
       if (_result.total >= 13) {
@@ -1533,12 +1533,12 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     id: 'soreheim_oath_cycle',
     label: "The tower oath-cycle. Every crew participates. Being uncounted here is visible.",
     tags: ['Ritual', 'Social', 'Location'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: 'The oath-cycle is conducted floor by floor, starting at the forge-base and moving upward in relay. Individual access to a cycle already in progress requires a floor supervisor\'s counter-stamp — the oath officer at the junction records every entry and exit against the production log.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(55, 'witnessing Soreheim oath-cycle ritual');
+      gainXp(27, 'witnessing Soreheim oath-cycle ritual');
 
       var _isOathDay = ((G.dayCount || 0) % 28 === 0);
       var _seen = G.flags && G.flags._oath_cycle_witnessed;
@@ -1566,13 +1566,13 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     label: "The structural deviation report on your bridge carries an authorization stamp from outside Soreheim.",
     tags: ['Craft', 'Evidence', 'Trail'],
     skill: 'craft',
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: 'The Roadwarden dispatch office holds the filed copy of every structural deviation report. The desk clerk handles requests by appointment — the appointment calendar is posted at the outer window.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(70, 'tracing bridge deviation authorization');
+      gainXp(35, 'tracing bridge deviation authorization');
       G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
 
       var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
@@ -1600,13 +1600,13 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     label: "The personnel records for the displaced workers were transferred. Not to any Soreheim archive.",
     tags: ['Wits', 'Evidence', 'Records'],
     skill: 'wits',
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: 'The registry clerk handles transfer requests through a weekly batch process — filing a formal records-location inquiry puts the request in the batch, which is processed on the fifth day of each week. The inquiry form is available at the outer counter.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(65, 'tracing records transfer destination');
+      gainXp(32, 'tracing records transfer destination');
       G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
 
       var _result = rollD20('wits', G.skills ? (G.skills.wits || 0) : 0);
@@ -1633,13 +1633,13 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "Three closed doors in one morning. Whatever controls this place is not housed here.",
     tags: ['Pattern', 'Redirect'],
-    xpReward: 55,
+    xpReward: 27,
     stageProgress: 1,
     failResult: 'The morning is not finished. The archive will be open again after the shift change.',
     fn: function() {
       advanceTime(1);
       if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
-      gainXp(55, 'reading the pattern of closed doors');
+      gainXp(27, 'reading the pattern of closed doors');
       G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
 
       G.lastResult = 'The quota authority. The displacement registry. The bridge inspection archive. Three requests, three different clerks, three different refusals — each with a different procedural reason, none of which match the stated reason on the posted access policy. The pattern is not a series of coincidences. The decisions that produced this situation were made somewhere with the authority to coordinate across three separate administrative divisions simultaneously. That kind of coordinating authority does not exist in Soreheim. It exists in Shelkopolis. That is where the decisions were made. That is where the evidence will be.';

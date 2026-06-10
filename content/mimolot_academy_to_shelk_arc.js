@@ -12,11 +12,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "The notation looks like coursework. Only I know what it describes.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Mimolot with classified formula fragments');
+      gainXp(32, 'departing Mimolot with classified formula fragments');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "Ashe transferred yesterday. He'll see everything that arrives through the network.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'discovering Brevard Ashe\'s transfer to Shelkopolis');
+      gainXp(35, 'discovering Brevard Ashe\'s transfer to Shelkopolis');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Ashe's transfer category is "academic liaison reassignment to central review." The same pattern as every other lateral move the operation has made — legitimate-sounding category, real transfer, operational repositioning. His role at Mimolot was oversight of classified research access. In Shelkopolis, he'll have the same access profile but applied to the central Academy's research archive. He'll see everything that comes in from the network.`;
@@ -48,11 +48,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "Tavin carries his own recommendation. I embed the formula inside it.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'using Tavin\'s student travel for document cover');
+      gainXp(35, 'using Tavin\'s student travel for document cover');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -73,12 +73,12 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "340 kilograms deployment threshold. Craftspire extracted exactly 340 kilograms.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'decoding the Memory Hall compound specification');
+      gainXp(40, 'decoding the Memory Hall compound specification');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -93,11 +93,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "Doss has been in Shelkopolis three months. Long enough to be found.",
     tags: ['ArcDeepening', 'Social', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'learning Doss is already in Shelkopolis');
+      gainXp(37, 'learning Doss is already in Shelkopolis');
       if (!G.flags) G.flags = {};
 
       G.lastResult = `Doss was the scholar who first flagged the formula fragments as classified beyond their apparent category. His "sabbatical" was arranged three weeks after he filed the reclassification query. He's been in Shelkopolis for three months — long enough to have established alternate contacts and to have continued his analysis independently of Mimolot's oversight structure. He's also been in Shelkopolis long enough to be found by the wrong people.`;
@@ -112,11 +112,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "One last check of the secondary index before I leave this place for good.",
     tags: ['ArcDeepening', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'final Scriptorium check before departure');
+      gainXp(35, 'final Scriptorium check before departure');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -138,11 +138,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "The central Academy review board now has a Roadwardens Order seat. Ashe holds it.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'arriving at Shelkopolis academic district');
+      gainXp(35, 'arriving at Shelkopolis academic district');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -157,11 +157,11 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "Doss is alive and working. Ashe is looking. I need to get there first.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'finding Doss before Ashe can');
+      gainXp(40, 'finding Doss before Ashe can');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -186,12 +186,12 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
     label: "Fragments are not findings. Shelkopolis has the chemists who can make them one.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.mimolot_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to bring formula data to Shelkopolis');
+      gainXp(40, 'committing to bring formula data to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.mimolot_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

@@ -12,7 +12,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     label: "The Roadwarden commander has been watching the same thread. He wants a sit-down.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
-    xpReward: 85,
+    xpReward: 42,
     condition: function() {
       return G.archetype && G.archetype.group === 'combat'
         && G.stage === 'Stage I'
@@ -22,7 +22,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'confronting the Roadwardens Order commander');
+      gainXp(42, 'confronting the Roadwardens Order commander');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -51,7 +51,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     label: "The garrison stands between me and the document. The method is mine to choose.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Risk'],
-    xpReward: 90,
+    xpReward: 45,
     condition: function() {
       return G.archetype && G.archetype.group === 'combat'
         && G.stage === 'Stage I'
@@ -62,7 +62,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(90, 'getting past the Roadwardens Order garrison');
+      gainXp(45, 'getting past the Roadwardens Order garrison');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -96,7 +96,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     label: "Edvar's second message is an offer. The Order wants my work inside their structure.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
-    xpReward: 95,
+    xpReward: 47,
     condition: function() {
       return G.archetype && G.archetype.group === 'combat'
         && G.stage === 'Stage I'
@@ -107,7 +107,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(95, 'deciding on the Roadwardens Order\'s offer');
+      gainXp(47, 'deciding on the Roadwardens Order\'s offer');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 

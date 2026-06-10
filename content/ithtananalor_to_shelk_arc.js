@@ -12,11 +12,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Capital moved in pieces too small to flag. Someone set that threshold deliberately.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
-    xpReward: 65,
+    xpReward: 32,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(65, 'departing Ithtananalor with ghost account transaction pattern');
+      gainXp(32, 'departing Ithtananalor with ghost account transaction pattern');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -29,11 +29,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Maret's authorization was revoked on a technicality invented after her first inquiry.",
     tags: ['ArcRoad', 'Social', 'NPC'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'traveling south with Maret Voss');
+      gainXp(35, 'traveling south with Maret Voss');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -54,11 +54,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "The garrison review was requested by the same person accessing the ghost accounts.",
     tags: ['ArcRoad', 'Lore', 'Investigation'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'connecting garrison reduction timing to ghost account activity');
+      gainXp(35, 'connecting garrison reduction timing to ghost account activity');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -80,12 +80,12 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Every clerk who processed one became a participant. That was the design.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'mapping the debt leverage system across localities');
+      gainXp(40, 'mapping the debt leverage system across localities');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -100,11 +100,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Same fragmentation pattern. Eighteen transactions. The money is already in Shelkopolis.",
     tags: ['ArcDeepening', 'Lore', 'Craft'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'identifying matching transaction pattern in road exchange house');
+      gainXp(37, 'identifying matching transaction pattern in road exchange house');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -124,11 +124,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Calver arrives just before the accounts open. Transfers out after they close.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
-    xpReward: 75,
+    xpReward: 37,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'tracing Calver\'s Roadwardens Order posting history');
+      gainXp(37, 'tracing Calver\'s Roadwardens Order posting history');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -151,11 +151,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Twenty years of records. The pattern will be there.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
-    xpReward: 70,
+    xpReward: 35,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'arriving at Shelkopolis financial district');
+      gainXp(35, 'arriving at Shelkopolis financial district');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -170,11 +170,11 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "Once Hess files the access request, suppressing it creates its own record.",
     tags: ['ArcArrival', 'Social', 'NPC'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'reaching Maret\'s arbitrator contact in Shelkopolis');
+      gainXp(40, 'reaching Maret\'s arbitrator contact in Shelkopolis');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -199,12 +199,12 @@ const ITHTANANALOR_TO_SHELK_ARC = [
     label: "The paper trail proves the operation was organized and funded. Without it, nothing holds.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
-    xpReward: 80,
+    xpReward: 40,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.ithtan_arc_departing); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(80, 'committing to follow capital trail to Shelkopolis');
+      gainXp(40, 'committing to follow capital trail to Shelkopolis');
       if (!G.flags) G.flags = {};
       G.flags.ithtan_arc_departing = true;
       if (!G.worldClocks) G.worldClocks = {};

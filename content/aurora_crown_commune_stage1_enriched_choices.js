@@ -14,7 +14,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The rotations increased. The repairs that matter most have fewer hands.",
     tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Kess finishes her gauge check without looking up. The maintenance corridor smells of sealant and old pressure lines. She replaces the cap and moves down the hall before you finish — not hostile, just done. The rotation schedule is posted on the board outside the coordinator\'s office. That\'s the open route.', (G && G.lastResultType) || 'failure');
@@ -24,7 +24,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'uncovering maintenance pressures');
+      gainXp(35, 'uncovering maintenance pressures');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -57,7 +57,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "The observation logs have been moved. The authorization isn't on the board.",
     tags: ['Investigation', 'NPC', 'Records', 'Knowledge'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The archive room is locked for the morning consolidation cycle. A handwritten notice on the door lists the open hours — two windows each day, neither of which is now. The celestial observation logs are referenced in the registry hall\'s public index. That index is always open.', (G && G.lastResultType) || 'failure');
@@ -67,7 +67,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering data suppression');
+      gainXp(37, 'uncovering data suppression');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -99,7 +99,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Survival supplies are being redirected. The destination codes don't appear in any public record.",
     tags: ['Investigation', 'NPC', 'Logistics', 'Survival'],
     condition: function() { return (G.investigationProgress||0) < 3; },
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Thass is in a handoff meeting — two colleagues, ledgers open, voices low. The allocation room door stands half-open but the desk is occupied. Supply distribution summaries are posted weekly on the commons board outside the grain stores. That board is public.', (G && G.lastResultType) || 'failure');
@@ -109,7 +109,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading distribution pressure');
+      gainXp(35, 'reading distribution pressure');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -141,7 +141,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Critical repairs are sitting in the queue. They have been sitting there for weeks.",
     tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Yani\'s office door is closed, a "review in progress" card slotted into the frame. The work order queue summary — not the full log, just open items — is tacked to the corridor board outside her door. It\'s been there long enough for the corner to curl.', (G && G.lastResultType) || 'failure');
@@ -151,7 +151,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing maintenance sabotage');
+      gainXp(37, 'exposing maintenance sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -183,7 +183,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The observer's charts ran irregular for three weeks. No notice filed.",
     tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The observation room is dark — morning cycle complete, afternoon cycle not yet begun. The high windows carry amber light from the dome panels. A single readings sheet from last week is pinned to the corkboard outside: baseline figures, unsigned. The archive carries four weeks of comparison data.', (G && G.lastResultType) || 'failure');
@@ -193,7 +193,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading celestial corruption');
+      gainXp(35, 'reading celestial corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -225,7 +225,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The seepage logs show response times doubling. The monitor knows.",
     tags: ['Investigation', 'NPC', 'Contamination', 'Safety'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Kael is in the sealed monitoring section — the amber light above the door means no entry. The outer reading area holds event logs: dates, cell codes, response flags. Not the full picture, but a place to start. The dates cluster.', (G && G.lastResultType) || 'failure');
@@ -235,7 +235,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading containment sabotage');
+      gainXp(35, 'reading containment sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -267,7 +267,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A second relay channel opened six weeks ago. The keeper hasn't asked what it's for.",
     tags: ['Investigation', 'NPC', 'Communications', 'Information'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Both relay operators are running an active transmission — the board shows a live channel open, amber indicator lit. The routing log summary from last month is posted in the corridor outside the relay room, part of the commune\'s transparency protocol. The secondary channel appears there as a line item.', (G && G.lastResultType) || 'failure');
@@ -277,7 +277,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'uncovering communications control');
+      gainXp(35, 'uncovering communications control');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -309,7 +309,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The evacuation procedures aren't in the current binder. They were there last year.",
     tags: ['Investigation', 'NPC', 'Emergency', 'Protocol'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The survival planner\'s office is locked and dark — she works early shifts and is long gone. The public version of the emergency protocol is posted on the registry hall board, as required by commune charter. The recent revision stamp is visible from three paces.', (G && G.lastResultType) || 'failure');
@@ -319,7 +319,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'mapping emergency system sabotage');
+      gainXp(37, 'mapping emergency system sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -353,7 +353,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three stress points appear fourteen times in the log. None have repair authorizations.",
     tags: ['Investigation', 'Lore', 'Structure', 'Engineering'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The structural records section is locked for a quarterly inventory. A sign gives the reopen window: tomorrow, first light. The maintenance log summary — open items only — is in the registry hall technical room, no authorization required. The northeast quadrant appears there by section code.', (G && G.lastResultType) || 'failure');
@@ -363,7 +363,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'structural vulnerability mapping');
+      gainXp(35, 'structural vulnerability mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -394,7 +394,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The barrier components look correct. They aren't the same material.",
     tags: ['Investigation', 'Craft', 'Barrier', 'Materials'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The barrier access panel requires a maintenance certification card — the slot is right there, waiting for a card you don\'t carry. The filtration installation records from eighteen months ago are in the open archive. That\'s where the specification baseline lives.', (G && G.lastResultType) || 'failure');
@@ -404,7 +404,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'exposing material sabotage');
+      gainXp(37, 'exposing material sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
@@ -435,7 +435,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The consumption figures don't match the population. Twelve months of supply is moving somewhere else.",
     tags: ['Investigation', 'Survival', 'Economics', 'Resources'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The communal records room is in use — a training session running long, tables covered. The posted supply summary outside the grain stores carries consumption figures by week. The numbers have been running in the same direction for two months.', (G && G.lastResultType) || 'failure');
@@ -445,7 +445,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'resource sustainability analysis');
+      gainXp(35, 'resource sustainability analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -476,7 +476,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Every conversation stops at the same topic. The line is too consistent to be coincidence.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Silence'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The morning commons is empty — the early shift ate an hour ago and the midday shift hasn\'t arrived. The communal tables stand clean and bare. The posted decision board near the entrance carries three recent directives, none of them contested. The silence is visible in the absence of any counter-signatures.', (G && G.lastResultType) || 'failure');
@@ -486,7 +486,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'mapping coercion network');
+      gainXp(37, 'mapping coercion network');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -517,7 +517,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The tables empty at hours they should be full. Nobody reads the boards.",
     tags: ['Investigation', 'Insight', 'Psychology', 'Pressure'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The commons is too active right now — a scheduled assembly in progress, every seat taken, voices overlapping. The amber light through the dome panels gives the room a warmth the faces don\'t match. The founding stone at the dome\'s anchor point is quieter. What was built here is written on it.', (G && G.lastResultType) || 'failure');
@@ -527,7 +527,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'psychological pressure analysis');
+      gainXp(35, 'psychological pressure analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -558,7 +558,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three directives, three timing windows, all matching the relay traffic. Outside coordination.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The org chart posted in the registry hall entrance is current — names, departments, reporting lines. The three administrators whose decisions you want to cross-reference are all listed. Their signature blocks appear on the public decision log. That log is always open.', (G && G.lastResultType) || 'failure');
@@ -568,7 +568,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering administrative conspiracy');
+      gainXp(37, 'uncovering administrative conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -601,7 +601,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The maintenance workers don't talk about the dome readings. Not where anyone can hear.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The maintenance corridor is empty — shift change just ended and nobody lingers. The amber smell of dome sealant hangs without anyone to breathe it. The commons will fill again at midday. Fragments travel at mealtimes, between people who don\'t know they\'re passing the same one.', (G && G.lastResultType) || 'failure');
@@ -611,7 +611,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing worker anxiety narratives');
+      gainXp(32, 'parsing worker anxiety narratives');
       G.stageProgress[1]++;
 
       const rumor = ['the dome stress readings are worse than anyone admits', 'people disappear during reassignment and nobody asks where they go', 'the barrier is leaking and they\'re not repairing it', 'someone is collecting contamination samples on purpose', 'if we protest, we get reassigned to the contamination detail'];
@@ -630,7 +630,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Four documents, four contradictions, all pointing the same direction. Someone built that.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systematic'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The communal records room closes for the afternoon inventory. A clerk carries the day\'s active files to the locked section without meeting your eyes. The registry hall\'s public index stays open. Each of the documents you need appears there by title. The route is slower but it\'s open.', (G && G.lastResultType) || 'failure');
@@ -640,7 +640,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing systemic sabotage conspiracy');
+      gainXp(40, 'exposing systemic sabotage conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -671,7 +671,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "They didn't design the trap. They're just standing in it with everyone else.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     effects: [
       { type: 'heat', polity: 'sheresh', amount: 1 },
@@ -685,7 +685,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment to resistance');
+      gainXp(35, 'making moral commitment to resistance');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -715,7 +715,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The instruction chain passes through the relay and ends somewhere unnamed.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The relay room is staffed and the door is closed. Through the narrow window you can see both operators at their stations. The external correspondence log — outgoing traffic summaries, no content — is posted in the registry hall as required. The secondary channel appears there as a routing entry. The log is public.', (G && G.lastResultType) || 'failure');
@@ -725,7 +725,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of dome sabotage');
+      gainXp(40, 'discovering origin source of dome sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -756,7 +756,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Barrier, maintenance, resources, protocol. All degrading. All timed to the same relay windows.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Connection'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The records room table you need is occupied — a commune auditor running her own tally, files spread in both directions. She\'ll be there until evening. The registry hall keeps a timeline board showing system status updates: barrier, maintenance, resources, protocol. The dates are public. The pattern is in the spacing.', (G && G.lastResultType) || 'failure');
@@ -766,7 +766,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'recognizing systematic collapse pattern');
+      gainXp(37, 'recognizing systematic collapse pattern');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -797,7 +797,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The degradation is calibrated. Too slow to trigger response. Too precise to be natural.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The synthesis requires a table and uninterrupted time — neither is available right now. The dome anchor is quiet in the early afternoon. The founding stone sits at its base. Sometimes the shape of a thing becomes visible when you stop reading documents and look at what was built.', (G && G.lastResultType) || 'failure');
@@ -807,7 +807,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'achieving systemic wrongness understanding');
+      gainXp(40, 'achieving systemic wrongness understanding');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -839,14 +839,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Eighteen months ago, the service log has a two-word margin note. That's the answer.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
-    xpReward: 73,
+    xpReward: 36,
     failResult: function() {
       addNarration('', 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the dome panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'reading filtration system documentation');
+      gainXp(36, 'reading filtration system documentation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -871,14 +871,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The northeast quadrant reading should have tripped an alarm. The alarm wire has been bypassed.",
     tags: ['Investigation', 'Evidence', 'Craft', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The dome\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'measuring dome pressure gradient');
+      gainXp(35, 'measuring dome pressure gradient');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -903,14 +903,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The commons at midday shows what the commune can't say out loud.",
     tags: ['Investigation', 'Archetype', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: function() {
       addNarration('', 'The central commons is packed — a scheduled assembly running over, people standing in the doorways. There\'s no vantage point in the crowd. The outer corridor runs the commons\' full length with a row of small windows. The same behavior is visible from outside the glass, without the noise.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading commune social fabric');
+      gainXp(34, 'reading commune social fabric');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
@@ -931,14 +931,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The Collegium's name is in the correspondence log. Someone tried this route already.",
     tags: ['Faction', 'NPC', 'Stage1'],
-    xpReward: 70,
+    xpReward: 35,
     failResult: function() {
       addNarration('', 'The external correspondence room is locked — Merav Solind receives visitors by appointment only, and none are scheduled today. Her name appears in the registry hall\'s external liaison log alongside the complaint reference number. The log is public. The complaint was formally filed. That\'s enough to begin.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Oversight Collegium contact');
+      gainXp(35, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -961,14 +961,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The founding stone says what the commune was built for. Worth reading now.",
     tags: ['WorldColor', 'Lore', 'Stage1'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', 'The dome anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'reading founding memorial');
+      gainXp(25, 'reading founding memorial');
 
       G.lastResult = `The stone is earth-brick and older than anything else in the commune, set at the dome's original anchor point where the founding team drove the first stake. The inscription reads: "We built to breathe where others said nothing would grow. The dome is not shelter from the world. It is proof the world can be changed." Below it, in smaller text added later: "Maintained by the hands of those who live within it." The stone is clean. Someone still polishes it — recently, you can tell by the dust line. In the grey light of a dome running at diminished capacity, that second line reads differently than it was meant to.`;
       addJournal('Aurora Crown founding stone: dome as proof of communal will, memorial maintained', 'discovery', `aurora-founding-${G.dayCount}`);
@@ -980,14 +980,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The filtration data needs to leave this archive before it disappears too.",
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: function() {
       addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'securing filtration evidence offsite');
+      gainXp(32, 'securing filtration evidence offsite');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -1006,14 +1006,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The complaint was filed. The engineer who filed it was reassigned three days later.",
     tags: ['Social', 'NPC', 'Stage1'],
-    xpReward: 67,
+    xpReward: 33,
     failResult: function() {
       addNarration('', 'Orren\'s reassignment posting shows him in the residential maintenance block — but the block is locked for a scheduled inspection. The sealed document case he carries was stamped with an engineering certification mark. The NE quadrant inspection report in the public registry hall carries the same stamp. That report is accessible without him.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(67, 'hearing engineer account');
+      gainXp(33, 'hearing engineer account');
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
@@ -1033,10 +1033,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone else came asking about the dome. The credentials didn't add up.",
     tags: ['Rival', 'Warning', 'Stage1'],
-    xpReward: 57,
+    xpReward: 28,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(57, 'receiving rival warning');
+      gainXp(28, 'receiving rival warning');
       if (!G.flags) G.flags = {};
 
       const arch = G.archetype && G.archetype.group;
@@ -1065,7 +1065,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
@@ -1087,7 +1087,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The sealed corridor has one pressure latch. One good shoulder and it gives.",
     tags: ['Combat', 'Risk', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The latch holds — older construction, thicker than it looks. The impact rings through the maintenance passage and a patrol turns the far corner thirty seconds later. You are standing at a sealed door with a bruised shoulder and no explanation that fits the context. The patrol writes a notation in their route log. The corridor stays sealed.', (G && G.lastResultType) || 'failure');
@@ -1097,7 +1097,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'forced corridor access');
+      gainXp(32, 'forced corridor access');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1128,7 +1128,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "Two workers blocking the thermal vent access. One of them is wearing management colors.",
     plot: 'main',
     tags: ['Combat', 'Confrontation', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The worker in management colors has backup one turn of the corridor away — a second crew who arrive before the confrontation resolves. You are outnumbered in a maintenance passage with no clear exit angle. The thermal vent access closes behind them. The blockade is now formal, logged, and has witnesses.', (G && G.lastResultType) || 'failure');
@@ -1138,7 +1138,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'clearing management blockade');
+      gainXp(32, 'clearing management blockade');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1171,7 +1171,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "The ward mark is six weeks old. The panel underneath is brand new.",
     plot: 'main',
     tags: ['Magic', 'Lore', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The ward mark is on the upper edge of the panel, out of direct reading angle without a step platform. The nearest platform is locked to a maintenance crew that has already moved down the corridor. The mark stays unread. The panel installation date is visible on the lower stamp without any special access — that alone is worth noting.', (G && G.lastResultType) || 'failure');
@@ -1181,7 +1181,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'ward mark temporal analysis');
+      gainXp(32, 'ward mark temporal analysis');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1212,7 +1212,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "Ley-line interference in the observation archive. The pattern isn't natural.",
     plot: 'main',
     tags: ['Magic', 'Lore', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The observation archive\'s interference field is strongest near the sealed section, which is behind a locked access panel requiring coordinator clearance. The open section of the archive still shows normal ley readings — the interference is specifically localized to the restricted area. That localization is itself a finding worth recording.', (G && G.lastResultType) || 'failure');
@@ -1222,7 +1222,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'ley-line interference pattern analysis');
+      gainXp(32, 'ley-line interference pattern analysis');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1254,7 +1254,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "Maintenance patrol pattern has a four-minute gap at the junction. That's the window.",
     plot: 'main',
     tags: ['Stealth', 'Risk', 'Covert'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The patrol gap is three minutes, not four — the second officer runs the eastern branch faster than the first. You are in the service passage when the light from her headlamp sweeps the junction. She does not see you, but she stops and checks the side passage by habit. You hold still for ninety seconds before she moves on. The window has closed and the patrol is now one rotation out of sync with the gap you mapped.', (G && G.lastResultType) || 'failure');
@@ -1264,7 +1264,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'navigating maintenance patrol gap');
+      gainXp(32, 'navigating maintenance patrol gap');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1295,7 +1295,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "The overseer takes the same route every third shift. She\'s one junction ahead.",
     plot: 'main',
     tags: ['Stealth', 'Covert', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The overseer takes an unscheduled stop at the secondary gauge station — a deviation that cuts the following distance to nothing. You have to peel off into the side passage before she turns around to log the gauge reading. She does not see you but she does see the side passage door, which you left two inches open. She notes it in her route log. The overseer\'s route is compromised for this shift.', (G && G.lastResultType) || 'failure');
@@ -1305,7 +1305,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'shadowing overseer through service tunnels');
+      gainXp(32, 'shadowing overseer through service tunnels');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1337,7 +1337,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "The dome worker hasn\'t reported to medical. She has a reason for that.",
     plot: 'main',
     tags: ['Support', 'NPC', 'Care'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The dome worker waves you off before you finish the offer — not hostile, just practiced. She has been managing this injury through her shift and the muscle memory of doing so has closed the conversation. She ties off the pressure wrap on her own and goes back to the gauge station. You don\'t learn why she hasn\'t reported. The next shift handoff in two hours will take her through the medical station corridor; the reason might surface there.', (G && G.lastResultType) || 'failure');
@@ -1347,7 +1347,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'tending to injured dome worker');
+      gainXp(32, 'tending to injured dome worker');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1378,7 +1378,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: "Two dome crews competing for the same repair slot. The dispute is the distraction.",
     plot: 'main',
     tags: ['Support', 'NPC', 'Negotiation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Both foremen have been arguing this slot long enough that they have developed fixed positions and a working dislike of each other. A third party wading in reads as another layer of the same problem. The taller foreman tells you, politely, to file a scheduling grievance through the coordinator\'s office. The shorter one just stops talking. The dispute continues without you and the corridor stays blocked.', (G && G.lastResultType) || 'failure');
@@ -1388,7 +1388,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering dome crew slot dispute');
+      gainXp(32, 'brokering dome crew slot dispute');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1580,7 +1580,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The corridor seal is rusted half-open. No one is looking this way.',
     plot: 'main',
     tags: ['Combat', 'Direct', 'Risk', 'Infrastructure'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The seal gives a quarter-turn before the pressure differential shoves it back — the dome\'s thermal system is still live on this branch. The bang echoes down the maintenance corridor and draws a patrol head-around from the junction. You\'re moving before they call out, but the route is burned. The technician who logs this seal will find the scuff marks.', (G && G.lastResultType) || 'failure');
@@ -1590,7 +1590,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'forcing a sealed maintenance corridor');
+      gainXp(32, 'forcing a sealed maintenance corridor');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1621,7 +1621,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'Two workers blocking the vent junction. Their argument is slowing a patrol.',
     plot: 'main',
     tags: ['Combat', 'Direct', 'Confrontation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The two workers clock you before you close the gap — commune settlements read body language the way port towns read tides. One steps sideways to block the junction gap on pure instinct. The argument stops. You\'re the new problem in the corridor, and the patrol at the far end has already slowed to look. The junction stays closed.', (G && G.lastResultType) || 'failure');
@@ -1631,7 +1631,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'clearing a contested vent junction');
+      gainXp(32, 'clearing a contested vent junction');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1664,7 +1664,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The ward marks on these dome panels are wrong. They have been for a while.',
     plot: 'main',
     tags: ['Knowledge', 'Lore', 'Observation', 'Arcane'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The dome panel script is maintenance shorthand layered over older ward notation — two systems written in the same space, neither fully legible through the other. Reading it properly would take a reference text you don\'t have access to. The archive reading room carries the notation manual for dome inscription systems. That route is still open.', (G && G.lastResultType) || 'failure');
@@ -1674,7 +1674,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading dome ward mark anomalies');
+      gainXp(32, 'reading dome ward mark anomalies');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1705,7 +1705,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The ley-line readings in the observation archive stop at a specific date.',
     plot: 'main',
     tags: ['Knowledge', 'Lore', 'Records', 'Arcane'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The observation archive is locked for the morning consolidation cycle. The posted hours show two daily windows; neither is now. The public index in the registry hall cross-references the ley-line observation logs by date. That index is always accessible and carries the same date range.', (G && G.lastResultType) || 'failure');
@@ -1715,7 +1715,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'tracing ley-line observation record gap');
+      gainXp(32, 'tracing ley-line observation record gap');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1747,7 +1747,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The maintenance patrol uses the same junction rotation every cycle.',
     plot: 'main',
     tags: ['Stealth', 'Infiltration', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'The patrol varies its return window this cycle — a response to something, or a test, or chance. You\'re in the junction gap when their lamp rounds the corner twelve seconds early. You fold into the equipment alcove and they pass close enough that the lamp heat reaches you. They slow but don\'t stop. You can\'t use this junction again today.', (G && G.lastResultType) || 'failure');
@@ -1757,7 +1757,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'slipping past a maintenance patrol');
+      gainXp(32, 'slipping past a maintenance patrol');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1789,7 +1789,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The overseer takes the same service tunnel every morning. She never looks behind her.',
     plot: 'main',
     tags: ['Stealth', 'Observation', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'She looks behind her this morning — a habit broken, a lamp checked, whatever the reason. The tunnel is narrow and there is no shadow deep enough. She sees you before you can create a distance. She doesn\'t call out. She just stops and waits. The conversation you have is controlled, professional, and gives you nothing.', (G && G.lastResultType) || 'failure');
@@ -1799,7 +1799,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'shadowing the overseer through service tunnels');
+      gainXp(32, 'shadowing the overseer through service tunnels');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1831,7 +1831,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The dome worker\'s hands are wrapped wrong. She has been doing this herself.',
     plot: 'main',
     tags: ['Care', 'NPC', 'Social'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'She pulls her hands back before you reach her — not hostile, just practiced. "Medical station handles injuries." She says it the way someone says something they\'ve been told to say. The medical station is two corridors east and staffed during two posted windows. Whatever she needed tending, she has decided to tend it herself, or wait.', (G && G.lastResultType) || 'failure');
@@ -1841,7 +1841,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'tending to injured worker, drawing out information');
+      gainXp(32, 'tending to injured worker, drawing out information');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1872,7 +1872,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     label: 'The two crews are fighting over a repair slot that neither of them scheduled.',
     plot: 'main',
     tags: ['Social', 'NPC', 'Diplomacy', 'Infrastructure'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: function() {
       addNarration('', 'Both crews look at you, then at each other, then back at the disputed repair slot — and decide the problem is easier to manage without a third party involved. The argument stops. Both crews occupy opposite ends of the corridor and neither moves. The slot stays empty. Whatever was worth fighting over is no longer worth explaining to an outsider.', (G && G.lastResultType) || 'failure');
@@ -1882,7 +1882,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering between competing dome crews');
+      gainXp(32, 'brokering between competing dome crews');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));

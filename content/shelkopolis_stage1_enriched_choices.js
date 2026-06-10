@@ -14,14 +14,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_pattern',
     label: "The innkeeper notices things she doesn't write down. Three guests, same careful question.",
     tags: ['NPC', 'Observation', 'Intelligence'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: "Marta is mid-pour when you approach, and she stays mid-pour until the cup is full. The Amber Fountain is busy this hour — someone needs change, someone needs a second lamp. When the counter finally quiets, the moment has closed. She doesn't refuse; she simply has no opening to offer. The harbor smell drifts through the door. The clerk's row near the registry buildings opens early — paperwork has its own patience.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'gathering intelligence from trusted source');
+      gainXp(35, 'gathering intelligence from trusted source');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -56,14 +56,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "The sealed letters at Silkweaver's Chapel run on a schedule. Twice a week, no names.",
     tags: ['NPC', 'Evidence', 'Mystery'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: "Brother Aldwin is mid-blessing when you arrive, the chapel entry full of morning petitioners. He acknowledges you with a nod that means later, and later does not come before the mid-tide bell rings and the chapel empties in the direction of the market. The letter alcove is visible from the nave — deposits run after the dusk-call bell, which gives the rest of the day for other approaches.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering covert communication network');
+      gainXp(37, 'uncovering covert communication network');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -96,7 +96,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three commissions on Verdant Row — paid in full, then abandoned before the first fitting.",
     tags: ['NPC', 'Craft', 'Trade'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) < 3; },
     failResult: "Sereth has a client in the fitting alcove when you arrive, pins in hand, a complicated hem requiring all his attention. The fish-salt smell of the harbor comes through the open back window. He waves you toward the counter ledger — browse the open commission records, come back when the fitting is done. The book is there. The abandoned order slips are in it.",
@@ -104,7 +104,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading commercial disruption');
+      gainXp(35, 'reading commercial disruption');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -131,7 +131,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Autumn entries stop mid-column. The ink around the gap is clean.",
     tags: ['NPC', 'Records', 'Bureaucracy'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     failResult: "The reading room is occupied — two estate advocates with a stack of folios that will keep the desk clerk busy until midday. The ledger you want sits on the closed-access shelf behind the counter. The tallow-and-ink smell of the room is patient. The garrison quartermaster's office holds parallel supply columns; that route stays open.",
@@ -139,7 +139,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering administrative concealment');
+      gainXp(37, 'uncovering administrative concealment');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -169,14 +169,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone with authority filed this without leaving their name behind.",
     tags: ['NPC', 'Records', 'Bureaucracy'],
-    xpReward: 15,
+    xpReward: 7,
     stageProgress: 0,
     failResult: "The registry desk is closed for the morning audit — a clerk posts the notice without looking up, and the stamp window goes dark. The transit authorizations sit in the outbox tray behind the counter, visible but out of reach. The dock manifest board near the harbor gate carries similar authorization codes. That board is public.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(15, 'reading administrative anomaly');
+      gainXp(7, 'reading administrative anomaly');
 
       G.lastResult = `The permit registry desk smells of pressed wax and dry parchment. A row of transit authorizations sits in the outbox tray, stamped and dated, each one carrying a six-digit reference code in the upper margin. The third form down has the code — REF-7741-KS — printed cleanly. The signatory column beside it is blank. Not crossed out. Not initialed with a placeholder. Blank, as though the name was never meant to be there. The clerk on the far side of the room lifts a new form from the stack and begins writing without looking up.`;
       addJournal('Permit registry at Shelkopolis civic hall: transit authorization REF-7741-KS carries a valid code but no signatory — column left empty, form filed as complete', 'intelligence');
@@ -190,7 +190,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The shrine wards need relaying more often. The formulas haven't changed.",
     tags: ['NPC', 'Divine', 'Ritual'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Sister Velda is mid-ceremony when you arrive — a full ward renewal, her back to the nave, hands pressed flat to the floor stone. The wax smell of the chapel is heavy and close. The ceremony runs long. When it ends, two families waiting for private blessings step forward before you can, and Velda moves to them without pausing. The chapel records her renewal schedule in an open ledger on the reading stand near the entrance. The dates are there. The intervals between them tell a story of their own.",
@@ -202,7 +202,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading spiritual corruption');
+      gainXp(35, 'reading spiritual corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -230,7 +230,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern silkwood stopped arriving three weeks ago. Not delayed — stopped.",
     tags: ['NPC', 'Commerce', 'Economics'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Kaen is mid-transaction when you reach his stall — two estate stewards with a price dispute and a ledger spread between them, a conversation that will not yield its space. The fish-salt of the harbor hangs over Verdant Row. His tally board is visible from where you stand: three blank supplier lines in the northern column, no names, no quantity marks. He does not look up. The manifest board near the harbor gate posts the same commodity codes. That board does not require a conversation.",
@@ -242,7 +242,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'deciphering economic pressure');
+      gainXp(35, 'deciphering economic pressure');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0) + (G.skills.insight || 0) / 2);
@@ -272,7 +272,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Ironspool district — patrols pull back at nightfall now. No declared reason.",
     tags: ['NPC', 'Enforcement', 'Authority'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "Captain Thorne is at the garrison's duty desk when you arrive, signing off a rotation change with two clerks waiting on him. The coal-smoke smell of the precinct carries through the open side door. He does not look up. The duty clerk beside him moves to intercept — standard procedure, officer engaged, come back the following watch. The patrol rotation board is visible from the corridor outside, mounted on the wall beside the dispatch window. The Ironspool column's recent crossings-out are legible from the public side of the counter.",
@@ -284,7 +284,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'reading enforcement reallocation');
+      gainXp(35, 'reading enforcement reallocation');
       G.stageProgress[1]++;
 
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -314,7 +314,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The confessions have changed. People aren't confessing wrongs anymore — they're confessing fear.",
     tags: ['NPC', 'Faith', 'Psychology'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: {
       text: "Brother Aldwin is leading the morning petitioners through the nave when you arrive — a full public observance, the chapel doors open, the wax-and-stone smell carrying into the street. It runs long. When it closes, a family requiring a private blessing takes his attention next, and then a shrine novice with a scheduling question he cannot defer. The morning is gone. The confession register sits open on the reading stand at the nave entrance. It does not contain confessions — it contains the weekly attendance count, and the numbers since autumn have a pattern of their own.",
@@ -326,7 +326,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering spiritual coercion');
+      gainXp(37, 'uncovering spiritual coercion');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -356,13 +356,13 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The garrison rearranged to control movement inside the city, not guard against threats outside.",
     tags: ['Combat', 'Military', 'Anomaly'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'military structural analysis');
+      gainXp(35, 'military structural analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('vigor', (G.skills.vigor || 0));
@@ -390,7 +390,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Someone signed off on weapons transfers to an unmarked warehouse. The garrison commander didn't.",
     tags: ['Combat', 'Supply', 'Logistics'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
@@ -400,7 +400,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'military logistics analysis');
+      gainXp(37, 'military logistics analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -431,13 +431,13 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The old trade-route wards are thin. Not decayed — pulled deliberately inward.",
     tags: ['Magic', 'Wards', 'Arcane'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'arcane architecture analysis');
+      gainXp(35, 'arcane architecture analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -468,7 +468,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The ritual formulas are unchanged. The results are getting worse.",
     tags: ['Magic', 'Ritual', 'Corruption'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "The Silkweaver chapel bell sounds the third watch. Petitioners file in around you; the wax-and-stone smell of the nave thickens. The thread you almost held loosens between two passing shoulders.", (G && G.lastResultType) || 'failure');
@@ -478,7 +478,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'uncovering ritual sabotage');
+      gainXp(37, 'uncovering ritual sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -509,7 +509,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three passages through the central district are blocked. Not collapsed — filled with care.",
     tags: ['Stealth', 'Routes', 'Surveillance'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "A Roadwarden's plumed silhouette steps into the alley mouth ahead, and your line of sight closes. Coal-smoke from Ironspool drifts low over the flagstones. The passage will not read itself today.", (G && G.lastResultType) || 'failure');
@@ -519,7 +519,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'covert route mapping');
+      gainXp(35, 'covert route mapping');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -547,7 +547,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The street network is still running. It just doesn't move certain topics anymore.",
     tags: ['Stealth', 'Intelligence', 'Networks'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "Marta's regulars at the Amber Fountain start a new conversation around you, leaving no opening to step into. The fish-salt of the harbor end drifts in through the door. The window has passed.", (G && G.lastResultType) || 'failure');
@@ -557,7 +557,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'penetrating surveillance network');
+      gainXp(37, 'penetrating surveillance network');
       G.stageProgress[1]++;
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
@@ -588,7 +588,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "People are ending their conversations earlier than they used to. Nobody can name why.",
     tags: ['Support', 'Community', 'Social'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     failResult: {
       text: "The square near the chapel is busy — a market day, stalls open, rope-and-fish smell from the harbor end mixing with the coal smoke from Ironspool. The people here are moving, not gathering. The short conversations you try to join close naturally, no one rude, no one willing to slow down. The Amber Fountain's notice board carries two new postings this week. A notice board speaks when people don't.",
@@ -600,7 +600,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'community analysis');
+      gainXp(35, 'community analysis');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -628,7 +628,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Old partnerships dissolving quietly. Nobody made a dramatic move. Nobody needed to.",
     tags: ['Support', 'Fear', 'Trust'],
-    xpReward: 75,
+    xpReward: 37,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "Two artisans at the Verdant Row bench close their conversation as you draw near. The indigo-and-emerald banners overhead flutter in the courtyard breeze. The neighborly silence reseals itself before the next bell.", (G && G.lastResultType) || 'failure');
@@ -638,7 +638,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(75, 'mapping institutional distrust');
+      gainXp(37, 'mapping institutional distrust');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -671,7 +671,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The same rumor at both ends of the market, in a lowered voice.",
     tags: ['Rumor', 'Social', 'Gossip'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: "The market is loud this hour — brass clanging from the tinsmith's row, a harbor crier running a shipping announcement past the salt stalls. The fish-smell from the eastern end is sharp. The conversations you can reach are about prices and weather and a wedding two streets over. Nothing with a lowered voice. The quieter end of Verdant Row — cloth brokers, the small herbalist — tends toward patience. That end of the market talks after the crowd thins.",
@@ -683,7 +683,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'parsing popular narrative');
+      gainXp(32, 'parsing popular narrative');
       G.stageProgress[1]++;
 
       const rumor = ['the garrison is moving weapons in the night', 'northern traders have disappeared', 'the shrine blessings are failing', 'someone is buying silence with gold', 'the merchant council is hiding something'];
@@ -702,7 +702,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Garrison orders, chapel ledger, trade registry. Same eight-week window. Same hand.",
     tags: ['Evidence', 'Proof', 'Systematic', 'Exposure'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "The registry hall's tallow-and-ink smell sits flat over the reading bench. A scribe pulls the volumes you wanted into the locked annex. The pale stone walls hold their indifference. The thread will need another route.", (G && G.lastResultType) || 'failure');
@@ -712,7 +712,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'exposing institutional conspiracy');
+      gainXp(40, 'exposing institutional conspiracy');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -745,13 +745,13 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The complicit witness is watching to see what I do with what they said.",
     tags: ['Moral', 'Choice', 'Pressure', 'Confrontation'],
-    xpReward: 70,
+    xpReward: 35,
     stageProgress: 1,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(70, 'making moral commitment');
+      gainXp(35, 'making moral commitment');
       G.stageProgress[1]++;
 
       const npcOptions = [
@@ -782,7 +782,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_close',
     label: "The letters name people by function, not name. They're orders, not correspondence.",
     tags: ['Origin', 'Discovery', 'Climax'],
-    xpReward: 80,
+    xpReward: 40,
     stageProgress: 1,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
@@ -792,7 +792,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of corruption');
+      gainXp(40, 'discovering origin source of corruption');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -823,14 +823,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Letters, then supply shifts — two days apart, every time.",
     tags: ['Evidence', 'Stage1'],
-    xpReward: 72,
+    xpReward: 36,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'cross-referencing coordination evidence');
+      gainXp(36, 'cross-referencing coordination evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -853,7 +853,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Ward failures started at Ironspool's northwest edge. They spread inward from there.",
     tags: ['Lore', 'Stage1'],
-    xpReward: 68,
+    xpReward: 34,
     failResult: {
       text: "The Ironspool district ward markers are visible from the street — chalk and pressed wax on the corner stones, each one dated in shrine notation at the lower margin. Most of the markers here are still within their normal renewal window; the anomalies are further in, past the junction where the northwest road meets the commercial lane. The outer markers tell you where to look next. The direction is clear.",
       xp: 0,
@@ -862,7 +862,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'mapping ward failure zones');
+      gainXp(34, 'mapping ward failure zones');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -876,10 +876,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three unguarded points, northern gate to the registry buildings, in a direct line.",
     tags: ['Combat', 'Stage1'],
-    xpReward: 74,
+    xpReward: 37,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'analyzing prepared access corridor');
+      gainXp(37, 'analyzing prepared access corridor');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -898,7 +898,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "A Roadwardens Order officer is working the same evidence trail. They let you know it.",
     tags: ['NPC', 'Faction', 'Stage1'],
-    xpReward: 60,
+    xpReward: 30,
     failResult: {
       text: "Verdant Row is crowded this hour — cloth buyers from the harbor estates, two guild stewards with a dispute about a commission deadline. The officer you were told to look for is not on the Row today, or not visible. The coal-smoke smell from Ironspool drifts over. Roadwardens Order officers in a working city rarely stand still. The garrison precinct notice board posts visiting authority credentials by district. That board is public.",
       xp: 0,
@@ -907,7 +907,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(60, 'identifying parallel trail');
+      gainXp(30, 'identifying parallel trail');
       if (!G.flags) G.flags = {};
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
       G.flags.met_warden_order_contact = true;
@@ -926,7 +926,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Someone was here before you, asking the same questions. They wrote down the answers.",
     tags: ['NPC', 'Warning', 'Stage1'],
-    xpReward: 55,
+    xpReward: 27,
     failResult: {
       text: "The merchant you were told to find has his stall closed — a slip of paper tacked to the frame says back at the second bell, which is two hours off. The fish-salt of the harbor drifts down Verdant Row. Other stall holders nearby heard the same questions being asked over the past week; one of them is still thinking about what he saw. He is not the person you came to find, but the harbor end of the Row knows what its neighbors know.",
       xp: 0,
@@ -935,7 +935,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(55, 'learning of prior operative');
+      gainXp(27, 'learning of prior operative');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       const arch = G.archetype && G.archetype.group;
@@ -955,7 +955,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Stay the evening at the Amber Fountain. Let the regulars decide what to say.",
     tags: ['Social', 'Rest', 'Stage1'],
-    xpReward: 30,
+    xpReward: 15,
     failResult: {
       text: "The Amber Fountain's evening crowd is thin — a cold night, or just a quiet stretch in the week's rhythm. The handful of regulars present sit separately and nurse their cups with the focused attention of people who came to be alone in company. Marta moves between them without pause. The common room does not open tonight. The notice board near the door has two new postings. That much is available.",
       xp: 0,
@@ -964,7 +964,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(30, 'building community trust');
+      gainXp(15, 'building community trust');
       const observations = [
         "A dockworker nurses his cup and says northern shipments stopped coming through. 'Weather,' he offers. The coal-smoke from outside drifts in through the door. He doesn't elaborate further and he doesn't need to. The weather hasn't changed. A dock schedule that stops for weather stops irregularly. A dock schedule that stops clean, for months, stops for something else.",
         "A shrine worker at the far end of the bar turns her cup in her hands. The evening prayers feel different lately, she says — her words come out careful, like she's choosing from a smaller set than usual. 'Like they go somewhere and don't quite arrive.' She has no explanation. She doesn't look up from the cup when she finishes.",
@@ -979,7 +979,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The blessing records read differently when you align the dates with the supply shifts.",
     tags: ['Lore', 'Stage1'],
-    xpReward: 65,
+    xpReward: 32,
     failResult: {
       text: "The chapel reading room is occupied — a petitioner with a genealogy request and a novice working through the archive bins with a quill and a slow hand. The blessing record book sits on the closed-access shelf. The wax-and-stone smell of the room is thick and patient. The chapel posts a summary of blessing dates by ward district on the public notice board outside the nave entrance. That summary carries enough of the date column to begin the comparison.",
       xp: 0,
@@ -988,7 +988,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'decoding blessing record communication pattern');
+      gainXp(32, 'decoding blessing record communication pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -1008,7 +1008,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The night-watch commander files reports that come back amended. She stopped asking why.",
     tags: ['NPC', 'Combat', 'Stage1'],
-    xpReward: 58,
+    xpReward: 29,
     failResult: {
       text: "The night-watch commander is not at her desk — the duty clerk says she is making rounds, expected back at the third bell. The garrison precinct smells of coal smoke and oiled leather. The watch dispatch board near the corridor window posts the current shift assignments: Ironspool district's night column has a different officer's name this month than last. The board is public-facing. The change in assignment is there to read.",
       xp: 0,
@@ -1017,7 +1017,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(58, 'gathering night-watch intelligence');
+      gainXp(29, 'gathering night-watch intelligence');
       if (!G.flags) G.flags = {};
       G.flags.met_night_watch_commander = true;
       const result = rollD20('charm', (G.skills.charm || 0));
@@ -1034,10 +1034,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The herbalists have been moving glasswake moss in bulk. It's a resonance amplifier.",
     tags: ['Survival', 'Stage1'],
-    xpReward: 62,
+    xpReward: 31,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(62, 'checking botanical compound movement');
+      gainXp(31, 'checking botanical compound movement');
       const result = rollD20('vigor', (G.skills.vigor || 0));
       if (result.total >= 11 || result.isCrit) {
         G.lastResult = `The herbalist pulls the order book without being asked — she's been waiting for someone to ask. Dried glasswake moss, eight months of northern orders, quantities that would supply the Academy for two years. "We assumed that's where it went." The tannery smell drifts in from the south end of the row. Glasswake is a resonance amplifier. The Academy hasn't placed any orders with Verdant Row this season.`;
@@ -1054,14 +1054,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The sealed letter frequency has changed since you started asking questions.",
     tags: ['Stealth', 'Stage1'],
-    xpReward: 66,
+    xpReward: 33,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(66, 'monitoring surveillance response');
+      gainXp(33, 'monitoring surveillance response');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.isCrit) {
@@ -1082,14 +1082,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The second signature line is blank. Stamp and date are there. The name is not.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(50, 'reading missing signatory on transit document');
+      gainXp(25, 'reading missing signatory on transit document');
 
       G.lastResult = `The permit registry desk carries the flat smell of pressed wax and dry hemp fiber. A clerk works through the outbox tray at steady pace — stamping, dating, stacking. The third transit authorization in the row requires two signatories by Iron Accord procedure: a routing officer and a countersigning authority. The routing officer's name is present in clear, practiced script. The second signatory line is blank. Not crossed out. Not marked pending. The form has the date. It has the stamp. Only the second name is absent. The clerk who filed it is no longer posted to this office — the name placard on the desk behind hers has been removed.`;
       addJournal('Transit authorization at Shelkopolis registry — second signatory absent on Iron Accord form. Clerk who filed it no longer posted here.', 'evidence');
@@ -1102,14 +1102,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The authorization column is blank — not struck through, not initialed. Blank.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
-    xpReward: 45,
+    xpReward: 22,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(45, 'reading institutional gap in signatory column');
+      gainXp(22, 'reading institutional gap in signatory column');
 
       G.lastResult = `The civic hall processing room carries the flat smell of dried ink and pressed hemp fiber. A row of transit authorizations sits in the outbox tray, each stamped with the day's date in the upper right corner. The fourth form carries a reference code in the authorization column — six digits, cleanly printed — but the signatory line beside it is empty. Not crossed out. Not marked pending. The form has been stamped complete. The clerk at the long table lifts another sheet from the stack and sets to work on it. The empty column stays empty.`;
       addJournal('Shelkopolis civic hall transit authorizations: one form carries a valid authorization code with no signatory name — column blank, form marked complete and filed', 'intelligence');
@@ -1121,7 +1121,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 {
   label: 'The notice board has recent postings.',
   tags: ['social'],
-  xpReward: 5,
+  xpReward: 2,
   failResult: function() {
     addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
@@ -1140,7 +1140,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The barkeep remembers faces. She hasn't forgotten mine.",
     tags: ['Tavern', 'Social', 'NPC'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: {
       text: "The Amber Fountain is running at full press — a guild dinner in the back room, three extra tables of harbor workers in from the late shift, and Marta moving between them at a pace that leaves no opening. She catches your eye once across the bar and gives the small nod that means later, which means not now. The notice board by the door has two new postings from this week. The room will thin by the second bell.",
       xp: 0,
@@ -1150,7 +1150,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(50, 'talking to the barkeep');
+      gainXp(25, 'talking to the barkeep');
       var result = rollD20('persuasion', (G.skills.charm||0) + (typeof getTraitBonus==='function'?getTraitBonus('persuasion'):0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
       if (result.total >= 8) {
         G.lastResult = "Marta wipes down the counter and doesn't look at you when she talks. She mentions a manifest clerk who's been drinking alone three nights running — starting the evening the southern shipment arrived. She doesn't say what was in it. She sets down a second cup without being asked. That's the closest she comes to endorsing your line of work.";
@@ -1168,7 +1168,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "There's a room upstairs and a reason to stay another night.",
     tags: ['Inn', 'Rest', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1176,7 +1176,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(40, 'staying at the inn');
+      gainXp(20, 'staying at the inn');
       G.hp = Math.min(G.maxHp, (G.hp||0) + 5);
       G.lastResult = "The room is narrow and the mattress is stuffed with something that isn't quite wool. The innkeeper — a man named Fessel who records everything in a small ledger — notes your arrival without comment. He does say the room above yours was vacated this morning, two days early. He says it the way you say things you want someone else to follow up on.";
       G.recentOutcomeType = 'neutral';
@@ -1188,7 +1188,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The registry log runs clean for eight months, then skips three weeks without explanation.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
-    xpReward: 50,
+    xpReward: 25,
     failResult: function() {
       addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -1197,7 +1197,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(50, 'reading anomalous date gap in registry log');
+      gainXp(25, 'reading anomalous date gap in registry log');
 
       G.lastResult = `The Shelkopolis transit registry log sits open on the reading ledge, its spine cracked flat from daily use. Eight months of entries run in tight columns — dates, reference codes, routing destinations, clerk initials — without a break. Then a gap: three weeks absent from the sequence, the surrounding pages undamaged, the ink on the entries before and after it equally faded. Not a torn section. Not a water stain. The dates resume as if nothing was skipped. The clerk at the far desk begins a new entry without looking up. The three empty weeks have no marking, no note, no asterisk. They are simply gone from the record.`;
       addJournal('Transit registry at Shelkopolis: three-week gap in an otherwise continuous eight-month log — no damage, no notation, surrounding pages intact. Source: Shelkopolis registry reading room.', 'intelligence');
@@ -1213,14 +1213,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The authorization stamp is there. The name underneath it is not.",
     tags: ['Records', 'Archive', 'Observation'],
-    xpReward: 55,
+    xpReward: 27,
     stageProgress: 1,
     failResult: "The records annexe opens only to credentialed parties during morning hours. The door is locked and the clerk's window is shuttered. A paper tab fixed to the frame gives a reference number for scheduling access. The number leads to a different office, two streets back toward the harbor.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(55, 'found redacted signatory in transit authorization');
+      gainXp(27, 'found redacted signatory in transit authorization');
       G.stageProgress[1]++;
       G.lastResult = "The transit authorization form is standard issue — port-stamped, date-stamped, correctly filed in the outbound packet. Every field is filled except one. The signatory line has been cut — not crossed out, cut, with scissors or a blade. The cut is clean, the edges even. Whatever name sat there was removed deliberately, after the document was complete. The form remains valid without it; the stamp above the gap is untouched and the document is still filed as processed. The clerk who handed it over did not comment. The file drawer closed with a sound of finality.";
       addJournal('Shelkopolis transit authorization: signatory line physically excised — name removed after completion, document still filed as valid. Source: records annexe, outbound packet.', 'evidence');
@@ -1234,14 +1234,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The registry clerk pulled the form before I finished the request.",
     tags: ['Records', 'NPC', 'Inquiry'],
-    xpReward: 50,
+    xpReward: 25,
     stageProgress: 1,
     failResult: "The supplemental inquiry window is already closed. A card pinned above the counter lists the hours — morning only, credentialed petitioners only, no walk-in requests. The main registry counter handles standard lookups until the fourth bell.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(50, 'blocked at supplemental registry inquiry');
+      gainXp(25, 'blocked at supplemental registry inquiry');
       G.stageProgress[1]++;
       G.lastResult = "The clerk pulls the supplemental inquiry form from the slot and sets it face-down on the counter without turning around. 'The registry is closed to supplemental inquiry.' No hour given, no reopening date, no category exception. She does not look up. The stamp in her hand finds a different document — a routine one, the kind that has nothing to do with you — and strikes it twice. The inquiry form stays face-down between you. Nothing in her manner suggests the answer will be different tomorrow.";
       addJournal('Shelkopolis registry: supplemental inquiry refused without explanation — clerk did not look up, gave no timeframe or alternative. Source: main registry counter.', 'complication');
@@ -1266,7 +1266,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The counting house clerk is alone. The ledger he won't open is right there.",
     tags: ['Combat', 'Confrontation', 'Direct'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The clerk keeps his hand flat on the ledger cover and his expression entirely still. He has been trained for exactly this kind of pressure — the guild factors all have. When your posture shifts, he reaches under the counter and presses something. A second clerk enters from the back room inside thirty seconds. Two clerks and a closed ledger is the same as one clerk and a closed ledger, except now there is a witness. You leave without the ledger.',
@@ -1278,7 +1278,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'pressuring counting house clerk');
+      gainXp(32, 'pressuring counting house clerk');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1310,7 +1310,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The guild courier is carrying a sealed dispatch. Last alley before the relay post.",
     tags: ['Combat', 'Confrontation', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The courier is faster than his build suggests — he takes the alley at a run when he sees your position and is through the gate at the far end before you close the angle. The relay post gate shuts behind him. The dispatch is inside the post. The alley is empty and the gate will not open without a guild courier token you do not have.',
@@ -1322,7 +1322,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'intercepting guild courier');
+      gainXp(32, 'intercepting guild courier');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1355,7 +1355,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The ward marks on the sealed guild documents are layered. Someone added a second inscription.",
     tags: ['Magic', 'Lore', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The documents are behind the counting house grille and the grille requires a guild key to open. The ward marks are visible through the grille but reading them at this angle and distance loses the fine-grain sigil detail that would distinguish the layers. The documents sit one door away from a full reading.',
@@ -1367,7 +1367,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'ward mark layering analysis on guild documents');
+      gainXp(32, 'ward mark layering analysis on guild documents');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1398,7 +1398,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "That manifest column has a cipher running through the ordinary figures.",
     tags: ['Magic', 'Lore', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The manifest is on the clerk\'s desk, not the open reading counter, and the clerk does not leave his desk. The cipher column is visible from your position but not at a reading angle — you can see there is something there but not what it says. The public reading counter holds last quarter\'s filed manifests. The current one stays on the clerk\'s desk.',
@@ -1410,7 +1410,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'manifest cipher decoding');
+      gainXp(32, 'manifest cipher decoding');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1442,7 +1442,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The guild factor walks the same commercial route every second hour. Nobody following.",
     tags: ['Stealth', 'Covert', 'Observation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The commercial district is more crowded at this hour than it was when you mapped the factor\'s route — a textile delivery blocking the second junction and two guild clerks standing in the usual shadow position. The factor\'s route takes him through the crowd without pause. You lose the angle at the second junction and he is gone into the counting house row before you re-acquire. The route mapping needs a quieter hour.',
@@ -1454,7 +1454,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'shadowing guild factor through commercial district');
+      gainXp(32, 'shadowing guild factor through commercial district');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1485,7 +1485,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The counting house closes at sixth bell. The clerks leave twenty minutes after.",
     tags: ['Stealth', 'Covert', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'One clerk stays late. He is at the desk nearest the ledger stack and he does not move for the hour you wait across the street. The counting house lamp stays lit. The clerk does not leave. By the time the street quiets enough for a move on the back entrance, the night watch has begun its commercial district circuit and the window has closed.',
@@ -1497,7 +1497,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'after-hours counting house entry');
+      gainXp(32, 'after-hours counting house entry');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1530,7 +1530,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The trade concession the factor wants is something I can arrange.",
     tags: ['Support', 'NPC', 'Negotiation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The factor listens to the concession proposal and nods slowly at the wrong parts — the parts that sound like the right answer but are not the actual offer. By the time you have made the real offer, his expression has already decided. He thanks you for the conversation and reaches for a routing form. The routing form means the conversation is over. Whatever he was protecting in the manifest, the concession did not reach it.',
@@ -1542,7 +1542,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering trade concession for manifest access');
+      gainXp(32, 'brokering trade concession for manifest access');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1574,7 +1574,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: "The clerk already knows the discrepancy threatens her standing.",
     tags: ['Support', 'NPC', 'Persuasion'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The clerk\'s expression does not change when you make the connection for her. She has already made it. She set it aside. Whatever the cost of the discrepancy, she has decided the cost of addressing it is higher. She straightens the intake log without opening it. "I recommend the supplemental inquiry form." She says it the way someone says a phrase they have said many times. The window is closed.',
@@ -1586,7 +1586,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'making the ledger discrepancy her problem');
+      gainXp(32, 'making the ledger discrepancy her problem');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1626,7 +1626,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The counting house clerk has the sealed ledger. He will not have it for long.',
     tags: ['Combat', 'Direct', 'Risk', 'Confrontation'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The clerk steps back from the counter before you finish moving — his left hand finds the bell rope without looking and he pulls it once, short. By the time the sound settles two factors are in the doorway and the ledger is under the counter. The guild knows how to end these conversations quickly. The entry on the counter record will read "threshold dispute, Category Three." You are now in a category.',
@@ -1638,7 +1638,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'pressuring counting house clerk for sealed ledger');
+      gainXp(32, 'pressuring counting house clerk for sealed ledger');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1670,7 +1670,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The ambush on the guild courier was set before he left the building.',
     tags: ['Combat', 'Direct', 'Risk', 'CombatEntry'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The courier takes a different route — a variation you didn\'t account for. By the time you reorient, he\'s three blocks ahead and inside the next guild post. The documents he was carrying are now logged under two seals. Whatever was in transit is no longer in transit. It has arrived.',
@@ -1682,7 +1682,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'clearing ambush from guild courier route');
+      gainXp(32, 'clearing ambush from guild courier route');
       G.stageProgress[1]++;
 
       var result = rollD20('combat', (G.skills.might || 0));
@@ -1714,7 +1714,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The ward marks on these guild documents were not applied by the same hand.',
     tags: ['Knowledge', 'Lore', 'Records', 'Arcane'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The documents on the public table carry standard guild ward notation — correctly applied, nothing to read between the lines. Whatever you were looking for is not in the publicly visible layer. The sealed archive holds the older documents, and the reading room requires a registered introduction from a guild factor.',
@@ -1726,7 +1726,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading ward mark anomalies on sealed guild documents');
+      gainXp(32, 'reading ward mark anomalies on sealed guild documents');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1757,7 +1757,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The manifest column totals are right. The cipher in the margin is not.',
     tags: ['Knowledge', 'Lore', 'Records', 'Cipher'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The margin notation is too compressed to read without a key — it could be bookkeeping shorthand, it could be something else. The guild archive holds the manifest notation standards manual, which would confirm whether this is authorized margin use. The reading room requires a registered introduction to access.',
@@ -1769,7 +1769,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'decoding manifest margin cipher');
+      gainXp(32, 'decoding manifest margin cipher');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
@@ -1801,7 +1801,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The guild factor takes the same route through the commercial district every morning.',
     tags: ['Stealth', 'Observation', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The factor varies his route this morning — a new street, a covered arcade you hadn\'t mapped. By the time you reorient he\'s inside the guild post and the door is closed. Whatever the morning route was meant to show you, it showed you nothing today.',
@@ -1813,7 +1813,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'tailing a guild factor through the commercial district');
+      gainXp(32, 'tailing a guild factor through the commercial district');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1844,7 +1844,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The counting house closes at fifth-watch bell. The back entrance locks later.',
     tags: ['Stealth', 'Infiltration', 'Risk'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The back entrance locks earlier than the posted schedule suggests — a recent change, no notice posted. You find the latch seated before you reach it and the ward mark on the frame freshly activated. Someone updated the lock schedule and didn\'t announce it. The front entrance closes at the same hour. The counting house is sealed for the night.',
@@ -1856,7 +1856,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'entering the counting house after hours');
+      gainXp(32, 'entering the counting house after hours');
       G.stageProgress[1]++;
 
       var result = rollD20('stealth', (G.skills.finesse || 0));
@@ -1888,7 +1888,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The trade concession is worth more to him than the manifest access.',
     tags: ['Social', 'NPC', 'Negotiation', 'Commerce'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The factor considers the concession and declines without explaining why — a specific decline, not a general one. Whatever you offered has a problem you\'re not aware of. He straightens a stack of papers that doesn\'t need straightening and waits for you to leave. The ledger access is more protected than the concession covers.',
@@ -1900,7 +1900,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'leveraging trade concession for manifest access');
+      gainXp(32, 'leveraging trade concession for manifest access');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1931,7 +1931,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
     plot: 'main',
     label: 'The clerk knows the ledger discrepancy threatens her standing, not just the merchants\'.',
     tags: ['Social', 'NPC', 'Persuasion', 'Records'],
-    xpReward: 65,
+    xpReward: 32,
     stageProgress: 1,
     failResult: {
       text: 'The clerk listens to the framing and doesn\'t move. "Discrepancy resolution is Category Two. Category Two goes through the oversight desk." She sets a routing form on the counter. The form requires a registered factor as co-signatory. She knows you don\'t have a registered factor. The form is a door that looks like a form.',
@@ -1943,7 +1943,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'convincing clerk ledger discrepancy threatens her standing');
+      gainXp(32, 'convincing clerk ledger discrepancy threatens her standing');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));

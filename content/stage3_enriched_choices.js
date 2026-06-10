@@ -11,7 +11,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Seld\'s institutional review moves faster than it should.',
   skill: 'wits',
   tags: ['stage3', 'collegium', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -34,7 +34,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'A sealed message delivered by someone who didn\'t wait for a reply.',
   skill: 'finesse',
   tags: ['stage3', 'shadowhands', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -57,7 +57,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The patrol leader wants this off the manifest and off the route.',
   skill: 'charm',
   tags: ['stage3', 'wardens', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -80,7 +80,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The fence won\'t open the back room until the errand is done.',
   skill: 'finesse',
   tags: ['stage3', 'red_hood', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -103,7 +103,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Both of them want the same document and both know the other wants it.',
   skill: 'wits',
   tags: ['stage3', 'collegium', 'shadowhands', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -126,7 +126,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'He doesn\'t know who the player is, which makes him more dangerous.',
   skill: 'charm',
   tags: ['stage3', 'wardens', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -149,7 +149,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'They were watching before the player knew there was anything to watch.',
   skill: 'wits',
   tags: ['stage3', 'shadowhands', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -172,7 +172,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The fence has been replaced by someone who doesn\'t pretend to trust the player.',
   skill: 'charm',
   tags: ['stage3', 'red_hood', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -195,7 +195,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The help is specific enough that someone must have read the player\'s notes.',
   skill: 'wits',
   tags: ['stage3', 'unknown_faction', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -218,7 +218,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Every thread from every faction ends at the same address.',
   skill: 'finesse',
   tags: ['stage3', 'convergence', 'faction_pressure'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -243,7 +243,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The authorization was filed before the operation it authorized existed.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'registry'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -266,7 +266,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The same entity filed under three names and none of them match.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'compact_hall'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -289,7 +289,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Filed, confirmed received, and then removed from the index entirely.',
   skill: 'vigor',
   tags: ['stage3', 'deep_evidence', 'soreheim'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('vigor', G.skills.survival);
     if (roll.total >= 14) {
@@ -312,7 +312,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The manifest numbers reference importers that have never existed.',
   skill: 'finesse',
   tags: ['stage3', 'deep_evidence', 'docks'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -335,7 +335,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The exemption covers a route that has no registration anywhere.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'charter'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -358,7 +358,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The same name appears in the archive, the route, the cargo, and the charter.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'intermediary'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -381,7 +381,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The Collegium filed a report on itself and then buried it in its own archive.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'collegium'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -404,7 +404,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The gap in the tallies is the exact size of a regular shipment, every time.',
   skill: 'vigor',
   tags: ['stage3', 'deep_evidence', 'route_anomaly'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('vigor', G.skills.survival);
     if (roll.total >= 14) {
@@ -427,7 +427,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Every eleven days, someone cleaned the Cosmouth harbor log.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'cosmouth'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -450,7 +450,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Everything points to a decision that was made and never written down.',
   skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'convergence'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -477,7 +477,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'My description is on that gate post. They know this route.',
   skill: 'finesse',
   tags: ['stage3', 'surveillance', 'shelkopolis'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -500,7 +500,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'He wasn\'t angry. He was doing a job. That\'s worse.',
   skill: 'might',
   tags: ['stage3', 'assassination', 'jeopardy'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('might', G.skills.combat);
     if (roll.total >= 14) {
@@ -523,7 +523,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Jorin can\'t meet in the open anymore. Someone filed a review.',
   skill: 'charm',
   tags: ['stage3', 'npc_jorin', 'institutional_pressure', 'craftspire'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -546,7 +546,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Everything is exactly where I left it. That\'s the point.',
   skill: 'wits',
   tags: ['stage3', 'surveillance', 'lodging_search'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -569,7 +569,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The anomaly I documented is gone. Someone corrected it overnight.',
   skill: 'wits',
   tags: ['stage3', 'evidence_suppressed', 'route_anomaly'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -592,7 +592,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'That rival has new backing. The money didn\'t come from guild work.',
   skill: 'charm',
   tags: ['stage3', 'rival', 'faction_interference'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -615,7 +615,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'Three routes flagged. Someone filed a pattern restriction, not a warrant.',
   skill: 'wits',
   tags: ['stage3', 'wardens', 'route_restriction', 'jeopardy'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -637,7 +637,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'One line. One approval. Selene\'s name on something that shouldn\'t exist.',
   tags: ['stage3', 'selene', 'guild_council', 'discovery'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -659,7 +659,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Three days of nothing. Then one line, in someone else\'s handwriting.',
   tags: ['stage3', 'faction_contact', 'silence', 'jeopardy'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('vigor', G.skills.survival);
     if (roll.total >= 14) {
@@ -681,7 +681,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Two parties. They\'re not working together. That\'s more complicated.',
   tags: ['stage3', 'surveillance', 'dual_tail', 'jeopardy'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -705,7 +705,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Seld is being relocated. She has something she can\'t take with her.',
   tags: ['stage3', 'npc_seld', 'collegium', 'alliance'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -727,7 +727,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'New face at the Red Hood dead drop. More useful. More dangerous.',
   tags: ['stage3', 'red_hood_guild', 'fence', 'alliance'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -749,7 +749,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Elowen helped me. Now she\'s asking for something that puts Jorin at risk.',
   tags: ['stage3', 'npc_elowen', 'npc_jorin', 'relationship_strain'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -771,7 +771,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'She was there at the beginning. What she\'s saying now changes what I saw then.',
   tags: ['stage3', 'stage1_npc', 'recontextualization', 'discovery'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -793,7 +793,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Roaz\'s people are offering cover. Real cover. The price is what it always is.',
   tags: ['stage3', 'shadowhands', 'roaz', 'alliance', 'obligation'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -817,7 +817,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Darian and Cysur both have the same piece. One counts back to me.',
   tags: ['stage3', 'npc_darian', 'npc_cysur', 'relationship_damage', 'jeopardy'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('finesse', G.skills.stealth);
     if (roll.total >= 14) {
@@ -839,7 +839,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'She knows things that aren\'t in any filing. Someone inside told her.',
   tags: ['stage3', 'new_npc', 'compact_insider', 'discovery'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -861,7 +861,7 @@ var STAGE3_ENRICHED_CHOICES = [
 {
   label: 'Using this helps me. It burns Cysur. I have to choose which matters more.',
   tags: ['stage3', 'npc_cysur', 'moral_cost', 'jeopardy'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('charm', G.skills.persuasion);
     if (roll.total >= 14) {
@@ -884,7 +884,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'The Oversight Collegium just published something I gathered. My methods are in it.',
   skill: 'wits',
   tags: ['stage3', 'oversight_collegium', 'evidence_exposed', 'faction_politics'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
@@ -907,7 +907,7 @@ var STAGE3_ENRICHED_CHOICES = [
   label: 'This letter names three things I did. Someone has been counting since Stage 2.',
   skill: 'vigor',
   tags: ['stage3', 'direct_threat', 'jeopardy', 'climax_approach'],
-  xpReward: 70,
+  xpReward: 35,
   fn: function() {
     var roll = rollD20('vigor', G.skills.survival);
     if (roll.total >= 14) {

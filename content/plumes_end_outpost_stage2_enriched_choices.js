@@ -10,14 +10,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Persistent glyph pressure gradient pointing northwest. It points toward the staging location.",
     skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Letha is mid-shift on the instrument array — the morning pressure log has to be drawn at exact bell intervals or the four-month dataset breaks continuity. The woodsmoke from the stovepipe runs across the workbench. She lifts her eyes to the door once and back to the needle. The map stays on the desk.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'analyzing northern hazard readings with Letha Dawnsilk');
+      gainXp(40, 'analyzing northern hazard readings with Letha Dawnsilk');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -46,14 +46,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The Patrol Leader has seen the unmapped structure. He's been warned off it.",
     skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Patrol Leader is out on the southern circuit and not expected back until the changeover bell — the duty roster posted on the patrol desk runs his name through the afternoon. The road map he marks the unauthorized facility against is in his office under seal. The substitute patrol officer refuses to open the map cabinet.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'questioning Patrol Leader about unmapped northern structure');
+      gainXp(38, 'questioning Patrol Leader about unmapped northern structure');
 
 
       const result = rollD20('combat', (G.skills.might||0));
@@ -80,14 +80,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Multiple travelers described the northwestern structure. They called it 'the pressure management work.'",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The Shrine of Cysur is in the middle of a sanctuary-rite for a southbound caravan family — three travelers kneel at the offering ledger and the shrine keeper holds the lantern over them. The pine resin in the wick smells thin. Interrupting the rite would violate the sanctuary practice. The traveler accounts stay sealed under doctrine.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing traveler accounts at Shrine of Cysur');
+      gainXp(34, 'reviewing traveler accounts at Shrine of Cysur');
 
 
       if (!G.worldClocks) G.worldClocks = {};
@@ -116,14 +116,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Cysur held something back. A second conversation once the shrine clears may draw it out.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The shrine has not cleared — a steady trickle of Roadwarden patrol stops through the afternoon, each one leaving a coin in the offering ledger. The pine-resin lantern stays lit. Cysur cannot speak with you privately while patrol foot-traffic crosses the threshold. The folded paper behind the ledger stays behind the ledger.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'second conversation with Shrine Keeper Cysur');
+      gainXp(38, 'second conversation with Shrine Keeper Cysur');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -152,10 +152,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "There's a gap in the rotation where the tree line runs close to the wall.",
     skill: 'finesse',
     tags: ['Stage2', 'Scouting'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'scouting the staging structure guard rotation');
+      gainXp(40, 'scouting the staging structure guard rotation');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -183,14 +183,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The northern gate checkpoint demands a stated purpose. The wrong answer is anything vague.",
     skill: 'charm',
     tags: ['Stage2', 'Social'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The northern gate checkpoint has stopped a wagon-train of Soreheim cartage workers — three carts deep, every manifest being read aloud and stamped. The Roadwarden corporal at the gate has the checkpoint book open across his thigh and the line is not moving. Stopping behind it draws attention. The approach is poorly timed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'navigating Roadwarden checkpoint friction');
+      gainXp(34, 'navigating Roadwarden checkpoint friction');
 
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -219,14 +219,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Osset Halvarn is harnessing his team at the waystation rail when you arrive — northbound, on a turn-and-burn schedule that gives him no window for a sit-down conversation. His knuckle taps the bench compartment lid once out of habit, then his hand moves to the harness buckle and stays there. "Northbound in twenty minutes. Catch me on the return swing." He climbs to the seat without looking back.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'reviewing caravan driver traffic log for construction and supply entries');
+      gainXp(32, 'reviewing caravan driver traffic log for construction and supply entries');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_caravan_driver_osset = true;
@@ -253,14 +253,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The intake desk has a notice tacked to the manifest cover: "Records review — Roadwarden audit team on site through end of week. No counter inquiries." Inside, two Roadwarden auditors are working through the bound ledger with marked tabs. The duty officer at the inquiry window shakes her head before you finish the question. "Come back next week."', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'tracing phantom supply requisition category feeding the northern route');
+      gainXp(32, 'tracing phantom supply requisition category feeding the northern route');
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.phantom_requisition_traced = true;
@@ -287,14 +287,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Brann Veld\'s forge is cold when you arrive — the brick still warm but the bellows hung, the bin of repair work covered with a tarp. A hand-chalked notice on the door reads "Out — Fairhaven supply run, back midday tomorrow." The smell of quenched iron is still in the air. The shop is shut for the day.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'speaking with outpost smith Brann Veld about northern equipment repairs');
+      gainXp(34, 'speaking with outpost smith Brann Veld about northern equipment repairs');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -322,14 +322,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Archive'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Pella Orn\'s intake window has a queue six deep when you arrive — a southbound caravan is reconciling its outbound manifest and every weight ticket needs her sign-off before the wagons can roll. She works through them without looking up. By the time the queue clears, the office hours will have ended. The personal ledger stays closed under the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing supply depot discrepancy with clerk Pella Orn');
+      gainXp(34, 'reviewing supply depot discrepancy with clerk Pella Orn');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -356,10 +356,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "A survey marker in the tree line. The team stopped reporting six weeks ago.",
     skill: 'vigor',
     tags: ['Stage2', 'Scouting'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'locating abandoned survey camp marker on northern tree line');
+      gainXp(36, 'locating abandoned survey camp marker on northern tree line');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -385,14 +385,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Letha Dawnsilk's instrument housing holds a calibration record that predates her assignment by eight months.",
     skill: 'spirit',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Letha is at the eastern instrument cluster taking her morning baseline read when you approach, and the procedure is a forty-minute discipline she will not interrupt for inquiry. The maintenance key stays on the cord around her neck. "After the run. Walk the perimeter and come back at the bell." The wind off the ridge smells faintly of pine resin and the metal-edge cold of altitude.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'examining pre-assignment calibration record in Letha Dawnsilk hazard station');
+      gainXp(32, 'examining pre-assignment calibration record in Letha Dawnsilk hazard station');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -418,14 +418,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The northern route runner knows the structure by its cargo. She's been inside.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Destin Var is at the waystation posting board when you arrive, already collecting her next slip — northbound, on the dawn rotation, no window for conversation today. Two senior runners are sharing tea at the bench within easy earshot. She catches your approach with a sidelong look and shakes her head once, very small. The pack goes on her shoulder and she is through the door.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'speaking with northern supply runner Destin Var about staging structure interior');
+      gainXp(36, 'speaking with northern supply runner Destin Var about staging structure interior');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -452,14 +452,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Wend Sallor\'s shop is in the middle of a quarterly compound restock when you arrive — labelled crates open on the floor, mortar and pestle set aside, her ledger of receipts spread across the mixing counter. She is matching tin to manifest and the work cannot pause without losing her place. "Stock day. Come back after the bell." The flat tin of compound cards stays under the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'questioning outpost apothecary Wend Sallor about northern chemical odor');
+      gainXp(34, 'questioning outpost apothecary Wend Sallor about northern chemical odor');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -487,14 +487,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The records desk is staffed today by a Roadwarden corporal you have not seen before — temporary cover, by the look of it, working through a stack of intake correspondence with the deliberation of a man who hasn\'t yet found where everything goes. He checks the patrol log request against a procedure sheet and shakes his head. "Records steward is back tomorrow. I\'m not pulling bound chain-of-custody material without her sign-off."', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'tracing three-day gap in outpost northern patrol log');
+      gainXp(32, 'tracing three-day gap in outpost northern patrol log');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -521,14 +521,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "A traveler from the northern hills with symptoms the outpost medic doesn't recognize.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The infirmary door has a slate posted on it: "Patient under fever protocol — no visitors until evening rounds." The medic\'s assistant is in the antechamber sorting linens and confirms what the slate says without looking up. Through the inner door you hear an irregular cough and the low register of the medic\'s voice, working through whatever Molk Breyen needs working through. Evening rounds are six hours off.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'speaking with infirmary traveler Molk Breyen about northern exposure symptoms');
+      gainXp(36, 'speaking with infirmary traveler Molk Breyen about northern exposure symptoms');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
@@ -554,14 +554,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The night-watch keeps his own record of what moves north after gate close.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Ferret Ondal\'s shift starts at the curfew bell and you have arrived four hours early. The day-watch corporal at the gate confirms Ondal won\'t come on until full dark and adds, helpfully, that the small notebook stays in his coat pocket and the coat goes with him. The transit bell tower casts a long evening shadow across the yard. There is nothing to do here until the bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing night-watch account from guard Ferret Ondal about after-hours northern traffic');
+      gainXp(34, 'reviewing night-watch account from guard Ferret Ondal about after-hours northern traffic');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -587,10 +587,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "A waymarker post repositioned on the northern road. The original socket is ten meters back.",
     skill: 'finesse',
     tags: ['Stage2', 'Scouting'],
-    xpReward: 40,
+    xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'examining repositioned northern road waymarker for route alteration evidence');
+      gainXp(32, 'examining repositioned northern road waymarker for route alteration evidence');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
@@ -617,14 +617,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The roster clipboard is off the wall when you arrive — the Patrol Leader and the duty officer are both at the desk reviewing it together, working through next month\'s rotations with the door propped open onto the parade yard. Two Roadwarden auxiliaries are waiting on chairs against the wall for their assignment slips. There is no clean angle on the clipboard from any position in the room that isn\'t a stare. You step back out.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'examining Roadwarden duty roster for unrotated northern assignment');
+      gainXp(32, 'examining Roadwarden duty roster for unrotated northern assignment');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
@@ -651,14 +651,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The trapper stopped working his best northern territory eight months ago. The reason matters.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Aldus Ferch is out running his southern line — the trapper boards at the waystation show him registered for a two-day circuit, back tomorrow at dusk if the weather holds. The waystation keeper shrugs when you ask if there\'s any way to send word. "Ferch checks the boards when he checks the boards." The packed earth around the bench shows his bootprint heading south an hour ago.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'speaking with trapper Aldus Ferch about territorial displacement from northern spruce line');
+      gainXp(34, 'speaking with trapper Aldus Ferch about territorial displacement from northern spruce line');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
@@ -684,14 +684,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The woodcutter's delivery records name a northern structure that isn't on any register.",
     skill: 'spirit',
     tags: ['Stage2', 'Lore'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'Doss Halvart\'s splitting yard is empty when you arrive — axe set across the block, sawdust drying in the late sun, no smoke from the workshop chimney. A scrap of paper pinned to the door says "Out delivering — Fairhaven road, back by dark." The fuel ledger hangs on its nail by the block, but the nail is on the inside of the locked shed door and the door does not open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'examining woodcutter fuel delivery records for staging structure supply entries');
+      gainXp(32, 'examining woodcutter fuel delivery records for staging structure supply entries');
       if (!G.worldClocks) G.worldClocks = {};
       const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
@@ -717,7 +717,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The location is confirmed. Patrol Leader or Letha's map — two ways in.",
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 40,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The patrol desk is in the middle of a shift transition — the Patrol Leader is briefing his evening relief on the open road conditions, the duty officer is filing the day\'s checkpoint stamps, and Letha\'s instrument station is shuttered for her circuit walk. None of the three people you need to brief is available for the length of conversation this would require. Wind off the high route moves through the eaves of the supply wagon platform. The hour for the finale is not yet.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
@@ -753,14 +753,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: 'Transit records sealed. Not the usual kind',
     skill: 'wits',
     tags: ['Records', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The records station window is shuttered for the noon hour — the duty warden has gone for his rotation meal and the substitute clerk handling stamp pickups won\'t pull a bound log without the warden\'s signature on the requisition. A handwritten card on the counter lists the standard inquiry hours: morning bell to noon, second bell to dusk. The noon hour has just started.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'sealed transit records');
+      gainXp(7, 'sealed transit records');
       G.lastResult = 'Three months of checkpoint transit logs available for review. The fourth month — the one you need — is there, but sealed along the spine with red administrative wax. The warden checks the requisition form you\'ve filled out. He stamps PENDING on it without opening the log. He files the stamp copy. He does not explain what the seal means or when it might come off.';
       addJournal('A month of Plumes End checkpoint transit logs is sealed with Collegium-red administrative wax — pending status applied without explanation. Source: Plumes End Outpost records station.', 'intelligence');
       G.recentOutcomeType = 'investigate';
@@ -773,14 +773,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The checkpoint queue is six wagons deep when you step up — a cartage train from the Soreheim road has arrived all at once and the warden is processing transit stamps in batches without looking up between them. There is no window for the tell. He waves you through with the same brisk movement he gives the cartage wagons, his right index finger never leaving the stamp grip. The line moves on behind you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'warden pattern observation');
+      gainXp(7, 'warden pattern observation');
       G.lastResult = 'He looks at the document longer than its contents require. His right index finger taps the lower corner — twice, always twice — before he hands it back. "Routine," he says. The routing code in the corner is not routine. It is a Collegium administrative prefix on a checkpoint document, which should only carry guild transit codes. He has seen this before. He is deciding what he is allowed to say about it.';
       addJournal('A Plumes End checkpoint warden showed recognition of an unusual routing code — tapped the document twice before returning it, said "routine" without making eye contact. Source: Plumes End Outpost checkpoint desk.', 'intelligence');
       G.recentOutcomeType = 'investigate';
@@ -793,14 +793,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: 'The traveler ahead was turned back. No reason given',
     skill: 'wits',
     tags: ['Observation', 'Complication'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The checkpoint line is short today — three travelers ahead of you, every one of them stamped through without a hesitation, no refusals to observe. The warden\'s rhythm is steady, his stamp arm working through papers with the impersonal smoothness of routine. By the time you reach the desk yourself there has been nothing remarkable to see. The afternoon sun catches the inkwell and the line moves past.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'unexplained traveler refusal');
+      gainXp(10, 'unexplained traveler refusal');
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = 'The traveler in front of you has a transit pass. You can see the stamp from here — standard guild issue, current season, correct route. The warden examines it for thirty seconds, returns it, and says: "Not today." No citation. No hold number. No appeal process offered. The traveler asks twice and gets the same answer. She turns around. You step forward with your own papers. The warden\'s expression does not change.';
@@ -815,14 +815,14 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
-    xpReward: 20,
+    xpReward: 10,
     failResult: function() {
       addNarration('', 'The bound outpost log is on the duty officer\'s desk, open to today\'s page for the running entry — not available for back-page browsing while it\'s the active record. The corporal at the desk taps the spine. "Closed-day pages tomorrow morning, after I rule the line." Outside, the supply wagon platform creaks under a fresh load and the cold wind off the high route moves through the loading bay. Tomorrow morning, then.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'missing log category');
+      gainXp(10, 'missing log category');
       G.lastResult = 'The outpost log uses category codes in the left margin — transit type, cargo classification, route authorization. Through the early pages: a regular pattern of one code that appears every few days, then stops. The date it stops is precise. From that date forward, the category simply does not appear. The volume of crossings didn\'t change. Whatever was crossing in that category did not stop — it stopped being recorded as that category.';
       addJournal('Plumes End Outpost logs show a transit category code that ceased appearing six months ago — crossings continued at the same volume, suggesting reclassification rather than halt. Source: Plumes End Outpost records station.', 'evidence');
       G.recentOutcomeType = 'investigate';
