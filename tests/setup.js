@@ -232,6 +232,10 @@ function createGameContext(gOverrides) {
     buyLegacyShopItem:       ctx.buyLegacyShopItem,
     LOCALITY_SHOPS:          ctx.__LOCALITY_SHOPS || ctx.LOCALITY_SHOPS,
     useUtilitySkill:         ctx.useUtilitySkill,
+    addFatigue:              ctx.addFatigue,
+    FATIGUE_MAX:             ctx.FATIGUE_MAX,
+    rollD20:                 ctx.rollD20,
+    showToast:               sandbox.showToast,
   };
 }
 

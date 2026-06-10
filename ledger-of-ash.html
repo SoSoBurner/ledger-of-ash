@@ -5076,7 +5076,7 @@ function applyWound(damage, source) {
     G.wounds.push({ desc: source, severity: damage >= 8 ? 'severe' : 'minor', round: CS ? CS.round : 0 });
     if (damage >= 8) {
       if (!G.fatigue) G.fatigue = 0;
-      G.fatigue = Math.min(10, G.fatigue + 2);
+      addFatigue(2);
     }
   }
   if (G.hp <= 0) {
@@ -12734,15 +12734,17 @@ function pickNightEncounterKey() {
 function rollD20(skill, bonus) {
   var _KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
   var _sk = _KEY_NORM[skill] || skill;
+  var _physicalSkills = {might:true, vigor:true, finesse:true};
   var roll = Math.floor(Math.random() * 20) + 1;
   var statValue = (typeof G !== 'undefined' && G && G.skills && typeof G.skills[_sk] === 'number') ? G.skills[_sk] : 0;
   var penalty = (typeof G !== 'undefined' && G && G._rivalDCPenalty) ? G._rivalDCPenalty : 0;
   var sleepless = (typeof G !== 'undefined' && G && G.consecutiveSleepless) ? Math.min(G.consecutiveSleepless, 3) : 0;
   var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (_sk === 'might' || _sk === 'vigor')) ? 1 : 0;
   var travelFatiguedMod = (G && G.flags && G.flags.travel_fatigued) ? 1 : 0;
-  var total = roll + statValue + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod;
+  var fatigueExhaustionPenalty = (G && typeof G.fatigue === 'number' && G.fatigue >= FATIGUE_MAX && _physicalSkills[_sk]) ? 1 : 0;
+  var total = roll + statValue + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod - fatigueExhaustionPenalty;
   if (typeof G !== 'undefined' && G) {
-    G._lastRollInfo = { roll: roll, skill: skill, statValue: statValue, total: total };
+    G._lastRollInfo = { roll: roll, skill: skill, statValue: statValue, total: total, fatigueExhaustionPenalty: fatigueExhaustionPenalty };
   }
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
@@ -12751,6 +12753,21 @@ function gainXp(amount) {
   G.xp = (G.xp || 0) + amount;
   if (_awaitingLevelUp && !document.querySelector('.levelup-block')) _awaitingLevelUp = false;
   checkLevelUp();
+}
+
+var FATIGUE_MAX = 10;
+
+function addFatigue(n) {
+  if (!G || typeof n !== 'number' || !isFinite(n)) return;
+  var prev = G.fatigue || 0;
+  G.fatigue = Math.max(0, Math.min(FATIGUE_MAX, prev + n));
+  if (prev < FATIGUE_MAX && G.fatigue >= FATIGUE_MAX) {
+    if (!G.flags) G.flags = {};
+    if (!G.flags._fatigue_cap_seen) {
+      G.flags._fatigue_cap_seen = true;
+      if (typeof showToast === 'function') showToast('You are exhausted.');
+    }
+  }
 }
 
 function maybeStageAdvance() {
@@ -14620,7 +14637,7 @@ function _showPackChoicesInOverlay(fromId, toId, mode) {
       if (pack === 'heavy') {
         var r = typeof rollD20 === 'function' ? rollD20('craft') : { total: 12 };
         if (r.total < 10) {
-          G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
+          addFatigue(2);
           if (typeof addNarration === 'function') addNarration('', 'The weight is harder to manage than expected. Two points of fatigue before the road begins.');
         }
       }
@@ -15061,7 +15078,7 @@ function campAction(type) {
       // Success chance scales with companion count (1=60%, 2=75%, 3=90%)
       const watchRoll = Math.floor(Math.random() * 20) + 1 + activeComps.length * 2;
       if (watchRoll >= 14) {
-        G.fatigue = Math.max(0, (G.fatigue||0) - 1);
+        addFatigue(-1);
         G.flags['_watch_posted_day_' + (G.dayCount || 0)] = true;
         G.watchPosted = true;
         addNarration('Camp', 'The watches hold. Your companions rotate through the night without incident. You wake less tired than expected.', 'success');
@@ -15234,7 +15251,7 @@ function maybePromptDuskcallSleep() {
           text: 'Push on. Sleep is time you do not have.',
           skill: 'survival', tag: 'risky', align: 'chaotic', cid: 'duskcall_push',
           action: function() {
-            G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
+            addFatigue(1);
             G.consecutiveSleepless = (G.consecutiveSleepless || 0) + 1;
             G.flags['_slept_day_' + (G.dayCount || 0)] = 'skipped';
             G.flags.travel_fatigued = true;  // next-day skill roll debuff -1
@@ -15342,7 +15359,7 @@ function doSleep(cost, placeName, comfortable) {
   G.abilityUsedThisRest = {};
   const hpGain = comfortable ? Math.floor(G.maxHp * 0.35) : Math.floor(G.maxHp * 0.2);
   G.hp = Math.min(G.maxHp, G.hp + hpGain);
-  G.fatigue = Math.max(0, (G.fatigue||0) - (comfortable ? 3 : 2));
+  addFatigue(-(comfortable ? 3 : 2));
   advanceTime(1); tickAxis(1);
 
   const dreamHint = STAGE_DREAM_HINTS[G.stage] || '';
@@ -15359,7 +15376,7 @@ function doSleep(cost, placeName, comfortable) {
 }
 
 function doPushThrough() {
-  G.fatigue = Math.min(10, (G.fatigue||0) + 3);
+  addFatigue(3);
   G.consecutiveSleepless = (G.consecutiveSleepless || 0) + 1;
   G.flags['_slept_day_' + (G.dayCount || 0)] = 'skipped';
   advanceTime(1);
@@ -15578,7 +15595,7 @@ function doTravelJourney(destId) {
   var fatigueDelta = Math.floor(adjustedDays) * paceMod.fatiguePerDay;
   G.journeyFatigue = (G.journeyFatigue || 0) + fatigueDelta;
   if (G.journeyFatigue >= 3) {
-    G.fatigue = Math.min(10, (G.fatigue || 0) + Math.floor(G.journeyFatigue / 3));
+    addFatigue(Math.floor(G.journeyFatigue / 3));
     G.journeyFatigue = G.journeyFatigue % 3;
   }
 
@@ -17690,6 +17707,7 @@ function buildCompanionHudHTML(companions) {
 }
 
 function updateHUD() {
+  if (G && typeof G.fatigue === 'number') G.fatigue = Math.max(0, Math.min(FATIGUE_MAX, G.fatigue));
   // Stage II: keep stageProgress[2] in sync with investigationProgress
   if (G && G.stage === 'Stage II' && typeof G.investigationProgress === 'number' && G.stageProgress) {
     G.stageProgress[2] = Math.max(G.stageProgress[2] || 0, G.investigationProgress);
@@ -18924,7 +18942,7 @@ document.getElementById('howto-close').addEventListener('click', function() {
     // Supply drain: each journey costs 1 supply; exhaustion if empty.
     G.supply = Math.max(0, (G.supply || 10) - 1);
     if (G.supply <= 0 && typeof G.fatigue !== 'undefined') {
-      G.fatigue = Math.min(10, G.fatigue + 1);
+      addFatigue(1);
     }
 
     // Reset supply tier at destination (resupply at each arrival).
