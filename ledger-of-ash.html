@@ -15900,7 +15900,7 @@ function showMap() {
   let html = '<div style="color:var(--ink-dim);font-size:13px;margin-bottom:16px">' +
     (G.stage === 'Stage I' ?
       'Stage I travel is limited to localities adjacent to your starting region. Journey to Shelkopolis to unlock Stage II.' :
-      'Stage II unlocked. Canon-supported routes connect the polities below.') +
+      'Stage II. The wider continent opens.') +
     '</div>';
 
   // Districts of current settlement
@@ -15915,7 +15915,7 @@ function showMap() {
       const isCur = G.location === distId;
       html += '<div class="map-loc' + (isCur ? ' current' : '') + '">' +
         '<div class="map-loc-name">' + (dist.display_name_raw || dist.name) + (isCur ? ' &#x2605;' : '') + '</div>' +
-        '<div class="map-loc-region">' + dist.district_type_raw + (dist.is_synthetic ? ' (synthetic)' : '') + '</div>' +
+        '<div class="map-loc-region">' + dist.district_type_raw + '</div>' +
         '<div class="map-loc-desc" style="font-style:italic">' + (dist.identity || '') + '</div>' +
         (isCur ? '<span style="color:var(--gold-dim);font-size:10px;font-family:Cinzel,serif">CURRENT DISTRICT</span>' :
           '<button class="btn btn-ghost btn-xs map-district-btn" data-distid="' + distId + '">Enter district</button>') +
