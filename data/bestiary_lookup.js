@@ -141,7 +141,6 @@ window.ENEMY_STATS = {
   // ── NAMED BOSSES / MINIBOSSES ────────────────────────────
   marshal_sera_ironveil: { name:'Marshal Sera Ironveil', hp:52, atk:7, def:8, desc:"Commander of the Roadwardens' Shelkopolis operations. Disciplined, precise, authoritative. She does not fight unless cornered — and when cornered, she fights to end it.", loot:[], group:'shelk_roadwarden', boss:true }
 };
-
 window.BESTIARY_LOOKUP = {
   "panim_haven": {
     "creatures": [
