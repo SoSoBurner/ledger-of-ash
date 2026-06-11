@@ -41,6 +41,7 @@ class ReportWriter {
     this._transcripts = {};  // family → [{pick, choice, result}]
     this._archetypeSigs = [];  // Block M archetype signature records
     this._silentChoices = [];  // T4 — { family, choiceId, firstPick } records
+    this._heatMetrics   = [];  // Heat instrumentation — { family, heatEvents, maxHeat, authorityConfrontations, heatByPolity, heatEventsByPolity }
   }
 
   setCeiling(ceiling)          { this._ceiling = ceiling; }
@@ -58,6 +59,12 @@ class ReportWriter {
   addArchetypeSignature(sig) {
     if (!this._archetypeSigs) this._archetypeSigs = [];
     this._archetypeSigs.push(sig);
+  }
+
+  // Heat instrumentation (additive) — per-polity totals, event counts, max heat, authority confrontations
+  addHeatMetrics(m) {
+    if (!this._heatMetrics) this._heatMetrics = [];
+    this._heatMetrics.push(m);
   }
 
   addTranscriptEntry(family, pick, choiceText, resultText) {
@@ -221,6 +228,18 @@ class ReportWriter {
       lines.push('');
     }
 
+    // Heat Instrumentation (additive) — per-polity totals, per-family events, max heat, authority confrontations
+    const heatMetrics = this._heatMetrics || [];
+    if (heatMetrics.length > 0) {
+      lines.push('## Heat Instrumentation');
+      lines.push('| Family | Heat events | Max heat (any polity) | Authority confrontations | Final heat per polity | Heat events per polity |');
+      lines.push('|---|---|---|---|---|---|');
+      for (const h of heatMetrics) {
+        lines.push(`| ${h.family} | ${h.heatEvents || 0} | ${h.maxHeat || 0} | ${h.authorityConfrontations || 0} | ${_fmtPolityMap(h.heatByPolity)} | ${_fmtPolityMap(h.heatEventsByPolity)} |`);
+      }
+      lines.push('');
+    }
+
     // T4 — Silent Choices Detected (engine-side runtime queue)
     if (this._silentChoices && this._silentChoices.length > 0) {
       lines.push('## Silent Choices Detected');
@@ -249,6 +268,13 @@ class ReportWriter {
     fs.writeFileSync(outPath, lines.join('\n'), 'utf8');
     return outPath;
   }
+}
+
+// Formats a {polityKey: number} map as "shelk=3 roaz=1" (nonzero keys only); em-dash when empty
+function _fmtPolityMap(m) {
+  if (!m || typeof m !== 'object') return '—';
+  const parts = Object.keys(m).filter(k => m[k]).map(k => `${k}=${m[k]}`);
+  return parts.length ? parts.join(' ') : '—';
 }
 
 function _stamp(date) {

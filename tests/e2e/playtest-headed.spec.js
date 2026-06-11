@@ -35,6 +35,13 @@ var _familyHeatCount    = 0;
 var _familyAlignCount   = 0;
 var _familyLevelupCount = 0;
 var _familyLastLevel    = 0;
+// Heat instrumentation (additive) — per-polity events, max heat, authority confrontations (module-scope: closure trap)
+var _hmPrevHeat           = {};    // last G.heat snapshot; at run end = final per-polity totals
+var _hmHeatEvents         = 0;     // heat-change events this run (per-polity granularity)
+var _hmHeatEventsByPolity = {};    // polity -> count of heat increases
+var _hmMaxHeat            = 0;     // max heat reached in any single polity
+var _hmAuthConfronts      = 0;     // authority confrontations observed (.choice-btn.deescalate rising edge)
+var _hmAuthVisiblePrev    = false; // edge-detection latch
 // Block L — combat corridor probe runs once per headed test run
 var _corridorCombatProbeDone = false;
 // Block N — once-per-family probe guards
@@ -1664,6 +1671,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   _familyLastLevel    = g.level || 1;
   _masteryProbeDone   = false;
   _lootProbeDone      = false;
+  // Heat instrumentation — reset per run
+  _hmPrevHeat           = Object.assign({}, g.heat || {});
+  _hmHeatEvents         = 0;
+  _hmHeatEventsByPolity = {};
+  _hmMaxHeat            = 0;
+  _hmAuthConfronts      = 0;
+  _hmAuthVisiblePrev    = false;
 
   let picks            = 0;
   lastDeadEndPick      = -1;  // reset per family — picks restart at 0 each family
@@ -1889,6 +1903,30 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             const _prevHeat  = Object.values(_prevHeatSnapshot || {}).reduce(function(a, b) { return a + b; }, 0);
             if (_totalHeat !== _prevHeat) _familyHeatCount++;
             _prevHeatSnapshot = Object.assign({}, g.heat || {});
+          } catch (_) {}
+
+          // Heat instrumentation (additive) — per-polity events, max heat, authority confrontations
+          try {
+            const _hmNow = g.heat || {};
+            for (const _hmPk of Object.keys(_hmNow)) {
+              const _hmV    = _hmNow[_hmPk] || 0;
+              const _hmPrev = _hmPrevHeat[_hmPk] || 0;
+              if (_hmV !== _hmPrev) {
+                _hmHeatEvents++;
+                if (_hmV > _hmPrev) _hmHeatEventsByPolity[_hmPk] = (_hmHeatEventsByPolity[_hmPk] || 0) + 1;
+                log(`[heat-event ${tag}] pick=${picks} ${_hmPk} ${_hmPrev}\u2192${_hmV}`);
+              }
+              if (_hmV > _hmMaxHeat) _hmMaxHeat = _hmV;
+            }
+            _hmPrevHeat = Object.assign({}, _hmNow);
+            // Authority confrontation detection — organic DOM marker: .choice-btn.deescalate
+            // renders ONLY in _authorityRenderPhase1 (engine ~L10016-10032); rising-edge counted
+            const _hmAuthVisible = (await page.locator('.choice-btn.deescalate:visible:not([disabled])').count().catch(() => 0)) > 0;
+            if (_hmAuthVisible && !_hmAuthVisiblePrev) {
+              _hmAuthConfronts++;
+              log(`[authority-confrontation ${tag}] pick=${picks} #${_hmAuthConfronts} — deescalate choices visible heat=${JSON.stringify(_hmNow)}`);
+            }
+            _hmAuthVisiblePrev = _hmAuthVisible;
           } catch (_) {}
 
           // D2: Stage II organic probe — antechamber + climax interception
@@ -2431,6 +2469,22 @@ test.describe('Headed QA — 4 families', () => {
           });
         } catch (_sigErr) {
           log(`[archetype-signature] WARN: ${_sigErr.message}`);
+        }
+
+        // Heat instrumentation (additive) — per-polity totals, per-family events, max heat, authority confrontations
+        try {
+          const _finalHeat = (result.g && result.g.heat) ? Object.assign({}, result.g.heat) : Object.assign({}, _hmPrevHeat);
+          log(`[heat-signature] family=${family} heat_events=${_hmHeatEvents} max_heat=${_hmMaxHeat} authority_confrontations=${_hmAuthConfronts} final_heat=${JSON.stringify(_finalHeat)} heat_events_by_polity=${JSON.stringify(_hmHeatEventsByPolity)}`);
+          reporter.addHeatMetrics({
+            family,
+            heatEvents: _hmHeatEvents,
+            maxHeat: _hmMaxHeat,
+            authorityConfrontations: _hmAuthConfronts,
+            heatByPolity: _finalHeat,
+            heatEventsByPolity: Object.assign({}, _hmHeatEventsByPolity),
+          });
+        } catch (_heatErr) {
+          log(`[heat-signature] WARN: ${_heatErr.message}`);
         }
 
         const sp2 = (result.g && result.g.stageProgress && result.g.stageProgress[2]) || 0;

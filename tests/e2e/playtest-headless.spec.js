@@ -728,6 +728,14 @@ async function runFullPanelSimulation(page, tag, g, pickNum) {
 // Module-level so runPlaythrough (defined here) can read it; assigned in test body at start
 var _runStartMs = 0;
 
+// Heat instrumentation (additive) — per-polity events, max heat, authority confrontations (module-scope: closure trap)
+var _hmPrevHeat           = {};    // last G.heat snapshot; at run end = final per-polity totals
+var _hmHeatEvents         = 0;     // heat-change events this run (per-polity granularity)
+var _hmHeatEventsByPolity = {};    // polity -> count of heat increases
+var _hmMaxHeat            = 0;     // max heat reached in any single polity
+var _hmAuthConfronts      = 0;     // authority confrontations observed (.choice-btn.deescalate rising edge)
+var _hmAuthVisiblePrev    = false; // edge-detection latch
+
 // ---------------------------------------------------------------------------
 // Single playthrough — mode: 'headless' | 'headed'
 // ---------------------------------------------------------------------------
@@ -755,6 +763,14 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let g = await readG(page);
   log(`[run:${tag}] game-started level=${g.level} location=${g.location}`);
   await screenshot(page, `${tag}_start`);
+
+  // Heat instrumentation — reset per run
+  _hmPrevHeat           = Object.assign({}, g.heat || {});
+  _hmHeatEvents         = 0;
+  _hmHeatEventsByPolity = {};
+  _hmMaxHeat            = 0;
+  _hmAuthConfronts      = 0;
+  _hmAuthVisiblePrev    = false;
 
   let picks              = 0;
   let deadStreak         = 0;
@@ -982,6 +998,30 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       g = await readG(page);
       tracker.onPick(g);
       if (g.location) visitedLocalities.add(g.location);
+
+      // Heat instrumentation (additive) — per-polity events, max heat, authority confrontations
+      try {
+        const _hmNow = g.heat || {};
+        for (const _hmPk of Object.keys(_hmNow)) {
+          const _hmV    = _hmNow[_hmPk] || 0;
+          const _hmPrev = _hmPrevHeat[_hmPk] || 0;
+          if (_hmV !== _hmPrev) {
+            _hmHeatEvents++;
+            if (_hmV > _hmPrev) _hmHeatEventsByPolity[_hmPk] = (_hmHeatEventsByPolity[_hmPk] || 0) + 1;
+            log(`[heat-event ${tag}] pick=${picks} ${_hmPk} ${_hmPrev}\u2192${_hmV}`);
+          }
+          if (_hmV > _hmMaxHeat) _hmMaxHeat = _hmV;
+        }
+        _hmPrevHeat = Object.assign({}, _hmNow);
+        // Authority confrontation detection — organic DOM marker: .choice-btn.deescalate
+        // renders ONLY in _authorityRenderPhase1 (engine ~L10016-10032); rising-edge counted
+        const _hmAuthVisible = (await page.locator('.choice-btn.deescalate:visible:not([disabled])').count().catch(() => 0)) > 0;
+        if (_hmAuthVisible && !_hmAuthVisiblePrev) {
+          _hmAuthConfronts++;
+          log(`[authority-confrontation ${tag}] pick=${picks} #${_hmAuthConfronts} — deescalate choices visible heat=${JSON.stringify(_hmNow)}`);
+        }
+        _hmAuthVisiblePrev = _hmAuthVisible;
+      } catch (_) {}
 
       const sp1 = (g.stageProgress && g.stageProgress[1]) || 0;
       if (sp1 !== lastLoggedSP1) {
@@ -1221,6 +1261,19 @@ test.describe('Headless QA — 4 families', () => {
       const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, familyCap, ceiling, tracker);
       familyResults[family] = r;
       reporter.addFamily({ family, ...r });
+      // Heat instrumentation (additive) — per-polity totals, per-family events, max heat, authority confrontations
+      try {
+        const _finalHeat = Object.assign({}, _hmPrevHeat);
+        log(`[heat-signature] family=${family} heat_events=${_hmHeatEvents} max_heat=${_hmMaxHeat} authority_confrontations=${_hmAuthConfronts} final_heat=${JSON.stringify(_finalHeat)} heat_events_by_polity=${JSON.stringify(_hmHeatEventsByPolity)}`);
+        reporter.addHeatMetrics({
+          family,
+          heatEvents: _hmHeatEvents,
+          maxHeat: _hmMaxHeat,
+          authorityConfrontations: _hmAuthConfronts,
+          heatByPolity: _finalHeat,
+          heatEventsByPolity: Object.assign({}, _hmHeatEventsByPolity),
+        });
+      } catch (_heatErr) { log(`[heat-signature] WARN: ${_heatErr.message}`); }
       if (r.success) {
         log(`[family:${family}] DONE after ${r.attempts} attempt(s) — ${r.archetypeId}/${r.backgroundId} ${r.picks} picks`);
       }
@@ -1244,6 +1297,19 @@ test.describe('Headless QA — 4 families', () => {
         const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, retryCap, ceiling, tracker);
         familyResults[retryTag] = r;
         reporter.addFamily({ family: retryTag, ...r });
+        // Heat instrumentation (additive) — retry-pass record
+        try {
+          const _finalHeat = Object.assign({}, _hmPrevHeat);
+          log(`[heat-signature] family=${retryTag} heat_events=${_hmHeatEvents} max_heat=${_hmMaxHeat} authority_confrontations=${_hmAuthConfronts} final_heat=${JSON.stringify(_finalHeat)} heat_events_by_polity=${JSON.stringify(_hmHeatEventsByPolity)}`);
+          reporter.addHeatMetrics({
+            family: retryTag,
+            heatEvents: _hmHeatEvents,
+            maxHeat: _hmMaxHeat,
+            authorityConfrontations: _hmAuthConfronts,
+            heatByPolity: _finalHeat,
+            heatEventsByPolity: Object.assign({}, _hmHeatEventsByPolity),
+          });
+        } catch (_heatErr) { log(`[heat-signature] WARN: ${_heatErr.message}`); }
         if (r.success) {
           log(`[family:${retryTag}] DONE after ${r.attempts} attempt(s) — ${r.archetypeId}/${r.backgroundId} ${r.picks} picks`);
         }
