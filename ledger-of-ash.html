@@ -15425,6 +15425,7 @@ function campActionInJourney(type) {
   } else if (type === 'sleep') {
     G.hp = Math.min(G.maxHp || 10, (G.hp || 0) + Math.floor((G.maxHp || 10) * 0.75));
     G.restCount = 0;
+    if (typeof addFatigue === 'function') addFatigue(-2);
     tickAxis(1); advanceTime(4); updateHUD(); saveGame();
     if (window.TRAVEL_CORRIDOR) window.TRAVEL_CORRIDOR.advanceDayLeg();
   }
