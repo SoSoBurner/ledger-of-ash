@@ -12091,6 +12091,9 @@ function prioritizeChoices(choices, maxCount) {
     if (!_isLeak && c && (c.kind === 'combat_ability' || c.kind === 'trait' || c.kind === 'ability')) {
       _isLeak = true;
     }
+    if (!_isLeak && c && c.activeSkillType === 'utility') {
+      _isLeak = true;
+    }
     if (_isLeak) return false;
     return true;
   });
@@ -12679,7 +12682,25 @@ function renderChoices(choices) {
       G.flags._taught_backup = true;
       if (typeof addWorldNotice === 'function') addWorldNotice('A path has closed. Another has opened — though it may be harder to walk.');
     }
-    choices = G._pendingBackupChoices.concat(choices);
+    var _filteredBackup = G._pendingBackupChoices.filter(function(c) {
+      if (!c) return false;
+      var _cid = c.cid || c.id || '';
+      var _LEAK_PREFIXES = ['__combat__ability__', '__ability__', '__trait__'];
+      var _isLeak = false;
+      if (_cid && typeof _cid === 'string') {
+        for (var _li = 0; _li < _LEAK_PREFIXES.length; _li++) {
+          if (_cid.indexOf(_LEAK_PREFIXES[_li]) === 0) { _isLeak = true; break; }
+        }
+      }
+      if (!_isLeak && (c.kind === 'combat_ability' || c.kind === 'trait' || c.kind === 'ability')) {
+        _isLeak = true;
+      }
+      if (!_isLeak && c.activeSkillType === 'utility') {
+        _isLeak = true;
+      }
+      return !_isLeak;
+    });
+    choices = _filteredBackup.concat(choices);
     G._pendingBackupChoices = [];
   }
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
