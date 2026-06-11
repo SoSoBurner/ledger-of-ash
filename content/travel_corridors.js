@@ -4607,11 +4607,14 @@
       var noteHtml     = note ? '<div class="journey-route-note">' + note + '</div>' : '';
       var choicesHtml  = '<div class="journey-choices" id="journey-choice-area"></div>';
 
+      // Pill is built from the LIVE G.fatigue value at render time — single source of truth.
+      var _fatNow = (G && typeof G.fatigue === 'number') ? Math.max(0, Math.min(10, G.fatigue)) : 0;
+      var _fatCls = _fatNow >= 9 ? ' fatigue-pill--crit' : _fatNow >= 6 ? ' fatigue-pill--warn' : '';
       var _tabStrip =
         '<div class="journey-tab-strip">' +
         '<button class="journey-tab active" data-tab="journey" onclick="switchJourneyTab(\'journey\')">JOURNEY</button>' +
         '<button class="journey-tab" data-tab="camp" onclick="switchJourneyTab(\'camp\')">CAMP</button>' +
-        '<span class="fatigue-pill" id="hud-fatigue-pill">Fatigue 0/10</span>' +
+        '<span class="fatigue-pill' + _fatCls + '" id="hud-fatigue-pill">Fatigue ' + _fatNow + '/10</span>' +
         '</div>';
       var _journeyPane =
         '<div class="journey-tab-pane active" data-pane="journey">' +
@@ -4632,6 +4635,8 @@
           false
         );
       }
+      // Re-sync both fatigue displays (#hud-fatigue + freshly built #hud-fatigue-pill) from G.fatigue.
+      if (typeof updateHUD === 'function') updateHUD();
 
       var choiceArea = document.getElementById('journey-choice-area');
       if (!choiceArea) { TRAVEL_CORRIDOR._completeJourney(toId); return; }
@@ -4834,6 +4839,7 @@
             };
             choice.action();
             // action() schedules advanceDayLeg() via _travelNextEncounter after 500ms
+            if (typeof updateHUD === 'function') updateHUD();
           } else {
             // Fallback dice roll — render result inline in overlay
             var r = typeof rollD20 === 'function' ? rollD20(choice.skill || 'wits') : { total: 10 };
@@ -4883,6 +4889,7 @@
           choiceArea.querySelectorAll('button').forEach(function(b) { b.disabled = true; });
           if (typeof choice.action === 'function') {
             choice.action();
+            if (typeof updateHUD === 'function') updateHUD();
           } else {
             TRAVEL_CORRIDOR.advanceDayLeg();
           }

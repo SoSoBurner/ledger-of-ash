@@ -13006,6 +13006,7 @@ function addFatigue(n) {
       if (typeof showToast === 'function') showToast('You are exhausted.');
     }
   }
+  if (typeof updateHUD === 'function') updateHUD();
 }
 
 function maybeStageAdvance() {
