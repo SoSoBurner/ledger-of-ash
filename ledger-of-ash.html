@@ -10848,6 +10848,25 @@ var _ARCHETYPE_CONFIRM = {
   'beastmaster': ['You read terrain through what lives in it — and what has recently fled.', 'Your strengths lean toward Vigor and Finesse.']
 };
 
+// Seed default combat abilities — abilities whose minSkill requirement the
+// character already meets unlock immediately at creation; the rest remain
+// level-up rewards (renderAbilityStep excludes already-unlocked ids).
+function seedDefaultCombatAbilities() {
+  if (!G || !G.archetype) return;
+  var archId = G.archetype ? G.archetype.id : null;
+  if (!archId || typeof ARCHETYPE_COMBAT_ABILITIES === 'undefined') return;
+  var _SEED_KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
+  if (!G.unlockedCombatAbilities) G.unlockedCombatAbilities = [];
+  (ARCHETYPE_COMBAT_ABILITIES[archId] || []).forEach(function(ab) {
+    if (!ab || !ab.id) return;
+    var _sk = _SEED_KEY_NORM[ab.skillReq] || ab.skillReq;
+    var _val = (G.skills && G.skills[_sk]) || 0;
+    if (_val >= (ab.minSkill || 0) && G.unlockedCombatAbilities.indexOf(ab.id) === -1) {
+      G.unlockedCombatAbilities.push(ab.id);
+    }
+  });
+}
+
 function beginLegend() {
   try { _beginLegendCore(); } catch(e) { showToast('Something went wrong. Check the console.'); console.error('beginLegend:', e); }
 }
@@ -10915,6 +10934,8 @@ function _beginLegendCore() {
   G.backstoryGroup = G.archetype.group || 'neutral';
   G.history.push('Born as ' + G.name + ', ' + G.archetype.name + ' of ' + G.background.region + '.');
   G.history.push(G.background.opening);
+  // Starting combat abilities — seed defaults the character already qualifies for
+  seedDefaultCombatAbilities();
   // Macro goal — pinned first quest in player's voice, keyed by archetype group
   var _macroGoals = {
     combat:  'Someone is routing supply chains through routes that shouldn\'t be clean. I want names.',
@@ -18592,6 +18613,10 @@ function loadFromSlot(slotKey) {
     G._narrationFading = false;
     if (!G.runId) G.runId = _generateUUID();
     if (!G.caseCode) G.caseCode = _makeCaseCode(G.runId);
+    // Backfill default combat abilities for saves created before creation seeding
+    if (G.archetype && (!G.unlockedCombatAbilities || G.unlockedCombatAbilities.length === 0) && typeof seedDefaultCombatAbilities === 'function') {
+      seedDefaultCombatAbilities();
+    }
     G.lastUsedSlot = slotKey;
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();

@@ -236,6 +236,7 @@ function createGameContext(gOverrides) {
     FATIGUE_MAX:             ctx.FATIGUE_MAX,
     migrateState:            ctx.migrateState,
     rollD20:                 ctx.rollD20,
+    seedDefaultCombatAbilities: ctx.seedDefaultCombatAbilities,
     showToast:               sandbox.showToast,
   };
 }
