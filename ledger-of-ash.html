@@ -16176,6 +16176,52 @@ function showPlaces(initialTab) {
 
   // BUY TAB
   html += '<div id="places-tab-buy" style="display:none">';
+
+  // ROTATING STOCK — one weapon + one equipment from SHOP_INVENTORY, picks rotate every 5 days
+  var _rotPool = (typeof SHOP_INVENTORY !== 'undefined') ? SHOP_INVENTORY[_loc] : null;
+  if (_rotPool && _rotPool.length) {
+    var _rotSeed = Math.floor((G.dayCount || 0) / 5);
+    var _rotDaysLeft = 5 - ((G.dayCount || 0) % 5);
+    var _rotWeapons = _rotPool.filter(function(it) { return it.type === 'weapon'; });
+    var _rotEquip = _rotPool.filter(function(it) { return it.type === 'armor' || it.type === 'tool'; });
+    var _rotPick = function(arr, salt) {
+      if (!arr.length) return null;
+      var h = Math.abs(((_rotSeed + salt) * 2654435761) | 0);
+      return arr[h % arr.length];
+    };
+    var _rotItems = [];
+    var _rw = _rotPick(_rotWeapons, 1);
+    var _re = _rotPick(_rotEquip, 7);
+    if (_rw) _rotItems.push(_rw);
+    if (_re) _rotItems.push(_re);
+    if (_rotItems.length) {
+      html += '<div style="margin-bottom:14px">';
+      html += '<div style="font-family:var(--font-display);font-size:13px;color:var(--gold-bright);margin-bottom:2px">Rotating Stock</div>';
+      html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:8px;font-style:italic">Featured selection. Refreshes in ' + _rotDaysLeft + ' day' + (_rotDaysLeft === 1 ? '' : 's') + '.</div>';
+      _rotItems.forEach(function(item) {
+        var _alreadyBought = item.type !== 'consumable' && G.shopSeen && G.shopSeen[item.id];
+        var _bonusLabel = '';
+        if (item.skillBonus && item.bonus) {
+          _bonusLabel = ' <span style="font-size:10px;color:var(--gold-dim)">+' + item.bonus + '\u00a0' + (_KEY_DISP[item.skillBonus] || item.skillBonus) + '</span>';
+        } else if (item.healAmount) {
+          _bonusLabel = ' <span style="font-size:10px;color:#4a9b6f">+' + item.healAmount + '\u00a0HP</span>';
+        } else if (item.def_bonus) {
+          _bonusLabel = ' <span style="font-size:10px;color:var(--storm-hi)">+' + item.def_bonus + '\u00a0Def</span>';
+        }
+        html += '<div class="shop-item' + (_alreadyBought ? ' shop-item--sold' : '') + '">';
+        html += '<div class="shop-item-info"><div class="shop-item-name">' + item.name + _bonusLabel + '</div><div class="shop-item-desc">' + item.desc + '</div></div>';
+        html += '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><div class="shop-item-cost">' + item.cost + 'g</div>';
+        if (!_alreadyBought) {
+          html += '<button class="shop-buy-btn" onclick="buyRotatingItem(\'' + item.id + '\')" data-cost="' + item.cost + '">' + (G.gold >= item.cost ? 'Buy' : 'Need\u00a0' + item.cost + 'g') + '</button>';
+        } else {
+          html += '<span style="font-size:10px;color:var(--ink-faint)">Purchased</span>';
+        }
+        html += '</div></div>';
+      });
+      html += '</div>';
+    }
+  }
+
   if (_data.shops && _data.shops.length) {
     _data.shops.forEach(function(shop) {
       html += '<div style="margin-bottom:14px">';
@@ -16345,6 +16391,37 @@ function buyShopItem(shopId, itemId) {
   if (typeof updateHUD === 'function') updateHUD();
   if (typeof saveGame === 'function') saveGame();
   showPlaces();
+}
+
+function buyRotatingItem(itemId) {
+  var _loc = G.location || '';
+  var _pool = (typeof SHOP_INVENTORY !== 'undefined') ? SHOP_INVENTORY[_loc] : null;
+  if (!_pool) return;
+  var _item = _pool.filter(function(i) { return i.id === itemId; })[0];
+  if (!_item) return;
+  if ((G.gold || 0) < _item.cost) {
+    if (typeof showToast === 'function') showToast('Not enough gold.');
+    return;
+  }
+  if (_item.type !== 'consumable' && G.shopSeen && G.shopSeen[_item.id]) {
+    if (typeof showToast === 'function') showToast('Already purchased.');
+    return;
+  }
+  G.gold -= _item.cost;
+  if (_item.type !== 'consumable') {
+    if (!G.shopSeen) G.shopSeen = {};
+    G.shopSeen[_item.id] = true;
+  }
+  if (typeof addToInventory === 'function') {
+    addToInventory(Object.assign({}, _item, { equipped: false }));
+  } else {
+    if (!Array.isArray(G.inventory)) G.inventory = [];
+    G.inventory.push(Object.assign({}, _item, { equipped: false }));
+  }
+  if (typeof addJournal === 'function') addJournal('Purchased: ' + _item.name + ' (' + _item.cost + 'g)', 'discovery');
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof saveGame === 'function') saveGame();
+  showPlaces('buy');
 }
 
 function openTavernRest(cost) {
@@ -18323,9 +18400,9 @@ function showCamp() {
     var _anyHeat = G.heat && Object.keys(G.heat).some(function(k){ return G.heat[k] > 0; });
     layLowBtn.style.display = (((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 || _anyHeat) ? '' : 'none';
   }
-  // Camp Outside: show only outside settlements
+  // Camp Outside: show only at duskcall or later (sleep window)
   const campoutBtn = document.getElementById('btn-campout');
-  if (campoutBtn) campoutBtn.style.display = G.inSettlement ? 'none' : '';
+  if (campoutBtn) campoutBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
   // Craft: level gate
   const craftBtn = document.getElementById('btn-craft');
   if (craftBtn) {
