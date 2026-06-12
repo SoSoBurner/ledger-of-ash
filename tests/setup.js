@@ -70,8 +70,13 @@ function buildSandbox(gOverrides) {
       remove: () => {},
       addEventListener: () => {},
       // showTutorial does callout.querySelector('.tutorial-callout-close').addEventListener(...).
-      // Return a stub element so the chained addEventListener call doesn't NPE.
-      querySelector: () => ({ addEventListener: () => {}, remove: () => {} }),
+      // emitRollLine does target.querySelector('.scroll-entry[...]').appendChild(...) + removeAttribute.
+      // Return a stub element so those chained calls don't NPE.
+      querySelector: () => ({
+        addEventListener: () => {}, remove: () => {},
+        appendChild: () => {}, removeAttribute: () => {}, setAttribute: () => {},
+        innerHTML: '', className: '', style: {},
+      }),
       querySelectorAll: () => ({ forEach: () => {}, length: 0 }),
       classList: { add: () => {}, remove: () => {}, contains: () => false, toggle: () => {} },
     };
@@ -174,6 +179,9 @@ function createGameContext(gOverrides) {
   code += '\ntry { this.__STAGE_LEVEL_CAP = STAGE_LEVEL_CAP; } catch(_) {}';
   code += '\ntry { this.__G = G; } catch(_) {}';
   code += '\ntry { this.__LOCALITY_SHOPS = LOCALITY_SHOPS; } catch(_) {}';
+  // CS (combat state) is `let CS = null` at module scope and is reassigned by
+  // startCombat — expose a live getter closure so tests can read the current session.
+  code += '\ntry { this.__getCS = function(){ return CS; }; } catch(_) {}';
 
   const sandbox = buildSandbox(gOverrides);
   const ctx     = vm.createContext(sandbox);
@@ -237,6 +245,9 @@ function createGameContext(gOverrides) {
     migrateState:            ctx.migrateState,
     rollD20:                 ctx.rollD20,
     seedDefaultCombatAbilities: ctx.seedDefaultCombatAbilities,
+    startCombat:             ctx.startCombat,
+    resolveCombatAction:     ctx.resolveCombatAction,
+    getCS:                   ctx.__getCS,
     showToast:               sandbox.showToast,
   };
 }
