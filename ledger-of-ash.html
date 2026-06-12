@@ -3767,6 +3767,87 @@ const ENEMY_TEMPLATES = {
   }
 };
 
+// ── ABILITY EFFECT DISPATCH ──────────────────────────────
+// Maps ability id → mechanical effect. Kinds: HEAL_SELF, DAMAGE_BONUS,
+// DEFENSE_BUFF, ATTACK_BUFF, ENEMY_DEBUFF, ROLL_BUFF. Ids not in this
+// table (special/narrative) fall through to the generic-damage handler.
+const ABILITY_DISPATCH = {
+  // HEAL_SELF — {dice: roll 1d8, flat: fixed bonus, stat: G.skills key added}
+  lay_on_hands:      {kind:'HEAL_SELF', dice:true,  flat:0, stat:'charm'},
+  communal_aid:      {kind:'HEAL_SELF', dice:false, flat:4, stat:null},
+  field_triage:      {kind:'HEAL_SELF', dice:true,  flat:2, stat:null},
+  emergency_repair:  {kind:'HEAL_SELF', dice:false, flat:4, stat:null},
+  // DAMAGE_BONUS — n + 1d6 damage (n:null → 1d6); cost = HP self-cost
+  smite:             {kind:'DAMAGE_BONUS', n:5, cost:3},
+  rage_surge:        {kind:'DAMAGE_BONUS', n:4, cost:4},
+  rapid_fire:        {kind:'DAMAGE_BONUS', n:2},
+  cleave:            {kind:'DAMAGE_BONUS', n:0},
+  poison_blade:      {kind:'DAMAGE_BONUS', n:1},
+  throw_compound:    {kind:'DAMAGE_BONUS', n:null},
+  volatile_mix:      {kind:'DAMAGE_BONUS', n:4},
+  collapse_structure:{kind:'DAMAGE_BONUS', n:null},
+  // DEFENSE_BUFF — +n to playerDefBonusThisRound; duration = rounds held
+  shield_press:      {kind:'DEFENSE_BUFF', n:2},
+  divine_ward:       {kind:'DEFENSE_BUFF', n:3},
+  challenge:         {kind:'DEFENSE_BUFF', n:1},
+  parry:             {kind:'DEFENSE_BUFF', n:3},
+  cover_shot:        {kind:'DEFENSE_BUFF', n:3},
+  arcane_shield:     {kind:'DEFENSE_BUFF', n:3, cost:2},
+  force_field:       {kind:'DEFENSE_BUFF', n:2, cost:2},
+  terrain_use:       {kind:'DEFENSE_BUFF', n:2},
+  wd_cover:          {kind:'DEFENSE_BUFF', n:3},
+  wd_fortify:        {kind:'DEFENSE_BUFF', n:3, duration:2},
+  fortify_position:  {kind:'DEFENSE_BUFF', n:2, duration:2},
+  ward_off:          {kind:'DEFENSE_BUFF', n:2},
+  phantom_double:    {kind:'DEFENSE_BUFF', n:2},
+  sanctified_ground: {kind:'DEFENSE_BUFF', n:2},
+  battle_plan:       {kind:'DEFENSE_BUFF', n:2, alsoAttack:2},
+  bd_taunt:          {kind:'DEFENSE_BUFF', n:1},
+  // ATTACK_BUFF — +n to CS.nextAttackBonus
+  battle_cry:        {kind:'ATTACK_BUFF', n:1},
+  oath_strike:       {kind:'ATTACK_BUFF', n:4},
+  marked_shot:       {kind:'ATTACK_BUFF', n:3},
+  identify_weakness: {kind:'ATTACK_BUFF', n:2},
+  sacred_strike:     {kind:'ATTACK_BUFF', n:3},
+  axis_surge:        {kind:'ATTACK_BUFF', n:4},
+  backstab:          {kind:'ATTACK_BUFF', n:4},
+  precise_strike:    {kind:'ATTACK_BUFF', n:3},
+  ambush_prep:       {kind:'ATTACK_BUFF', n:3},
+  flank_call:        {kind:'ATTACK_BUFF', n:1},
+  structural_blow:   {kind:'ATTACK_BUFF', n:3},
+  bd_rally_cry:      {kind:'ATTACK_BUFF', n:1},
+  wl_press:          {kind:'ATTACK_BUFF', n:2},
+  dk_oath_strike_dk: {kind:'ATTACK_BUFF', n:4},
+  bm_tracking_shot:  {kind:'ATTACK_BUFF', n:3},
+  force_push:        {kind:'ATTACK_BUFF', n:2, alsoDebuff:2},
+  pain_feed:         {kind:'ATTACK_BUFF', n:1},
+  // ENEMY_DEBUFF — −n to CS.enemyDefMod (skip/negate entries capped at 3)
+  disarm:            {kind:'ENEMY_DEBUFF', n:3},
+  set_trap:          {kind:'ENEMY_DEBUFF', n:3},
+  pinning_shot:      {kind:'ENEMY_DEBUFF', n:3},
+  drain_will:        {kind:'ENEMY_DEBUFF', n:2},
+  decay_touch:       {kind:'ENEMY_DEBUFF', n:1},
+  fear_image:        {kind:'ENEMY_DEBUFF', n:3},
+  command_stop:      {kind:'ENEMY_DEBUFF', n:3},
+  elemental_shock:   {kind:'ENEMY_DEBUFF', n:1},
+  smoke_out:         {kind:'ENEMY_DEBUFF', n:3},
+  quick_hands:       {kind:'ENEMY_DEBUFF', n:3},
+  misdirect:         {kind:'ENEMY_DEBUFF', n:3},
+  mock:              {kind:'ENEMY_DEBUFF', n:2},
+  bait_and_switch:   {kind:'ENEMY_DEBUFF', n:3},
+  expose_wound:      {kind:'ENEMY_DEBUFF', n:2},
+  suppress:          {kind:'ENEMY_DEBUFF', n:3},
+  wl_suppress_w:     {kind:'ENEMY_DEBUFF', n:3},
+  dk_intimidate:     {kind:'ENEMY_DEBUFF', n:3},
+  bd_distraction:    {kind:'ENEMY_DEBUFF', n:2},
+  wd_push_back:      {kind:'ENEMY_DEBUFF', n:3},
+  censure:           {kind:'ENEMY_DEBUFF', n:3},
+  // ROLL_BUFF — +n to CS.nextRollBonus (consumed on next ability roll)
+  blessing:          {kind:'ROLL_BUFF', n:2},
+  pain_block:        {kind:'ROLL_BUFF', n:2},
+  bm_terrain_adv:    {kind:'ROLL_BUFF', n:2}
+};
+
 // ── ARCHETYPE COMBAT ABILITIES ───────────────────────────
 const ARCHETYPE_COMBAT_ABILITIES = {
   warrior:[
@@ -4568,6 +4649,9 @@ function startCombat(enemyTemplateId, context) {
     companionAbilitiesUsed: [],
     nextAttackBonus: 0,
     enemyDefMod: 0,
+    playerDefBonusThisRound: 0,
+    playerDefBonusDuration: 0,
+    nextRollBonus: 0,
     deathPrevented: false,
     enemyGroupCount: _groupCount,
     enemyGroupDefeated: _groupDefeated
@@ -4911,7 +4995,7 @@ function resolveCombatAction(action, abilityId) {
     // Enemy counter-attack
     const eRoll = d20();
     const eHit = eRoll + CS.enemy.attack >= (combatSkill + survSkill + 8);
-    enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
+    enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 - (CS.playerDefBonusThisRound || 0) : 0;
     enemyDamage = Math.max(0, enemyDamage);
 
     var _atkRollInfo = {
@@ -4966,7 +5050,7 @@ function resolveCombatAction(action, abilityId) {
     const defended = total >= _defThreshold;
     // Enemy still attacks but reduced
     const eRoll = d20();
-    const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
+    const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3 - (CS.playerDefBonusThisRound || 0);
     enemyDamage = defended ? Math.max(0, Math.floor(eBase * 0.4)) : Math.max(0, eBase);
 
     var _defRollInfo = { roll: roll, statValue: survSkill, total: total };
@@ -4989,31 +5073,55 @@ function resolveCombatAction(action, abilityId) {
       var _abSkillKey = _CAB_KEY_NORM_ACT[ab.skillReq] || ab.skillReq;
       const sk = G.skills[_abSkillKey] || 0;
       const roll = d20();
-      const total = roll + sk;
+      var _rollBuff = CS.nextRollBonus || 0;
+      CS.nextRollBonus = 0;
+      const total = roll + sk + _rollBuff;
       const success = total >= 10;
 
       var _ABL_SD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
-      resultText = '<strong>' + ab.name + '</strong>: d20 roll ' + roll + ' + ' + (_ABL_SD[ab.skillReq]||ab.skillReq) + ' ' + sk + ' = ' + total + '<br>';
+      resultText = '<strong>' + ab.name + '</strong>: d20 roll ' + roll + ' + ' + (_ABL_SD[ab.skillReq]||ab.skillReq) + ' ' + sk + (_rollBuff ? ' + buff ' + _rollBuff : '') + ' = ' + total + '<br>';
 
       if (success) {
-        // Apply ability effects
-        if (ab.id === 'lay_on_hands' || ab.id === 'communal_aid' || ab.id === 'field_triage' || ab.id === 'emergency_repair') {
-          const healed = Math.floor(Math.random() * 8) + (G.skills.charm || G.skills.spirit || 1);
+        // Apply ability effects via dispatch table
+        var disp = ABILITY_DISPATCH[ab.id];
+        if (disp && typeof disp.cost === 'number' && disp.cost > 0) {
+          G.hp = Math.max(1, G.hp - disp.cost);
+          resultText += 'Cost ' + disp.cost + ' HP. ';
+          updateHUD();
+        }
+        if (disp && disp.kind === 'HEAL_SELF') {
+          const healed = (disp.dice ? Math.floor(Math.random() * 8) + 1 : 0)
+            + (disp.stat ? (G.skills[disp.stat] || 0) : 0)
+            + (disp.flat || 0);
           G.hp = Math.min(G.maxHp, G.hp + healed);
           resultText += 'You restore ' + healed + ' HP. ' + ab.effect;
           updateHUD();
-        } else if (ab.id === 'rage_surge' || ab.id === 'smite') {
-          const costHp = ab.id === 'rage_surge' ? 4 : 3;
-          G.hp = Math.max(1, G.hp - costHp);
-          const bonusDmg = Math.floor(Math.random() * 6) + (ab.id === 'rage_surge' ? 4 : 5);
+        } else if (disp && disp.kind === 'DAMAGE_BONUS') {
+          const bonusDmg = (disp.n !== null ? disp.n + Math.floor(Math.random() * 6) : Math.floor(Math.random() * 6) + 1);
           CS.enemy.hp = Math.max(0, CS.enemy.hp - bonusDmg);
-          resultText += 'Cost ' + costHp + ' HP. Deal ' + bonusDmg + ' bonus damage. ' + ab.effect;
-          updateHUD();
+          resultText += 'Deal ' + bonusDmg + ' bonus damage. ' + ab.effect;
+        } else if (disp && disp.kind === 'DEFENSE_BUFF') {
+          CS.playerDefBonusThisRound = (CS.playerDefBonusThisRound || 0) + disp.n;
+          // duration 1 floor: the round-end pass below runs in this same call,
+          // so a fresh buff must survive it to cover the next enemy counter.
+          CS.playerDefBonusDuration = Math.max(CS.playerDefBonusDuration || 0, disp.duration || 1);
+          if (disp.alsoAttack) CS.nextAttackBonus = (CS.nextAttackBonus || 0) + disp.alsoAttack;
+          resultText += 'Defense +' + disp.n + (disp.duration ? ' for ' + disp.duration + ' rounds' : ' this round') + '. ' + ab.effect;
+        } else if (disp && disp.kind === 'ATTACK_BUFF') {
+          CS.nextAttackBonus = (CS.nextAttackBonus || 0) + disp.n;
+          if (disp.alsoDebuff) CS.enemyDefMod = (CS.enemyDefMod || 0) - disp.alsoDebuff;
+          resultText += 'Next attack +' + disp.n + '. ' + ab.effect;
+        } else if (disp && disp.kind === 'ENEMY_DEBUFF') {
+          CS.enemyDefMod = (CS.enemyDefMod || 0) - disp.n;
+          resultText += 'Enemy defense -' + disp.n + '. ' + ab.effect;
+        } else if (disp && disp.kind === 'ROLL_BUFF') {
+          CS.nextRollBonus = (CS.nextRollBonus || 0) + disp.n;
+          resultText += 'Next ability roll +' + disp.n + '. ' + ab.effect;
         } else {
-          // Generic ability success — deal moderate damage + effect
+          // Special/narrative ability — generic damage + effect
           const bonusDmg = Math.floor(Math.random() * 4) + sk;
           CS.enemy.hp = Math.max(0, CS.enemy.hp - bonusDmg);
-          resultText += 'Success. ' + ab.effect + '. Enemy takes ' + bonusDmg + ' damage.';
+          resultText += 'Special: ' + ab.effect + '. Enemy takes ' + bonusDmg + ' damage.';
         }
         resultType = 'success';
         if (!G.abilityUsedThisRest) G.abilityUsedThisRest = {};
@@ -5040,7 +5148,7 @@ function resolveCombatAction(action, abilityId) {
       } else {
         // Enemy counter
         var _eRollAbl = d20();
-        enemyDamage = Math.max(0, Math.floor(Math.random() * 4) + CS.enemy.attack - 3);
+        enemyDamage = Math.max(0, Math.floor(Math.random() * 4) + CS.enemy.attack - 3 - (CS.playerDefBonusThisRound || 0));
         resultText += 'The ability misfires. The enemy exploits the opening. You take ' + enemyDamage + ' damage.';
         applyWound(enemyDamage, 'from ' + CS.enemy.name);
         resultType = 'failure';
@@ -5181,6 +5289,10 @@ function resolveCombatAction(action, abilityId) {
     // Clear range lock when strategy expires
     CS.rangeLocked = false;
   }
+
+  // Defense buff expiry — multi-round buffs tick down, single-round buffs clear
+  if (CS.playerDefBonusDuration > 0) { CS.playerDefBonusDuration--; }
+  else { CS.playerDefBonusThisRound = 0; }
 
   CS.round++;
   setTimeout(() => renderCombatRound(), 500);
