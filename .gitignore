@@ -1,0 +1,24 @@
+# Ledger of Ash — itch.io release branch
+# Only game files belong here. Everything else is ignored.
+/*
+!/index.html
+!/content/
+!/data/
+!/js/
+!/assets/
+!/ledger-of-ash-v1.0.zip
+!/.gitignore
+
+# Never allow development artifacts
+node_modules/
+tests/
+docs/
+dist/
+*.py
+*.md
+*.bat
+*.log
+.claude/
+.vscode/
+.github/
+.remember/

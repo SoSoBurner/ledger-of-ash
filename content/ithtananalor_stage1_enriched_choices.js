@@ -1,0 +1,1247 @@
+/**
+ * ITHTANANALOR STAGE 1 ENRICHED MEANINGFUL CHOICES
+ * 20 deeply grounded investigation paths tied to martial structure, oath-binding, and honor
+ * Generated for: Martial honor vs personal conscience, duty vs individual bond, order vs corruption
+ * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal
+ */
+
+var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
+  // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
+
+  // 1. MARTIAL COMMANDER: COMMAND STRUCTURE FRACTURING
+  {
+    plot: 'main',
+    questId: 'q_s1_pattern',
+    label: "Orders are contradicting each other. No one up the chain will say why.",
+    tags: ['Investigation', 'NPC', 'Observation', 'Military', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "Captain Darian Roaz's office door is closed. The duty clerk at the outer desk marks the visit log without looking up and says the Commander is in closed session — no exceptions, no estimated duration. The iron-banded door carries the garrison's seal in wax, fresh enough that the impression is still sharp. Command business runs on authorization windows. This one hasn't opened. The garrison adjutant handles scheduling; a formal appointment filed through the standard channel would carry more weight than an unscheduled approach.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'gathering military intelligence');
+      G.stageProgress[1]++;
+
+      const result = rollD20('charm', (G.skills.charm || 0));
+      const target = 11 + Math.max(0, G.worldClocks.pressure);
+
+      if (result.isCrit) {
+        G.lastResult = `Darian waits until the cup is half empty before speaking. His voice drops to the register of someone watching the door. "Orders contradict each other. Hold the line, then pull three soldiers off the line for unspecified duties. Prepare for external threat, then reposition the northern gate coverage in a way that leaves a specific approach angle open." He sets the cup down — precisely, squarely on the ring it left when he first picked it up, the habit of a man who returns things to exactly where they were. "When I flag the discrepancy up the chain, I'm told compliance is sufficient. I've commanded this garrison for nine years. I know the difference."`;
+        G.stageProgress[1]++;
+        addJournal('Commander flagged contradictory and weakening orders', 'evidence', `ithtananalor-commander-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The commander's posture shifts before the second question is finished. "Command decisions aren't civilian business. That is operational security." He stands and opens the office door. The inquiry is reported to garrison administration within the hour. Whatever record exists of your visit now carries an ORE-stamped annotation in its margin. The pressure of that annotation compounds — every subsequent question at this garrison arrives with a file that precedes it.`;
+        G.worldClocks.pressure++;
+        addJournal('Military command now aware of your inquiry', 'complication', `ithtananalor-commander-alert-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `The commander acknowledges pressure in the command structure without naming a source. "Orders come down. We execute them. That's the structure." He doesn't move toward the door, but he doesn't continue either. The answer has been chosen in advance — specific enough to acknowledge the question, empty enough to say nothing. The cold draft from the northern gate moves through the room. The iron candle-bracket on the wall has been there longer than he has. His hands stay flat on the table.`;
+        addJournal('Commander confirmed command pressure but details refused', 'evidence', `ithtananalor-commander-pressure-${G.dayCount}`);
+      } else {
+        G.lastResult = `The commander gives back exactly what the garrison manual provides on chain of command and discipline — correct, sequential, complete. Nothing outside the prepared answer, nothing that admits any space for a follow-up question to enter. The stone walls of the command office hold the cold well into the afternoon. Either the pressure hasn't reached this level of the command structure or he's practiced at not showing it. The conversation ends without a crack in either direction, his expression unchanged throughout. The clerk who processes his correspondence works the same annex as the garrison records room — and her desk sits between two filing systems that shouldn't need to be in the same room.`;
+        addJournal('Military command inquiry inconclusive', 'evidence', `ithtananalor-commander-blocked-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 2. HONOR GUARD: OATH-BINDING COMPROMISED
+  {
+    plot: 'main',
+    label: "Soldiers follow commands they know are wrong. The oath mechanism is turned against them.",
+    tags: ['Investigation', 'NPC', 'Oaths', 'Binding', 'Meaningful'],
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The honor guard rotation has changed since morning — two soldiers at the ceremonial gate who weren't there an hour ago, their posture suggesting a briefing has passed between shifts. Marshal Sera Ironveil isn't visible at her usual post near the armory annex. The garrison's ceremonial schedule posts on the pillar board at the main court entrance; the next open rotation window is two days out. The oath records office sits adjacent to the armory. A separate approach through the records system wouldn't require going through the guard line directly.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'uncovering oath corruption');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Marshal Sera Ironveil speaks without looking up from the armor she's checking. Her voice is flat and careful. "The old oath ran: I bind myself to the protection of those I serve. The new version runs: I bind myself to the commands of those above me in the line of duty." She sets the arm plate down. "The wording sounds like tradition. Most soldiers don't hear the change. But the binding target is different. Principle to authority. Justice to obedience." She picks the plate back up. "An oath-bound soldier who receives an unjust order has no recourse. The oath removes the recourse."`;
+        G.stageProgress[1]++;
+        addJournal('Honor guard revealed oath language corruption', 'evidence', `ithtananalor-guard-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Marshal Sera Ironveil stops mid-check. "Oaths are sacred binding. Questions about their content from someone outside the sworn line are a breach of that sanctity." She doesn't raise her voice — the stillness carries more than volume would. The conversation is over. The dishonor of the question will circulate within the guard rotation before the day is out. The scrutiny that follows this breach of sacred protocol will make the next inquiry at the garrison harder to open without it being read as continued disrespect.`;
+        G.worldClocks.reverence++;
+        addJournal('Honor guard considers oath inquiry a sacred violation', 'complication', `ithtananalor-guard-hostile-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `The oath documentation is accessible in the garrison's civic records section. Recent administrations show text variants from the standard form — subtle, embedded in archaic binding-law phrasing that requires specialist reading to parse. The language has changed. Whether the change is administrative revision or deliberate reinterpretation takes a closer reading than the access window permits. The ledger parchment carries a faint smell of iron filings and old binding compound — the smell of documents that have been handled many times and returned to the same shelf.`;
+        addJournal('Oath documents show language modification patterns', 'evidence', `ithtananalor-guard-modified-${G.dayCount}`);
+      } else {
+        G.lastResult = `Oath documents are administered under the garrison's sacred records protocols — accessible for ceremonial review but not for comparative textual analysis without a named legal proceeding. The clerk who manages the ceremonial record speaks through a half-open window in the records annex, the bound oath volumes visible on the shelf behind her. The oaths are being given. What they contain is behind a classification that requires a practitioner of binding law to access formally. The clerk closes the window before you've finished writing down the procedure. Clerk Oth Brenn in the records annex has seen the current and archive copies side by side. He knows what changed.`;
+        addJournal('Oath administration inquiry inconclusive', 'evidence', `ithtananalor-guard-blocked-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 3. OATH KEEPER: OATH RECORDS FALSIFIED
+  {
+    plot: 'main',
+    questId: 'q_s1_converging',
+    label: "The oath records show new bindings replacing old ones. Permanent commitments being overwritten.",
+    tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "The records annex door is locked — a hand-lettered card in the frame reads CLOSED FOR ADMINISTRATIVE REVIEW, the ink too fresh to have been there long. Oth's desk is visible through the narrow window beside the door, papers stacked and weighted, no sign of him in the room. The garrison's records access procedure requires a formal request form submitted to the command secretariat. The current access window reopens at the next garrison administrative hour. Marshal Sera Ironveil at the armory annex has seen the current and archive oath copies side by side.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'reading binding record corruption');
+      G.stageProgress[1]++;
+
+      const result = rollD20('charm', (G.skills.charm || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Oth pulls a record from three years ago against a current record for the same soldier. Sets them side by side on the table. "The sworn text in the original reads: protection of those in my charge. The current record reads: compliance with lawful command." He speaks slowly, like someone who's been rehearsing this disclosure and isn't sure it's safe. "When I flagged it, I was told these are administrative alignments — bringing older records into current terminology. They aren't. The soldiers swore one thing. Their records now say another. They don't know."`;
+        G.stageProgress[1]++;
+        addJournal('Oath keeper revealed systematic oath record falsification', 'evidence', `ithtananalor-keeper-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Oth's desk is positioned between the visitor and the record shelves — not incidentally, precisely. "Oath documentation is sacred and access is restricted to named parties with ceremonial standing." He doesn't gesture toward the door or produce a procedure form. He simply doesn't move from the desk, his hands flat on its surface. The old stone walls of the records annex hold the morning chill. The record system has a gatekeeper and the gatekeeper has decided today isn't the day. No authorization, no movement, no entry.`;
+        addJournal('Oath keeper refusing record access', 'complication', `ithtananalor-keeper-silent-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Oth grants access to current records only — the archive copies are held separately and require a separate authorization. Current entries show modification timestamps on several files. What was modified and how it differs from the sworn original requires pulling the archived versions, which means a return visit with the right credentials. The records annex is stone-floored and cold; the heavy vaulting overhead channels a draft from the northern gate passage that keeps the room below the temperature of the corridor outside.`;
+        addJournal('Oath records show recent modification patterns', 'evidence', `ithtananalor-keeper-modified-${G.dayCount}`);
+      } else {
+        G.lastResult = `The records room is maintained and current — ledgers shelved in proper order, entries dated and up to date, the ink on the most recent entries still with some faint sheen. What's visible confirms the system is active and regularly used. What's not visible is whether the content matches what soldiers originally swore. Confirming that requires archive access and a direct comparison between current entries and original sworn text. This visit hasn't produced either. Oth watches from the doorway as you leave. He maintains both systems. He knows exactly what the comparison would show.`;
+        addJournal('Oath record verification inconclusive', 'evidence', `ithtananalor-keeper-blocked-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 4. TRAINING MASTER: DISCIPLINE BECOMING BRUTALITY
+  {
+    plot: 'main',
+    label: "Training has gone past martial standard. The master knows the difference.",
+    tags: ['Investigation', 'NPC', 'Training', 'Discipline', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The training yard gate is closed and chained at the observer post — a new addition to the bracket, the chain links still bright. A posted notice states that observer access requires written authorization from the garrison training directorate, submitted no less than one day in advance. Through the gap in the gate boards the yard is audible: impact rhythm, count calls, the flat sound of a rest bell. What's happening is accessible by sound. What it means requires eyes on the schedule board outside Kross's office, which faces the public corridor near the east barracks entrance.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'exposing training abuse');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Kross walks you through the week's schedule on the board outside the training yard. The numbers are visible: rest periods cut from eight hours to four, endurance thresholds set above the garrison's own baseline standards, pain tolerance cycles running every third day instead of every seventh. "I've run training programs for thirty years," he says, without inflection. "The line between discipline and damage is not ambiguous to someone who's stood on both sides of it. This crosses it. Deliberately. Someone designed this schedule to produce compliant exhaustion, not capable soldiers."`;
+        G.stageProgress[1]++;
+        addJournal('Training master revealed systematic abuse disguised as discipline', 'evidence', `ithtananalor-trainer-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Kross signals a halt the moment you step onto the observation line. "Training ground is restricted to assigned personnel." He doesn't wait for a response. Two soldiers appear at your shoulders and walk you back through the gate without acknowledgment. The session continues behind you. The training master's territorial response is its own kind of data. The pressure of being walked back in front of the full training block means your face is known at this station — returning will be harder and watched from the moment of approach.`;
+        G.worldClocks.pressure++;
+        addJournal('Training master banned you from training grounds', 'complication', `ithtananalor-trainer-hostile-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `From the observation line, the training session runs at a pace that leaves soldiers unable to speak between repetitions. The duration goes past what a conditioning session requires. At the end, the rest period is four minutes before the next block begins. Whether this is beyond garrison standard requires knowledge of the baseline — but the soldiers' faces at the rest bell aren't the faces of people being conditioned. They're the faces of people being worn down.`;
+        addJournal('Training intensity observed as higher than typical', 'evidence', `ithtananalor-trainer-intense-${G.dayCount}`);
+      } else {
+        G.lastResult = `The training runs hard but within what a martial regimen might justify. Nothing overtly wrong from the outside. The training master's response to your presence — the speed with which he marks you and the two soldiers who appear at your shoulder — is harder to explain within a normal operation. The practice may be defensible. The supervision of the practice is not.`;
+        addJournal('Training observation inconclusive', 'evidence', `ithtananalor-trainer-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 5. GARRISON CLERK: ROSTER DISCREPANCIES
+  {
+    plot: 'main',
+    label: "Soldiers are disappearing from the garrison roster. The assignments lead nowhere documented.",
+    tags: ['Investigation', 'NPC', 'Records', 'Personnel', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "Oth isn't at his desk — a paper card taped to the inkwell reads RETURNED AFTER MORNING MUSTER, no other detail. The roster ledgers sit visible on the shelf through the open door, their spines marked by year and quarter. Garrison administrative hours run in two windows; the afternoon window opens at the third bell. The general audit right that allows public access to the main roster doesn't require Oth's presence — it requires a written access request submitted to the command secretariat by the second bell. That path is still open.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'reading personnel disappearance');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Oth checks the door before pulling the second ledger from the back of the lower drawer. His hands are steady but his breath isn't. The crown-stamped roster and the assignment roster don't match — soldiers listed in the second ledger don't appear anywhere in the first. No duty rotation, no supply allocation, no casualty protocol. "I maintain both," he says. "When I asked what the second one was for I was told to keep accurate records and stop asking what they were for." His voice has the flatness of someone who stopped asking months ago.`;        G.stageProgress[1]++;
+        addJournal('Clerk revealed hidden roster of disappeared soldiers', 'evidence', `ithtananalor-clerk-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Oth doesn't pull anything from the desk. His hands stay still. "Garrison records require command authorization for access. In writing, signed by an officer of senior rank." He gives the answer quickly — practiced to the point of reflex. A notched quill rests in the inkwell to his left, half-used. The records exist behind the door at the back of the room. The authorization process exists on paper in the command block. Neither is going to happen today, and the speed of his answer suggests he's already decided that. The pressure of the bureaucratic wall is designed to make the answer harder, not impossible — which means someone expects people to keep asking.`;
+        G.worldClocks.pressure++;
+        addJournal('Garrison clerk refusing record access', 'complication', `ithtananalor-clerk-blocked-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `Oth grants access to the main roster under general garrison audit rights. Seventeen soldiers appear in assignment entries from the past four months that have no corresponding active duty position, no transfer record, and no discharge notation. They were assigned somewhere. There's no documentation of where. The gap in the record is consistent and deliberate — not an accidental omission but a boundary, the same edge appearing in seventeen different entries over four months.`;
+        addJournal('Roster analysis shows unexplained personnel disappearance', 'evidence', `ithtananalor-clerk-disappear-${G.dayCount}`);
+      } else {
+        G.lastResult = `The roster covers four hundred soldiers across fourteen rotations. Movement between assignments is frequent and the pattern is complex enough that identifying anomalous gaps requires comparison between the assignment log and active deployment records — a task that needs more time and a clearer authorization level than this access provides. Oth maintains a second log that doesn't appear in the main system. He knows which soldiers aren't in either one.`;
+        addJournal('Personnel roster analysis inconclusive', 'evidence', `ithtananalor-clerk-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 6. SUPPLY QUARTERMASTER: WEAPONRY REDISTRIBUTION
+  {
+    plot: 'main',
+    label: "Supply movements don't match declared deployment. Military capability is leaving the map.",
+    tags: ['Investigation', 'NPC', 'Supply', 'Weaponry', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "The supply depot's intake gate is processing an inbound cart — two soldiers checking manifests against a clipboard, the inventory board rotated to face the wall during active intake per standard protocol. Casvel Redhinge — Stable Factor of the Iron Accord depots — is visible at the far end of the depot floor, chalk moving down a column, his back to the entrance. Intake hours close this access route until the cart is logged and cleared. The depot's public manifest summary is posted in the garrison's administrative annex — accessible during the standard audit window, no depot authorization required.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'reading supply redistribution');
+      G.stageProgress[1]++;
+
+      const result = rollD20('charm', (G.skills.charm || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Casvel takes you to the inventory board before speaking. Points at the storage totals for the eastern weapons depot, then at the physical count he ran last week. The numbers don't match. "I've been marking equipment as training surplus and routing it to three addresses listed as maintenance facilities. I visited one of those addresses." He stops. "It's a warehouse. Empty shelving except for what arrived from here." He closes the inventory log. "The garrison's service weapons are being moved out. Whoever holds those addresses is being armed while the garrison is quietly reduced."`;
+        G.stageProgress[1]++;
+        addJournal('Quartermaster revealed hidden arsenal redistribution', 'evidence', `ithtananalor-quartermaster-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Casvel answers from behind the inventory board without looking up. His chalk is moving down a column of figures as he speaks. "Military logistics is confidential to the command chain. I can't discuss movements with parties outside that chain." He's not hostile — he's procedural, and the procedure is doing its job. The supply record is behind a wall that requires command authorization to pass, and authorization requires going through the same command structure that controls the movements being questioned. The board stays between you. The pressure here is the loop itself — command controls the inquiry into command, and the wall is designed to hold precisely because of that.`;
+        G.worldClocks.pressure++;
+        addJournal('Quartermaster refusing supply discussion', 'complication', `ithtananalor-quartermaster-hostile-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Casvel confirms supply movements have been happening and describes them as equipment rotation to maintenance facilities. He gives this in a practiced sequence — type, volume, destination category, classification. The description is complete in structure and empty of the one detail that would make it verifiable: the facility addresses. When asked for them directly, he pauses before citing restricted logistics protocols.`;
+        addJournal('Quartermaster confirmed supply movements but explanation incomplete', 'evidence', `ithtananalor-quartermaster-unusual-${G.dayCount}`);
+      } else {
+        G.lastResult = `Casvel gives technically accurate answers about the supply management process: categories, rotation schedules, classification tiers. Nothing outside standard procedure emerges as a discrepancy from this conversation. Either the redistribution hasn't reached Casvel's level or he's describing the surface of it in terms that reveal nothing. He visited one of the maintenance facility addresses listed in his own logs. He knows the address is empty shelving. He hasn't filed a discrepancy report.`;
+        addJournal('Supply movement inquiry inconclusive', 'evidence', `ithtananalor-quartermaster-blocked-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 7. RITUAL KEEPER: RITUAL CORRUPTED
+  {
+    plot: 'main',
+    label: "The binding ritual formulas have been altered. Sacred practice is being rewritten.",
+    tags: ['Investigation', 'NPC', 'Ritual', 'Sacred', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "The ceremonial archive is closed for the ritual preparation period — a sanctioned window before the next binding ceremony, during which the texts are held in sequestration per sacred protocol. The outer hall is empty except for a single lamp burning at the preparation table, the archive door sealed with a ceremonial cord. The texts won't be accessible until after the ceremony completes. Garrison civic records maintain a public summary of the current binding formulas for administrative reference; that summary is held in the administrative annex and doesn't require archive access.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'uncovering ritual corruption');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Brenn Ironspike — shrine attendant for the binding rites — brings out a ceremonial scroll and places it beside an older one from the archive shelf. Reads them in parallel, pointing to specific passages. The old invocation calls the soldier to serve the people they protect. The revised version calls the soldier to serve the command above them. The words surrounding each phrase are the same — the traditional cadence preserved, the central binding redirected. "If you hear it without a reference point, it sounds correct. That's the design." A hand rests on the archive scroll. "The form is intact. The meaning was replaced."`;
+        G.stageProgress[1]++;
+        addJournal('Ritual keeper revealed sacred formula rewriting', 'evidence', `ithtananalor-ritual-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Brenn's response comes before the second sentence is finished. "Sacred practice does not submit to interrogation from outside the sanctioned line." She doesn't move toward the archive — she moves toward the door and opens it. The ritual system closes behind the question. Any return approach requires a different framing or a different door. The scrutiny attached to this breach will precede any future sacred inquiry — the sanctioned line has been noted, and you are on the wrong side of it.`;
+        G.worldClocks.reverence++;
+        addJournal('Ritual keeper offended by sacred practice inquiry', 'complication', `ithtananalor-ritual-hostile-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Brenn permits access to the current ceremony texts. Several formulas show variant language from the traditional forms — small substitutions embedded in the archaic binding-law phrasing where substitutions are hardest to detect without a direct comparison. Whether the variants are scholarly reinterpretation or deliberate corruption requires side-by-side analysis with the original archived scrolls, which Brenn hasn't offered access to. The ceremony hall beyond the archive door carries the faint sound of coin being counted somewhere behind the partition — the ward clerk's annex, running its routine even while the ritual space stays quiet.`;
+        addJournal('Ritual documentation shows subtle archaic variation', 'evidence', `ithtananalor-ritual-varied-${G.dayCount}`);
+      } else {
+        G.lastResult = `The ritual documentation is accessible through the standard ceremonial record process — bound scrolls in vellum sleeves, the older ones showing the amber tinge of age along their edges. Reading modification into binding-law phrasing requires training in the specific archaic legal tradition used in oath and ritual texts. Without that background the texts are opaque in exactly the right places: the archaic formulas where substitution would be hardest to detect without a reference point. The words are present. What they're doing inside the binding structure requires a different kind of reading.`;
+        addJournal('Ritual corruption analysis inconclusive', 'evidence', `ithtananalor-ritual-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 8. RITUAL AUTHORITY: COMMAND LEGITIMACY COMPROMISED
+  {
+    plot: 'main',
+    label: "The ritual chain is validating commands that have no legitimate source.",
+    tags: ['Investigation', 'NPC', 'Authority', 'Legitimacy', 'Meaningful'],
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The authority chamber's outer vestibule is occupied — two aides working at the preparation table, the inner door closed and the curtain drawn across its window, indicating a session in progress. Dame Orsella Roaz isn't accessible until the chamber clears. Validation ceremonies are public events by garrison custom; the public documentation record kept in the civic records annex logs ceremony times and durations without requiring chamber access. That record would show how long recent validation ceremonies have run against prior-period entries.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'mapping authority corruption');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Dame Orsella Roaz speaks at the side entrance of the authority chamber, not inside it. Voice low, back to the inner door. "The validation ritual confirms that a commander carries legitimate authority within the chain of sacred duty. I have performed that ritual for commanders who haven't passed the three trials that legitimacy requires." A pause, watching the inner door. "When I noted the discrepancy I was told the trials were conducted under expedited wartime protocol. There is no active wartime protocol. I am certifying authority I cannot verify — and when I have raised this, I am told that questioning command is questioning the order itself."`;
+        G.stageProgress[1]++;
+        addJournal('Authority revealed spiritual validation of illegitimate command', 'evidence', `ithtananalor-authority-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Dame Orsella straightens and the tone shifts register. "The validation of authority through sacred rite is a matter of faith. Questioning that process from outside the sanctioned line constitutes a crisis of faith in the command structure." An inquiry record will be filed before the hour ends. The question has been categorized and the category has consequences. The scrutiny of that filing extends beyond this room — it becomes part of how the command structure reads your presence here.`;
+        G.worldClocks.reverence++;
+        addJournal('Ritual authority reported faith crisis inquiry', 'complication', `ithtananalor-authority-hostile-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `The validation ceremony for a newly appointed section commander runs in under twelve minutes. From the record of prior ceremonies visible in the public documentation, the standard duration is between forty-five minutes and an hour. The ritual structure is present — the words, the positions, the marks. The time required to do them with the full traditional weight is absent.`;
+        addJournal('Authority validation ceremonies show expedited patterns', 'evidence', `ithtananalor-authority-expedited-${G.dayCount}`);
+      } else {
+        G.lastResult = `Validation ceremonies are public by design — the garrison community is meant to witness them. What the ceremonies mean, and whether shortened or modified forms carry the same binding weight as traditional forms, is a question of sacred law that the ritual authority interprets. From outside that interpretive tradition, the ceremonies look complete. Whether they are is a different question.`;
+        addJournal('Authority validation analysis inconclusive', 'evidence', `ithtananalor-authority-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // ========== ARCHETYPE DEEP DIVES (8 CHOICES) ==========
+
+  // 9. COMBAT TIER 1: DEFENSIVE POSITION ANALYSIS
+  {
+    plot: 'main',
+    label: "The defensive positions have been modified to open angles the original fortifications closed.",
+    tags: ['Investigation', 'Combat', 'Fortification', 'Defense', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "The public approach to the eastern wall terminates at a new barrier rope — a recent addition, the wooden stakes still pale where they were driven. A handwritten sign announces that the walkway is under maintenance restriction until further notice. The fortification is still visible from the outer plaza, but the useful observation angles are on the wrong side of the rope. The garrison's architectural maintenance records log all fortification modification projects by quarter; that ledger is held in the administrative annex and available under general public review.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'military structural analysis');
+      G.stageProgress[1]++;
+
+      const result = rollD20('vigor', (G.skills.vigor || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `The northern gate's sightline has been broken by a storage structure added three months ago — positioned to cover exactly the angle the gate watch needs to hold. The southern choke point has load-bearing repairs pending, with temporary barriers that are passable by a coordinated group. Two weapon emplacements on the eastern wall were repositioned in the last quarter; the new positions create a gap in overlapping coverage that the old positions didn't allow. None of these are maintenance failures. Each creates a specific vulnerability at a specific tactical point.`;
+        G.stageProgress[1]++;
+        addJournal('Combat analysis revealed surgical fortification sabotage', 'evidence', `ithtananalor-fortification-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `A guard at the eastern wall notes the angle of your attention — not the wall, but the gap between the repositioned emplacements. He steps toward you and asks your purpose at the fortification. The question is polite. The two soldiers who appear at the corner behind him are not a coincidence. "Tactical observation of defensive positions is restricted." You're walked to the garrison gate. The report of a civilian studying the wall's coverage gap will reach the watch supervisor before you're off the street. You've been noticed at the one section of the wall that matters most.`;
+        G.worldClocks.watchfulness++;
+        addJournal('Military security alerted to fortification analysis', 'complication', `ithtananalor-fortification-alert-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Several fortification points carry signs of recent modification — new masonry, repositioned fittings, fresh timber at two gate brackets. Whether the modifications improve or degrade the defensive position requires a more detailed survey than a pass from the public walkway provides. The work has been done. Its purpose is what's unclear. The northern gate's draft carries iron filings from the bracket work, and the smell of new mortar settles into the lower walkway where the old fitted stone was cut back.`;
+        addJournal('Fortification modifications observed but purpose unclear', 'evidence', `ithtananalor-fortification-unclear-${G.dayCount}`);
+      } else {
+        G.lastResult = `The garrison's outer structure is intact and maintained. What's visible from the public approach — walls, gates, patrol positions — reads as operational. Reading the tactical implications of specific modifications requires ground-level access to the fortification positions, which the public walkway doesn't provide. The garrison looks defended. Whether it is requires a closer look. The heavy stone vaulting above the main gate arch channels the cold draft from the northern approach into the outer plaza — a structural consequence of the original construction that no subsequent repair has changed.`;
+        addJournal('Fortification analysis inconclusive', 'evidence', `ithtananalor-fortification-blocked-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 10. COMBAT TIER 2: HIDDEN MILITARY FORCE MAPPED
+  {
+    plot: 'main',
+    label: "The disappeared soldiers are under a command structure that appears in no garrison record.",
+    tags: ['Investigation', 'Combat', 'Hidden-Force', 'Command', 'Meaningful'],
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The supply trace hits a dead end at the second address — a locked gate in a commercial district block, no signage, no bell pull, no activity visible through the gate bars. The address is registered to a logistics clearinghouse in the garrison's delivery manifest, but the physical location doesn't match any operating business on that street. The manifest summary available in the administrative annex lists the delivery category and volume without the specific address. Cross-referencing the category against other garrison supply records would narrow what's flowing to this district.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'mapping shadow military structure');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Cross-referencing the hidden roster against the supply movement records and the weapon cache addresses produces a coherent picture: the disappeared soldiers are deployed to three external locations outside the garrison's administrative boundary. No traditional command insignia. Communication through courier routing that bypasses the garrison's standard messenger network. They're organized, equipped from the redistributed garrison weapons, and answering to a command authority that doesn't appear in any Iron Accord-sealed record. A second military structure is operating inside Ithtananalor's geographic footprint with none of Ithtananalor's institutional accountability.`;
+        G.stageProgress[1]++;
+        addJournal('Military tracking revealed shadow force structure and deployment', 'evidence', `ithtananalor-shadow-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The tracking draws attention before the destination is reached. Two soldiers in unmarked coats intercept at the edge of the third supply route — no garrison insignia, no identification offered. The taller one speaks once: "This route doesn't concern you." They stay between you and the route until you move. They don't follow. The shadow force knows it's being tracked and chose to show itself rather than let the tracking continue. They want the message delivered, not a confrontation logged. The pressure of that choice is precise — they are watching, and they decided you should know it.`;
+        G.worldClocks.pressure += 2;
+        addJournal('Shadow force directly warned you away from the inquiry', 'complication', `ithtananalor-shadow-caught-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `The supply trace points the disappeared soldiers toward a single delivery cluster — three addresses, close enough to be one operational zone, outside the garrison's administrative boundary. What the zone is used for isn't visible from the supply record alone. The soldiers are there. The command structure above them isn't documented anywhere this search has reached. The delivery routing passes through a clearinghouse designation that accepts garrison manifests without a registered street address — a gap in the ledger system formatted to look like standard administrative overhead.`;
+        addJournal('Shadow military deployment zone identified but purpose unclear', 'evidence', `ithtananalor-shadow-deployed-${G.dayCount}`);
+      } else {
+        G.lastResult = `The assignment record shows the soldiers leaving their documented positions — dates noted, departure logged, no subsequent entry. Where those assignments lead requires a routing record that sits above the clerk level: a command transfer log or an external deployment manifest. The clerk's access tier doesn't include either. The gap in the record is clean and consistent — not an oversight but the edge of a deliberate boundary. What's on the other side requires a higher authorization than today's approach has produced. The supply trace knows where those soldiers are receiving weapons. The roster and the supply record point to the same three addresses.`;
+        addJournal('Hidden force tracking inconclusive', 'evidence', `ithtananalor-shadow-blocked-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 11. LORE TIER 1: OATH BINDING LEGAL ANALYSIS
+  {
+    plot: 'main',
+    label: "Historical precedent as cover. The loophole was found before the trap was built.",
+    tags: ['Investigation', 'Lore', 'Law', 'Precedent', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "The precedent council's archive access window closed two hours ago — a locked iron-bound cabinet at the back of the civic records room, a small printed card slotted into the door bracket noting the next access window by day. The current oath texts are available without appointment through the ceremonial record shelf in the same room; the precedent archive requires the separate window. The council's recent ruling summaries are distributed as public notices to garrison administration — the annex board may carry the most recent ones without requiring archive access.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'oath legal archaeology');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Oath law runs back four centuries. The core language: soldiers bind to principle and justice. A legal reinterpretation entered the precedent record eight months ago — a ruling that "principle" is defined by the commanding authority's declaration rather than by independent ethical standard. The implication: soldiers are bound to whatever the command declares as principle, not to any external definition of the word. Three scholars who filed objections to that ruling were removed from the precedent council within ninety days of their submission. The ruling stands. The objections are not in the sealed precedent record.`;
+        G.stageProgress[1]++;
+        addJournal('Oath law analysis revealed legal system corruption', 'evidence', `ithtananalor-law-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The pattern of records access — specifically the combination of oath language archives and the precedent council's personnel records — draws a notice from the registry oversight office. A legal authority representative meets you at the door on the way out. "Legal precedent is proprietary to the council's jurisdiction. External analysis without standing is not permitted." The notice is filed. The analysis has been logged as unauthorized. The watchful response to a specific document combination means the oath-law changes are a protected line — someone anticipated this inquiry.`;
+        G.worldClocks.watchfulness++;
+        addJournal('Legal authorities alerted to oath law analysis', 'complication', `ithtananalor-law-alert-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Recent legal precedent in oath law has expanded the interpretive scope of "principle" — where the term previously referred to an ethical standard external to the command structure, the current ruling allows the command structure to define it. Soldiers swearing to principle may now be swearing to whatever the command declares. Whether this was intended as a tool for control or as an administrative simplification isn't determinable from the ruling text alone.`;
+        addJournal('Oath law shows recent broadened interpretation', 'evidence', `ithtananalor-law-expanded-${G.dayCount}`);
+      } else {
+        G.lastResult = `Oath law is built on layered precedent running several centuries deep, with variation by locality, military branch, and ceremonial tradition. The texts are dense and their authority depends on reading each passage against what came before it. Reading deliberate corruption into the current state versus long accumulation of administrative drift requires a specialist in the historical baseline — without that grounding, the law looks like complicated law rather than law that has been worked on with intent. The changes may be there. Finding them requires a different kind of preparation.`;
+        addJournal('Oath law analysis inconclusive', 'evidence', `ithtananalor-law-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 12. PERSUASION TIER 2: COERCION THROUGH OATH
+  {
+    plot: 'main',
+    label: "Oaths they can't refuse. Breaking them is documented and punished.",
+    tags: ['Investigation', 'Persuasion', 'Coercion', 'Oath-Breaking', 'Meaningful'],
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The garrison commons is quiet — end of a rotation block, the room occupied by soldiers in that particular state of alertness that isn't rest. Three separate table groups close their conversations before an approach closes the distance. The silence isn't hostile; it's practiced. Whatever is circulating between the tables has a shape that doesn't survive a newcomer stepping into it. The displaced officer still at Ithtananalor hasn't been told to leave. She isn't bound by a current supplementary oath. Her room is above the chandler's shop on the east commercial street.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'mapping oath-based coercion');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `The pattern assembles over three conversations in separate corners of the garrison commons. Soldiers are being asked to swear supplementary oaths — not at the standard binding ceremony, but in private, to specific commanders by name. Refusing results in reassignment to exposed positions and public notation as "uncommitted." Those who have attempted to walk back a supplementary oath are declared oath-breakers: stripped of rank, barred from the garrison community, exiled. Swearing binds the soldier to the commander. Breaking destroys the soldier's place in the only institution they belong to. The mechanism doesn't require force. It only requires the oath.`;
+        G.stageProgress[1]++;
+        addJournal('Coercion analysis mapped oath-weaponization for compliance', 'evidence', `ithtananalor-coercion-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The first question about supplementary oaths produces a polite end to the conversation. By the second attempt, word has moved ahead. A third soldier doesn't let the question finish before stepping back. Being associated with an inquiry about oath-breaking carries its own risk — if the supplementary oath system is real, proximity to someone questioning it could mark a soldier as a potential oath-breaker themselves. The garrison has grown too careful to speak to someone with this particular set of questions. The isolation is not hostility; it is a form of self-protection, and it works against you just the same.`;
+        G.worldClocks.isolation++;
+        addJournal('Population distancing from you due to oath-breaking inquiry', 'complication', `ithtananalor-coercion-hostile-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `Three soldiers confirm pressure to swear beyond the standard binding. None will describe the specific content or the commander they were asked to swear to. Two cite the oath itself as the reason they can't speak — once sworn, discussing the oath with an outsider may constitute breach. The pressure is confirmed. The specific mechanism stays behind the oath that enforces the silence.`;
+        addJournal('Oath-based pressure confirmed by soldier interviews', 'evidence', `ithtananalor-coercion-confirmed-${G.dayCount}`);
+      } else {
+        G.lastResult = `Soldiers in the garrison commons don't finish sentences about oaths before redirecting. The meal smell hangs in the low-ceilinged room — salt ration and boiled grain — and the tables nearest the wall are the most occupied, backs to the stone. The guardedness is consistent across multiple conversations but none of it yields specifics. Something is being protected by the collective silence. What it is and how the protection operates requires a source willing to speak past the point where everyone else stops. That source hasn't appeared yet. One of the three displaced officers is still at Ithtananalor. She hasn't been told to leave and she isn't bound by an active supplementary oath.`;
+        addJournal('Oath coercion patterns sensed but not documented', 'evidence', `ithtananalor-coercion-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 13. INSIGHT TIER 1: MILITARY MORALE COLLAPSE
+  {
+    plot: 'main',
+    label: "Soldiers still show up. They've stopped believing the orders mean what they say.",
+    tags: ['Investigation', 'Insight', 'Morale', 'Trust', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    failResult: {
+      text: "The garrison commons rotation ends early — a senior officer appears at the entrance and says something that empties the room in two minutes, soldiers moving toward the barracks corridor without conversation, the meal boards still half-occupied. Whatever period was available for observation has closed. The commons will reopen at the next meal rotation. The garrison's public notice board in the outer plaza carries administrative postings, including duty schedules; cross-referencing the schedule against what's visible in the yard would confirm whether the rotation patterns match what command is publicly claiming.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'military morale analysis');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Soldiers at the end of rotation walk past each other without acknowledgment. In the commons, unit groups that would normally share a table eat in separated clusters. Officers receive compliance — no eye contact, no voluntary communication beyond the required response. A sergeant who's been at the garrison fifteen years doesn't look up when a superior passes. When asked directly about the unit's condition, the answer is brief and identical across four different conversations: "We do what's required." The garrison is mechanically functional and socially emptied. The form of military order without any of its substance.`;
+        G.stageProgress[1]++;
+        addJournal('Morale analysis revealed systematic military demoralization', 'evidence', `ithtananalor-morale-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Questions about unit cohesion and command confidence land wrong in the garrison commons. A soldier who's been sitting quietly at the end of the table stands and walks toward the training block. Within twenty minutes Kross appears at the commons entrance and sweeps the room. The morale questions have been classified as a diagnostic attempt — the kind that precedes formal review. Soldiers in a coercion system protect the system even when they hate it. The isolation this creates is thorough — the commons is no longer a place where any soldier will speak to you without measuring the cost first.`;
+        G.worldClocks.isolation++;
+        addJournal('Soldiers reported your morale assessment as suspicious', 'complication', `ithtananalor-morale-hostile-${G.dayCount}`);
+      } else if (result.total >= 12) {
+        G.lastResult = `The garrison commons is quieter than a functioning unit this size should be. Soldiers eat without conversation. At shift change, the handover is correct in form and empty of any informal exchange between incoming and outgoing watch. Whether the garrison is under exceptional operational pressure or has had its internal bonds deliberately broken isn't readable from a single observation session.`;
+        addJournal('Military morale observed as lower than expected', 'evidence', `ithtananalor-morale-low-${G.dayCount}`);
+      } else {
+        G.lastResult = `The garrison shows the baseline signs of operational stress — short responses, fatigue visible at end of shift, officers working past standard hours. Whether the stress is proportionate to the actual operational load or has been engineered beyond it requires baseline data from prior periods or comparative garrison data that isn't available from this vantage point. The commons holds the smell of salt ration long after the meal boards clear; the stone walls absorb it and don't release it, the same way the soldiers in the room absorb pressure without giving any of it back.`;
+        addJournal('Military morale assessment inconclusive', 'evidence', `ithtananalor-morale-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 14. PERCEPTION TIER 2: COMMAND CONSPIRACY REVEALED
+  {
+    plot: 'main',
+    label: "Someone is directing the oath corruption from outside. The command chain terminates elsewhere.",
+    tags: ['Investigation', 'Perception', 'Conspiracy', 'Hierarchy', 'Meaningful'],
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The records corridor is occupied — a garrison archivist moving files between the open shelves and a cart, the systematic clearing that happens before a formal records audit. It isn't possible to cross-reference multiple command communication files in a room being actively reorganized; the archivist has a process, and the process doesn't include pausing for secondary access. The next administrative hour opens this corridor to general access again. The command communication logs that carry the external authentication marks are in the upper-tier filing cabinet on the east wall — visible, dated, waiting.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'uncovering command conspiracy');
+      G.stageProgress[1]++;
+
+      const result = rollD20('vigor', (G.skills.vigor || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `The command communication pattern tells the story. Darian receives written orders that don't originate from any Ithtananalor command office — the formatting and authentication marks are external. Oth receives directives about record modifications through a sealed courier pouch with no garrison return address. The shadow force deployment orders, when one surfaces through the supply trace, bear authentication from a source outside Ithtananalor's military structure entirely. The orders arriving at every corrupted node come from the same external direction. Someone outside this garrison has the authority to direct it — and the people inside are executing those directions as if they were their own.`;
+        G.stageProgress[1]++;
+        addJournal('Command conspiracy revealed external direction of internal sabotage', 'evidence', `ithtananalor-command-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The command communication mapping draws a response before it's finished. Three officers in unmarked dress appear in the records corridor — not garrison officers, shadow force. The one in front doesn't identify himself. "You're assembling a picture that doesn't belong to you." They don't touch you. They stand between you and the next set of records until you leave. The shadow command structure has read the shape of your inquiry and chosen a direct response. They now know how close the picture is to complete. The pressure this time is not institutional — it is from the structure being documented, which means you are now watched by the thing you are watching.`;
+        G.worldClocks.pressure += 2;
+        addJournal('Shadow command directly confronted you about hierarchy mapping', 'complication', `ithtananalor-command-caught-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `The command communication trail shows a consistent pattern: directives arriving at the garrison's senior nodes carry authentication marks from outside the standard Ithtananalor military hierarchy. The specific external authority isn't named in the documents that are accessible, but the routing is clear — commands are entering from somewhere that isn't the garrison's own chain. The seal marks on the outer pouches use a classification tier the garrison's own record system has no cross-reference category for; whoever formatted them knew exactly which gap to fit into.`;
+        addJournal('Command hierarchy shows external coordination patterns', 'evidence', `ithtananalor-command-external-${G.dayCount}`);
+      } else {
+        G.lastResult = `Orders flow down through the garrison's command structure in the standard pattern. At the top of the observable chain, the directives originate from senior garrison command. Whether those senior commanders are themselves receiving direction from an external source requires access to their incoming communication records — which sit above the access level this approach has produced. The records corridor holds a cold draft and the particular quiet of a room where communication passes through without staying; no conversation happens here, only delivery and retrieval.`;
+        addJournal('Command hierarchy mapping incomplete', 'evidence', `ithtananalor-command-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // ========== GOSSIP & TENSION LAYERS (4 CHOICES) ==========
+
+  // 15. STREET RUMOR: MILITARY ANXIETIES
+  {
+    plot: 'main',
+    label: "The garrison commons goes quiet when the wrong people walk through.",
+    tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
+    xpReward: 32,
+    stageProgress: 1,
+    failResult: {
+      text: "The garrison commons is empty — rotation over, the next meal block not yet begun, the long benches cleared and the serving counter shuttered. The smell of salt ration and boiled grain lingers in the low-ceilinged room but no one is in it. The timing missed the window. The evening meal rotation opens the commons again at the fourth bell; the end-of-rotation overlap is when the most informal exchanges happen, before the off-duty soldiers move back to the barracks corridor.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(32, 'parsing soldier anxiety narratives');
+      G.stageProgress[1]++;
+
+      const rumor = ['the oath formulas are different from what the old soldiers remember', 'soldiers are disappearing into a hidden unit that answers to someone outside the garrison', 'the commander is taking orders from someone we\'re not supposed to see', 'they\'re breaking people in training and calling it discipline', 'if you speak against the new orders, you\'re declared oath-breaker and exiled'];
+      const selected = rumor[Math.floor(Math.random() * rumor.length)];
+
+        G.lastResult = `In the garrison commons, over the sound of the evening meal: "${selected}." The same fragment passes through three separate conversations in different corners of the room, each speaker careful about who's within earshot. Soldiers at Ithtananalor carry pieces of the picture without a frame for it. The anxiety is specific — not the generalized unease of a garrison under pressure, but the particular tension of people who know something they've been told not to know.`;
+      addJournal(`Street rumor gathered: "${selected}"`, 'evidence', `ithtananalor-rumor-${G.dayCount}`);
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 16. INSTITUTIONAL CRACK: PROOF OF MILITARY OVERTHROW
+  {
+    plot: 'main',
+    label: "Every institution here bent the same direction in the same window. Someone built this.",
+    tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
+    xpReward: 40,
+    stageProgress: 1,
+    failResult: {
+      text: "The reading table in the civic records room is occupied — a garrison legal aide with a full case spread across the surface, the kind of formal review that doesn't yield table space until it's finished. No secondary surface is available for a multi-document comparison. The aide doesn't look up. The access window for the annex reading tables runs until the closing bell; returning after the table clears would allow the document assembly to proceed without interruption. The command records room holds directive pouches with external authentication marks — that is the connective thread.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(40, 'exposing military conspiracy');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `The documents assembled together: external-authenticated orders contradicting garrison command authority. Oath records modified to bind soldiers to command rather than principle. Oth's hidden roster. Casvel's weapon redistribution log. The shadow force deployment addresses. Each piece has an alternative explanation in isolation — administrative error, policy change, record-keeping variance. Together they don't. The pattern is coordinated, executed across multiple systems simultaneously, and structured to replace Ithtananalor's own military authority with an external command structure disguised as internal administration. This is not corruption from within. This is occupation from outside.`;
+        G.stageProgress[1]++;
+        addJournal('Military coup documentation compiled', 'evidence', `ithtananalor-proof-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The evidence assembly draws attention before it's complete. Three shadow force operatives appear at the records station — not to detain, to interrupt. The documents in hand are taken. Not all of them, only the ones that connect multiple systems together. The pieces that remain are individually dismissible. What's been removed was the connective tissue. The conspiracy has read the assembly in progress and made a surgical cut. The picture has gaps now that weren't there an hour ago, and the people who created those gaps know you were close. The pressure from this point is personal — you are now tracked by the thing you were documenting.`;
+        G.worldClocks.pressure += 2;
+        addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `ithtananalor-proof-caught-${G.dayCount}`);
+      } else if (result.total >= 14) {
+        G.lastResult = `The contradictions between external command authentication, oath record modifications, and shadow roster maintenance are significant enough in combination to move past "something is wrong" toward "the garrison command structure has been systematically replaced." Not all the links are fully documented, but the pattern is compelling. The pieces that remain missing are the specific external authority and the final deployment purpose.`;        addJournal('Compelling military conspiracy evidence found', 'evidence', `ithtananalor-proof-partial-${G.dayCount}`);
+      } else {
+        G.lastResult = `The fragments exist: modified oath records, supply movements, roster discrepancies, command communication anomalies. Each is documentable. What isn't documentable yet is the connection between them — the shared intent or authority that ties them into a single operation rather than a collection of administrative failures. The fragments need assembly and the assembly needs more access than today's sources have provided. The command records room holds directive pouches that carry external authentication marks. That's the connective tissue.`;
+        addJournal('Evidence fragments found but incomplete', 'evidence', `ithtananalor-proof-incomplete-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
+  {
+    plot: 'main',
+    label: "One of them is in this knowingly. The question is whether they can be turned.",
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
+    xpReward: 35,
+    stageProgress: 1,
+    effects: [
+      { type: 'heat', polity: 'roaz', amount: 1 },
+      { type: 'rival', amount: 1 }
+    ],
+    failResult: {
+      text: "The approach doesn't land. Whichever garrison figure is visible at this hour closes the distance between practiced neutrality and a clear end to the conversation in two sentences — not hostile, simply sealed. The garrison's internal culture has taught its participants how to terminate contact without incident. The structure protects itself through manners as much as through authority. Whoever it is will be in the commons at the next rotation end, away from their garrison post, in the informal overlap where the duty register stops applying.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(35, 'making moral commitment to resistance');
+      G.stageProgress[1]++;
+
+      const npcOptions = [
+        { name: 'Marshal Sera Ironveil', role: 'honor guard', fear: 'I swore an oath I didn\'t understand. Now I\'m bound to enforce corruption.' },
+        { name: 'Casvel', role: 'supply quartermaster', fear: 'I was threatened with reassignment. I moved the weapons. My family is still here.' },
+        { name: 'Oth', role: 'garrison clerk', fear: 'I maintain records they told me to keep secret. I don\'t know what I\'m helping do.' }
+      ];
+
+      const npc = npcOptions[Math.floor(Math.random() * npcOptions.length)];
+
+        G.lastResult = `${npc.name} doesn't try to deny it when pushed. The answer comes out in pieces, not a confession: "${npc.fear}" They're not asking for forgiveness. They're telling you what trap they're in. The decision now is yours: expose them and use the pressure to force the garrison's hand, or protect them and keep a source inside the system. One path creates a public crisis. The other maintains a quiet thread. Both have costs that won't be visible until after the choice is made.`;
+
+      if (!G.flags) G.flags = {};
+      G.flags.stage1_evidence_decision = 'pending';
+      G.flags.stage1_moral_npc = npc.name;
+
+      addJournal(`Confronted ${npc.name} (${npc.role}) about complicity in military conspiracy`, 'complication', `ithtananalor-moral-${G.dayCount}`);
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
+  {
+    plot: 'main',
+    questId: 'q_s1_close',
+    label: "A document names who is directing this from outside. The records point there.",
+    tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
+    xpReward: 40,
+    stageProgress: 1,
+    failResult: {
+      text: "The command records room is locked — a heavy iron bracket across the door, the kind fitted at the end of formal business hours rather than improvised. The duty guard at the far end of the corridor doesn't engage with questions about the room's schedule. Command records access runs through a formal authorization request submitted to the garrison secretariat, with a minimum two-day processing window. The intermediary designation that routes through Shelkopolis financial channels has surfaced in the Iron Ledger Ward — that thread is still accessible.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(40, 'discovering origin source of military conspiracy');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `A sealed courier pouch in the command records room — not in the filing system, kept flat under the directory ledger. Inside: four directives, each signed with insignia that doesn't belong to any Ithtananalor command office. The authentication marks are Shelkopolis. Orders directing the oath record modifications, the shadow force deployment, the garrison disarmament — all of it traced back to a single external authority operating out of Shelkopolis. Not destroying the garrison. Absorbing it. The garrison's identity stays intact as a shell. The command inside it has been replaced. And the consolidation is still in progress.`;
+        G.stageProgress[1]++;
+        addJournal('Origin source of Ithtananalor military conspiracy identified as external Shelkopolis coordination', 'discovery', `ithtananalor-origin-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The command records room has a guard that wasn't present yesterday. He doesn't let you reach the directory ledger. Two more appear before the question is asked. The sealed pouch — wherever it is — stays sealed. You're walked out of the command block without a formal charge and without a formal record. The origin source hasn't been reached. But the shadow command knows you came looking for it, and they've closed the room. The pressure of this closure is a signal: whoever controls the origin point is watching closely enough to post a guard before you arrived.`;
+        G.worldClocks.pressure += 2;
+        addJournal('Inquiry interrupted by conspiracy operators', 'complication', `ithtananalor-origin-caught-${G.dayCount}`);
+      } else if (result.total >= 14) {
+        G.lastResult = `Three directives from the partial access carry authentication marks from outside Ithtananalor's command hierarchy. The external authority isn't named in what's accessible — the signatures use a classification code rather than a named office. But the routing is unmistakable: orders for the garrison's internal restructuring are originating from somewhere that isn't the garrison. Ithtananalor isn't being corrupted from within. It's being directed from outside.`;
+        addJournal('External coordination of Ithtananalor military conspiracy confirmed', 'discovery', `ithtananalor-origin-external-${G.dayCount}`);
+      } else {
+        G.lastResult = `The authentication marks on the directives point outside Ithtananalor's command structure, but the external source stays one layer further back than the available documents reach. The routing passes through an intermediary designation that doesn't resolve to a named office or registered authority. Whoever is directing this has structured the paper trail to confirm external coordination while keeping their identity inside a sealed correspondence tier. The hand is visible. The name attached to it is not. The intermediary designation appears on correspondence routed through Shelkopolis financial channels — the Iron Ledger Ward has seen that designation before.`;
+        addJournal('External coordination suspected but source not yet identified', 'evidence', `ithtananalor-origin-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
+  {
+    plot: 'main',
+    label: "Oath corruption, missing soldiers, rewritten rituals, weakened fortifications — all pointing the same direction.",
+    tags: ['Investigation', 'Pattern', 'Analysis', 'Command', 'Meaningful'],
+    xpReward: 37,
+    stageProgress: 1,
+    failResult: {
+      text: "The civic records room closes before the pattern analysis is complete — a clerk announces the access window end and begins returning files to the locked cabinet systematically, without reference to what any visitor is doing at the reading table. Documents in hand are still in hand; documents still on the shelf are no longer accessible today. The window reopens at the morning access bell. The pieces that are in hand are documentable individually. The connective thread between the authorization sources requires the next access window and a clearer strategy for the filing cabinet on the east wall.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(37, 'recognizing systematic military capture pattern');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `The pattern becomes undeniable. Oaths are being corrupted to bind soldiers to external authority. The military hierarchy is being restructured to replace legitimate command. A shadow force is being built outside accountability. These aren't separate military failures — they're coordinated occupation tactics. When combined, they create total compromise: soldiers are oath-bound to obey external authority, the legitimate command structure is replaced, and a shadow force enforces occupation while claiming to be garrison. It's a military takeover disguised as internal restructuring. Someone has engineered Ithtananalor's complete military capture.`;
+        G.stageProgress[1]++;
+        addJournal('Military systems analysis revealed coordinated occupation engineering', 'evidence', `ithtananalor-pattern-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The documents spread across the reading table make the pattern visible to anyone who enters the room. A garrison intelligence officer appears at the door before the analysis is complete — not hostile, but specific about why he's here. The combination of materials pulled together has drawn a notice from military oversight. Your purposes are requested in writing. The documents are noted. The pattern you've assembled is now on someone else's desk before it finished forming on yours. The watchful response to document combination means the system anticipated this particular inquiry path.`;
+        G.worldClocks.watchfulness++;
+        addJournal('Your military pattern analysis drew intelligence scrutiny', 'complication', `ithtananalor-pattern-alert-${G.dayCount}`);
+      } else if (result.total >= 13) {
+        G.lastResult = `The threads connect across the table: oath corruption that binds soldiers to command over principle, command restructuring that removes accountability, a shadow force being built outside garrison oversight. None of these reads as independent failure. The shared timing, the consistent direction of each change, the way each one supports what the others require — they appear designed together to achieve total command control. The coordination is visible in the pattern. The coordinating hand is still one step further back.`;
+        addJournal('Military failure connections mapped', 'evidence', `ithtananalor-pattern-connected-${G.dayCount}`);
+      } else {
+        G.lastResult = `The military compromises sit separately in the documentation: oath record modifications, command authentication anomalies, roster gaps, supply diversions. Each is documentable on its own terms, each with its own possible explanation. Whether they connect — whether a single purpose runs underneath them — requires more access and a clearer line between their authorization sources than today's evidence provides. The shape of something larger is implied. Its outline isn't yet clear enough to name.`;
+        addJournal('Military system pattern analysis inconclusive', 'evidence', `ithtananalor-pattern-unclear-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
+  {
+    plot: 'main',
+    label: "Conquest announces itself. Whatever is happening here is designed to be invisible until it's done.",
+    tags: ['Investigation', 'Synthesis', 'Understanding', 'Occupation', 'Meaningful'],
+    xpReward: 40,
+    stageProgress: 1,
+    failResult: {
+      text: "The final thread doesn't resolve. The how is documented well enough across the gathered materials; the why requires the one document that hasn't surfaced — something that names the purpose the converted garrison is being positioned to serve. Every access route that reaches far enough into the command structure has a protocol in front of it. The administrative annex reading room opens at the morning bell. The same authentication marks appearing in Ithtananalor's directives have surfaced in at least two other garrison jurisdictions — that thread leads outward, not deeper into this one.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(40, 'achieving military occupation understanding');
+      G.stageProgress[1]++;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+
+      if (result.isCrit) {
+        G.lastResult = `Everything connects. Oaths are being corrupted deliberately. The command hierarchy is being replaced deliberately. A shadow military force is being built deliberately. The traditional garrison is being made complicit through oath-binding. Someone is not just attacking Ithtananalor's military — they're absorbing it. The soldiers are being systematically transformed from defenders of Ithtananalor into tools of an external force. The military isn't being conquered; it's being converted. And this same process is likely being replicated in other garrisons. Ithtananalor isn't a victory; it's a proof of concept for systematic military occupation. The real expansion is just beginning.`;
+        G.stageProgress[1]++;
+        addJournal('Ithtananalor military understood as proof of concept for systematic military conversion', 'discovery', `ithtananalor-understanding-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Three shadow force operatives appear at the entrance to the reading room as the final thread connects. They don't draw weapons. The one in front speaks flatly: this line of work stops here. No explanation given for why or by whose authority. They're not wearing garrison marks. The synthesis is in your head, complete enough to matter, and they're here because something in the inquiry's path told them it was almost finished. Whatever was being assembled has been interrupted at the last step. The pressure is now explicit: you are being tracked at the level where knowledge itself becomes the threat.`;
+        G.worldClocks.pressure += 2;
+        addJournal('Final understanding synthesis blocked by shadow force threat', 'complication', `ithtananalor-understanding-stopped-${G.dayCount}`);
+      } else if (result.total >= 14) {
+        G.lastResult = `The evidence points toward Ithtananalor as an experimental model rather than a final target. The methods applied here — oath redirection, shadow force construction, command structure replacement — are too systematically developed to have been purpose-built for a single garrison. They read as a methodology being tested before wider application. The certainty isn't complete: a single clear link to a broader operational plan hasn't surfaced. But the pattern points past this garrison's walls toward something still in motion.`;
+        addJournal('Ithtananalor as experimental military occupation model suspected', 'discovery', `ithtananalor-understanding-experimental-${G.dayCount}`);
+      } else {
+        G.lastResult = `The evidence in hand accounts for the mechanism but not the purpose. Oath redirection, command replacement, shadow force construction — the how is documented well enough. Why Ithtananalor specifically, what the occupied garrison is being positioned to do, what comes next once the conversion is complete: those answers aren't in the documents gathered so far. The full picture has a center that hasn't been reached. The outer structure is visible. The purpose it serves is still one step further in. The same authentication marks appearing in Ithtananalor's directives have surfaced in at least two other garrison jurisdictions. This methodology isn't being tested here. It's being repeated.`;
+        addJournal('Occupation purpose not yet fully revealed', 'evidence', `ithtananalor-understanding-incomplete-${G.dayCount}`);
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // ========== EXPANSION CHOICES ==========
+
+  // 21. CLUE: IRON LEDGER ANOMALY
+  {
+    label: "Six months of summaries at the Iron Ledger Ward. Something moves on a schedule.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 37,
+    failResult: {
+      text: "The public records terminal is occupied — a queue of three, each working through the standard access protocol with the clerk at the window. The terminal rotates on a fifteen-minute session limit per party; the current session hasn't expired. The ledger ward's public summary is also available in printed form at the administrative annex notice board, updated at the end of each working week. That copy won't carry individual transaction detail, but it will confirm which account categories show volume anomalies. Mira Steelmarch handles disputed account resolution; flagged transaction histories are her jurisdiction.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(37, 'scanning Iron Ledger anomalies');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      const result = rollD20('wits', (G.skills.wits || 0));
+      if (result.total >= 13) {
+        G.lastResult = `Three accounts appear in transaction summaries under non-standard registration codes — the ledger system accepts them, but the codes don't correspond to any registered entity in the public directory. These accounts are moving significant sums. They're not hidden: they're in plain sight, formatted to look like administrative clearing accounts. Whoever created them knows the ledger's formatting conventions well enough to make invisible money look like overhead.`;
+        if (!G.flags) G.flags = {};
+        G.flags.found_ledger_ghost_accounts = true;
+        addJournal('Iron Ledger: three ghost accounts using valid formatting codes without registered entities', 'evidence', `ithtananalor-ledger-${G.dayCount}`);
+      } else {
+        G.lastResult = `The terminal returns summary data cleanly enough — column totals, category breakdowns, date ranges. The anomalous accounts surface in the list but carry a restricted flag on their transaction histories. Totals are visible; the individual entries behind them require elevated access credentials. The amounts are significant. Where the money moved, in what increments, and when requires a different authorization level than the public audit pass provides. The accounts are confirmed. Their activity stays behind the flag. Mira Steelmarch handles disputed account resolution. Flagged transaction histories are her jurisdiction.`;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 22. CLUE: DEBT LEVERAGE TRAIL
+  {
+    label: "Three garrison officers displaced in the same month. Someone holds their outstanding obligations.",
+    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    xpReward: 36,
+    failResult: {
+      text: "The debt registry office is processing a formal arbitration — a clerk visible through the window glass managing a thick correspondence folder, the outer door locked during active proceedings per standard protocol. The registry's public summary of recent obligation transfers is posted at the ledger ward notice board without requiring office access; that summary won't name the acquiring party but will confirm the transfer dates. A confirmed simultaneous transfer window would be enough to bring directly to Mira Steelmarch, whose jurisdiction covers disputed account resolution and external acquisition patterns.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(36, 'mapping debt leverage trail');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      G.investigationProgress++;
+      if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+
+      G.lastResult = `All three displaced officers' outstanding debts were purchased from their original creditors within the same two-week window — four months ago. The purchaser is listed as a "consolidated obligations arbitrage firm" registered in a northern market jurisdiction. Their debts are now held by a single entity that has the legal authority to call them without notice. Three officers with leverage held over them simultaneously. This isn't coincidence — it's a coordinated acquisition of control instruments.`;
+      if (!G.flags) G.flags = {};
+      G.flags.found_debt_leverage_trail = true;
+      addJournal('Debt leverage: three officers\' obligations purchased simultaneously by single external entity', 'evidence', `ithtananalor-debt-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 23. ARCHETYPE-GATED: READING THE GARRISON
+  {
+    label: "The watch change is when the command structure shows its seams.",
+    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    xpReward: 35,
+    failResult: {
+      text: "The watch change happens late — the incoming rotation delayed by something happening in the command block, the outgoing soldiers standing at their posts past the scheduled handover, no explanation given. Without the transition overlap, the behavioral data the watch change produces isn't there to read. The next scheduled change is posted on the garrison duty board in the outer plaza. Returning at the posted time, from the plaza observation point rather than the inner corridor, would give a wider view of the full transition pattern without requiring garrison access.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'reading garrison command structure');
+      const arch = G.archetype && G.archetype.group;
+
+      if (arch === 'combat') {
+        G.lastResult = `The watch change procedure is technically correct but the acknowledgment is off. Outgoing soldiers look at the incoming commander, then look away — not deference, avoidance. The incoming officers have authority but not legitimacy. The garrison is complying with its occupiers through learned silence. These soldiers haven't been converted. They're waiting. The cold draft from the northern gate moves through the handover position every change without exception — the outgoing watch knows it, leans into it, and the incoming watch learns it without being told.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `There's a structural residue in how orders are phrased here. The new command cadre uses slightly different idiom than garrison standard — subtle, but consistent. The phrasing was borrowed from a different military tradition. These officers were trained elsewhere. They're using Ithtananalor's forms but their foundations are foreign. The watch change carries a particular tell: a half-beat pause before the incoming officer responds to the handover count — correct in sequence, wrong in cadence, the rhythm of someone reciting from memory rather than muscle.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `At the watch change, a single courier passes a folded slip to the incoming officer — not a formal message, an informal note. The officer reads it, folds it back, pockets it. This happens at every watch change. There's a parallel reporting structure running below the ORE's sanctioned chain of command. Someone outside the garrison is reading every watch. The courier carries no garrison mark and no ledger seal — just a plain folded slip, the kind that looks like a personal errand if no one is counting how many times it arrives.`;
+      } else {
+        G.lastResult = `A junior soldier breaks formation briefly to speak to a departing officer. The senior officer on duty doesn't reprimand the break — pretends not to see it. The garrison's formal discipline has been selectively suspended. The new command structure has created informal permission zones. They're managing compliance through inconsistent enforcement. Selective forgiveness is a lever: soldiers who have been allowed one unpunished breach owe something they can't name, and the debt gets called in through loyalty rather than through procedure.`;
+      }
+      addJournal('Garrison: occupying officers foreign-trained, parallel reporting structure, selective discipline enforcement', 'evidence', `ithtananalor-garrison-read-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 24. FACTION SEED: ROAZ INQUISITOR AT THE IRON LEDGER WARD
+  {
+    label: "The Roaz Inquisitor reads the Iron Ledger Ward for crown irregularities. The ghost accounts qualify.",
+    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 35,
+    failResult: {
+      text: "Inquisitor Vaud Serrik's office is sealed — a Roaz crown stamp on the bracket, the kind posted during active review when external contact isn't permitted. No schedule posted, no deputy clerk at the outer desk. The Iron Accord's public contact protocol for non-urgent matters is a written inquiry submitted through the ledger ward administrative window, standard two-day response window. Mira Steelmarch and Serrik share institutional territory on disputed account matters; an approach through her that includes a named question about external obligation acquisitions would reach him without going through the sealed-case protocol.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(35, 'making crown inquiry contact');
+      if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
+
+      const result = rollD20('charm', (G.skills.charm || 0));
+      if (result.total >= 12) {
+        G.lastResult = `Inquisitor Vaud Serrik is measuring you carefully. He's aware of the ghost accounts and declines to confirm what he knows about them. "The crown's interest in Ithtananalor's financial architecture is ongoing and scoped to the Iron Accord's standing remit." He offers a reference number for a formal inquiry channel. The offer reads as a test of whether you'll come in through the sanctioned door or keep working the edges. Lord Aric Roaz wants to know which you are.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_roaz_inquisitor_ithtananalor = true;
+        G.factionHostility.warden_order += 1;
+        addJournal('Inquisitor Vaud Serrik: confirmed crown awareness of financial anomalies, gauging your alignment', 'intelligence', `ithtananalor-inquisitor-${G.dayCount}`);
+      } else {
+        G.lastResult = `The Inquisitor is busy and procedural, his desk covered with ledger extracts and a sealed crown correspondence bundle still uncut. Formal appointment required — submitted through the standard administrative channel, two working days for confirmation. The crown's financial presence here is real but guarded in the way a Roaz seat guards itself when standing inside the Iron Accord's books. Access requires proper introduction and a stated purpose that will withstand crown scrutiny. Today's approach produced neither. A named introduction through Mira Steelmarch would clear the introduction requirement.`;
+        if (!G.flags) G.flags = {};
+        G.flags.located_roaz_inquisitor_ithtananalor = true;
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // 25. ATMOSPHERE: THE IRON LEDGER WARD AT NIGHT
+  {
+    label: "The ward doesn't stop when the market closes. The unposted accounts move after dark.",
+    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    xpReward: 26,
+    failResult: function() {
+      addNarration('', 'Garrison stone holds the chill of the corridor against your back. The duty clerk turns a page without looking up. Whatever opening might have existed is sealed by the registration of an unanswered question. You retreat into the inspection line.', (G && G.lastResultType) || 'failure');
+      loadStageChoices(G.location);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(26, 'observing ward after hours');
+
+      G.lastResult = `After dark the ward doesn't empty. Clerks move between buildings carrying sealed cases. Lights burn in third-floor windows of the registration offices. A courier arrives at the rear entrance of the main ledger building and leaves without the package they arrived with. Ithtananalor's financial machinery doesn't stop when the market closes — it just stops being visible. The city's real economic activity runs at night.`;
+      addJournal('Iron Ledger Ward: night financial operations ongoing — real transactions happen after the public counter closes', 'discovery', `ithtananalor-night-${G.dayCount}`);
+      G.recentOutcomeType = 'explore'; maybeStageAdvance();
+    }
+  },
+
+  // 26. PERSONAL ARC: MIRA STEELMARCH INTRODUCTION
+  {
+    label: "Mira Steelmarch specializes in disputed account resolution. Three displaced garrison officers have disputed accounts.",
+    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 34,
+    failResult: function() {
+      addNarration('', 'Garrison stone holds the chill of the corridor against your back. The duty clerk turns a page without looking up. Whatever opening might have existed is sealed by the registration of an unanswered question. You retreat into the inspection line.', (G && G.lastResultType) || 'failure');
+      loadStageChoices(G.location);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(34, 'meeting Mira Steelmarch');
+      if (!G.flags) G.flags = {};
+
+      const result = rollD20('charm', (G.skills.charm || 0));
+      if (result.total >= 11) {
+        G.lastResult = `Mira Steelmarch is precise and unhurried. She's been handling disputed accounts for seven years. You don't mention the ghost accounts directly — you ask a technical question about formatting codes in the public registry. She answers without hesitation, then pauses. "That's an interesting question to come in with." She's smart enough to know you're not here about a formatting question. She gives you her direct schedule and says the door is open for follow-up.`;
+        G.flags.met_mira_steelmarch = true;
+        addJournal('Mira Steelmarch introduced: Iron Ledger specialist, aware you have a real purpose, door open for return', 'contact_made', `ithtananalor-mira-${G.dayCount}`);
+      } else {
+        G.lastResult = `Mira Steelmarch is professional and busy — two open case files on the desk, a stack of ledger extracts flagged with paper markers, the scratch of her pen continuing while she listens. She answers the initial question correctly and moves on without lingering. Not unfriendly: she operates on appointment time, and an unscheduled visitor with a general question doesn't clear that threshold. A return visit with something specific and a clearer purpose would land differently than this one did. The ghost accounts flagged in the public terminal are something specific. She'd have a reason to keep the door open.`;
+        G.flags.located_mira_steelmarch = true;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 27. SOCIAL: THE DISPLACED GARRISON OFFICER
+  {
+    label: "One of the displaced officers is still here. She hasn't been told to leave.",
+    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    xpReward: 36,
+    failResult: {
+      text: "The room above the chandler's shop is locked, the shutters pulled. A neighbor on the landing says she left before midday — no indication of when she'd return. Captain Lysel keeps irregular hours since her retirement; there's no schedule to work against. The debt registry's public summary would confirm whether her outstanding obligation is still held by the external acquisition entity. That record is accessible at the ledger ward notice board without an appointment, and it would give the conversation a concrete anchor for the next attempt.",
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(36, 'interviewing displaced officer');
+
+      const result = rollD20('charm', (G.skills.charm || 0));
+      if (result.total >= 12) {
+        G.lastResult = `Captain Lysel retired "voluntarily" four months ago. She won't say what was used against her. But she will say this: "The debt wasn't even current. I'd been managing it. Then a letter arrived saying it had been called in — full amount, thirty days. I couldn't produce that in thirty days. Nobody could." She took the retirement offer instead. "I don't know who holds it now. I was told it would be canceled if I left quietly." She sounds like she believes it won't be.`;
+        if (!G.flags) G.flags = {};
+        G.flags.met_lysel_displaced_officer = true;
+        addJournal('Displaced Captain Lysel: debt called suddenly then offered retirement — leverage still potentially active', 'contact_made', `ithtananalor-lysel-${G.dayCount}`);
+      } else {
+        G.lastResult = `The officer is living quietly in a rented room outside the garrison quarter, away from the streets she used to walk in uniform. The door opens a hand's width before closing again. She doesn't want contact with anyone connected to military or financial proceedings — the distinction between the two has stopped mattering to her. Part of the agreement that ended her service may have included silence as a condition. The door stays closed. Whatever she knows, it's not coming through today's approach. The debt that ended her career is still held by the same external entity. Whoever holds it can call it again at any time. She knows that. The door stays closed for a reason.`;
+      }
+      G.recentOutcomeType = 'social'; maybeStageAdvance();
+    }
+  },
+
+  // 28. SHADOW RIVAL INTRO
+  {
+    label: "Someone was here yesterday asking about the same codes. Mira remembers faces.",
+    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    xpReward: 29,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(29, 'receiving rival warning');
+      if (!G.flags) G.flags = {};
+
+      const arch = G.archetype && G.archetype.group;
+      if (arch === 'combat') {
+        G.lastResult = `"Military posture," Mira says. "Sat like someone who'd spent time in formal dress uniform. Asked about the accounts, then asked if any garrison officers had accessed the ledger recently. Not financial questions — threat-mapping questions. They were cross-referencing financial anomalies with military access patterns." She straightens the ledger extract at the edge of her desk with two fingers — an automatic correction, the habit of someone who keeps things precisely where they left them.`;
+      } else if (arch === 'magic') {
+        G.lastResult = `"The credentials were from the Northern Archive Research Consortium," Mira says. "Real institution, real format. But the questions weren't archival — they were audit-level. Whoever sent them knows the difference between research and audition and deliberately used research as cover." Professional institutional camouflage. She sets her pen down across the open case file — not closing it, but marking a pause. The Iron Ledger Ward processes these distinctions every day. She caught it immediately.`;
+      } else if (arch === 'stealth') {
+        G.lastResult = `"They never asked about the ghost accounts directly," Mira says. "They asked whether anyone else had asked about them. Specifically, whether any inquiry had been logged. They were checking if there was a paper trail of other investigators before proceeding." A counter-surveillance check. They're clean of records and they want to stay that way. The ward clerks here communicate in short, precise sentences — Mira more than most. She's given you this much because she decided it was worth giving, not because the question opened it.`;
+      } else {
+        G.lastResult = `"Charming," Mira says, with a slight tone. "Brought a gift — a small reference book, completely appropriate, completely unnecessary. Asked about any parties who'd recently inquired about account resolution processes." Social mapping with gifts as social lubricant. This person builds rapport as an operational tool. Mira picked up on it and answered the question about process without answering the question about parties — precise enough to seem cooperative, narrow enough to give nothing away.`;
+      }
+
+      G.lastResult += ` They were here yesterday. They knew the same thread you're pulling.`;
+      if (!G.rivalId) {
+        if (arch === 'combat') G.rivalId = 'warden_captain';
+        else if (arch === 'magic') G.rivalId = 'archivist_veld';
+        else if (arch === 'stealth') G.rivalId = 'shadow_broker';
+        else G.rivalId = 'provost_lenn';
+      }
+      G.flags.stage1_rival_seeded = true;
+      addJournal('Rival-adjacent operative visited Mira Steelmarch one day before you — working the same financial anomalies', 'complication', `ithtananalor-rival-${G.dayCount}`);
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+{
+  label: 'The notice board has recent postings.',
+  tags: ['social'],
+  xpReward: 2,
+  failResult: {
+    text: "The notice board's frame is empty — the day's postings have been taken down and the replacement batch hasn't gone up yet. The gap between cycles runs an hour or two at most. The board sits at the main garrison court entrance, visible from the outer plaza; it will have new postings by the next bell. The garrison duty schedule and public administrative notices are also available through the annex window during standard access hours.",
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+  },
+  fn: function() {
+    var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
+    if (G.flags[key]) {
+      G.lastResult = 'The board has nothing new since this morning. The garrison duty rotation for the afternoon watch is posted, and a note about the administrative annex access window sits beside it — routine notices, nothing that changed since first assembly. The board frame is iron-banded and recessed into the stone, the same construction as the garrison gate brackets; in Ithtananalor, the notice board is built to last the same way the walls are.';
+      return;
+    }
+    G.flags[key] = true;
+    drawLocalityRumor(G.location);
+  }
+}
+,
+
+  // ========== UNGATED ARRIVAL CHOICES (sp1=0 safe) ==========
+
+  {
+    id: 'ith_observe_canal',
+    label: "The aqueduct spans are older than the garrison walls beneath them.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    fn: function() {
+      G.lastResult = 'Water runs along the elevated channel in a steady, soundless pull, the stone so worn smooth at the joints that the seams are almost invisible. Below the main span, market stalls cluster under the shade — spice racks, bolt cloth, stacked rope coils, all oriented toward the foot traffic that flows with the canal above rather than across it. A lock gate at the far end releases pressure in a measured beat, and the sound carries down the lane like a slow pulse. Ithtananalor was built around this channel before anything else was placed.';
+      gainXp(5, 'canal observation');
+      G.recentOutcomeType = 'observe';
+    },
+    failResult: 'The canal walk is too crowded to read clearly right now — carters pushing barrows against foot traffic block the main span view. The side lane below the lock gate is quieter and opens onto the same waterway from a better angle.'
+  },
+
+  {
+    id: 'ith_observe_water_traffic',
+    label: "Three flat-bottomed boats waiting at the lower lock. Nothing moving.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    fn: function() {
+      G.lastResult = 'The boats are loaded — crates stacked to the rail line, covered in oilcloth and rope-tied. The boatmen sit at the bow ends without speaking to each other, the particular stillness of people who have been waiting long enough to stop expecting the wait to end. The lock mechanism above the gate is in its closed position, and no lock-tender is visible at the control post. The cargo is legitimate by its markings: supply tonnage for distribution inside the garrison perimeter. It has been sitting here since before dawn.';
+      gainXp(5, 'water traffic observation');
+      G.recentOutcomeType = 'observe';
+    },
+    failResult: 'The lock tender posts are occupied now and the boats are beginning to move through — the window for a closer read of the cargo has closed. The distribution depot at the garrison perimeter gate receives the same cargo manifests the lock records carry.'
+  },
+
+  {
+    id: 'ith_observe_market_stalls',
+    label: "The stall-holders under the aqueduct spans know when the garrison shifts change.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    fn: function() {
+      G.lastResult = 'A cord-seller repositions his rack without prompting when a group of off-duty soldiers rounds the far corner — not hiding, just angling to face them. The timing is practiced. Three stall-holders within arm\'s reach of each other track the same group and none of them acknowledge doing it. The market beneath the aqueduct runs on garrison rhythm as much as trade rhythm: prices adjust at shift-change, popular items move forward on the table, the quieter goods slide back. The stalls are reading the garrison the way weather-readers read cloud cover.';
+      gainXp(5, 'market stall observation');
+      G.recentOutcomeType = 'observe';
+    },
+    failResult: 'The mid-span stalls are packing down early — a supply cart needs the lane and the holders are clearing space. The lower market near the lock gate stays open longer and runs the same goods.'
+  }
+];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+ITHTANANALOR_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — physical enforcement patterns
+  {
+    id: 'ithtan_arch_combat_1',
+    label: 'The formation spacing at the gate changed. Guards watch inward now, not outward.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Military', 'Observation', 'Tactics'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The garrison gate rotation has inverted — the watch posture faces the interior corridor, not the border road. A combat-trained eye reads it immediately: this formation is not about external threat. It is about controlling what moves in and out of the garrison itself. Someone changed the standing orders, and the soldiers are following them without asking why.');
+      addJournal('Garrison watch posture inverted — guards face inward, suggesting internal control directive.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The gate captain waves you back from the formation inspection line — no civilian access to the duty rotation. The supply manifest board outside the east commissary lists the same garrison\'s requisition patterns over the past six weeks. That board is open.' }
+  },
+
+  {
+    id: 'ithtan_arch_combat_2',
+    label: 'The off-duty soldiers are not where off-duty soldiers go. They are stationed.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Military', 'Pattern', 'Observation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Three soldiers in undress uniform positioned at the market crossing, two more near the lock gate. Off-duty behavior has a posture — it slouches, clusters, moves. These men are still. The staging is tactical, not casual. Someone is using off-duty soldiers for surveillance deployment without formal posting, which means there is no record of the order.');
+      addJournal('Off-duty soldiers deployed in surveillance formation — no formal posting record, likely informal command.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The soldiers clock your attention and shift position smoothly — not hostile, just practiced. They have done this before and know how to make the formation disappear. The commissary adjutant across the lane has been watching the same crossing for two days and has opinions.' }
+  },
+
+  // MAGIC ×2 — transit ward patterns
+  {
+    id: 'ithtan_arch_magic_1',
+    label: 'The oath-binding wards at the garrison post were rewritten in the last month.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Wards', 'Evidence'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The binding sigils at the main garrison post carry a recent rewrite over older layering — the original ward inscription remains partially visible beneath the new work, like text written over text. The new version removes the mutual-obligation clause. The ward used to bind both parties. Now it binds only the soldier. Someone with ward authority rewrote a loyalty structure, and the soldiers who took the oath do not know what they bound themselves to.');
+      addJournal('Garrison oath wards rewritten — mutual-obligation clause removed, one-directional binding now in place.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward inscription is partially obscured by a banner hung over it — a seasonal marker, nothing sinister, but it blocks the key sigil section. The outer courtyard inscription is fully visible and shows the same rewrite pattern without obstruction.' }
+  },
+
+  {
+    id: 'ithtan_arch_magic_2',
+    label: 'The transit ward at the checkpoint was not authorized by the garrison commander.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Authorization', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The transit inspection ward at the northern checkpoint carries a different arcane signature from the garrison wards. The garrison uses a registered House Roaz pattern. This ward uses a secondary pattern — not unregistered, but assigned to a different institutional authority. Someone outside the garrison chain installed a transit inspection ward at a garrison checkpoint. The permit routing is being filtered through an external arcane authority.');
+      addJournal('Checkpoint transit ward: external arcane authority signature, not garrison chain. Permit routing filtered externally.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The checkpoint officer steps in front of the ward inscription when he notices your attention. He is polite but firm — the ward architecture is internal garrison business. The inscription on the supply depot gate to the south carries the same secondary pattern and is not currently supervised.' }
+  },
+
+  // STEALTH ×2 — courier dead-drop routes
+  {
+    id: 'ithtan_arch_stealth_1',
+    label: 'The courier makes a stop that is not on the posted route. A window, briefly.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Surveillance', 'Courier', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The garrison courier deviates seven steps off the posted route at the third lamp post — a window ledge at the rear of the commissary building, one hand motion, then back to route. The stop takes less than four seconds and is invisible to anyone not tracking the route. A dead drop, running on schedule. The window ledge has been in use long enough that the stone beneath it shows a wear pattern from repeated hand contact.');
+      addJournal('Garrison courier dead drop identified at commissary rear window — scheduled, long-running, off-route.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The courier route changes today — the morning shift adjusts it by a full block, cutting the dead drop out of the path entirely. Someone flagged the route for review. The commissary rear window is still visible from the lane; the wear pattern on the stone will still be there tomorrow.' }
+  },
+
+  {
+    id: 'ithtan_arch_stealth_2',
+    label: 'The patrol timing has a gap. Exactly two minutes, exactly at midnight.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Patrol', 'Gap', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The northern perimeter patrol has a two-minute gap at the midnight changeover — both patrol legs arrive late at the same corner by the same interval, every night for at least a week. Two minutes is too precise to be accident and too consistent to be laziness. It is a scheduled window, deliberately cut into the patrol pattern. Something or someone moves through that gap, and the schedule was adjusted to let it.');
+      addJournal('Northern perimeter: two-minute patrol gap at midnight changeover, consistent, deliberately scheduled.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Tonight the patrol adjusts — an extra post at the corner closes the gap. Someone changed the schedule after the last inspection, which means the schedule is being monitored. The duty posting board in the main hall shows the last three weeks of assignments; the adjustment date will be visible there.' }
+  },
+
+  // SUPPORT ×2 — Roaz merchant network strain
+  {
+    id: 'ithtan_arch_support_1',
+    label: 'The Roaz merchants are not talking to each other the way they used to.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Network', 'Pressure'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The Roaz merchant cluster at the crossing usually works as a network — shared information, mutual pricing, coordinated supply timing. Now they arrive separately, keep separate ledgers visible, and avoid the corner table they always shared. The fragmentation is deliberate and visible to anyone who has watched them before. Something applied pressure to the network and the merchants are performing independence they do not feel.');
+      addJournal('Roaz merchant network fractured — deliberate performance of independence under observed pressure.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The merchants clock your approach and shift into practiced public behavior — formal, pleasant, reveals nothing. The network performs well under observation. The wayfarer hostel across the crossing is where the merchants stay; the evening common room is less formal.' }
+  },
+
+  {
+    id: 'ithtan_arch_support_2',
+    label: 'A factor who used to smooth disputes now refuses to take sides. That is new.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Pressure', 'Change'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The transit factor who handled merchant-garrison disputes for three years has stepped back from all active cases. He is still present, still visible at his usual table, but he declines every request for arbitration with the same phrase: "That is not mine to manage now." The phrase is rehearsed. Someone told him to step back, and he complied. The void his withdrawal created is not filled — disputes sit unresolved and the merchants absorb the cost.');
+      addJournal('Transit factor withdrew from arbitration — rehearsed refusal, deliberate withdrawal under instruction.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The factor sees you coming and pre-empts with a polite but definitive deflection — "not mine to manage now" — before you finish the question. He has given this answer enough times that it costs him nothing. The merchant association secretary handles formal dispute records and may have logged the pattern.' }
+  }
+
+);
+
+window.ITHTANANALOR_STAGE1_ENRICHED_CHOICES = ITHTANANALOR_STAGE1_ENRICHED_CHOICES;

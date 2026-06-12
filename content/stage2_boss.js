@@ -1,0 +1,277 @@
+// Stage II Mini-Boss Encounter
+// Customs Senior Auditor Dravn Pell — triggers at stageProgress[2] >= 8
+// Institutional confrontation: no combat, DC 14 skill checks
+
+var DC_PELL_EXPOSE = 14;
+var DC_PELL_NEGOTIATE = 14;
+var DC_PELL_DISAPPEAR = 13;
+var DC_PELL_EXPOSE_BOLD = 15;
+
+var STAGE2_BOSS_NPC_MINIBOSS = 'customs_senior_auditor_dravn_pell';
+
+// Seed choices — inject into enriched choice pool during Stage II play
+var STAGE2_MINIBOSS_SEED_CHOICES = [
+  {
+    id: 'stage2_boss_seed_1',
+    text: 'The same signature appears in four separate manifest bundles. That\'s not coincidence.',
+    tag: 'risky',
+    skill: 'wits',
+    dc: 12,
+    locality: null,
+    stageMin: 'Stage II',
+    onSuccess: function() {
+      G.flags.stage2_miniboss_seed_seen = true;
+      addNarration('A Recurring Hand', 'Four manifest bundles from three separate transit routes — different localities, different cargo officers, different dates. The same signature on each audit sign-off: D. Pell, Senior Auditor, Transit Verification Division. The handwriting is careful, the kind that was practiced. The fourth bundle is the problem: the route it covers was under informal scrutiny when the audit was filed. Someone authorized a clean record on a route that was not clean.');
+      addJournal('Auditor signature D. Pell appears across four transit manifests from disparate routes — including one under active scrutiny at time of filing. The audits closed cleanly.', 'evidence');
+    },
+    onFail: function() {
+      addNarration('', 'The manifest bundles are dense with cross-references. Whatever pattern the signatures form, it does not surface cleanly before the stack is returned to the clerk.');
+    }
+  },
+  {
+    id: 'stage2_boss_seed_2',
+    text: 'That Collegium badge doesn\'t match the post assignment for this route. Someone followed me here.',
+    tag: 'risky',
+    skill: 'finesse',
+    dc: 12,
+    locality: null,
+    stageMin: 'Stage II',
+    onSuccess: function() {
+      G.flags.stage2_miniboss_seed_seen = true;
+      addNarration('The Wrong Badge', 'The man in the Transit Verification livery is standing near the manifest board, not at it. His badge shows Division III — the Shelkopolis central district office. This is a regional post, covered under Division VII. He is not here on scheduled assignment. He does not look up when you clock him, but his hand moves to the satchel at his side and stays there. He arrived three hours before you did, which means someone told him you were coming.');
+      addJournal('A Transit Verification auditor — Division III, Shelkopolis — appeared at a regional locality post with no Division III jurisdiction. His presence predates mine by three hours.', 'intelligence');
+    },
+    onFail: function() {
+      addNarration('', 'The badge catches the light but the division number is turned away. By the time you get an angle on it, the man has moved to the far end of the board.');
+    }
+  }
+];
+
+// Phase 1 — The Summons
+function _pell_phase1() {
+  if (!G || G.flags.stage2_miniboss_complete) return;
+  G.flags.stage2_miniboss_started = true;
+
+  addNarration('Transit Verification Inquiry — Form 14-C', 'The form arrives folded inside a courier sleeve, delivered to your lodgings before the morning shift change. It is formal, pre-printed, and precise: the Transit Verification Division of the Oversight Collegium requests the bearer present their travel documentation, source notes, and any materials gathered in connection with routes currently under active audit. A time is listed. A room number. Signed at the bottom in the same careful hand from the manifest bundles: D. Pell, Senior Auditor. He laid his pen flat after signing it — the ink pressed cleanly, without a drag mark. He expected this form to be delivered.');
+
+  var choices = [
+    {
+      id: 'stage2_miniboss_p1_comply',
+      label: 'The form is real. Refusing escalates this in ways I can\'t predict.',
+      tag: 'safe',
+      skill: 'wits',
+      xpReward: 25,
+      failResult: 'This path is closed here, but the inquiry form carries a room number and a time — appearing late is not the same as refusing. Pell has a window to fill. Arriving at the tail of it, with less in hand than he expects, is still a way through.',
+      fn: function() {
+        addNarration('', 'The room is a third-floor transit office, clean and unremarkable. Pell is already seated when you arrive. He does not stand. The inquiry form you were sent sits face-down on the desk in front of him — he received his copy before you got yours. He waits for you to sit, then turns it over and reads it, as though he has not already read it twice. "Thank you for coming in a timely manner," he says. "Pursuant to the Division\'s current audit scope, I have a few procedural questions." He lays his pen flat — nib toward him — before he says anything further. Nothing about him is rushed.');
+        G.flags.stage2_miniboss_p1_complied = true;
+        setTimeout(_pell_phase2, 900);
+      }
+    },
+    {
+      id: 'stage2_miniboss_p1_deflect',
+      label: 'I can comply and give him nothing useful.',
+      tag: 'risky',
+      skill: 'finesse',
+      xpReward: 25,
+      fn: function() {
+        var roll = rollD20('finesse');
+        var dc = DC_PELL_DISAPPEAR;
+        if (roll.total >= dc) {
+          addNarration('', 'You arrive with a thinned version of your materials — routes you have already closed, manifests with nothing live in them. Pell receives the stack without expression and lays it face-down on his desk before looking at it. He spends four minutes with the documents. Then he squares them and sets them aside. "I appreciate your cooperation. The materials were reviewed and found consistent with declared transit activity." His thumb presses the edge of the stack flush with the desk seam — twice, then a third time, checking an alignment already perfect. He says the sentence the way a person says something they will not believe later.');
+          G.flags.stage2_miniboss_p1_deflected = true;
+        } else {
+          addNarration('', 'Pell takes the stack and lays it face-down before reading. He works through it slowly. On the third document he pauses — only for a moment, but the pause is deliberate. He lays his pen flat, nib toward him. "This route notation," he says, turning the page over and setting it square on the desk between you. "The date here and the manifest date I have on file are not consistent with each other." He looks at you without urgency. He had this discrepancy before you walked in.');
+          G.worldClocks = G.worldClocks || {};
+          G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+          G.flags.stage2_miniboss_p1_caught = true;
+        }
+        setTimeout(_pell_phase2, 900);
+      }
+    },
+    {
+      id: 'stage2_miniboss_p1_delay',
+      label: 'An inquiry form is not a warrant. His timeline is not mine.',
+      tag: 'risky',
+      skill: 'vigor',
+      xpReward: 25,
+      fn: function() {
+        var roll = rollD20('vigor');
+        var dc = DC_PELL_DISAPPEAR;
+        if (roll.total >= dc) {
+          addNarration('', 'You do not appear at the listed time. Three days pass — no follow-up form, no courier. On the fourth morning a revised notice arrives: the inquiry window has been extended by ten days, the room number changed. Pell gave you space deliberately. He is not running on your clock and he is letting you know it. But the ten days exist, and the routes are quieter while they run.');
+          G.flags.stage2_miniboss_p1_delayed = true;
+          G.dayCount = (G.dayCount || 0) + 4;
+          if (typeof updateHUD === 'function') updateHUD();
+        } else {
+          addNarration('', 'Four days pass before the next opening. The auditor\'s calendar has shifted; the gap you needed is closed. By the second day without response a Division Liaison appears at your lodgings — not Pell, someone younger, holding a second form. "Senior Auditor Pell asks that I note your non-appearance in the intake log," she says. She is apologetic about it. The log notation is not. The inquiry window shortens; the paper trail thickens.');
+          G.worldClocks = G.worldClocks || {};
+          G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+          G.flags.stage2_miniboss_p1_failed_delay = true;
+        }
+        setTimeout(_pell_phase2, 900);
+      }
+    }
+  ];
+
+  setTimeout(function() { renderChoices(choices.map(adaptEnrichedChoice)); }, 600);
+}
+
+// Phase 2 — The Meeting
+function _pell_phase2() {
+  if (G.flags && G.flags.stage2_miniboss_p2_started) return;
+  G.flags.stage2_miniboss_p2_started = true;
+  if (G.flags && G.flags.stage2_miniboss_p1_delayed) {
+    // Delayed path: meeting happens ten days later
+    addNarration('', 'The rescheduled meeting. Pell\'s office is the same room, the same layout. He receives you without comment about the delay and lays the inquiry form face-down before reading it — he has a fresh copy. He lays his pen flat beside it before he speaks, the nib toward him, a small reset he performs before every sentence that matters. "Pursuant to the extended window, we can proceed." He opens a second folder while his hand still rests on the inquiry form. Inside: a cross-referenced route summary. His. "A former associate of yours has been quite cooperative," he says. The word \'associate\' is careful, chosen. He means Seld. He does not say Seld\'s name.');
+  } else if (G.flags && G.flags.stage2_miniboss_p1_caught) {
+    addNarration('', 'Pell keeps the flagged document square between you. He lays his pen flat on the desk before speaking — nib toward him, a reset he performs before every sentence that carries weight. "In accordance with our review procedures, I want to be direct with you." He opens a second folder and sets it beside the form — face-down, then turned over. A cross-referenced summary of your transit activity, annotated in his handwriting. "A former associate of yours has been cooperative. Their account of your movements is consistent with what I have here." He says it without inflection. He means it as a threat and he means it to sound like procedure.');
+  } else {
+    addNarration('', 'Pell has evidence — not the kind that closes a case, but the kind that opens one. A cross-referenced summary of route timings, manifest dates, and inquiry filings. He sets it on the desk face-down before turning it toward you, then lays his pen flat beside the stack — nib toward him, unhurried. He does this before every sentence that matters. "In accordance with standard review, I want to be transparent about the scope of this inquiry." He pauses. "A former associate of yours has been quite cooperative." He does not say the name. He does not need to. He means Seld, and the weight he puts on \'cooperative\' is the only inflection he has allowed himself. The file he was assigned to close was yours — and he was assigned before any formal complaint was filed.');
+  }
+
+  var resChoices = [
+    {
+      id: 'stage2_miniboss_resolve_expose',
+      plot: 'main',
+      label: 'He was assigned before any complaint existed. That\'s the thread that unravels him.',
+      tag: 'bold',
+      skill: 'wits',
+      xpReward: 25,
+      fn: function() { _pell_resolve_expose(); }
+    },
+    {
+      id: 'stage2_miniboss_resolve_negotiate',
+      plot: 'main',
+      label: 'A clean exit for him means I keep working beneath his notice.',
+      tag: 'risky',
+      skill: 'charm',
+      xpReward: 25,
+      fn: function() { _pell_resolve_negotiate(); }
+    },
+    {
+      id: 'stage2_miniboss_resolve_disappear',
+      plot: 'main',
+      label: 'His inquiry window expires without a target if I leave now.',
+      tag: 'safe',
+      skill: 'vigor',
+      xpReward: 25,
+      failResult: 'This path is closed here, but the inquiry window has days left in it — and Pell filed a pursuit notation the moment the routes went quiet. The transit posts closer to the city boundary are less watched. Working from there while the window runs is still a form of distance.',
+      fn: function() { _pell_resolve_disappear(); }
+    }
+  ];
+
+  setTimeout(function() { renderChoices(resChoices.map(adaptEnrichedChoice)); }, 700);
+}
+
+// Resolution A — Expose the irregular assignment → triggers alarm, Dravn exits, Shadowhands rearguard
+function _pell_resolve_expose() {
+  var roll = rollD20('wits');
+  var dc = DC_PELL_EXPOSE_BOLD;
+  if (roll.total >= dc) {
+    // Player lands the discrepancy. Dravn doesn't argue — he activates suppression protocol and exits.
+    G.lastResult = 'The date discrepancy lands clean. His hands stop on the folder — not a flinch, a recognition. He lays his pen flat, nib toward him, the small reset he performs before every sentence that matters. Then: "This is classified suppression protocol — standard procedure." He pulls a cord beside the wall-mounted lamp bracket. His voice does not change. He is through the rear access door before the room responds. The door closes without force. The corridor fills in from the sides.';
+    addNarration('Suppression Protocol', G.lastResult);
+    addJournal('Pell named the suppression protocol by its formal designation — then pulled an alarm cord and exited through a rear document corridor. Two Shadowhands operatives moved in immediately. His departure was prepared in advance.', 'evidence');
+    G.flags.stage2_miniboss_resolution = 'expose';
+    G.flags.stage2_miniboss_dravn_fled = true;
+    // Wire post-combat victory callback before entering combat
+    G.pendingVictoryCallback = function() {
+      var sh = (G.factions || []).find(function(f) { return f.id === 'shadowhands'; });
+      if (sh) sh.rep = Math.max(0, (sh.rep || 0) - 15);
+      G.lastResult = 'The corridor is empty. Dravn is gone — through whatever arrangement preceded this meeting. On the table: a transit seal manifest. His initials appear on three suppressed export routes. The operatives were a rearguard, not improvised. He planned to leave before you arrived.';
+      addNarration('Corridor Empty', G.lastResult, 'success');
+      addJournal('Dravn Pell fled during confrontation. Transit seal manifest recovered — his initials on three suppressed export routes.', 'evidence');
+      _closeMiniboss();
+    };
+    setTimeout(function() {
+      enterCombat('shadowhands_operative', {
+        isBoss: true,
+        groupSize: 2,
+        context: 'Two Shadowhands operatives fill the corridor. The rear door is already shut behind Dravn.'
+      });
+    }, 900);
+    // noRetreat not supported by enterCombat engine (hardcoded choice) — noted, not implemented
+  } else {
+    addNarration('', 'The dates are there but you cannot hold them cleanly under pressure — the division log, the complaint file, the assignment chain. Pell watches you lay the argument out and waits until you stop. He lays his pen flat before he answers. "In accordance with division procedure, assignment timing is an administrative matter, not subject to external review." His voice has not changed once in this meeting. He closes the folder and sets the pen across the top of it — done. "I will note your concern. The inquiry remains open."');
+    G.worldClocks = G.worldClocks || {};
+    G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+    G.flags.stage2_miniboss_resolution = 'expose_failed';
+    // Still closes out — he\'s been warned off even if not fully neutralized
+    _closeMiniboss();
+  }
+}
+
+// Resolution B — Negotiate a quiet closure
+function _pell_resolve_negotiate() {
+  var roll = rollD20('charm');
+  var dc = DC_PELL_NEGOTIATE;
+  if (roll.total >= dc) {
+    addNarration('A Filed Understanding', 'You give him the shape of a deal without calling it one. You will not enter the Division\'s restricted records sections. You will not file anything that names the Division as a party to the pattern you have been tracing. In return he will close the inquiry as inconclusive and remove the watchfulness notation from your transit file. He listens to all of it. He lays his pen flat before he answers — nib toward him — a small reset before every sentence that matters. "Pursuant to the terms you have outlined, I can confirm the inquiry will be filed as resolved." He will hold to it. He is a proceduralist — the agreement is now a procedure, and procedures are what he maintains.');
+    addJournal('Negotiated a quiet closure with Pell: I stay out of Division records sections; he closes the inquiry and clears the notation. He will hold to it — it is filed and procedures are what he maintains.', 'intelligence');
+    G.flags.stage2_miniboss_resolution = 'negotiate';
+  } else {
+    addNarration('', 'He listens to the offer and says nothing for a beat. Then he lays his pen flat — nib toward him — and opens the inquiry form and makes a notation in the margin — a small one, in his careful hand. "I appreciate the clarity of your position. In accordance with current procedures, the inquiry will remain active for the standard review period." He does not look up from the notation. He was not interested in a deal. He was taking notes on the offer.');
+    G.worldClocks = G.worldClocks || {};
+    G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+    G.flags.stage2_miniboss_resolution = 'negotiate_failed';
+  }
+  _closeMiniboss();
+}
+
+// Resolution C — Leave and let the window expire
+function _pell_resolve_disappear() {
+  var roll = rollD20('vigor');
+  var dc = DC_PELL_DISAPPEAR;
+  if (roll.total >= dc) {
+    addNarration('Absent from the Record', 'You are outside Shelkopolis before the review window closes. A week in a transit post, two in a regional locality, work that does not touch the routes Pell is watching. When you return the inquiry has been logged as inactive — subject unavailable for interview, file suspended pending re-contact. Pell\'s name is still on it. He is still watching, in the way that a bureaucrat watches: patiently, at no personal cost, waiting for the subject to reappear in the manifest logs. But the window cost him something. He had to file a suspension. His supervisor will have read it.');
+    addJournal('Left Shelkopolis for the inquiry window. Pell\'s file is now logged as suspended — inactive, not closed. He is still watching, but the suspension is on his record now too.', 'intelligence');
+    G.flags.stage2_miniboss_resolution = 'disappear';
+    G.dayCount = (G.dayCount || 0) + 14;
+    if (typeof updateHUD === 'function') updateHUD();
+  } else {
+    addNarration('', 'The transit routes back into Shelkopolis have more checkpoint activity than usual. Three days out, a Division courier finds you at the post — formally, with a stamped re-notification. The inquiry window has been extended and a mandatory appearance date set. Pell filed a pursuit notation. He anticipated the exit.');
+    G.worldClocks = G.worldClocks || {};
+    G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+    G.dayCount = (G.dayCount || 0) + 3;
+    G.flags.stage2_miniboss_resolution = 'disappear_failed';
+    if (typeof updateHUD === 'function') updateHUD();
+  }
+  _closeMiniboss();
+}
+
+function _closeMiniboss() {
+  G.flags.stage2_miniboss_complete = true;
+  G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+  if (typeof checkStageAdvance === 'function') {
+    setTimeout(checkStageAdvance, 400);
+  }
+  setTimeout(function() {
+    if (typeof resolveArrival === 'function') resolveArrival(G.location);
+  }, 1200);
+}
+
+// Trigger check — called from checkStageAdvance
+function checkTrigger() {
+  if (!G) return;
+  var sp2 = ((G.stageProgress && G.stageProgress[2]) || 0);
+  // seed_seen required at sp2>=8; at sp2>=12 the miniboss fires regardless (catches
+  // archetypes like paladin whose enriched-choice mix never surfaces the seed choices)
+  var seedReady = (G.flags && G.flags.stage2_miniboss_seed_seen) || sp2 >= 12;
+  if (G.flags && !G.flags.stage2_miniboss_complete &&
+      !G.flags.stage2_miniboss_started &&
+      sp2 >= 8 &&
+      seedReady) {
+    setTimeout(_pell_phase1, 500);
+  }
+}
+
+function triggerMiniBoss() {
+  _pell_phase1();
+}
+
+window.STAGE2_BOSS_MODULE = {
+  triggerMiniBoss: triggerMiniBoss,
+  checkTrigger: checkTrigger,
+  seedChoices: STAGE2_MINIBOSS_SEED_CHOICES
+};
