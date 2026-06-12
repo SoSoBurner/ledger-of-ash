@@ -1971,7 +1971,7 @@ input, button, select, textarea { font-family: inherit; }
       <button class="btn btn-ghost btn-sm" id="btn-hall">Hall of Legends</button>
       <button class="btn btn-ghost btn-sm" id="btn-howto-title" onclick="showHowToPlay()">How to Play</button>
     </div>
-    <div class="title-version">Stage I&#x2013;II &nbsp;&middot;&nbsp; V33 Canon &nbsp;&middot;&nbsp; v0.1</div>
+    <div class="title-version">Stage I&#x2013;II &nbsp;&middot;&nbsp; V33 Canon &nbsp;&middot;&nbsp; v1.0</div>
   </div>
 </div>
 
@@ -18909,6 +18909,8 @@ function showSaveModal(mode) {
         if (!localStorage.getItem(key)) { showToast('That slot is empty.'); return; }
         if (loadFromSlot(key)) {
           closeOverlay('overlay-save');
+          // Loading from the title screen must also enter the game screen (no-op if already in-game)
+          if (typeof showScreen === 'function') showScreen('screen-game');
           showToast('Loaded ' + _slotLabelFor(key) + '.');
         }
       } else {
