@@ -71,6 +71,28 @@ Helper files in `tests/e2e/helpers/`:
 
 **Warning baseline**: 291 (set via `reporter.setWarningBaseline(291)`). New warnings above baseline are flagged in report.
 
+## Harness Metric Provenance (mandatory before diagnosing a metric)
+
+Before treating any playtest report metric as evidence of a game bug, trace it to its harness source. Reports surface what the harness *captured*, not raw engine state. Common provenance traps:
+
+- `abilities=N` is a DOM button count (`page.locator('.ability-card').count()`), NOT `G.unlockedCombatAbilities.length`. A `0` value may mean the spec ran before the abilities tab was rendered, not that the engine failed to seed.
+- `stageProgress[2]` from `readG()` can return `0` even when the live page has sp2≥10 — integer-keyed object spread loses numeric keys. Always use `page.evaluate(() => G.stageProgress[2])` to read sp2 directly.
+- `picks=0` for a failed family is a reporter artifact when the per-family ceiling fires between attempts, not evidence that `createCharacter()` crashed.
+
+**Triage protocol:** open the spec, grep for the metric name, read the capture line. If the capture is wrong, fix the spec — don't open a game bug. See `memory/feedback_harness_metrics_diagnosis.md`.
+
+## Post-Playtest Investigation Order (mandatory, 7 steps)
+
+After a playtest run completes, before writing any fix plan:
+
+1. Read the report end-to-end — family results, abilities metric, heat instrumentation, dead-ends, JS errors, validator delta.
+2. Trace every cited metric to its harness source (see Harness Metric Provenance above).
+3. Grep for any bug the report names against the live code — verify it still exists (`memory/feedback_spec_staleness_check.md`).
+4. Scan for unlisted gaps the report didn't surface (silent failures, content backlog hits).
+5. Propose features / fix scope as bullet candidates, not yet a plan.
+6. Ask the user **≥15 clarifying questions** via `AskUserQuestion` BEFORE writing any fix (`memory/feedback_post_playtest_clarification_gate.md`).
+7. Only then enter Plan mode. Premature plan writing was rejected 3+ times in the June 2026 sprint (`memory/feedback_plan_scope_front_loading.md`).
+
 **Known harness gaps (do not investigate as new failures):**
 - **Pre-existing startup JS errors**: "Invalid or unexpected token" fires exactly 2× per run at page load across all archetypes — non-blocking, game plays through. 13 content files have UTF-8 BOM. Treat as baseline noise.
 - **Zero-sp2 locality pattern**: `stageProgress[2]` now wired to fairhaven/panim/mimolot (commit `c4b4fd09`) and soreheim/shirshal (commit `13d512f5`) success paths. If zero-sp2 appears in a future run for any of these, the player visited but all rolls failed — roll failures don't increment sp2, only success paths do. Remaining unvisited Stage II locs (roaz, remeny, etc.) are content backlog.

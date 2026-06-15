@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | Session startup, skills, plugins | [Process](#3-process) |
 | Writing style, canon, choice labels | `content/CLAUDE.md` |
 | Playwright, validators, playtest | `tests/CLAUDE.md` |
-| World graph, NPC profiles, locality packets | `data/reference/V33_2_extracted/` |
+| World graph, NPC profiles, locality packets | `data/reference/V34_2_extracted/` (canon as of 2026-06-15; was V33_2_extracted) |
 
 ---
 
@@ -62,7 +62,7 @@ const { G, addJournal, checkLevelUp, narrations } = createGameContext({ level: 3
 
 ## Dev Environment
 
-- **Source file**: `C:\Users\CEO\ledger-of-ash\ledger-of-ash.html` — this is what `play.bat` opens. Never edit `dist/`.
+- **Source file**: `C:\Users\CEO\ledger-of-ash\ledger-of-ash.html` — this is what `play.bat` opens. Never edit `dist/`. **Also never *release* from `dist/`** — `build.py` has a known unfixed tag-removal bug (regex matches bare filenames, but HTML uses `content/`-prefixed paths) that leaves all script tags intact while inlining their content, causing double-declaration when content files are present. Always release from the root file + sibling `content/`, `data/`, `js/loa-enriched-bridge.js`, `assets/`. See `memory/feedback_dist_drift_policy.md`.
 - **Play**: Run `play.bat` to open in Chrome app mode (`file://` protocol).
 - **Content scripts**: All JS files in `content/` must be referenced as `content/filename.js` in HTML script tags. There is no auto-loading — add `<script src="content/yourfile.js"></script>` in the appropriate block near lines 18220–18322 of `ledger-of-ash.html` or the file will silently be ignored.
 - **Google Fonts**: Do NOT add Google Fonts `<link>` tags — they fail over `file://`. Use `var(--font-body)` or `var(--font-display)` CSS variables directly.
@@ -95,17 +95,25 @@ const { G, addJournal, checkLevelUp, narrations } = createGameContext({ level: 3
 ## Travel Data Sources
 
 - Node graph: `data/reference/07_WORLD_GRAPH/locality_travel_network.json` — edges with travel times
-- Per-route complications: `data/reference/V33_2_extracted/V33_2_DnD_Repository/12_TABLE_KITS/travel_complications/` — one `.md` per route with authored complication flavor
+- Per-route complications: `data/reference/V34_2_extracted/V34_2_World_Repository/12_TABLE_KITS/travel_complications/` — one `.md` per route with authored complication flavor (V33_2 path is deprecated post-2026-06-15)
 
-## Reference Library (V33_2 — Do Not Edit)
+## Reference Library (V34_2 — Do Not Edit)
 
-All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
-- `03_LOCALITY_ENGINE/locality_packets/` — 53 JSON locality files
-- `03_LOCALITY_ENGINE/text_rpg_packets/` — 14 MD narrative flavor bundles (10 Stage 1 localities missing)
-- `12_TABLE_KITS/arrival_kits/` — 53 MD first-arrival scene seeds
-- `11_REFERENCE_VIEWS/locality_quickstart_cards/` — 53 MD quick-reference cards (Districts, Nomdara, Plumes End Outpost, Sheresh missing)
-- `02_CANON_BASELINE/named_npcs/` — 723 NPC JSON profiles
-- `02_CANON_BASELINE/interface_role_instances/` — NPC role instances by polity
+The active canon library is **V34_2_World_Repository** (`final_v5`, ~46,748 validated entries, imported 2026-06-15). It supersedes V33_2 which is retained as a zip archive at the project root for reference only.
+
+All paths under `data/reference/V34_2_extracted/V34_2_World_Repository/`:
+
+| Subtree | Contents |
+|---------|----------|
+| `03_LOCALITY_ENGINE/locality_packets/` | JSON locality files — `ls data/reference/V34_2_extracted/V34_2_World_Repository/03_LOCALITY_ENGINE/locality_packets/ \| wc -l` for live count |
+| `03_LOCALITY_ENGINE/text_rpg_packets/` | MD narrative flavor bundles |
+| `12_TABLE_KITS/arrival_kits/` | MD first-arrival scene seeds |
+| `12_TABLE_KITS/travel_complications/` | MD per-route complication flavor |
+| `11_REFERENCE_VIEWS/locality_quickstart_cards/` | MD quick-reference cards |
+| `02_CANON_BASELINE/named_npcs/` | NPC JSON profiles |
+| `02_CANON_BASELINE/interface_role_instances/` | NPC role instances by polity |
+
+**Always read live counts** with `ls | wc -l` or `find … -type f | wc -l` before quoting a number — V34_2 is occasionally updated; hardcoded counts drift. `scripts/diff_canon.js` (post-import) surfaces what's new/changed when V34 ships a revision. `scripts/build_wired_manifest.js` set-subtracts `content/*_stage1_enriched_choices.js` against `locality_packets/` to write `data/reference/WIRED_LOCALITIES.json` (run after content authoring sweeps).
 
 ---
 
@@ -230,6 +238,10 @@ Skills render in `updateHUD()` (~line 10862) AND `renderCharacterSheet()` (~line
 
 `vorath_gelden`/`mira_calden` gate on `G.flags.maren_oss_resolved` (set in `_closeClimax()`, `content/stage2_climax.js`).
 
+## ABILITY_DISPATCH Coverage (data-table feature rule)
+
+The 71-entry `ABILITY_DISPATCH` table maps every unlocked ability ID to one of 7 mechanical handlers (heal, damage, buff, debuff, util, scout, mark). **Every ability added to archetype seed lists must have a corresponding ABILITY_DISPATCH entry** or its UI button silently no-ops on click. The pattern generalizes: any data-defined feature where data lives in one structure and the runtime dispatcher lives in another needs a contract test that asserts `every(key in data) ⊂ (keys in dispatcher)`. Without that test, content authors can add new abilities without realizing the dispatcher is incomplete. See `memory/feedback_ability_dispatcher_pattern.md`.
+
 ## BACKLOG Verification Rule
 
 Do not mark a feature DONE based on code existence alone. A feature is DONE only when verified to produce correct player-facing output. Silent failures routinely pass code-existence checks.
@@ -350,7 +362,16 @@ All of the following are permanently authorized. Use them proactively without as
 
 ## Plans Directory Warning
 
-`C:\Users\CEO\.claude\plans\` has 28+ plan files that are NOT auto-loaded into sessions. Check `memory/ACTIVE_PLANS_INDEX.md` at session start. Do not re-derive decisions that are already recorded there.
+`C:\Users\CEO\.claude\plans\` holds untracked plan files that are NOT auto-loaded into sessions. Check `memory/ACTIVE_PLANS_INDEX.md` at session start (refreshed 2026-06-15 post-V1.0 ship). DONE plans are moved to `.claude/plans/archive/`. Do not re-derive decisions that are already recorded there.
+
+## Parallel-Agent File Ownership (LoA sprint rule)
+
+When dispatching 2+ agents in parallel against this repo, every dispatch prompt **must** include an "Owns:" + "Read-only:" block. Integration files are single-owner per sprint:
+
+- **Always single-owner this sprint and every sprint:** `ledger-of-ash.html`, `build.py`, `build_locality_matrix.py`, `data/bestiary_lookup.js`, `data/narrative_lookup.js`, `package.json`, `tests/setup.js`, plus any file currently being edited by ANY agent.
+- **Multi-owner OK:** `content/*.js` (each file is its own scope) and most `tests/logic/*.test.js` — agents can claim subsets by filename.
+
+Use `agent-teams:parallel-feature-development` (file-ownership protocol) by default for 2+ concurrent agents; raw `dispatching-parallel-agents` only for single-agent investigations. See `memory/feedback_parallel_agent_file_ownership.md` for the V1.0 sprint root-cause story (mid-task 401s, lost work).
 
 ## Skills and Plugins
 

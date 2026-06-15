@@ -1,6 +1,8 @@
 # Ledger of Ash — Content & Narrative Reference
 
-> Loaded automatically when working in content/. V33_2 is the canon floor — see `data/reference/V33_2_extracted/`.
+> Loaded automatically when working in content/. **V34_2** is the canon floor as of 2026-06-15 — see `data/reference/V34_2_extracted/` (V33_2 retained as zip archive at project root).
+>
+> **Before authoring any new locality content, follow `content/AUTHORING_RUNBOOK.md`** — it specifies the 6-step canon read order (quickstart card → packet → arrival kit → text_rpg_packet → NPCs → travel complications) so the result aligns with canon and the wired-manifest stays in sync.
 
 ## Narrative Style
 
@@ -34,7 +36,7 @@ Every named NPC needs three things before any dialogue is written:
 
 Named NPCs and locality authority figures react to player archetype — shown, not announced. Renown expressed through behavior change, not words. Subtext: NPCs rarely say exactly what they mean. One unsaid layer per scene.
 
-## Canon Rules (V33_2 is the hard floor)
+## Canon Rules (V34_2 is the hard floor; V33_2 retained as archive)
 
 - The Ledger of Ash is never named in public-facing text before mid-Stage 4.
 - Magic follows local law — what is permitted differs by locality. Show this in narration and NPC behavior.
