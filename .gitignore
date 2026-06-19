@@ -4,6 +4,9 @@ node_modules/
 *.log
 
 V28_8_extracted/
+V33_2_extracted/
+V34_2_extracted/
+V34_2_World_Repository.zip
 claude.exe
 *.exe
 .claude/

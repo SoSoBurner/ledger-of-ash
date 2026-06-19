@@ -101,19 +101,20 @@ const { G, addJournal, checkLevelUp, narrations } = createGameContext({ level: 3
 
 The active canon library is **V34_2_World_Repository** (`final_v5`, ~46,748 validated entries, imported 2026-06-15). It supersedes V33_2 which is retained as a zip archive at the project root for reference only.
 
-All paths under `data/reference/V34_2_extracted/V34_2_World_Repository/`:
+All paths are rooted at `data/reference/V34_2_extracted/V34_2_World_Repository/` (paths below are relative to that root). The V34_2 layout introduces a `canon/` prefix and reorganizes the locality engine — these are NOT the V33_2 paths.
 
-| Subtree | Contents |
+| Subtree (relative to V34_2 root) | Contents |
 |---------|----------|
-| `03_LOCALITY_ENGINE/locality_packets/` | JSON locality files — `ls data/reference/V34_2_extracted/V34_2_World_Repository/03_LOCALITY_ENGINE/locality_packets/ \| wc -l` for live count |
-| `03_LOCALITY_ENGINE/text_rpg_packets/` | MD narrative flavor bundles |
-| `12_TABLE_KITS/arrival_kits/` | MD first-arrival scene seeds |
-| `12_TABLE_KITS/travel_complications/` | MD per-route complication flavor |
-| `11_REFERENCE_VIEWS/locality_quickstart_cards/` | MD quick-reference cards |
-| `02_CANON_BASELINE/named_npcs/` | NPC JSON profiles |
-| `02_CANON_BASELINE/interface_role_instances/` | NPC role instances by polity |
+| `canon/03_WORLD_OPERATIONAL_ENGINE/locality_engine/locality_packets/` | JSON locality files |
+| `canon/03_WORLD_OPERATIONAL_ENGINE/locality_engine/text_rpg_packets/` | MD narrative flavor bundles |
+| `canon/12_TABLE_KITS/arrival_kits/` | MD first-arrival scene seeds |
+| `canon/12_TABLE_KITS/travel_complications/` | MD per-route complication flavor |
+| `canon/11_REFERENCE_VIEWS/current_release/locality_quickstart_cards/` | MD quick-reference cards (current_release is canonical) |
+| `canon/02_CANON_BASELINE/named_npcs/` | NPC JSON profiles |
+| `canon/02_CANON_BASELINE/interface_role_instances/` | NPC role instances by polity |
+| `canon/10_LINEAGE_HISTORY/V33_2_DnD_Repository_baseline/` | V33_2 preserved in-tree (read-only reference for diffs) |
 
-**Always read live counts** with `ls | wc -l` or `find … -type f | wc -l` before quoting a number — V34_2 is occasionally updated; hardcoded counts drift. `scripts/diff_canon.js` (post-import) surfaces what's new/changed when V34 ships a revision. `scripts/build_wired_manifest.js` set-subtracts `content/*_stage1_enriched_choices.js` against `locality_packets/` to write `data/reference/WIRED_LOCALITIES.json` (run after content authoring sweeps).
+**Always read live counts** with `ls <subtree> | wc -l` or `find <subtree> -type f | wc -l` before quoting a number — V34_2 ships revisions and hardcoded counts drift. `scripts/diff_canon.js` (post-import) surfaces what's new/changed when V34 ships a revision. `scripts/build_wired_manifest.js` set-subtracts `content/*_stage1_enriched_choices.js` against `locality_packets/` to write `data/reference/WIRED_LOCALITIES.json` (run after content authoring sweeps).
 
 ---
 

@@ -1,9 +1,0 @@
-{
-  "name": "Guildheart Hub",
-  "inside": "Clerks, brokers, arbiters, haulers, and guarded petitioners move through dense administrative floors, storage courts, and hearing chambers where guild insignia matters more than noble heraldry.",
-  "truth_layer": "conservative_inference",
-  "sources": [
-    "principalities",
-    "topatch_v22_6_spec"
-  ]
-}

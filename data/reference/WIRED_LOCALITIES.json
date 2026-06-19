@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-06-19T03:50:16.593Z",
+  "canonVersion": "V34_2_World_Repository",
+  "counts": {
+    "wired": 19,
+    "missing": 29,
+    "orphan": 0,
+    "canon": 53,
+    "authored": 19
+  },
+  "wired": [
+    "aurora_crown_commune",
+    "cosmoria",
+    "craftspire",
+    "districts",
+    "fairhaven",
+    "glasswake_commune",
+    "guildheart_hub",
+    "harvest_circle",
+    "ironhold_quarry",
+    "ithtananalor",
+    "mimolot_academy",
+    "panim_haven",
+    "plumes_end_outpost",
+    "shelkopolis",
+    "shirshal",
+    "soreheim_proper",
+    "sunspire_haven",
+    "unity_square",
+    "whitebridge_commune"
+  ],
+  "missing": [
+    "arbiters_row",
+    "ashforge_citadel",
+    "ashforge_quarry",
+    "ashwake_port",
+    "banner_anchorage",
+    "duneshade_outpost",
+    "emberforge_outpost",
+    "emberhollow_forge_town",
+    "embervale_settlement",
+    "harvest_keep",
+    "hearthcoil_commune",
+    "housechain_court",
+    "hullwake_foundry",
+    "iron_ledger_ward",
+    "lantern_docket",
+    "ledger_canal",
+    "market_crossroads",
+    "mediators_court",
+    "reckoning_quarter",
+    "scarlet_descent_gate",
+    "scriptorium_steps",
+    "sealwater_conclave",
+    "serpent_measure",
+    "silent_haven",
+    "starbreak_commune",
+    "tariff_lantern_court",
+    "tideglass_registry",
+    "veilbridge_sepulcher",
+    "witness_coil"
+  ],
+  "orphan": [],
+  "aliases": {
+    "districts": [
+      "aurora_heights_district",
+      "cindervow_quarter",
+      "canal_thorn_exchange",
+      "ironspool_ward_district",
+      "maskscar_plaza_district",
+      "verdant_row_district"
+    ],
+    "plumes_end_outpost": [
+      "plume_s_end_outpost"
+    ]
+  }
+}

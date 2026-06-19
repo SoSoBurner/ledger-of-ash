@@ -1,1 +1,0 @@
-{"deferred_id": "deferred.001.wanted_status_followup", "trigger": "evt.002.party_wanted_status", "possible_followup": "Investigate whether local authorities, noble households, or targeted factions actively recognize the Wanted state.", "state": "deferred_pending_play_confirmation"}

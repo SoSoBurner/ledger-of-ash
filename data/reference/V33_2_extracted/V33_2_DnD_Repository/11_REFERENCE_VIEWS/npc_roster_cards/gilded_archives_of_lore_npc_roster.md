@@ -1,9 +1,0 @@
-# Gilded Archives of Lore NPC roster card
-
-Total named NPCs: 3
-
-Protected celestial and arcane text repository for high-ranking access.
-
-- **knowledge**: Archivist Luthen Valcrest — Head Archivist. Keeps language exact, as if wording itself is part of the custody chain. In Transpolity, that reads as someone boundary-crossing and adap...
-- **wildcard**: Kest Vale — Assistant Curator. Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Transpolity, that reads as s...
-- **wildcard**: Nora Vale — Ritual Attendant. Treats loose talk like evidence waiting to harden into record and listens for contradiction before charm. In Transpolity, that reads as s...

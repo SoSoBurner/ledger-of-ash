@@ -1,9 +1,0 @@
-{
-  "build_version": "V33_1",
-  "purpose": "Single-source derived metric discipline.",
-  "rules": [
-    "All user-visible numeric claims must map to a metric_id in canonical_metric_registry.json.",
-    "No active report may hardcode a derived count without citing metric provenance.",
-    "Final closure, README release claims, and release notes must reconcile against release_claim_registry.json."
-  ]
-}

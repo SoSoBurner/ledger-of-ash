@@ -1,6 +1,0 @@
-{
-  "stress_run_id": "alias_confusion_stress",
-  "build_version": "V33_1",
-  "summary": "alias_confusion_stress stores adversarial retrieval assumptions used by validation.",
-  "status": "pass"
-}

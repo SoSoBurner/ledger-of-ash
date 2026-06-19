@@ -1,6 +1,0 @@
-{
-  "stress_run_id": "flattening_pressure_stress",
-  "build_version": "V33_1",
-  "summary": "flattening_pressure_stress stores adversarial retrieval assumptions used by validation.",
-  "status": "pass"
-}

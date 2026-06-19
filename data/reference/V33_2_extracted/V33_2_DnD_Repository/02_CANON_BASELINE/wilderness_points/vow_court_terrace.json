@@ -1,9 +1,0 @@
-{
-  "name": "Vow Court Terrace",
-  "parent": "Cindervow Quarter",
-  "summary": "An oath court complex where rebuilding vows are sworn before civic witnesses and recorded in stone.",
-  "sources": [
-    "calendars_world",
-    "spatial_seasonal"
-  ]
-}

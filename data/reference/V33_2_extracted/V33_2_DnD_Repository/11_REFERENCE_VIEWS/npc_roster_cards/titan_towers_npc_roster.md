@@ -1,6 +1,0 @@
-# Titan Towers NPC roster card
-
-Total named NPCs: 2
-
-- **wildcard**: Brakka Stonewake — Warrior. Projects readiness without theatricality, as if discipline matters more than spectacle. In Soreheim Alliance, that reads as someone quota...
-- **wildcard**: Decran Moltglass — Wizards. Handles arcane procedure with containment-minded precision, as if carelessness always has a cost. In Soreheim Alliance, that reads as som...
