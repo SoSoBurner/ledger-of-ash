@@ -3,6 +3,8 @@
 **Last updated:** 2026-06-22 (re-audit post-V1.0 ship — 863 commits since 2026-04-26)
 **Source:** Audited across 10+ plan files + verified against live codebase. Check this before re-planning any feature.
 
+> **2026-06-22 audit follow-up:** Of the 5 new P0 candidates added in the 2026-06-22 re-audit, 2 (#2 startCombat silent reload, #5 .title-error font) were found already in code during Phase 1 investigation. Both marked DONE below. Future audits should run a code-existence grep before listing a P0.
+
 ## Status codes
 - `DONE` — wired, working, verified in code
 - `PARTIAL` — code exists but incomplete or broken
@@ -117,15 +119,15 @@
 | Gold/supply drain — travel is free (foot only, no daily supply sink) | PARTIAL | [audited 2026-06-22: supplyTier system exists (light/medium/plentiful) at L15039+; foot mode is free at L15866; lay_low drains supply at L15483; addFatigue + FATIGUE_MAX added in commit 4fd18119; daily supply tick on advanceTime NOT yet wired — confirm via spec-miner] |
 | Mandatory gold drain — shop is only gold sink, no travel cost | DONE | [audited 2026-06-22: travel mode costs at L15875–15895 (horse=8g, cart=12g, boat=15g); only foot is free which is intentional per design] |
 | `adaptEnrichedChoice` rethrow not caught in callers — blank choice block on content bug | DONE | [audited 2026-06-22: zero-choice fallback in loadStageChoices per S1-S6 phase in v1_completion_state.md; recovery narration + 800ms reload baked in] |
-| `startCombat` unknown key silently reloads — no player signal | NOT BUILT | [audited 2026-06-22: no toast message found; still silently reloads] |
+| `startCombat` unknown key silently reloads — no player signal | DONE | already in code at ledger-of-ash.html:4613-4620 — calls `addNarration('', 'The confrontation dissolved before it could begin.', 'neutral')` on unknown enemy key before reload. Discovered stale during 2026-06-22 re-audit. |
 | Craft/spirit choice density in Stage 1 — support archetypes penalized | NOT BUILT | [audited 2026-06-22: no audit committed; still penalizes craft/spirit-only archetypes] |
 | `'Meaningful'` tag on every Stage 1 choice — tag system non-functional | PARTIAL | [audited 2026-06-22: 174 occurrences across 10 files still present; commit 8e9530f2 removed 6 Meaningful tags but ~170 remain. Defer to content polish pass — non-blocking] |
 | "pulls you aside" repeated 9× across 8 localities | DONE | [audited 2026-06-22: only 1 remaining occurrence (aurora_crown_commune_stage1_enriched_choices.js); 8 of 9 fixed during quality pass] |
 | Closing meta-summary pattern in result text (5/15 passages audited) | DONE | [audited 2026-06-22: 14 commits in result-text expansion (block 3 of tender-twirling-stallman.md); forbidden-words validator now flags meta-summary patterns; commit 1add0e64 replaced 31 banned-phrase failResults] |
 | Stage 2 enriched_choices.js line 972 label — infinitive + action-description | DONE | [audited 2026-06-22: stage2 label audits committed in 2d76d1c2 (midspines), 348c31d5 (craftspire), and locality-specific rewrites] |
-| Save migration error silently swallowed | NOT BUILT | [audited 2026-06-22: loadGame legacy path at L18809 still has `catch(e) { return false; }` with no console.error or toast; deferred] |
+| Save migration error silently swallowed | DONE | [fixed 2026-06-23 (Stream A): loadGame legacy path now calls `showToast('Legacy save found but could not be read...')` in the catch block at L18810 and `showToast('Legacy save not found...')` on the bare-return path at L18814; regression test at tests/logic/loadgame-legacy-toast.test.js] |
 | `'Investigation'` tag as universal first tag — no classification signal | PARTIAL | [audited 2026-06-22: 506 occurrences across 54 files; remains a tag-cardinality problem but is non-blocking — defer to content polish sprint] |
-| `.title-error` uses display font (Cinzel) — legibility under stress | NOT BUILT | [audited 2026-06-22: L313 still uses `font-family: var(--font-display)`; one-line CSS swap to var(--font-body)] |
+| `.title-error` uses display font (Cinzel) — legibility under stress | DONE | already in code at ledger-of-ash.html:313 — CSS rule resolved per Phase 1 investigation. Discovered stale during 2026-06-22 re-audit. |
 | 8px card tags / 9px item-use buttons — below readable floor | HUD-LOCKED | [audited 2026-06-22: 223 occurrences of `font-size: 8px`/`9px` in HTML; floor lift would touch HUD typography — requires user re-authorization per HUD lockdown] |
 | Locality name casing on death screen — "cosmouth" not "Cosmouth" | DONE | [audited 2026-06-22: confirmDeath at L18598 uses WORLD_LOCATIONS[loc].name fallback (L18600, L18616) which returns properly-cased canonical names] |
 
@@ -281,10 +283,10 @@ Top 5 candidates based on current state — confirm priority before scheduling:
 | # | Candidate | Why |
 |---|-----------|-----|
 | 1 | Tutorial: investigation mandate framing | Onboarding still doesn't tell new players the core loop (find the shape of an operation, not a specific person) — confused-player risk for first 30 minutes |
-| 2 | `startCombat` unknown key silently reloads — no toast | Headless playtests still hit this; player gets no feedback when a content typo skips an encounter |
-| 3 | Save migration error silently swallowed | `loadGame` legacy path swallows JSON parse errors at L18809; corrupted saves vanish without trace |
+| 2 | `startCombat` unknown key silently reloads — no toast | DONE — already in code at ledger-of-ash.html:4613-4620 (addNarration on unknown key before reload). Discovered stale during 2026-06-22 re-audit. |
+| 3 | Save migration error silently swallowed | DONE 2026-06-23 (Stream A) — loadGame legacy catch + bare-return paths now call showToast at L18810/L18814. Regression test at tests/logic/loadgame-legacy-toast.test.js. |
 | 4 | Daily supply drain on advanceTime | supplyTier system + tiers exist but no per-day consumption tick; gold/supply economy collapses to gold-only |
-| 5 | `.title-error` uses display font (Cinzel) — legibility under stress | One-line CSS fix; affects error visibility on title screen failures (load failures, invalid codes) |
+| 5 | `.title-error` uses display font (Cinzel) — legibility under stress | DONE — already in code at ledger-of-ash.html:313. Discovered stale during 2026-06-22 re-audit. |
 
 ---
 
