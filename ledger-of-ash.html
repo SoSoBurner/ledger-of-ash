@@ -18806,8 +18806,12 @@ function loadGame(slotArg, legacyCode) {
         if (typeof showToast === 'function') showToast('Legacy save migrated to Slot 1. Case: ' + G.caseCode);
         if (typeof updateHUD === 'function') updateHUD();
         return true;
-      } catch(e) { return false; }
+      } catch(e) {
+        if (typeof showToast === 'function') showToast('Legacy save found but could not be read. The file may be corrupted.');
+        return false;
+      }
     }
+    if (typeof showToast === 'function') showToast('Legacy save not found. Check the name and code.');
     return false;
   }
   var slotKey = null;
