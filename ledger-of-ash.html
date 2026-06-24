@@ -10356,6 +10356,15 @@ function advanceTime(ticks) {
   const prevIndex = G.timeIndex;
   G.timeIndex = (G.timeIndex + ticks) % 4;
   if (G.timeIndex === 0) { G.dayCount = (G.dayCount || 0) + 1; G.restCount = 0; }
+  // Supply tier decay: every 3 in-game days the tier slides one step toward 'starving'.
+  // Travel destinations resupply (G.supplyTier = 'light' on arrival, see _travelCoreTravelTo).
+  if (G.timeIndex === 0 && (G.dayCount || 0) > 0 && (G.dayCount % 3 === 0)) {
+    if (typeof degradeSupplyTier === 'function') degradeSupplyTier();
+  }
+  // Starving penalty: +1 fatigue per day-tick when supplyTier is 'starving' (additive to other fatigue sources).
+  if (G.timeIndex === 0 && G.supplyTier === 'starving' && typeof addFatigue === 'function') {
+    addFatigue(1);
+  }
   // Watchfulness decays 1 point every 3 in-game days (passive pressure relief)
   if (G.worldClocks && typeof G.worldClocks.watchfulness === 'number' && G.worldClocks.watchfulness > 0) {
     var _wday = G.dayCount || 0;
@@ -10536,7 +10545,7 @@ function getDefaultG() {
     worldNotices:[],
     materials:{},
     supply:10, travelMode:'foot', travelPace:'normal',
-    journeyPack:[], supplyTier:'standard', journeyFatigue:0,
+    journeyPack:[], supplyTier:'light', journeyFatigue:0,
     recentOutcomeType:null, recentChoiceIds:[], shopSeen:{}, tavernRumorsSeen:{},
     narrationUpdateCounter:0, _narrationFading:false, district:null,
     consecutiveSleepless:0, watchPosted:false, _heatDCMod:0,
@@ -13898,6 +13907,24 @@ function modHP(n) {
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
 
+// ── SUPPLY TIER DECAY ────────────────────────────────────
+// Tier order low → high. Index 0 is the floor (starving); index 4 is the ceiling (plentiful).
+// Decay walks the index downward; resupply (travel destination, journey purchase) jumps it back up.
+var SUPPLY_TIER_ORDER = ['starving', 'scarce', 'light', 'medium', 'plentiful'];
+
+function degradeSupplyTier() {
+  if (!G) return;
+  var idx = SUPPLY_TIER_ORDER.indexOf(G.supplyTier);
+  if (idx === -1) { G.supplyTier = 'light'; return; }
+  if (idx > 0) {
+    G.supplyTier = SUPPLY_TIER_ORDER[idx - 1];
+    if (typeof addJournal === 'function') {
+      addJournal('Supplies decay: now ' + G.supplyTier + '.', 'field_note', 'supply_decay_' + (G.dayCount || 0));
+    }
+  }
+  // Floor at 'starving' (idx 0) — no change.
+}
+
 var MASTERY_UPGRADES = [
   { id:'m_hp', name:'Hardened', desc:'+8 max HP.', cost:80, effect:{type:'stat', stat:'maxHp', n:8} },
   { id:'m_roll', name:'Practiced Hand', desc:'+1 to all skill checks for the remainder of this stage.', cost:100 },
@@ -15354,14 +15381,21 @@ function campAction(type) {
     let healed = Math.floor(G.maxHp * 0.45);
     // Plentiful supplies: +10% max HP restored
     if (G.supplyTier === 'plentiful') healed += Math.floor(G.maxHp * 0.10);
+    // Starving: rest restores no HP. The body has nothing to rebuild with.
+    if (G.supplyTier === 'starving') healed = 0;
+    // Scarce: no bonus and no penalty (just loses the medium/plentiful bonus, which it never had).
     G.hp = Math.min(G.maxHp, G.hp + healed);
     tickAxis(1); advanceTime(2);
     if (G.traits) { G.traits.forEach(function(t) { if (t && t.passive !== true) t.used = false; }); }
     updateRecoveryState();
     G.restCount = (G.restCount || 0) + 1;
-    addJournal('Rested at camp. Recovered HP. Trait refreshed.', 'discovery');
+    var _campRestType = (healed > 0) ? 'success' : 'failure';
+    var _campRestMsg = (healed > 0)
+      ? ('You rest. +' + healed + ' HP. Trait refreshed.')
+      : 'You lie down hungry. The body has nothing to rebuild with. Trait refreshed, but no HP recovered.';
+    addJournal((healed > 0) ? 'Rested at camp. Recovered HP. Trait refreshed.' : 'Rested at camp. Starving — no HP recovered. Trait refreshed.', 'discovery');
     updateHUD(); saveGame();
-    showCampResultModal('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success', function() {
+    showCampResultModal('Camp', _campRestMsg, _campRestType, function() {
       renderChoices([
         { text:'The city still has threads worth pulling.', skill:'lore', tag:'risky', align:'neutral', cid:'market_intel' },
         { text:'The eastern route is where this leads.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road' }
@@ -18543,6 +18577,35 @@ function showCamp() {
   // Supply display
   var _supplyEl = document.getElementById('camp-supply-display');
   if (_supplyEl) _supplyEl.textContent = 'Supply: ' + (G.supply !== undefined ? G.supply : 10) + ' / 10';
+  // Supply tier banner — camp-screen only (NOT in HUD). Surfaces current decay state to the player.
+  var _tierBanner = document.getElementById('camp-supply-banner');
+  var _campBody = _supplyEl && _supplyEl.parentNode;
+  if (!_tierBanner && _campBody) {
+    _tierBanner = document.createElement('div');
+    _tierBanner.id = 'camp-supply-banner';
+    _tierBanner.className = 'camp-supply-banner';
+    _tierBanner.style.cssText = 'font-size:12px;color:var(--ink-dim);margin-bottom:8px;text-align:center;padding:4px 6px;border-radius:3px';
+    _campBody.insertBefore(_tierBanner, _supplyEl.nextSibling);
+  }
+  if (_tierBanner) {
+    var _tierMsgs = {
+      plentiful: 'Supplies plentiful — eat well.',
+      medium: 'Supplies steady.',
+      light: 'Supplies light — last leg.',
+      scarce: 'Supplies scarce — no rest bonuses.',
+      starving: 'Starving — no rest, find food.'
+    };
+    var _tierKey = G.supplyTier || 'light';
+    _tierBanner.textContent = _tierMsgs[_tierKey] || _tierMsgs.light;
+    // Subtle visual escalation at the bottom two tiers.
+    if (_tierKey === 'starving') {
+      _tierBanner.style.color = 'var(--ink-danger, #c63b3b)';
+    } else if (_tierKey === 'scarce') {
+      _tierBanner.style.color = 'var(--ink-warn, #b8862c)';
+    } else {
+      _tierBanner.style.color = 'var(--ink-dim)';
+    }
+  }
   // Post Watches: only show when companion_gate_open AND companions present
   const _marenGate = !!(G.flags && G.flags.companion_gate_open);
   const pw = document.getElementById('btn-post-watches');
