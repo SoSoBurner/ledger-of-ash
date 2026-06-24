@@ -4833,6 +4833,7 @@ function renderCombatRound() {
   }
 
   // Attempt to flee
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_combat_retreat');
   html += '<button class="choice-btn combat-btn" data-action="flee">' +
     '<span class="choice-text">Flee — break from combat</span>' +
     '<span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag risky">risky</span></span>' +
@@ -13914,6 +13915,7 @@ var SUPPLY_TIER_ORDER = ['starving', 'scarce', 'light', 'medium', 'plentiful'];
 
 function degradeSupplyTier() {
   if (!G) return;
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_supply_tier');
   var idx = SUPPLY_TIER_ORDER.indexOf(G.supplyTier);
   if (idx === -1) { G.supplyTier = 'light'; return; }
   if (idx > 0) {
@@ -15367,6 +15369,9 @@ function showCampResultModal(heading, body, type, callback) {
 function campAction(type) {
   closeOverlay('overlay-camp');
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_camp');
+  if (typeof maybeShowTutorial === 'function' && ['post_watches','lay_low','campout','sleep'].includes(type)) {
+    maybeShowTutorial('first_camp_detail');
+  }
   if (type === 'rest') {
     if ((G.restCount || 0) >= 2) {
       G.lastResult = 'Your body resists sleep — you have already rested twice today. The night passes without benefit.';
@@ -15930,6 +15935,7 @@ function doJourneyStart(destId) {
       }
     });
   }
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_travel_mode');
   addNarration('Depart', 'How will you travel from ' + (G.location || 'here') + '?', 'neutral');
   setTimeout(function() { renderChoices(modeChoices); }, 300);
 }
@@ -17011,6 +17017,7 @@ function buildTraitsSectionHTML() {
 }
 
 function activateAbilityFromSheet(abilityId) {
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_ability_activate');
   if (!G.spentAbilities) G.spentAbilities = {};
   if (G.spentAbilities[abilityId]) return;
   G.spentAbilities[abilityId] = true;
@@ -18090,6 +18097,12 @@ const TUTORIAL_FLAGS = {
   first_map: false,
   first_watchfulness: false,
   first_pressure: false,
+  first_supply_tier: false,
+  first_save_load: false,
+  first_travel_mode: false,
+  first_combat_retreat: false,
+  first_ability_activate: false,
+  first_camp_detail: false,
 };
 
 function showTutorial(flag, message) {
@@ -18125,6 +18138,12 @@ function maybeShowTutorial(event) {
     first_pressure: '<strong>Watchfulness is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
     first_reverence: 'A thread of fate winds tighter. Reverence rises with significant acts — at its peak, the world takes notice of your legend.',
     first_rival: '<strong>A rival has gained ground.</strong> Rivals advance independently and impose DC penalties when their renown is high. Keep moving.',
+    first_supply_tier: '<strong>Supplies have thinned.</strong> Every three days they slip a tier. At <em>scarce</em>, rest no longer mends you fully. At <em>starving</em>, the body has nothing to rebuild with.',
+    first_save_load: '<strong>Three save slots.</strong> You can switch between runs &mdash; each slot keeps its own case code and progress. Use Export to keep a copy outside the browser.',
+    first_travel_mode: '<strong>Travel modes.</strong> On foot is free but slow and tiring. Horse, cart, and boat cost gold and supplies &mdash; and not every route allows every mode.',
+    first_combat_retreat: '<strong>Retreat is rarely free.</strong> Most enemies get a parting blow. Talk first if you can; back away only when staying would be worse.',
+    first_ability_activate: '<strong>Active abilities.</strong> They cost one use per scene and reset when you rest. Spend them where the roll really matters.',
+    first_camp_detail: '<strong>Camp choices ask different things of the night.</strong> Post watches if you fear visitors. Lay low to thin pursuit. Campout when the road is your only roof.',
   };
   if (msgs[event] && !G.tutorialFlags[event]) {
     showTutorial(event, msgs[event]);
@@ -18921,6 +18940,7 @@ function _htmlEsc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'
 function showSaveModal(mode) {
   // mode: 'save' (default) or 'load'
   mode = mode || 'save';
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_save_load');
   var overlay = document.getElementById('overlay-save');
   if (!overlay) return;
   var body = overlay.querySelector('.overlay-body');
